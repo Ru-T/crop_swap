@@ -4,7 +4,12 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
 
   private def logged_in
-    redirect_to session_new_path unless session[:user_id]
+    @current_user = User.find_by_id(session[:user_id])
+    redirect_to session_new_path unless @current_user
+  end
+
+  private def no_access
+    redirect_to crops_path, notice: "You do not have access to this information." unless @current_user == @user
   end
 
 end

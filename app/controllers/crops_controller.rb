@@ -1,6 +1,7 @@
 class CropsController < ApplicationController
   before_action :set_crop, only: [:show, :edit, :update, :destroy]
   before_action :logged_in
+  before_action :no_access, only: [:edit]
 
   # GET /crops
   def index
@@ -13,7 +14,7 @@ class CropsController < ApplicationController
 
   # GET /crops/new
   def new
-    @crop = Crop.new
+    @crop = Crop.new(user: @current_user)
   end
 
   # GET /crops/1/edit
@@ -25,7 +26,7 @@ class CropsController < ApplicationController
     @crop = Crop.new(crop_params)
 
     if @crop.save
-      redirect_to @crop, notice: 'Crop was successfully created.'
+      redirect_to @current_user, notice: 'Crop was successfully created.'
     else
       render :new
     end
@@ -54,6 +55,6 @@ class CropsController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def crop_params
-      params.require(:crop).permit(:user_id, :description, :weight, :crop_pic)
+      params.require(:crop).permit(:user_id, :description, :weight, :crop_pic, :crop_type_id)
     end
 end

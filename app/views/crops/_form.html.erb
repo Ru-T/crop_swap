@@ -32,9 +32,15 @@
     <%= f.label :crop_pic, "Crop Pic:", class: "col-md-4 control-label"%> <br>
     <%= f.file_field :crop_pic %>
   </div>
+  <div class="form-group">
+    <%= f.label :crop_type_id, "Crop Type Id:", class: "col-md-4 control-label" %>
+    <div class="col-md-8">
+      <%= f.number_field :crop_type_id, class: "form-control" %>
+    </div>
+  </div>
+  <%= f.hidden_field :user_id %>
 
   <span class="pull-right"><%= f.submit "Submit", class: "btn-default btn-primary" %></span>
 
 
   <% end %>
-</main> <!-- end of main.container -->

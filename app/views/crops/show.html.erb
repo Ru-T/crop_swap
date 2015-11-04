@@ -15,6 +15,11 @@
   <%= @crop.weight %>
 </p>
 
+<p>
+  <strong>Crop Pic:</strong>
+  <%= image_tag @crop.crop_pic %>
+</p>
+
 
 <%= link_to 'Edit', edit_crop_path(@crop) %> |
 <%= link_to 'Back', crops_path %>
