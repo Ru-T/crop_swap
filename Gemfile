@@ -31,6 +31,8 @@ gem 'httparty'
 gem 'paperclip', '~> 4.2'
 gem 'aws-sdk', '~> 2'
 
+gem 'bootstrap-sass', '~> 3.3.5'
+
 group :production do
 
   gem 'pg'
