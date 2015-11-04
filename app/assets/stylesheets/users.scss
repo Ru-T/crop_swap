@@ -8,8 +8,13 @@ $default-focus: #ffef99;
   background-color: #D9CAA5;
   opacity: .8;
   border-radius: .3em;
-  padding-top: 20px;
   padding-bottom: 20px;
+
+}
+
+h1 {
+  text-align: center;
+  margin-bottom: 10px;
 }
 
 .new-email:focus {
