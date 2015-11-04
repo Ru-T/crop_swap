@@ -4,7 +4,7 @@ class User < ActiveRecord::Base
 
   has_many :crops
 
-  has_attached_file :profile_pic, :default_url => ":style/default-image.png"
+  has_attached_file :profile_pic
   # , styles: {
   #   thumb: '100x100>',
   #   square: '200x200#',

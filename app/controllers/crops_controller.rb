@@ -14,7 +14,7 @@ class CropsController < ApplicationController
 
   # GET /crops/new
   def new
-    @crop = Crop.new
+    @crop = Crop.new(user: @current_user)
   end
 
   # GET /crops/1/edit
@@ -26,7 +26,7 @@ class CropsController < ApplicationController
     @crop = Crop.new(crop_params)
 
     if @crop.save
-      redirect_to @crop, notice: 'Crop was successfully created.'
+      redirect_to @current_user, notice: 'Crop was successfully created.'
     else
       render :new
     end

@@ -1,51 +1,41 @@
 <%= form_for @crop, :html => {:class => "form-horizontal center"} do |f| %>
-<% if @crop.errors.any? %>
-  <div id="error_explanation">
-    <h2><%= pluralize(@crop.errors.count, "error") %> prohibited this crop from being saved:</h2>
+  <% if @crop.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@crop.errors.count, "error") %> prohibited this crop from being saved:</h2>
 
-    <ul>
-    <% @crop.errors.full_messages.each do |message| %>
-      <li><%= message %></li>
-    <% end %>
-    </ul>
-  </div>
-<% end %>
-
-     <div class="form-group">
-       <%= f.label :description, "Description:", class: "col-md-4 control-label" %>
-       <div class="col-md-8">
-         <%= f.text_area :description, class: "form-control" %>
-       </div>
-     </div>
-     <div class="form-group">
-       <%= f.label :crop_pic, "Crop Pic:", class: "col-md-4 control-label" %>
-       <div class="col-md-8">
-         <%= f.file_field :crop_pic, class: "form-control" %>
-       </div>
-     </div>
-     <div class="form-group">
-       <%= f.label :weight, "Weight:", class: "col-md-4 control-label" %>
-       <div class="col-md-8">
-         <%= f.number_field :weight, class: "form-control" %>
-       </div>
-     </div>
-     <div class="form-group">
-       <%= f.label :crop_type_id, "Crop Type Id:", class: "col-md-4 control-label" %>
-       <div class="col-md-8">
-         <%= f.number_field :crop_type_id, class: "form-control" %>
-      </div>
-    </div>  
-     <% if params[:user_id] %>
-      <%= f.hidden_field :user_id %>
-      <% else %>
-      <div class="form-group">
-        <%= f.label :user_id, "User Id", class: "col-md-4 control-label" %>
-        <div class="col-md-8">
-          <%= f.number_field :user_id, class: "form-control" %>
-        </div>
-      </div>
+      <ul>
+      <% @crop.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
       <% end %>
+      </ul>
     </div>
+  <% end %>
 
-     <%= f.submit "Submit", class: "btn btn-default btn-primary" %>
+  <div class="form-group">
+    <%= f.label :description, "Description:", class: "col-md-4 control-label" %>
+    <div class="col-md-8">
+      <%= f.text_area :description, class: "form-control" %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :crop_pic, "Crop Pic:", class: "col-md-4 control-label" %>
+    <div class="col-md-8">
+      <%= f.file_field :crop_pic, class: "form-control" %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :weight, "Weight:", class: "col-md-4 control-label" %>
+    <div class="col-md-8">
+      <%= f.number_field :weight, class: "form-control" %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :crop_type_id, "Crop Type Id:", class: "col-md-4 control-label" %>
+    <div class="col-md-8">
+      <%= f.number_field :crop_type_id, class: "form-control" %>
+    </div>
+  </div>
+  <%= f.hidden_field :user_id %>
+
+  <%= f.submit "Submit", class: "btn btn-default btn-primary" %>
 <% end %>
