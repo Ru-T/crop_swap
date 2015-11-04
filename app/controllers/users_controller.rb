@@ -48,6 +48,9 @@ class UsersController < ApplicationController
   end
 
   private
+    def no_access
+      redirect_to crops_path, notice: "You do not have access to this information." unless @current_user == @user
+    end
     # Use callbacks to share common setup or constraints between actions.
     def set_user
       @user = User.find(params[:id])
