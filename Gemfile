@@ -33,6 +33,8 @@ gem 'aws-sdk', '~> 1.6'
 
 gem 'bootstrap-sass', '~> 3.3.5'
 
+gem 'puma'
+
 group :production do
 
   gem 'pg'
