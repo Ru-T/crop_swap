@@ -4,7 +4,7 @@
 
   <div class="row">
     <div class="col-md-3">
-      <% if @user.profile_pic.url.blank? %>
+      <% if @user.profile_pic.blank? %>
         <%= image_tag asset_url ("default-image.png") %>
       <% else%>
         <%= image_tag @user.profile_pic.url %>
@@ -44,7 +44,7 @@
     </div>
     <div class="col-md-4">
       <dl>
-        <% if crop.crop_pic.url.blank? %>
+        <% if crop.crop_pic.blank? %>
           <dt class="crop_name panel-body"><%= image_tag asset_url("crop-default-image.png") %></dt>
         <% else %>
           <dt class="crop_name panel-body"><%= image_tag crop.crop_pic.url %></dt>
