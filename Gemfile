@@ -29,7 +29,7 @@ gem 'faker'
 gem 'httparty'
 
 gem 'paperclip', '~> 4.2'
-gem 'aws-sdk', '~> 2'
+gem 'aws-sdk', '~> 1.6'
 
 gem 'bootstrap-sass', '~> 3.3.5'
 

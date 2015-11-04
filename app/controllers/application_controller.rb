@@ -8,7 +8,7 @@ class ApplicationController < ActionController::Base
   end
 
   def no_access
-    redirect_to crops_path, notice: "You do not have access to this information." unless session[:user_id]
+    redirect_to crops_path, notice: "You do not have access to this information." unless user_id[:user_id]
   end
 
 end
