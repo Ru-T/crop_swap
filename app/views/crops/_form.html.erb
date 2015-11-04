@@ -37,6 +37,16 @@
     </div>
     <%= f.hidden_field :user_id %>
 
+    <!-- <%#= f.fields_for :crops_trade_types do |ff| %>
+      <div class="form-group">
+        <%#= ff.label :crop_type_id, "Crop Type:", class: "col-md-4 control-label" %>
+        <div class="col-md-8">
+          <%#= ff.collection_select :crop_type_id, CropTradesType.all, :id, :crop_type, class: "form-control" %>
+        </div>
+      </div> -->
+      <%#= f.hidden_field :crop_id %>
+    <%# end %>
+
     <span class="pull-right"><%= f.submit "Submit", class: "crop-button btn-primary" %></span>
 
   <% end %>
