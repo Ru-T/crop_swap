@@ -1,40 +1,40 @@
-<%= form_for @crop, :html => {:class => "form-horizontal center"} do |f| %>
-<% if @crop.errors.any? %>
+<main class="container crop-form">
+
+
+  <%= form_for @crop, :html => {:class => "form-horizontal center"} do |f| %>
+  <% if @crop.errors.any? %>
   <div id="error_explanation">
     <h2><%= pluralize(@crop.errors.count, "error") %> prohibited this crop from being saved:</h2>
 
     <ul>
-    <% @crop.errors.full_messages.each do |message| %>
+      <% @crop.errors.full_messages.each do |message| %>
       <li><%= message %></li>
-    <% end %>
+      <% end %>
     </ul>
   </div>
-<% end %>
+  <% end %>
 
-     <div class="form-group">
-       <%= f.label :user_id, "User Id", class: "col-md-4 control-label" %>
-       <div class="col-md-8">
-         <%= f.number_field :user_id, class: "form-control" %>
-       </div>
-     </div>
-     <div class="form-group">
-       <%= f.label :description, "Description:", class: "col-md-4 control-label" %>
-       <div class="col-md-8">
-         <%= f.text_area :description, class: "form-control" %>
-       </div>
-     </div>
-     <div class="form-group">
-       <%= f.label :crop_pic, "Crop Pic:", class: "col-md-4 control-label" %>
-       <div class="col-md-8">
-         <%= f.file_field :crop_pic, class: "form-control" %>
-       </div>
-     </div>
-     <div class="form-group">
-       <%= f.label :weight, "Weight:", class: "col-md-4 control-label" %>
-       <div class="col-md-8">
-         <%= f.number_field :weight, class: "form-control" %>
-       </div>
-     </div>
 
-     <%= f.submit "Submit", class: "btn btn-default btn-primary" %>
-<% end %>
+  <div class="form-group">
+    <%= f.label :weight, "Weight:", class: "col-md-4 control-label" %>
+    <div class="col-md-8">
+      <%= f.number_field :weight, class: "crop-weight form-control" %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :description, "Description:", class: "col-md-4 control-label" %>
+    <div class="col-md-8">
+      <%= f.text_area :description, class: "crop-description form-control" %>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :crop_pic, "Crop Pic:", class: "col-md-4 control-label"%> <br>
+    <%= f.file_field :crop_pic %>
+  </div>
+
+  <span class="pull-right"><%= f.submit "Submit", class: "btn-default btn-primary" %></span>
+
+
+  <% end %>
+</main> <!-- end of main.container -->

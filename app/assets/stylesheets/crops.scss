@@ -1,3 +1,33 @@
 // Place all the styles related to the Crops controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+//
+//
+
+$default-focus: #ffef99;
+
+
+main.container {
+    width: 35%;
+    max-width: 720px;
+    padding-top: 55px;
+  }
+
+
+.crop-form {
+  background-color: #D9CAA5;
+  opacity: .8;
+  border-radius: .3em;
+}
+
+.user-id:focus {
+  background-color:  $default-focus;
+}
+
+.crop-description:focus {
+    background-color:  $default-focus;
+}
+
+.crop-weight:focus {
+  background-color:  $default-focus;
+}

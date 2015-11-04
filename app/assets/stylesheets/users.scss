@@ -1,3 +1,37 @@
 // Place all the styles related to the Users controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+$default-focus: #ffef99;
+
+.new-user-form{
+  background-color: #D9CAA5;
+  opacity: .8;
+  border-radius: .3em;
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+.new-email:focus {
+  background-color: $default-focus;
+}
+
+.new-password:focus {
+  background-color: $default-focus;
+}
+
+.new-name:focus {
+  background-color: $default-focus;
+}
+
+.new-phone-number:focus {
+  background-color: $default-focus;
+}
+
+.new-zip-code:focus {
+  background-color: $default-focus;
+}
+
+.new-description:focus {
+  background-color: $default-focus;
+}

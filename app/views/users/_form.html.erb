@@ -1,3 +1,6 @@
+<main class="container new-user-form">
+
+
 <%= form_for(@user) do |f| %>
   <% if @user.errors.any? %>
     <div id="error_explanation">
@@ -11,35 +14,37 @@
     </div>
   <% end %>
 
-  <div class="field">
+  <div class="form-group">
     <%= f.label :email %><br>
-    <%= f.text_field :email %>
+    <%= f.text_field :email, class: "new-email form-control", :placeholder => "user@mail.com" %>
   </div>
-  <div class="field">
+  <div class="form-group">
     <%= f.label :password %><br>
-    <%= f.text_field :password %>
+    <%= f.text_field :password, class: "new-password form-control" %>
   </div>
-  <div class="field">
+  <div class="form-group">
     <%= f.label :name %><br>
-    <%= f.text_field :name %>
+    <%= f.text_field :name, class: "new-name form-control" %>
   </div>
-  <div class="field">
+  <div class="form-group">
     <%= f.label :profile_pic %><br>
     <%= f.file_field :profile_pic %>
   </div>
-  <div class="field">
+  <div class="form-group">
     <%= f.label :phone_number %><br>
-    <%= f.text_field :phone_number %>
+    <%= f.text_field :phone_number, class: "new-phone-number form control", :placeholder => "999-999-9999" %>
   </div>
-  <div class="field">
+  <div class="form-group">
     <%= f.label :description %><br>
-    <%= f.text_area :description %>
+    <%= f.text_area :description, class: "new-description form-control" %>
   </div>
-  <div class="field">
+  <div class="form-group">
     <%= f.label :zip_code %><br>
-    <%= f.number_field :zip_code %>
+    <%= f.number_field :zip_code, class: "new-zip-code form-control" %>
   </div>
   <div class="actions">
     <%= f.submit %>
   </div>
 <% end %>
+
+</main> <!-- end of main.container -->
