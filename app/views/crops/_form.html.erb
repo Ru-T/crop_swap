@@ -35,6 +35,12 @@
          <%= f.number_field :weight, class: "form-control" %>
        </div>
      </div>
+     <div class="form-group">
+       <%= f.label :crop_type_id, "Crop Type Id:", class: "col-md-4 control-label" %>
+       <div class="col-md-8">
+         <%= f.number_field :crop_type_id, class: "form-control" %>
+       </div>
+     </div>
 
      <%= f.submit "Submit", class: "btn btn-default btn-primary" %>
 <% end %>

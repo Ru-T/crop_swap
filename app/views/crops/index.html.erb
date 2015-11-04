@@ -8,6 +8,7 @@
       <th>User</th>
       <th>Description</th>
       <th>Weight</th>
+      <th>Crop Type Id</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -18,6 +19,7 @@
         <td><%= crop.user_id %></td>
         <td><%= crop.description %></td>
         <td><%= crop.weight %></td>
+        <td><%= crop.crop_type_id %></td>
         <td><%= link_to 'Show', crop %></td>
         <td><%= link_to 'Edit', edit_crop_path(crop) %></td>
         <td><%= link_to 'Destroy', crop, method: :delete, data: { confirm: 'Are you sure?' } %></td>

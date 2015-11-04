@@ -23,7 +23,7 @@
     <div class="col-md-5 panel panel-default">
       <% @user.crops.each do |crop| %>
       <dl>
-        <dt class="crop_name panel-heading">Tomato</dt>
+        <dt class="crop_name panel-heading"><%=crop.crop_type_ide%></dt>
         <em>Posted two days ago</em>
         <dd class="details panel-body"> <%= crop.description %></dd>
         <dd class="details panel-body">Amount: <%= crop.weight %></dd>
@@ -45,7 +45,7 @@
     <div class="col-md-4">
       <% @user.crops.each do |crop| %>
       <dl>
-        <dt class="crop_name panel-body"><%= crop.crop_pic %></dt>
+        <dt class="crop_name panel-body"><%= image_tag crop.crop_pic %></dt>
       </dl>
       <% end %>
     </div>

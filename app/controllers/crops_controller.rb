@@ -54,6 +54,6 @@ class CropsController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def crop_params
-      params.require(:crop).permit(:user_id, :description, :weight, :crop_pic)
+      params.require(:crop).permit(:user_id, :description, :weight, :crop_pic, :crop_type_id)
     end
 end
