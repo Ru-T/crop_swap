@@ -34,3 +34,12 @@ main.container {
 .crop-weight:focus {
   background-color:  $default-focus;
 }
+
+.crop-button {
+  background-color: #d37538;
+  width: 100%;
+}
+
+.crop-button:hover {
+  background-color: #CF6622;
+}

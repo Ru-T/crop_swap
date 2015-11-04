@@ -13,7 +13,7 @@
   </div>
   <% end %>
 
-
+    <h1>New Crop</h1>
   <div class="form-group">
     <%= f.label :weight, "Weight:", class: "col-md-4 control-label" %>
     <div class="col-md-8">
@@ -39,9 +39,8 @@
   </div>
   <%= f.hidden_field :user_id %>
 
-  <span class="pull-right"><%= f.submit "Submit", class: "btn-default btn-primary" %></span>
+  <span class="pull-left"><%= f.submit "Submit", class: "crop-button btn-default btn-primary" %></span>
 
   <% end %>
 
 </main> <!-- end of main.container -->
-  
