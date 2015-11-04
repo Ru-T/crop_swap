@@ -4,11 +4,15 @@
 
   <div class="row">
     <div class="col-md-3">
-      <%= @user.profile_pic %>
+      <%# if @user.profile_pic %>
+        <%#= @user.profile_pic %>
+      <%# else %>
+        <%= image_tag asset_url("default-image.png") %>
+      <%# end %>
     </div>
     <div class="col-md-9">
       <h3><%= @user.name %></h3>
-      <p><%= @user.zip_code %>Durham, NC<br>
+      <p><%= @user.zip_code %><br>
       <em><%=@user.created_at%></em></p>
       <p><%= @user.description %></p>
     </div>
@@ -40,7 +44,11 @@
     </div>
     <div class="col-md-4">
       <dl>
-        <dt class="crop_name panel-body"><%= image_tag crop.crop_pic %></dt>
+        <%# if @user.profile_pic %>
+          <!-- <dt class="crop_name panel-body"><%= image_tag crop.crop_pic %>%></dt> -->
+        <%# else %>
+        <dt class="crop_name panel-body"><%= image_tag asset_url("crop-default-image.png") %></dt>
+        <%# end %>
       </dl>
     </div>
   </div>
