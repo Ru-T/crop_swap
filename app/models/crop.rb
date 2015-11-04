@@ -1,5 +1,6 @@
 class Crop < ActiveRecord::Base
   belongs_to :user
+  has_one :crop_type
 
   has_attached_file :crop_pic, styles: {
     thumb: '100x100>',
