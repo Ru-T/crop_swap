@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151104155750) do
+ActiveRecord::Schema.define(version: 20151104193950) do
 
   create_table "crop_types", force: :cascade do |t|
     t.string   "crop_type"
@@ -34,6 +34,11 @@ ActiveRecord::Schema.define(version: 20151104155750) do
 
   add_index "crops", ["crop_type_id"], name: "index_crops_on_crop_type_id"
   add_index "crops", ["user_id"], name: "index_crops_on_user_id"
+
+  create_table "crops_trade_types", id: false, force: :cascade do |t|
+    t.integer "crop_id",       null: false
+    t.integer "trade_type_id", null: false
+  end
 
   create_table "sessions", force: :cascade do |t|
     t.string   "new"

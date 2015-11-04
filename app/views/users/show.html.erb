@@ -27,7 +27,7 @@
         <dt class="crop_name panel-heading"><%=crop.crop_type.crop_type%></dt>
         <em>Posted on <%=crop.created_at.strftime("%b %d %Y")%></em>
         <dd class="details panel-body"> <%= crop.description %></dd>
-        <dd class="details panel-body">Amount: <%= crop.weight %></dd>
+        <dd class="details panel-body">Amount: <%= crop.weight %> lbs</dd>
         <div class="trade_types panel-body">
           <label class="radio-inline">
             <input type="radio" name="trade_type1" id="inlineRadio1" value="option1"> <span class="glyphicon glyphicon-time" aria-hidden="true"></span>Time
