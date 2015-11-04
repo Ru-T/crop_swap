@@ -7,4 +7,8 @@ class ApplicationController < ActionController::Base
     redirect_to session_new_path unless session[:user_id]
   end
 
+  def no_access
+    redirect_to crops_path, notice: "You do not have access to this information." unless session[:user_id]
+  end
+
 end

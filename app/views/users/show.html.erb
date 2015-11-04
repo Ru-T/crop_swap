@@ -14,9 +14,6 @@
     </div>
   </div>
 
-  <%= link_to 'Edit', edit_user_path(@user) %> |
-  <%= link_to 'Back', users_path %>
-
 <% @user.crops.each do |crop| %>
   <div class="row">
     <div class="col-md-3">
@@ -47,6 +44,6 @@
       </dl>
     </div>
   </div>
-<% end %>  
+<% end %>
 
 </div>
