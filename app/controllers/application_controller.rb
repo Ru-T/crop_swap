@@ -8,8 +8,4 @@ class ApplicationController < ActionController::Base
     redirect_to session_new_path unless @current_user
   end
 
-  private def no_access
-    redirect_to crops_path, notice: "You do not have access to this information." unless @current_user == @user
-  end
-
 end

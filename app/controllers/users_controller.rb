@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :destroy]
   before_action :logged_in, except: [:new, :edit, :create]
-  before_action :no_access, only: [:edit]
+  # before_action :no_access, only: [:edit]
 
   # GET /users
   def index
