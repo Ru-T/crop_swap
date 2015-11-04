@@ -15,6 +15,12 @@
 
 
   <div class="form-group">
+    <%= f.label :crop_type_id, "Crop Type Id:", class: "col-md-4 control-label" %>
+    <div class="col-md-8">
+      <%= f.number_field :crop_type_id, class: "form-control" %>
+    </div>
+  </div>
+  <div class="form-group">
     <%= f.label :weight, "Weight:", class: "col-md-4 control-label" %>
     <div class="col-md-8">
       <%= f.number_field :weight, class: "crop-weight form-control" %>
@@ -26,16 +32,9 @@
       <%= f.text_area :description, class: "crop-description form-control" %>
     </div>
   </div>
-
   <div class="form-group">
     <%= f.label :crop_pic, "Crop Pic:", class: "col-md-4 control-label"%> <br>
     <%= f.file_field :crop_pic %>
-  </div>
-  <div class="form-group">
-    <%= f.label :crop_type_id, "Crop Type Id:", class: "col-md-4 control-label" %>
-    <div class="col-md-8">
-      <%= f.number_field :crop_type_id, class: "form-control" %>
-    </div>
   </div>
   <%= f.hidden_field :user_id %>
 
@@ -44,4 +43,3 @@
   <% end %>
 
 </main> <!-- end of main.container -->
-  
