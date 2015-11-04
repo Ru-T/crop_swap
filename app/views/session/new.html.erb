@@ -1,8 +1,13 @@
 
+<div class="background_image">
+<main class="container login-form">
+
+  <h1>Sign In</h1>
 
 
-<h1>Login</h1>
+
   <main class="container login-form">
+
 
   <div class="form-group">
 
@@ -13,12 +18,23 @@
 
   <div class="form-group">
 
+
         <%=label_tag :password %>
         <%=password_field_tag :password %>
   </div>
         <%=submit_tag "Log In" %>
       <% end %>
 
+
+      <%=label_tag :password %>
+      <%=password_field_tag :password %>
+</div>
+      <%=submit_tag "Log In", class: "login-button" %>
+    <% end %>
+    <br>
+
   <%= link_to 'Sign Up', new_user_path %>
 
+
 </main>
+</div>

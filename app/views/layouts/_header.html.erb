@@ -1,6 +1,6 @@
-<header class="navbar-fixed-top navbar-inverse">
+<header class="navbar-fixed-top">
     <div class="container">
-        <%= link_to "CropSwap", root_path, id: "logo" %>
+        <%= image_tag asset_url ("default-image.png") %>
         <nav>
             <ul class="nav navbar-nav navbar-right">
                 <% if session[:user_id]%>
@@ -8,7 +8,6 @@
        <% else %>
          <li> <%= link_to "Log in", session_new_path %> </li>
        <% end %>
-    
 
 
 

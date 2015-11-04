@@ -40,3 +40,12 @@ h1 {
 .new-description:focus {
   background-color: $default-focus;
 }
+
+.new-button {
+  background-color: #d37538;
+  width: 50%;
+}
+
+.new-button:hover {
+  background-color: #CF6622;
+}
