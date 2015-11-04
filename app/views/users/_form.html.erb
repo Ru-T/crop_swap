@@ -1,3 +1,5 @@
+<div class="container">
+
 <%= form_for(@user) do |f| %>
   <% if @user.errors.any? %>
     <div id="error_explanation">
@@ -11,31 +13,31 @@
     </div>
   <% end %>
 
-  <div class="field">
+  <div class="field form-group">
     <%= f.label :email %><br>
     <%= f.text_field :email %>
   </div>
-  <div class="field">
+  <div class="field form-group">
     <%= f.label :password %><br>
     <%= f.text_field :password %>
   </div>
-  <div class="field">
+  <div class="field form-group">
     <%= f.label :name %><br>
     <%= f.text_field :name %>
   </div>
-  <div class="field">
+  <div class="field form-group">
     <%= f.label :profile_pic %><br>
     <%= f.file_field :profile_pic %>
   </div>
-  <div class="field">
+  <div class="field form-group">
     <%= f.label :phone_number %><br>
     <%= f.text_field :phone_number %>
   </div>
-  <div class="field">
+  <div class="field form-group">
     <%= f.label :description %><br>
     <%= f.text_area :description %>
   </div>
-  <div class="field">
+  <div class="field form-group">
     <%= f.label :zip_code %><br>
     <%= f.number_field :zip_code %>
   </div>
@@ -43,3 +45,4 @@
     <%= f.submit %>
   </div>
 <% end %>
+</div>
