@@ -1,3 +1,3 @@
 class CropType < ActiveRecord::Base
-  belongs_to :crop
+  has_many :crops
 end

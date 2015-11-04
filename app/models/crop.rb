@@ -1,6 +1,6 @@
 class Crop < ActiveRecord::Base
   belongs_to :user
-  has_one :crop_type
+  belongs_to :crop_type
 
   has_attached_file :crop_pic
   # , styles: {

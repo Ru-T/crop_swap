@@ -4,11 +4,11 @@
 
   <div class="row">
     <div class="col-md-3">
-      <%# if @user.profile_pic %>
-        <%#= @user.profile_pic %>
-      <%# else %>
-        <%= image_tag asset_url("default-image.png") %>
-      <%# end %>
+      <% if @user.profile_pic.url.blank? %>
+        <%= image_tag @user.profile_pic.url %>
+      <% else %>
+        <%= image_tag asset_url ("default-image.png") %>
+      <% end %>
     </div>
     <div class="col-md-9">
       <h3><%= @user.name %></h3>
@@ -44,11 +44,11 @@
     </div>
     <div class="col-md-4">
       <dl>
-        <%# if @user.profile_pic %>
-          <!-- <dt class="crop_name panel-body"><%= image_tag crop.crop_pic %>%></dt> -->
-        <%# else %>
-        <dt class="crop_name panel-body"><%= image_tag asset_url("crop-default-image.png") %></dt>
-        <%# end %>
+        <% if crop.crop_pic.url.blank? %>
+          <dt class="crop_name panel-body"><%= image_tag crop.crop_pic.url %></dt>
+        <% else %>
+          <dt class="crop_name panel-body"><%= image_tag asset_url("crop-default-image.png") %></dt>
+        <% end %>
       </dl>
     </div>
   </div>
