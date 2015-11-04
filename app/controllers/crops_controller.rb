@@ -1,5 +1,6 @@
 class CropsController < ApplicationController
   before_action :set_crop, only: [:show, :edit, :update, :destroy]
+  before_action :logged_in
 
   # GET /crops
   def index
