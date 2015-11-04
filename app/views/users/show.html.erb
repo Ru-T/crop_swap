@@ -17,13 +17,13 @@
   <%= link_to 'Edit', edit_user_path(@user) %> |
   <%= link_to 'Back', users_path %>
 
+<% @user.crops.each do |crop| %>
   <div class="row">
     <div class="col-md-3">
     </div>
     <div class="col-md-5 panel panel-default">
-      <% @user.crops.each do |crop| %>
       <dl>
-        <dt class="crop_name panel-heading"><%=crop.crop_type_ide%></dt>
+        <dt class="crop_name panel-heading"><%=crop.crop_type_id%></dt>
         <em>Posted two days ago</em>
         <dd class="details panel-body"> <%= crop.description %></dd>
         <dd class="details panel-body">Amount: <%= crop.weight %></dd>
@@ -40,15 +40,13 @@
         </div>
         <button type="button" class="btn btn-success">Propose Trade</button>
       </dl>
-      <% end %>
     </div>
     <div class="col-md-4">
-      <% @user.crops.each do |crop| %>
       <dl>
         <dt class="crop_name panel-body"><%= image_tag crop.crop_pic %></dt>
       </dl>
-      <% end %>
     </div>
   </div>
+<% end %>  
 
 </div>

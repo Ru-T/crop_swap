@@ -9,4 +9,6 @@ class Crop < ActiveRecord::Base
   #   medium: '300x300>'
   # }
   validates_attachment_content_type :crop_pic, content_type: /\Aimage\/.*\Z/
+
+
 end
