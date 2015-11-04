@@ -11,14 +11,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151104144041) do
+ActiveRecord::Schema.define(version: 20151104145304) do
 
   create_table "crops", force: :cascade do |t|
     t.integer  "user_id"
     t.text     "description"
     t.integer  "weight"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at",            null: false
+    t.datetime "updated_at",            null: false
+    t.string   "crop_pic_file_name"
+    t.string   "crop_pic_content_type"
+    t.integer  "crop_pic_file_size"
+    t.datetime "crop_pic_updated_at"
   end
 
   create_table "sessions", force: :cascade do |t|
@@ -36,8 +40,12 @@ ActiveRecord::Schema.define(version: 20151104144041) do
     t.string   "phone_number"
     t.text     "description"
     t.integer  "zip_code"
-    t.datetime "created_at",      null: false
-    t.datetime "updated_at",      null: false
+    t.datetime "created_at",               null: false
+    t.datetime "updated_at",               null: false
+    t.string   "profile_pic_file_name"
+    t.string   "profile_pic_content_type"
+    t.integer  "profile_pic_file_size"
+    t.datetime "profile_pic_updated_at"
   end
 
 end
