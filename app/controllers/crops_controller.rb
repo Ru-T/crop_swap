@@ -26,7 +26,7 @@ class CropsController < ApplicationController
     @crop = Crop.new(crop_params)
 
     if @crop.save
-      redirect_to @current_user, notice: 'Crop was successfully created.'
+      redirect_to @current_user
     else
       render :new
     end

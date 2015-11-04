@@ -27,7 +27,7 @@ class UsersController < ApplicationController
 
     if @user.save
       session[:user_id] = @user.id
-      redirect_to new_crop_path, notice: 'User was successfully created.'
+      redirect_to new_crop_path
     else
       render :new
     end
