@@ -1,0 +1,18 @@
+<header class="navbar-fixed-top navbar-inverse">
+    <div class="container">
+        <%= link_to "CropSwap", root_path, id: "logo" %>
+        <nav>
+            <ul class="nav navbar-nav navbar-right">
+                <% if session[:user_id]%>
+         <li><%= link_to 'Logout', session_destroy_path, method: :delete%></li>
+       <% else %>
+         <li> <%= link_to "Log in", session_new_path %> </li>
+       <% end %>
+    
+
+
+
+            </ul>
+        </nav>
+    </div>
+</header>
