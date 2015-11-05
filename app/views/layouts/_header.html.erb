@@ -1,8 +1,10 @@
+<div class="container">
 <header class="navbar-fixed-top">
-    <div class="container">
-        <a href="#"class="img"><%= image_tag asset_url ("cropswap-logo.png") %></a>
-        <nav>
-            <ul class="nav navbar-nav navbar-right">
+    
+        <a href="#"class="img navbar-brand"><%= image_tag asset_url ("cropswap-logo.png") %></a>
+        <nav class="navbar-default navbar-fixed-top">
+            <ul>
+              <button type="button" class="btn btn-default navbar-btn">About</button>
               <% if session[:user_id]%>
                 <li><%= link_to 'Logout', session_destroy_path, method: :delete%></li>
               <% else %>
@@ -10,5 +12,6 @@
               <% end %>
             </ul>
         </nav>
-    </div>
+
 </header>
+</div>

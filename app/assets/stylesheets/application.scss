@@ -28,7 +28,7 @@
 
 main.login-form {
   background-color: #D9CAA5;
-  margin-top: 20px;
+  margin-top: 50px;
   padding-top: 20px;
   border-radius: .3em;
   padding-bottom: 25px;
@@ -65,17 +65,20 @@ body {
      border-bottom: thin solid black;
    }
 
+
    .navbar-nav {
-     margin: -15px -30px;
-
-   }
-
+     margin: -30px -30px;
+}
+.navbar-default {
+    background-color: #F8F8F8;
+    border-color: #E7E7E7;
+}
    .crop_name {
      border-radius: 5px;
    }
 
   .background_image {
-    background: image-url('veggie1.jpg') no-repeat center center fixed;
+    background-image: image-url('veggie1.jpg') no-repeat center center fixed;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
@@ -90,7 +93,7 @@ body.backg {
 
   .login-button {
     background-color: #d37538;
-    width: 50%;
+    width: 75%;
   }
 
   .login-button:hover {
@@ -99,5 +102,5 @@ body.backg {
 
   .img {
     vertical-align: text-top;
-    
+
   }
