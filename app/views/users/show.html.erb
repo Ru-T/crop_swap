@@ -33,26 +33,34 @@
         <em>Posted on <%=crop.created_at.strftime("%b %d %Y")%></em>
         <dd class="details panel-body"> <%= crop.description %></dd>
         <dd class="details panel-body">Amount: <%= crop.weight %> lbs</dd>
-        <div class="trade_types panel-body">
-          <label class="radio-inline">
-            <input type="radio" name="trade_type1" id="inlineRadio1" value="option1">
-              <span class="glyphicon glyphicon-time" aria-hidden="true"></span>
-              Time
-          </label>
-          <label class="radio-inline">
-            <input type="radio" name="trade_type1" id="inlineRadio2" value="option2">
-              <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
-              Labor
-          </label>
-          <label class="radio-inline">
-            <input type="radio" name="trade_type1" id="inlineRadio3" value="option3">
-              <span class="glyphicon glyphicon-apple" aria-hidden="true"></span>
-              Crops
-          </label>
-        </div>
-        <button type="button" class="btn btn-success">
-          <%=link_to 'Propose Trade', new_trade_path(crop_id: crop.id, consumer_id: @current_user.id) %>
-        </button>
+        <% if @current_user == @user %>
+          <% crop.trades.each do |t| %>
+            <p><%= t.trade_type_id %></p>
+            <p><%= t.message %></p>
+            <p><%= image_tag t.crop_pic.url %></p>
+          <% end %>
+        <% else%>
+          <div class="trade_types panel-body">
+            <label class="radio-inline">
+              <input type="radio" name="trade_type1" id="inlineRadio1" value="option1">
+                <span class="glyphicon glyphicon-time" aria-hidden="true"></span>
+                Time
+            </label>
+            <label class="radio-inline">
+              <input type="radio" name="trade_type1" id="inlineRadio2" value="option2">
+                <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
+                Labor
+            </label>
+            <label class="radio-inline">
+              <input type="radio" name="trade_type1" id="inlineRadio3" value="option3">
+                <span class="glyphicon glyphicon-apple" aria-hidden="true"></span>
+                Crops
+            </label>
+          </div>
+          <button type="button" class="btn btn-success">
+            <%=link_to 'Propose Trade', new_trade_path(crop_id: crop.id, consumer_id: @current_user.id) %>
+          </button>
+        <% end %>
       </dl>
     </div>
     <div class="col-md-4">

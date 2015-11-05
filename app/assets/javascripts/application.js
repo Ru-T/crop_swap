@@ -17,10 +17,10 @@
 //= require jquery
 //= require bootstrap-sprockets
 
-$('#trade_type').bind('change', function() {
-  $('#crop_pic').hide();
-  $('#crop_pic input').attr('disabled', true);
-  var selection = $(this).val();
-  $('#crop_pic' + selection).show();
-  $('#crop_pic' + selection + ' input').attr('disabled', false);
-}).change();
+// $('#trade_type').bind('change', function() {
+//   $('#crop_pic').hide();
+//   $('#crop_pic input').attr('disabled', true);
+//   var selection = $(this).val();
+//   $('#crop_pic' + selection).show();
+//   $('#crop_pic' + selection + ' input').attr('disabled', false);
+// }).change();

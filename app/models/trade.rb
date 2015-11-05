@@ -1,5 +1,7 @@
 class Trade < ActiveRecord::Base
   belongs_to :trade_type
+  belongs_to :crop
+
   has_attached_file :crop_pic
   # , styles: {
   #   thumb: '100x100>',
