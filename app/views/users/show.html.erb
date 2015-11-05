@@ -51,7 +51,13 @@
             <% crop.trade_types.each do |tt| %>
               <label class="radio-inline">
                 <input type="radio" name="trade_type1" id="inlineRadio1" value="option1">
-                  <span class="glyphicon glyphicon-time" aria-hidden="true"></span>
+                  <% if tt.id == 1 %>
+                    <span class="glyphicon glyphicon-apple" aria-hidden="true"></span>
+                  <% elsif tt.id == 2%>
+                    <span class="glyphicon glyphicon-time" aria-hidden="true"></span>
+                  <% else%>
+                    <span class="glyphicon glyphicon-leaf" aria-hidden="true"></span>
+                  <% end %>
                   <%= tt.name %>
               </label>
             <% end %>
