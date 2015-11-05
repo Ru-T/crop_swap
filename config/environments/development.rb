@@ -44,6 +44,12 @@ Rails.application.configure do
     :secret_access_key => ENV['AWS_SECRET_ACCESS_KEY']
   }
 }
+
+  config.action_mailer.delivery_method = :mailgun
+  config.action_mailer.mailgun_settings = {
+          api_key: '<mailgun api key>',
+          domain: '<mailgun domain>'
+  }
   # Raises error for missing translations
   # config.action_view.raise_on_missing_translations = true
 end
