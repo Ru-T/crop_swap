@@ -9,7 +9,7 @@ $default-focus: #ffef99;
   opacity: .8;
   border-radius: .3em;
   padding-bottom: 20px;
-
+  margin-top: 45px;
 }
 
 h1 {
@@ -43,7 +43,9 @@ h1 {
 
 .new-button {
   background-color: #d37538;
-  width: 50%;
+  width: 100%;
+  font-weight: bold;
+
 }
 
 .new-button:hover {

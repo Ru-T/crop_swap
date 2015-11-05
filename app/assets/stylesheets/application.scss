@@ -28,6 +28,7 @@
 
 main.login-form {
   background-color: #D9CAA5;
+  margin-top: 50px;
   padding-top: 20px;
   border-radius: .3em;
   padding-bottom: 25px;
@@ -59,27 +60,37 @@ body {
      margin-top: 20px;
    }
 
-   .navbar-fixed-top {
-     border-style: solid;
-     border-bottom: thin solid black;
-   }
-
    .navbar-nav {
-     margin: -15px -30px;
-   }
-
+     margin: -30px -30px;
+}
+.navbar-default {
+    background-color: #F8F8F8;
+    border-color: #E7E7E7;
+}
    .crop_name {
      border-radius: 5px;
    }
 
   .background_image {
-    background: image-url('veggie1.jpg') no-repeat center center fixed;
-    background-size: 100% 100%;
+
+    background-image: image-url('veggie1.jpg') no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    background-attachment: fixed;
+    position: static;
+
   }
+
+body.backg {
+  background: image-url('veggie1.jpg') no-repeat center center fixed;
+}
 
   .login-button {
     background-color: #d37538;
-    width: 50%;
+    width: 75%;
+    font-weight: bold;
   }
 
   .login-button:hover {
@@ -88,8 +99,21 @@ body {
 
   .img {
     vertical-align: text-top;
+
   }
 
-  // .crop-form {
-  //   height: 460px;
-  // }
+  a.nav-text {
+    float: right;
+    padding-right: 10px;
+    margin-top: 18px;
+  }
+
+  button.btn.btn-default.btn-sm.dropdown-toggle {
+    margin-left: 900px;
+    background-color: #d37538;
+  }
+
+
+button.btn.btn-default.btn-sm.dropdown-toggle:hover {
+  background-color: #CF6622;
+}
