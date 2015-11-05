@@ -4,13 +4,12 @@
 //
 //
 
-$default-focus: #ffef99;
+
 
 
 main.container {
-    width: 45%;
-
-  }
+  max-width: 500px;
+}
 
 h1 {
   margin-top: 30px;
@@ -26,17 +25,19 @@ h1 {
 
 .crop-description {
   margin-bottom: 15px;
+  max-width: 400px;
 }
 
 .crop-description:focus {
-    background-color:  $default-focus;
+    background-color:  #ffef99;
 }
 
 .crop-weight {
   margin-bottom: 20px;
+  max-width: 400px;
 }
 .crop-weight:focus {
-  background-color:  $default-focus;
+  background-color: #ffef99;
 }
 
 .crop-button {

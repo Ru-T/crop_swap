@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151105013732) do
+ActiveRecord::Schema.define(version: 20151105013433) do
 
   create_table "crop_types", force: :cascade do |t|
     t.string   "crop_type"
