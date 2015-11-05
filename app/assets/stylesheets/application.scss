@@ -60,12 +60,6 @@ body {
      margin-top: 20px;
    }
 
-   .navbar-fixed-top {
-     border-style: solid;
-     border-bottom: thin solid black;
-   }
-
-
    .navbar-nav {
      margin: -30px -30px;
 }
@@ -111,3 +105,12 @@ body.backg {
     padding-right: 10px;
     margin-top: 18px;
   }
+
+  button.btn.btn-default.btn-sm.dropdown-toggle {
+    margin-left: 900px;
+    background-color: #d37538;
+  }
+
+button.btn.btn-default.btn-sm.dropdown-toggle:hover {
+  background-color: #CF6622;
+}
