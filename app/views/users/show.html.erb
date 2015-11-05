@@ -44,7 +44,7 @@
             <input type="radio" name="trade_type1" id="inlineRadio3" value="option3"> <span class="glyphicon glyphicon-apple" aria-hidden="true"></span>Crops
           </label>
         </div>
-        <button type="button" class="btn btn-success"><%=link_to 'Propose Trade', new_trade_path(crop_id: crop.id) %></button>
+        <button type="button" class="btn btn-success"><%=link_to 'Propose Trade', new_trade_path(crop_id: crop.id, consumer_id: @current_user.id) %></button>
       </dl>
     </div>
     <div class="col-md-4">
