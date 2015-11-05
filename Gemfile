@@ -35,6 +35,8 @@ gem 'bootstrap-sass', '~> 3.3.5'
 
 gem 'puma'
 
+gem 'mailgun_rails'
+
 group :production do
 
   gem 'pg'

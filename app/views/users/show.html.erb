@@ -35,20 +35,16 @@
         <dd class="details panel-body">Amount: <%= crop.weight %> lbs</dd>
         <% if @current_user == @user %>
           <% crop.trades.each do |t| %>
-          <h3> Pending Trades </h3>
-            <p><%= t.trade_type_id %></p>
-            <p><%= t.message %></p>
-            <% if t.crop_pic.blank? %>
-              <%= image_tag asset_url ("crop-default-image.png") %>
-            <% else%>
-              <%= image_tag t.crop_pic.url  %>
-            <% end %>
-            <button type="button" class="btn btn-success">
-              Accept Trade
-            </button>
-            <button type="button" class="btn btn-success">
-              Reject Trade
-            </button>
+            <h3> Pending Trades </h3>
+              <p><%= t.trade_type_id %></p>
+              <p><%= t.message %></p>
+              <% if t.crop_pic.blank? %>
+                <%= image_tag asset_url ("crop-default-image.png") %>
+              <% else%>
+                <%= image_tag t.crop_pic.url  %>
+              <% end %>
+              <button type="button" class="btn btn-success">Accept Trade</button>
+              <button type="button" class="btn btn-success">Reject Trade</button>
           <% end %>
         <% else %>
           <div class="trade_types panel-body">
