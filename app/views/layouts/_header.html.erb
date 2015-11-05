@@ -1,9 +1,17 @@
 <div class="container">
-  <header class="navbar-fixed-top">
-    <nav class="navbar-default navbar-fixed-top">
-      <a href="#"class="img navbar-brand"><%= image_tag asset_url ("cropswap-logo.png") %></a>
-
-      <div class="crops-btn btn-group">
+  <nav class="navbar-default navbar-fixed-top">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <a class="navbar-brand" href="<%= crops_path %>"><%= image_tag asset_url ("cropswap-logo.png") %></a>
+      </div>
+        <div>
+          <!-- <ul class="nav navbar-nav">
+            <li class="active"><a href="#">Home</a></li>
+            <li><a href="#">Page 1</a></li>
+            <li><a href="#">Page 2</a></li>
+            <li><a href="#">Page 3</a></li>
+          </ul> -->
+      <!-- <div class="crops-btn btn-group">
         <button class="btn btn-default btn-sm dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true">
           CROPS <span class="caret"></span>
         </button>
@@ -11,16 +19,15 @@
           <li><a href="#/">Post a Crop</a></li>
           <li><a href="#/">Trade a Crop</a></li>
         </ul>
-      </div>
+      </div> -->
 
-
-      <% if session[:user_id]%>
-      <span class="nav-text"><%= link_to 'Logout', session_destroy_path, method: :delete, class: "nav-text"%></span>
-      <% else %>
-      <span> <%= link_to "Log in", session_new_path, class: "nav-text" %> </span>
-      <% end %>
+          <% if session[:user_id]%>
+          <span class="nav-text"><%= link_to 'Logout', session_destroy_path, method: :delete, class: "nav-text"%></span>
+          <% else %>
+          <span> <%= link_to "Log in", session_new_path, class: "nav-text" %> </span>
+          <% end %>
+        </div>
     </div>
   </nav>
 
-</header>
 </div>
