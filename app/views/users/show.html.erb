@@ -48,25 +48,12 @@
           <% end %>
         <% else %>
           <% crop.trade_types.each do |tt| %>
-            <p><%= tt.name %></p>
-          <% end %>
-          <!-- <div class="trade_types panel-body">
             <label class="radio-inline">
               <input type="radio" name="trade_type1" id="inlineRadio1" value="option1">
                 <span class="glyphicon glyphicon-time" aria-hidden="true"></span>
-                Time
+                <%= tt.name %>
             </label>
-            <label class="radio-inline">
-              <input type="radio" name="trade_type1" id="inlineRadio2" value="option2">
-                <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
-                Labor
-            </label>
-            <label class="radio-inline">
-              <input type="radio" name="trade_type1" id="inlineRadio3" value="option3">
-                <span class="glyphicon glyphicon-apple" aria-hidden="true"></span>
-                Crops
-            </label>
-          </div> -->
+          <% end %>
           <button type="button" class="btn btn-success">
             <%=link_to 'Propose Trade', new_trade_path(crop_id: crop.id, consumer_id: @current_user.id) %>
           </button>
