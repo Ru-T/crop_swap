@@ -31,16 +31,23 @@
 // });
 
 $(document).ready(function () {
-  var map = L.map('map')
-  .setView([35.98, 78.90], 13);
+  var map = L.map('map', 'mapbox.streets')
+  .setView([35.994, -78.898], 13);
   L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}', {
     attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="http://mapbox.com">Mapbox</a>',
     maxZoom: 18,
     id: 'ebaiden.cigmgqf43027nurkrnufjii94',
     accessToken: 'pk.eyJ1IjoiZWJhaWRlbiIsImEiOiJjaWdtbHozMjEwMDA3bjlrb2gwaTY1ZThqIn0.w4-Mcgb3JXeCNLjFvigYDg'
+
   }).addTo(map);
 
-  var marker = L.marker([35.994, -78.898]).addTo(map);
+  L.mapbox.map('map', 'ebaiden.cigmgqf43027nurkrnufjii94')
+    .addControl(L.mapbox.geocoderControl('mapbox.places'));
+
+
+
+  
 
     map.panTo(new L.LatLng(35.994, -78.898));
+var marker = L.marker([35.994, -78.898]).addTo(map);
 }); // end of the function

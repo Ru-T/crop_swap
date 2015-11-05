@@ -140,6 +140,9 @@ input#password:focus {
 // map for leaflet
 
 #map {
-  height: 180px;
+  height: 500px;
   width: 100%;
+  top: 0;
+  bottom: 0;
+  border-radius: .3;
 }
