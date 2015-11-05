@@ -36,7 +36,7 @@
         <% if @current_user == @user %>
           <% crop.trades.each do |t| %>
             <h3> Pending Trades </h3>
-              <p><%= t.trade_type_id %></p>
+              <p>I would like to swap for: <strong><%= t.trade_type.name %></strong></p>
               <p><%= t.message %></p>
               <% if t.crop_pic.blank? %>
                 <%= image_tag asset_url ("crop-default-image.png") %>
@@ -47,7 +47,10 @@
               <button type="button" class="btn btn-success">Reject Trade</button>
           <% end %>
         <% else %>
-          <div class="trade_types panel-body">
+          <% crop.trade_types.each do |tt| %>
+            <p><%= tt.name %></p>
+          <% end %>
+          <!-- <div class="trade_types panel-body">
             <label class="radio-inline">
               <input type="radio" name="trade_type1" id="inlineRadio1" value="option1">
                 <span class="glyphicon glyphicon-time" aria-hidden="true"></span>
@@ -63,7 +66,7 @@
                 <span class="glyphicon glyphicon-apple" aria-hidden="true"></span>
                 Crops
             </label>
-          </div>
+          </div> -->
           <button type="button" class="btn btn-success">
             <%=link_to 'Propose Trade', new_trade_path(crop_id: crop.id, consumer_id: @current_user.id) %>
           </button>
