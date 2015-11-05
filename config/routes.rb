@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :trades
   root 'users#index'
 
   resources :crops

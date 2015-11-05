@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151104193950) do
+ActiveRecord::Schema.define(version: 20151105013433) do
 
   create_table "crop_types", force: :cascade do |t|
     t.string   "crop_type"
@@ -53,6 +53,17 @@ ActiveRecord::Schema.define(version: 20151104193950) do
     t.text     "description"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
+  end
+
+  create_table "trades", force: :cascade do |t|
+    t.integer  "trade_type_id"
+    t.integer  "crop_id"
+    t.integer  "consumer_id"
+    t.boolean  "accepted"
+    t.text     "message"
+    t.text     "message_response"
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
   end
 
   create_table "users", force: :cascade do |t|
