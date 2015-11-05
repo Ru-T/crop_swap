@@ -11,6 +11,12 @@
     </div>
   <% end %>
 
+  <!-- <div class="form-group">
+    <%#= f.label :trade_type_id, "Trade Type:", class: "col-md-4 control-label" %>
+    <div class="col-md-8">
+      <%#= f.collection_select :trade_type_id, TradeType.all, :id, :trade_type, class: "form-control" %>
+    </div>
+  </div> -->
   <div class="field">
     <%= f.label :trade_type_id %><br>
     <%= f.number_field :trade_type_id %>

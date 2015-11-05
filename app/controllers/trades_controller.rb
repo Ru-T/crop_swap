@@ -12,7 +12,7 @@ class TradesController < ApplicationController
 
   # GET /trades/new
   def new
-    @trade = Trade.new
+    @trade = Trade.new#something about crop_id defaulting to crop
   end
 
   # GET /trades/1/edit

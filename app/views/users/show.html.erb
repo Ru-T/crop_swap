@@ -22,6 +22,11 @@
   <div class="row">
     <div class="col-md-3">
     </div>
+    <!-- <ul class="nav nav-tabs">
+      <li role="presentation" class="active"><a href="#">Crops</a></li>
+      <li role="presentation"><a href="#">Trades</a></li>
+      <li role="presentation"><a href="#">Trade History</a></li>
+    </ul> -->
     <div class="col-md-5 panel panel-default">
       <dl>
         <dt class="crop_name panel-heading"><%=crop.crop_type.crop_type%></dt>
@@ -39,7 +44,7 @@
             <input type="radio" name="trade_type1" id="inlineRadio3" value="option3"> <span class="glyphicon glyphicon-apple" aria-hidden="true"></span>Crops
           </label>
         </div>
-        <button type="button" class="btn btn-success">Propose Trade</button>
+        <button type="button" class="btn btn-success"><%= link_to 'Propose Trade', new_trade_path%></button>
       </dl>
     </div>
     <div class="col-md-4">
