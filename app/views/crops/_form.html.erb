@@ -47,6 +47,14 @@
       </div> -->
       <%#= f.hidden_field :crop_id %>
     <%# end %>
+    # loop over all possible trade types
+      # use checkbox_field_tag "trade_types[]", trade_type.id
+    # end
+
+    # in your controller, loop over all params[:trade_types] |p|
+      # @crop.trade_types << TradeType.find(p)
+    # end
+    # OR MAP
 
     <span><%= f.submit "Submit", class: "crop-button" %></span>
 
