@@ -24,6 +24,9 @@ class CropsController < ApplicationController
   # POST /crops
   def create
     @crop = Crop.new(crop_params)
+    @crop.find(params[:trade_types]).trade_types << TradeType.find(params[:id])
+
+
 
     if @crop.save
       redirect_to @current_user

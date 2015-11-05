@@ -39,13 +39,10 @@
     <%= f.hidden_field :user_id %>
 
     <% TradeType.all.each do |t| %>
-      <div class="form-group">check_box_tag 'trade_types[]', trade_type.id</div>
+      <div class="form-group">
+        <%= check_box_tag 'trade_types[]', 'trade_type.id' %>
+      </div>
     <% end %>
-
-    # in your controller, loop over all params[:trade_types] |p|
-      # @crop.trade_types << TradeType.find(p)
-    # end
-    # OR MAP -->
 
     <span><%= f.submit "Submit", class: "crop-button" %></span>
 
