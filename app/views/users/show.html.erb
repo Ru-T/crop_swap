@@ -35,16 +35,24 @@
         <dd class="details panel-body">Amount: <%= crop.weight %> lbs</dd>
         <div class="trade_types panel-body">
           <label class="radio-inline">
-            <input type="radio" name="trade_type1" id="inlineRadio1" value="option1"> <span class="glyphicon glyphicon-time" aria-hidden="true"></span>Time
+            <input type="radio" name="trade_type1" id="inlineRadio1" value="option1">
+              <span class="glyphicon glyphicon-time" aria-hidden="true"></span>
+              Time
           </label>
           <label class="radio-inline">
-            <input type="radio" name="trade_type1" id="inlineRadio2" value="option2"> <span class="glyphicon glyphicon-user" aria-hidden="true"></span>Labor
+            <input type="radio" name="trade_type1" id="inlineRadio2" value="option2">
+              <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
+              Labor
           </label>
           <label class="radio-inline">
-            <input type="radio" name="trade_type1" id="inlineRadio3" value="option3"> <span class="glyphicon glyphicon-apple" aria-hidden="true"></span>Crops
+            <input type="radio" name="trade_type1" id="inlineRadio3" value="option3">
+              <span class="glyphicon glyphicon-apple" aria-hidden="true"></span>
+              Crops
           </label>
         </div>
-        <button type="button" class="btn btn-success"><%=link_to 'Propose Trade', new_trade_path(crop_id: crop.id, consumer_id: @current_user.id) %></button>
+        <button type="button" class="btn btn-success">
+          <%=link_to 'Propose Trade', new_trade_path(crop_id: crop.id, consumer_id: @current_user.id) %>
+        </button>
       </dl>
     </div>
     <div class="col-md-4">
