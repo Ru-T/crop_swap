@@ -24,6 +24,7 @@ class TradesController < ApplicationController
     @trade = Trade.new(trade_params)
 
     if @trade.save
+      TradeMailer.new_proposed_trade.deliver_now
       redirect_to @trade, notice: 'Trade was successfully created.'
     else
       render :new

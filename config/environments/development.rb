@@ -45,11 +45,8 @@ Rails.application.configure do
   }
 }
 
-  config.action_mailer.delivery_method = :mailgun
-  config.action_mailer.mailgun_settings = {
-          api_key: 'a28a3db62959f15c5860b5833668a8ec',
-          domain: 'https://api.mailgun.net/v3/sandbox85b185dc6fa44a7bbb05e2ce19beca69.mailgun.org'
-  }
+
+
   # Raises error for missing translations
   # config.action_view.raise_on_missing_translations = true
 end
