@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  trade_type_id: 1
+  crop_id: 1
+  consumer_id: 1
+  accepted: false
+  message: MyText
+  message_response: MyText
+
+two:
+  trade_type_id: 1
+  crop_id: 1
+  consumer_id: 1
+  accepted: false
+  message: MyText
+  message_response: MyText

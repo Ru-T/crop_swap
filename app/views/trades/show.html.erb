@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Trade type:</strong>
+  <%= @trade.trade_type_id %>
+</p>
+
+<p>
+  <strong>Crop:</strong>
+  <%= @trade.crop_id %>
+</p>
+
+<p>
+  <strong>Consumer:</strong>
+  <%= @trade.consumer_id %>
+</p>
+
+<p>
+  <strong>Accepted:</strong>
+  <%= @trade.accepted %>
+</p>
+
+<p>
+  <strong>Message:</strong>
+  <%= @trade.message %>
+</p>
+
+<p>
+  <strong>Message response:</strong>
+  <%= @trade.message_response %>
+</p>
+
+<%= link_to 'Edit', edit_trade_path(@trade) %> |
+<%= link_to 'Back', trades_path %>
