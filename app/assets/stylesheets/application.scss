@@ -28,6 +28,7 @@
 
 main.login-form {
   background-color: #D9CAA5;
+  margin-top: 20px;
   padding-top: 20px;
   border-radius: .3em;
   padding-bottom: 25px;
@@ -66,6 +67,7 @@ body {
 
    .navbar-nav {
      margin: -15px -30px;
+
    }
 
    .crop_name {
@@ -78,7 +80,13 @@ body {
     -moz-background-size: cover;
     -o-background-size: cover;
     background-size: cover;
+    background-attachment: fixed;
+    position: static;
   }
+
+body.backg {
+  background: image-url('veggie1.jpg') no-repeat center center fixed;
+}
 
   .login-button {
     background-color: #d37538;
@@ -91,4 +99,5 @@ body {
 
   .img {
     vertical-align: text-top;
+    
   }
