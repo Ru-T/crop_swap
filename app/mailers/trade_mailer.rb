@@ -8,7 +8,7 @@ class TradeMailer < ApplicationMailer
   def new_proposed_trade
     @greeting = "Hi"
 
-    mail to: "rwajnberg@gmail.com"
+    mail to: "rwajnberg@gmail.com", subject: "A New Trade Has Been Proposed!"
   end
 
   # Subject can be set in your I18n file at config/locales/en.yml
