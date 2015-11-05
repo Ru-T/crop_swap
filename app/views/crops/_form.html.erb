@@ -38,23 +38,14 @@
     </div>
     <%= f.hidden_field :user_id %>
 
-    <!-- <%#= f.fields_for :crops_trade_types do |ff| %>
-      <div class="form-group">
-        <%#= ff.label :crop_type_id, "Crop Type:", class: "col-md-4 control-label" %>
-        <div class="col-md-8">
-          <%#= ff.collection_select :crop_type_id, CropTradesType.all, :id, :crop_type, class: "form-control" %>
-        </div>
-      </div> -->
-      <%#= f.hidden_field :crop_id %>
-    <%# end %>
-    # loop over all possible trade types
+    <!-- # loop over all possible trade types
       # use checkbox_field_tag "trade_types[]", trade_type.id
     # end
 
     # in your controller, loop over all params[:trade_types] |p|
       # @crop.trade_types << TradeType.find(p)
     # end
-    # OR MAP
+    # OR MAP -->
 
     <span><%= f.submit "Submit", class: "crop-button" %></span>
 

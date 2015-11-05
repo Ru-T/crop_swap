@@ -3,8 +3,6 @@ class Crop < ActiveRecord::Base
   belongs_to :crop_type
   has_and_belongs_to_many :trade_types
 
-  accepts_nested_attributes_for :crops_trade_types
-
   has_attached_file :crop_pic
   # , styles: {
   #   thumb: '100x100>',
