@@ -11,13 +11,17 @@
     </div>
   <% end %>
 
-  <div class="field">
+  <div class="form-group">
     <%= f.label :trade_type_id %><br>
     <%= f.number_field :trade_type_id %>
   </div>
+  <div class="form-group">
+    <%= f.label :crop_pic %><br>
+    <%= f.file_field :crop_pic %>
+  </div>
   <%= f.hidden_field :crop_id %>
   <%= f.hidden_field :consumer_id %>
-  <div class="field">
+  <div class="form-group">
     <%= f.label :message %><br>
     <%= f.text_area :message %>
   </div>

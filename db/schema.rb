@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151105013433) do
+ActiveRecord::Schema.define(version: 20151105163015) do
 
   create_table "crop_types", force: :cascade do |t|
     t.string   "crop_type"
@@ -62,8 +62,12 @@ ActiveRecord::Schema.define(version: 20151105013433) do
     t.boolean  "accepted"
     t.text     "message"
     t.text     "message_response"
-    t.datetime "created_at",       null: false
-    t.datetime "updated_at",       null: false
+    t.datetime "created_at",            null: false
+    t.datetime "updated_at",            null: false
+    t.string   "crop_pic_file_name"
+    t.string   "crop_pic_content_type"
+    t.integer  "crop_pic_file_size"
+    t.datetime "crop_pic_updated_at"
   end
 
   create_table "users", force: :cascade do |t|
