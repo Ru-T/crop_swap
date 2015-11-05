@@ -40,7 +40,7 @@
 
     <% TradeType.all.each do |t| %>
       <div class="form-group">
-        <%= check_box_tag 'trade_types[]', 't.trade_type.id' %>
+        <%= check_box_tag 'trade_types[]', t.id, @crop.trade_types.include?(t) %> <%= t.name %>
       </div>
     <% end %>
 
