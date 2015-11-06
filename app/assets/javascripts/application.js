@@ -32,7 +32,7 @@
 
 $(document).ready(function () {
   var map = L.map('map', 'mapbox.streets')
-  .setView([35.994, -78.898], 13);
+  .setView([35.994, -78.898], 9);
   L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}', {
     attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="http://mapbox.com">Mapbox</a>',
     maxZoom: 18,
@@ -41,13 +41,22 @@ $(document).ready(function () {
 
   }).addTo(map);
 
-  L.mapbox.map('map', 'ebaiden.cigmgqf43027nurkrnufjii94')
-    .addControl(L.mapbox.geocoderControl('mapbox.places'));
 
+    L.marker([35.994, -78.898]).addTo(map)
+        .bindPopup('Your Here')
+        .openPopup();
 
+    //map.panTo(new L.LatLng(35.994, -78.898));
+    /*function searchByAjax(text, callResponse) {
+      return $.ajax({
+        url: '',
+        data: {crops: text},
+        dataType: 'json',
+        success: function(json) {
+            callResponse(json)
+        }
+      })
+    }
 
-  
-
-    map.panTo(new L.LatLng(35.994, -78.898));
-var marker = L.marker([35.994, -78.898]).addTo(map);
+    	map.addControl( new L.Control.Search({sourceData: searchByAjax, text:'Color...', markerLocation: true}) ); */
 }); // end of the function
