@@ -16,7 +16,7 @@
     <p><strong>Crop:</strong><%= @trade.crop_id %></p>
     <p><strong>Consumer:</strong><%= @trade.consumer_id %></p>
     <p><strong>Message:</strong><%= @trade.message %></p>
-    <%= f.hidden_field :accepted %>
+    <%= f.hidden_field :accepted, value: params[:accepted] %>
     <div class="form-group">
       <%= f.label :message_response %><br>
       <%= f.text_area :message_response %>
@@ -33,8 +33,8 @@
       <%= f.label :crop_pic %><br>
       <%= f.file_field :crop_pic %>
     </div>
-      <%= f.hidden_field :crop_id %>
-      <%= f.hidden_field :consumer_id %>
+      <%= f.hidden_field :crop_id, value: params[:crop_id] %>
+      <%= f.hidden_field :consumer_id, value: params[:consumer_id]  %>
     <div class="form-group">
       <%= f.label :message %><br>
       <%= f.text_area :message %>
