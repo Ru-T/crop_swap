@@ -34,13 +34,9 @@ class TradesController < ApplicationController
   # PATCH/PUT /trades/1
   def update
     if @trade.update(trade_params)
-      if params[:accepted] == true
-        @trade.accepted = true
-        @trade.save
+      if @trade.accepted == true
         TradeMailer.accepted_trade.deliver_now
-      elsif params[:accepted] == false
-        @trade.accepted = false
-        @trade.save
+      elsif @trade.accepted == false
         TradeMailer.rejected_trade.deliver_now
       else
         @trade.save

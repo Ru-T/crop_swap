@@ -46,7 +46,9 @@
               <button type="button" class="btn btn-success">
                 <%=link_to 'Accept Trade', edit_trade_path(accepted: true)%>
               </button>
-              <button type="button" class="btn btn-success">Reject Trade</button>
+              <button type="button" class="btn btn-success">
+                <%=link_to 'Reject Trade', edit_trade_path(accepted: false)%>
+              </button>
           <% end %>
         <% else %>
           <div>
