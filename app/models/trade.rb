@@ -1,6 +1,7 @@
 class Trade < ActiveRecord::Base
   belongs_to :trade_type
   belongs_to :crop
+  #belongs_to :consumer, class_name: "User"
 
   has_attached_file :crop_pic
   # , styles: {

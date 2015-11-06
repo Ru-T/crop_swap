@@ -2,6 +2,7 @@ class User < ActiveRecord::Base
   has_secure_password
   validates :email, presence: true
 
+  has_many :trades, foreign_key: "consumer_id"
   has_many :crops
 
   has_attached_file :profile_pic

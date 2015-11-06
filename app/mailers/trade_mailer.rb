@@ -21,7 +21,8 @@ class TradeMailer < ApplicationMailer
   def accepted_trade
     @greeting = "Hi"
 
-    mail to: "to@example.org"
+    mail to: "rwajnberg@gmail.com", subject: "Your Trade Has Been Accepted!",
+    from: "cropswap@cropswap.com"
   end
 
   # Subject can be set in your I18n file at config/locales/en.yml
@@ -32,7 +33,8 @@ class TradeMailer < ApplicationMailer
   def rejected_trade
     @greeting = "Hi"
 
-    mail to: "to@example.org"
+    mail to: "rwajnberg@gmail.com", subject: "News About Your Trade",
+    from: "cropswap@cropswap.com"
   end
 
   # Subject can be set in your I18n file at config/locales/en.yml

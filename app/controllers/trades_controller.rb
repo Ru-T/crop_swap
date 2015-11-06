@@ -34,6 +34,17 @@ class TradesController < ApplicationController
   # PATCH/PUT /trades/1
   def update
     if @trade.update(trade_params)
+      if params[:accepted] == true
+        @trade.accepted = true
+        @trade.save
+        TradeMailer.accepted_trade.deliver_now
+      elsif params[:accepted] == false
+        @trade.accepted = false
+        @trade.save
+        TradeMailer.rejected_trade.deliver_now
+      else
+        @trade.save
+      end
       redirect_to @trade, notice: 'Trade was successfully updated.'
     else
       render :edit
