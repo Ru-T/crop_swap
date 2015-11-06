@@ -43,7 +43,9 @@
               <% else%>
                 <%= image_tag t.crop_pic.url  %>
               <% end %>
-              <button type="button" class="btn btn-success">Accept Trade</button>
+              <button type="button" class="btn btn-success">
+                <%=link_to 'Accept Trade', edit_trade_path(accepted: true)%>
+              </button>
               <button type="button" class="btn btn-success">Reject Trade</button>
           <% end %>
         <% else %>
