@@ -40,7 +40,7 @@ class TradesController < ApplicationController
       elsif @trade.accepted == false
         TradeMailer.rejected_trade.deliver_now
       else
-        @trade.save
+        TradeMailer.modified_trade.deliver_now
       end
       redirect_to @trade, notice: 'Trade was successfully updated.'
     else
