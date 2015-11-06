@@ -23,9 +23,10 @@ class TradesController < ApplicationController
   # POST /trades
   def create
     @trade = Trade.new(trade_params)
+    @current_user = User.find_by_id(session[:user_id])
 
     if @trade.save
-      TradeMailer.new_proposed_trade.deliver_now
+      TradeMailer.new_proposed_trade(@current_user.email).deliver_now
       redirect_to @trade, notice: 'Trade was successfully created.'
     else
       render :new
@@ -34,13 +35,15 @@ class TradesController < ApplicationController
 
   # PATCH/PUT /trades/1
   def update
+    @current_user = User.find_by_id(session[:user_id])
+
     if @trade.update(trade_params)
       if @trade.accepted == true
-        TradeMailer.accepted_trade.deliver_now
+        TradeMailer.accepted_trade(@current_user.email).deliver_now
       elsif @trade.accepted == false
-        TradeMailer.rejected_trade.deliver_now
+        TradeMailer.rejected_trade(@current_user.email).deliver_now
       else
-        TradeMailer.modified_trade.deliver_now
+        TradeMailer.modified_trade(@current_user.email).deliver_now
       end
       redirect_to @trade, notice: 'Trade was successfully updated.'
     else
