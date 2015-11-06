@@ -1,5 +1,6 @@
 class TradesController < ApplicationController
   before_action :set_trade, only: [:show, :edit, :update, :destroy]
+  before_action :no_edit, only: [:edit]
 
   # GET /trades
   def index
@@ -12,7 +13,7 @@ class TradesController < ApplicationController
 
   # GET /trades/new
   def new
-    @trade = Trade.new#something about crop_id defaulting to crop
+    @trade = Trade.new
   end
 
   # GET /trades/1/edit
@@ -54,6 +55,11 @@ class TradesController < ApplicationController
   end
 
   private
+    def no_edit
+      if @trade.accepted == false || @trade.accepted == true
+        redirect_to crops_path, notice: "You cannot edit a trade once it has been acted upon."
+      end
+    end
     # Use callbacks to share common setup or constraints between actions.
     def set_trade
       @trade = Trade.find(params[:id])

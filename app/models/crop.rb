@@ -5,12 +5,12 @@ class Crop < ActiveRecord::Base
   has_many :trades
 
   has_attached_file :crop_pic
-  # , styles: {
-  #   thumb: '100x100>',
-  #   square: '200x200#',
-  #   medium: '300x300>'
-  # }
   validates_attachment_content_type :crop_pic, content_type: /\Aimage\/.*\Z/
 
+  # def pending_trade
+  #   trades.each do |t|
+  #     break if t.consumer_id == @user.id
+  #   end
+  # end
 
 end
