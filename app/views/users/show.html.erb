@@ -35,7 +35,7 @@
         <dd class="details panel-body">Amount: <%= crop.weight %> lbs</dd>
         <% if @current_user == @user %>
           <% crop.trades.each do |t| %>
-            <% if t.accepted == nil %>
+            <%# if t.accepted %>
               <h3> Pending Trades </h3>
                 <p>I would like to swap for: <strong><%= t.trade_type.name %></strong></p>
                 <p><%= t.message %></p>
@@ -50,7 +50,7 @@
                 <button type="button" class="btn btn-success">
                   <%=link_to 'Reject Trade', edit_trade_path(accepted: false)%>
                 </button>
-            <% end %>
+            <% #end %>
           <% end %>
         <% else %>
           <div>
@@ -70,6 +70,7 @@
           </div>
           <button type="button" class="btn btn-success">
             <%=link_to 'Propose Trade', new_trade_path(crop_id: crop.id, consumer_id: @current_user.id) %>
+            <!-- , trade_type_id: trade_type.id)  -->
           </button>
         <% end %>
       </dl>
