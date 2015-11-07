@@ -14,10 +14,4 @@ class Crop < ActiveRecord::Base
   has_attached_file :crop_pic
   validates_attachment_content_type :crop_pic, content_type: /\Aimage\/.*\Z/
 
-  # def pending_trade
-  #   trades.each do |t|
-  #     break if t.consumer_id == @user.id
-  #   end
-  # end
-
 end

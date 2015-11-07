@@ -28,8 +28,12 @@
           <em>Posted on <%=crop.created_at.strftime("%b %d %Y")%></em>
           <dd class="details panel-body"> <%= crop.description %></dd>
           <dd class="details panel-body">Amount: <%= crop.weight %> lbs</dd>
-          <dd class="details panel-body">Ripe On: <%= crop.ripe_on %></dd>
-          <dd class="details panel-body">Expires On: <%= crop.expires_on %></dd>
+          <%if crop.ripe_on.blank? == false%>
+            <dd class="details panel-body">Ripe On: <%= crop.ripe_on %></dd>
+          <%end%>
+          <%if crop.ripe_on.blank? == false%>
+            <dd class="details panel-body">Expires On: <%= crop.expires_on %></dd>
+          <%end%>
               <% crop.trades.each do |t| %>
                 <% if t.accepted != true && t.accepted != false %>
                   <h3> Pending Trades </h3>

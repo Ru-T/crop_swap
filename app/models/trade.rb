@@ -7,10 +7,12 @@ class Trade < ActiveRecord::Base
   has_attached_file :crop_pic
   validates_attachment_content_type :crop_pic, content_type: /\Aimage\/.*\Z/
 
-  def reject_other_trades
-  #   if any trades for this crop is accepted
-  #     mark all other as false
-
-  end
+  # def reject_other_trades
+  #   if @trade.accepted == true
+  #     crop.trades.each do |t|
+  #       t.accepted = false
+  #     end
+  #   end
+  # end
 
 end
