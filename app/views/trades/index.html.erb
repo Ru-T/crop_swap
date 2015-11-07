@@ -1,7 +1,6 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Listing Trades</h1>
-
+<h3> Pending Trades </h3>
 <table>
   <thead>
     <tr>
@@ -17,21 +16,90 @@
 
   <tbody>
     <% @trades.each do |trade| %>
-      <tr>
-        <td><%= trade.trade_type_id %></td>
-        <td><%= trade.crop_id %></td>
-        <td><%= trade.consumer_id %></td>
-        <td><%= trade.accepted %></td>
-        <td><%= trade.message %></td>
-        <td><%= trade.message_response %></td>
-        <td><%= link_to 'Show', trade %></td>
-        <td><%= link_to 'Edit', edit_trade_path(trade) %></td>
-        <td><%= link_to 'Destroy', trade, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
+      <% if trade.accepted != true %>
+        <tr>
+          <td><%= trade.trade_type_id %></td>
+          <td><%= trade.crop_id %></td>
+          <td><%= trade.consumer_id %></td>
+          <td><%= trade.accepted %></td>
+          <td><%= trade.message %></td>
+          <td><%= trade.message_response %></td>
+          <td><%= link_to 'Show', trade %></td>
+          <td><%= link_to 'Edit', edit_trade_path(trade) %></td>
+          <td><%= link_to 'Destroy', trade, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        </tr>
+      <% end %>
     <% end %>
   </tbody>
 </table>
 
-<br>
+<h3> Accepted Trades </h3>
+<table>
+  <thead>
+    <tr>
+      <th>Trade type</th>
+      <th>Crop</th>
+      <th>Consumer</th>
+      <th>Accepted</th>
+      <th>Message</th>
+      <th>Message response</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @trades.each do |trade| %>
+      <% if trade.accepted == true %>
+        <tr>
+          <td><%= trade.trade_type_id %></td>
+          <td><%= trade.crop_id %></td>
+          <td><%= trade.consumer_id %></td>
+          <td><%= trade.accepted %></td>
+          <td><%= trade.message %></td>
+          <td><%= trade.message_response %></td>
+          <td><%= link_to 'Show', trade %></td>
+          <td><%= link_to 'Edit', edit_trade_path(trade) %></td>
+          <td><%= link_to 'Destroy', trade, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        </tr>
+      <% end %>
+    <% end %>
+  </tbody>
+</table>
+
+<h3> Rejected Trades </h3>
+<table>
+  <thead>
+    <tr>
+      <th>Trade type</th>
+      <th>Crop</th>
+      <th>Consumer</th>
+      <th>Accepted</th>
+      <th>Message</th>
+      <th>Message response</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @trades.each do |trade| %>
+      <% if trade.accepted == false %>
+        <tr>
+          <td><%= trade.trade_type_id %></td>
+          <td><%= trade.crop_id %></td>
+          <td><%= trade.consumer_id %></td>
+          <td><%= trade.accepted %></td>
+          <td><%= trade.message %></td>
+          <td><%= trade.message_response %></td>
+          <td><%= link_to 'Show', trade %></td>
+          <td><%= link_to 'Edit', edit_trade_path(trade) %></td>
+          <td><%= link_to 'Destroy', trade, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        </tr>
+      <% end %>
+    <% end %>
+  </tbody>
+</table>
+
+
+
 
 <%= link_to 'New Trade', new_trade_path %>
