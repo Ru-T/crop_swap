@@ -8,6 +8,32 @@ class Trade < ActiveRecord::Base
   validates_attachment_content_type :crop_pic, content_type: /\Aimage\/.*\Z/
 
 
+  # def self.reject_other_trades(crop)
+  #   c = Trade.where(crop_id: crop.id, accepted: true)
+  #   if c
+  #     r = []
+  #     crop.trades.each do |t|
+  #       r << t.where(:accepted.blank?)
+  #       r.each do |r|
+  #         r.accepted = false
+  #       end
+  #     end
+  #   end
+  # end
+  #
+  # def reject_other_trades
+  #   t = Trade.find(crop_id: crop.id, accepted: true)
+  #   if t
+  #     r = []
+  #     crop.trades.each do |t|
+  #       r << t.where(:accepted.blank?)
+  #       r.each do |r|
+  #         r.accepted = false
+  #       end
+  #     end
+  #   end
+  # end
+
   # def reject_other_trades(crop)
   #   r = []
   #   crop.trades.each do |t|

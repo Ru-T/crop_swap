@@ -40,7 +40,7 @@ class TradesController < ApplicationController
 
     if @trade.update(trade_params)
       if @trade.accepted == true
-        # @trade.reject_other_trades(crop)
+        # Trade.reject_other_trades(crop)
         TradeMailer.accepted_trade(@consumer.email).deliver_now
       elsif @trade.accepted == false
         TradeMailer.rejected_trade(@consumer.email).deliver_now
