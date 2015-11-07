@@ -6,6 +6,7 @@ class CropsController < ApplicationController
   # GET /crops
   def index
     @crops = Crop.where('expires_on >= ?', Date.today)
+    # @current_user = User.find_by_id(session[:user_id])
   end
 
   # GET /crops/1

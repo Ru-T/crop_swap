@@ -18,56 +18,170 @@
     </div>
   </div>
 
-  <% @user.crops.each do |crop| %>
-    <div class="row">
-      <div class="col-md-3">
-      </div>
-      <div class="col-md-5 panel panel-default">
-        <dl>
-          <dt class="crop_name panel-heading"><%=crop.crop_type.crop_type%></dt>
-          <em>Posted on <%=crop.created_at.strftime("%b %d %Y")%></em>
-          <dd class="details panel-body"> <%= crop.description %></dd>
-          <dd class="details panel-body">Amount: <%= crop.weight %> lbs</dd>
-          <%if crop.ripe_on.blank? == false%>
-            <dd class="details panel-body">Ripe On: <%= crop.ripe_on %></dd>
-          <%end%>
-          <%if crop.ripe_on.blank? == false%>
-            <dd class="details panel-body">Expires On: <%= crop.expires_on %></dd>
-          <%end%>
-              <% crop.trades.each do |t| %>
-                <% if t.accepted != true && t.accepted != false %>
-                  <h3> Pending Trades </h3>
-                    <p>I would like to swap for: <strong><%#= t.trade_type.name %></strong></p>
-                    <p><%= t.message %></p>
-                    <% if t.crop_pic.blank? %>
-                      <%= image_tag asset_url ("crop-default-image.png") %>
-                    <% else%>
-                      <%= image_tag t.crop_pic.url  %>
+  <h3> Pending Trade Crops </h3>
+    <% @user.crops.each do |crop| %>
+      <div class="row">
+        <div class="col-md-3">
+        </div>
+        <% if crop.trades.blank? == false %>
+        byebug
+          <div class="col-md-5 panel panel-default">
+            <dl>
+              <dt class="crop_name panel-heading"><%=crop.crop_type.crop_type%></dt>
+              <em>Posted on <%=crop.created_at.strftime("%b %d %Y")%></em>
+              <dd class="details panel-body"> <%= crop.description %></dd>
+              <dd class="details panel-body">Amount: <%= crop.weight %> lbs</dd>
+              <%if crop.ripe_on.blank? == false%>
+                <dd class="details panel-body">Ripe On: <%= crop.ripe_on %></dd>
+              <%end%>
+              <%if crop.ripe_on.blank? == false%>
+                <dd class="details panel-body">Expires On: <%= crop.expires_on %></dd>
+              <%end%>
+                  <% crop.trades.each do |t| %>
+                    <% if t.accepted != true && t.accepted != false %>
+                      <h3> Pending Trades </h3>
+                        <p>I would like to swap for: <strong><%#= t.trade_type.name %></strong></p>
+                        <p><%= t.message %></p>
+                        <% if t.crop_pic.blank? %>
+                          <%= image_tag asset_url ("crop-default-image.png") %>
+                        <% else%>
+                          <%= image_tag t.crop_pic.url  %>
+                        <% end %>
+                        <button type="button" class="btn btn-success">
+                          <%=link_to 'Accept Trade', edit_trade_path(accepted: true)%>
+                        </button>
+                        <button type="button" class="btn btn-success">
+                          <%=link_to 'Reject Trade', edit_trade_path(accepted: false)%>
+                        </button>
+                    <% elsif t.accepted == true %>
+                      <h3> Accepted Trades </h3>
+                    <% else t.accepted == false %>
+                      <h3> Rejected Trades </h3>
                     <% end %>
-                    <button type="button" class="btn btn-success">
-                      <%=link_to 'Accept Trade', edit_trade_path(accepted: true)%>
-                    </button>
-                    <button type="button" class="btn btn-success">
-                      <%=link_to 'Reject Trade', edit_trade_path(accepted: false)%>
-                    </button>
-                <% elsif t.accepted == true %>
-                  <h3> Accepted Trades </h3>
-                <% else t.accepted == false %>
-                  <h3> Rejected Trades </h3>
-                <% end %>
+                  <% end %>
+            </dl>
+          </div>
+          <div class="col-md-4">
+            <dl>
+              <% if crop.crop_pic.blank? %>
+                <dt class="crop_name panel-body"><%= image_tag asset_url("crop-default-image.png") %></dt>
+              <% else %>
+                <dt class="crop_name panel-body"><%= image_tag crop.crop_pic.url %></dt>
               <% end %>
-        </dl>
+            </dl>
+          </div>
+        <% end %>
       </div>
-      <div class="col-md-4">
-        <dl>
-          <% if crop.crop_pic.blank? %>
-            <dt class="crop_name panel-body"><%= image_tag asset_url("crop-default-image.png") %></dt>
-          <% else %>
-            <dt class="crop_name panel-body"><%= image_tag crop.crop_pic.url %></dt>
+    <% end %>
+
+    <h3> No Trade Crops </h3>
+      <% @user.crops.each do |crop| %>
+        <div class="row">
+          <div class="col-md-3">
+          </div>
+          <% if crop.trades.blank? %>
+            <div class="col-md-5 panel panel-default">
+              <dl>
+                <dt class="crop_name panel-heading"><%=crop.crop_type.crop_type%></dt>
+                <em>Posted on <%=crop.created_at.strftime("%b %d %Y")%></em>
+                <dd class="details panel-body"> <%= crop.description %></dd>
+                <dd class="details panel-body">Amount: <%= crop.weight %> lbs</dd>
+                <%if crop.ripe_on.blank? == false%>
+                  <dd class="details panel-body">Ripe On: <%= crop.ripe_on %></dd>
+                <%end%>
+                <%if crop.ripe_on.blank? == false%>
+                  <dd class="details panel-body">Expires On: <%= crop.expires_on %></dd>
+                <%end%>
+                    <% crop.trades.each do |t| %>
+                      <% if t.accepted != true && t.accepted != false %>
+                        <h3> Pending Trades </h3>
+                          <p>I would like to swap for: <strong><%#= t.trade_type.name %></strong></p>
+                          <p><%= t.message %></p>
+                          <% if t.crop_pic.blank? %>
+                            <%= image_tag asset_url ("crop-default-image.png") %>
+                          <% else%>
+                            <%= image_tag t.crop_pic.url  %>
+                          <% end %>
+                          <button type="button" class="btn btn-success">
+                            <%=link_to 'Accept Trade', edit_trade_path(accepted: true)%>
+                          </button>
+                          <button type="button" class="btn btn-success">
+                            <%=link_to 'Reject Trade', edit_trade_path(accepted: false)%>
+                          </button>
+                      <% elsif t.accepted == true %>
+                        <h3> Accepted Trades </h3>
+                      <% else t.accepted == false %>
+                        <h3> Rejected Trades </h3>
+                      <% end %>
+                    <% end %>
+              </dl>
+            </div>
+            <div class="col-md-4">
+              <dl>
+                <% if crop.crop_pic.blank? %>
+                  <dt class="crop_name panel-body"><%= image_tag asset_url("crop-default-image.png") %></dt>
+                <% else %>
+                  <dt class="crop_name panel-body"><%= image_tag crop.crop_pic.url %></dt>
+                <% end %>
+              </dl>
+            </div>
           <% end %>
-        </dl>
-      </div>
-    </div>
-  <% end %>
+        </div>
+      <% end %>
+
+      <h3> Accepted Trade Crops </h3>
+        <% @user.crops.each do |crop| %>
+          <div class="row">
+            <div class="col-md-3">
+            </div>
+            <% if crop.trades.blank? %>
+              <div class="col-md-5 panel panel-default">
+                <dl>
+                  <dt class="crop_name panel-heading"><%=crop.crop_type.crop_type%></dt>
+                  <em>Posted on <%=crop.created_at.strftime("%b %d %Y")%></em>
+                  <dd class="details panel-body"> <%= crop.description %></dd>
+                  <dd class="details panel-body">Amount: <%= crop.weight %> lbs</dd>
+                  <%if crop.ripe_on.blank? == false%>
+                    <dd class="details panel-body">Ripe On: <%= crop.ripe_on %></dd>
+                  <%end%>
+                  <%if crop.ripe_on.blank? == false%>
+                    <dd class="details panel-body">Expires On: <%= crop.expires_on %></dd>
+                  <%end%>
+                      <% crop.trades.each do |t| %>
+                        <% if t.accepted != true && t.accepted != false %>
+                          <h3> Pending Trades </h3>
+                            <p>I would like to swap for: <strong><%#= t.trade_type.name %></strong></p>
+                            <p><%= t.message %></p>
+                            <% if t.crop_pic.blank? %>
+                              <%= image_tag asset_url ("crop-default-image.png") %>
+                            <% else%>
+                              <%= image_tag t.crop_pic.url  %>
+                            <% end %>
+                            <button type="button" class="btn btn-success">
+                              <%=link_to 'Accept Trade', edit_trade_path(accepted: true)%>
+                            </button>
+                            <button type="button" class="btn btn-success">
+                              <%=link_to 'Reject Trade', edit_trade_path(accepted: false)%>
+                            </button>
+                        <% elsif t.accepted == true %>
+                          <h3> Accepted Trades </h3>
+                        <% else t.accepted == false %>
+                          <h3> Rejected Trades </h3>
+                        <% end %>
+                      <% end %>
+                </dl>
+              </div>
+              <div class="col-md-4">
+                <dl>
+                  <% if crop.crop_pic.blank? %>
+                    <dt class="crop_name panel-body"><%= image_tag asset_url("crop-default-image.png") %></dt>
+                  <% else %>
+                    <dt class="crop_name panel-body"><%= image_tag crop.crop_pic.url %></dt>
+                  <% end %>
+                </dl>
+              </div>
+            <% end %>
+          </div>
+        <% end %>
 
 </div>
