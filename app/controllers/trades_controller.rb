@@ -4,7 +4,7 @@ class TradesController < ApplicationController
 
   # GET /trades
   def index
-    @trades = Trade.where(grower_id: session[:user_id]) || Trade.where(consumer_id: session[:user_id]) 
+    @trades = Trade.where(grower_id: session[:user_id]) || Trade.where(consumer_id: session[:user_id])
   end
 
   # GET /trades/1
@@ -40,6 +40,7 @@ class TradesController < ApplicationController
 
     if @trade.update(trade_params)
       if @trade.accepted == true
+        # @trade.reject_other_trades(crop)
         TradeMailer.accepted_trade(@consumer.email).deliver_now
       elsif @trade.accepted == false
         TradeMailer.rejected_trade(@consumer.email).deliver_now
