@@ -23,7 +23,7 @@ class TradesController < ApplicationController
   # POST /trades
   def create
     @trade = Trade.new(trade_params)
-    @grower = User.find_by_id(:grower_id)
+    @grower = User.find_by_id(@trade[:grower_id])
 
     if @trade.save
       TradeMailer.new_proposed_trade(@grower.email).deliver_now
@@ -35,8 +35,8 @@ class TradesController < ApplicationController
 
   # PATCH/PUT /trades/1
   def update
-    @consumer = User.find_by_id(:consumer_id)
-    @grower = User.find_by_id(:grower_id)
+    @consumer = User.find_by_id(@trade[:consumer_id])
+    @grower = User.find_by_id(@trade[:grower_id])
 
     if @trade.update(trade_params)
       if @trade.accepted == true
