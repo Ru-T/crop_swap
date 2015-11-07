@@ -31,7 +31,7 @@
               <% crop.trades.each do |t| %>
                 <% if t.accepted != true && t.accepted != false %>
                   <h3> Pending Trades </h3>
-                    <p>I would like to swap for: <strong><%= t.trade_type.name %></strong></p>
+                    <p>I would like to swap for: <strong><%#= t.trade_type.name %></strong></p>
                     <p><%= t.message %></p>
                     <% if t.crop_pic.blank? %>
                       <%= image_tag asset_url ("crop-default-image.png") %>
