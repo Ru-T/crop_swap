@@ -8,6 +8,8 @@ class Crop < ActiveRecord::Base
   validates :description, presence: true
   validates :weight, presence: true
   validates :crop_type_id, presence: true
+  validates :ripe_on, presence: true
+  validates :expires_on, presence: true
 
   #validates :trade_types, presence: true
 

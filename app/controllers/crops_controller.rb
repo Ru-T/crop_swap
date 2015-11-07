@@ -5,7 +5,7 @@ class CropsController < ApplicationController
 
   # GET /crops
   def index
-    @crops = Crop.all
+    @crops = Crop.where('expires_on >= ?', Date.today)
   end
 
   # GET /crops/1
