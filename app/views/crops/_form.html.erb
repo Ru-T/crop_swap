@@ -31,6 +31,14 @@
       <%= f.file_field :crop_pic %>
     </div>
     <div class="form-group">
+      <%= f.label :ripe_on, "Ripe On:", class: "col-md-4 control-label"%> <br>
+      <%= f.date_field :ripe_on %>
+    </div>
+    <div class="form-group">
+      <%= f.label :expires_on, "Expires On:", class: "col-md-4 control-label"%> <br>
+      <%= f.date_field :expires_on %>
+    </div>
+    <div class="form-group">
       <%= f.label :crop_type_id, "Crop Type:", class: "col-md-4 control-label" %>
       <div class="col-md-8">
         <%= f.collection_select :crop_type_id, CropType.all, :id, :crop_type, class: "form-control" %>
