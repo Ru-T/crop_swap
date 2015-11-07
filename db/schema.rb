@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151105163015) do
+ActiveRecord::Schema.define(version: 20151107021443) do
 
   create_table "crop_types", force: :cascade do |t|
     t.string   "crop_type"
@@ -68,6 +68,7 @@ ActiveRecord::Schema.define(version: 20151105163015) do
     t.string   "crop_pic_content_type"
     t.integer  "crop_pic_file_size"
     t.datetime "crop_pic_updated_at"
+    t.integer  "grower_id"
   end
 
   create_table "users", force: :cascade do |t|

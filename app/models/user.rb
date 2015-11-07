@@ -3,6 +3,7 @@ class User < ActiveRecord::Base
   validates :email, presence: true
 
   has_many :trades, foreign_key: "consumer_id"
+  has_many :trades, foreign_key: "grower_id"
   has_many :crops
 
   has_attached_file :profile_pic
