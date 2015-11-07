@@ -3,6 +3,7 @@ require 'test_helper'
 class CropsControllerTest < ActionController::TestCase
   setup do
     @crop = crops(:one)
+    session[:user_id] = users(one).id
   end
 
   test "should get index" do
