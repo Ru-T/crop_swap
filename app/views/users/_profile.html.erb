@@ -45,11 +45,17 @@
                   </label>
                 <% end %>
               </div>
-              <button type="button" class="btn btn-success">
-                <%=link_to 'Propose Trade', new_trade_path(crop_id: crop.id,
-                  consumer_id: @current_user.id, grower_id: crop.user_id) %>
-                  <!-- trade_type_id: crop.trade_type.id)  -->
-              </button>
+              <%#@current_user.trades.each do |t|%>
+                <%# if t.consumer_id == @current_user.id && t.crop_id == crop.id %>
+                  <!-- <p> Trade pending </p> -->
+                <%# else %>
+                  <button type="button" class="btn btn-success">
+                    <%=link_to 'Propose Trade', new_trade_path(crop_id: crop.id,
+                      consumer_id: @current_user.id, grower_id: crop.user_id) %>
+                      <!-- trade_type_id: crop.trade_type.id)  -->
+                  </button>
+                <%# end %>
+              <%# end %>
             </dl>
           </div>
           <div class="col-md-4">

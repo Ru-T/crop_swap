@@ -4,7 +4,7 @@ class Crop < ActiveRecord::Base
   has_and_belongs_to_many :trade_types
   has_many :trades
 
-  validates :trade_types, presence: true
+  #validates :trade_types, presence: true
 
   has_attached_file :crop_pic
   validates_attachment_content_type :crop_pic, content_type: /\Aimage\/.*\Z/

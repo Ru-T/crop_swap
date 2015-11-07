@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151107021443) do
+ActiveRecord::Schema.define(version: 20151107025421) do
 
   create_table "crop_types", force: :cascade do |t|
     t.string   "crop_type"
@@ -30,6 +30,8 @@ ActiveRecord::Schema.define(version: 20151107021443) do
     t.integer  "crop_pic_file_size"
     t.datetime "crop_pic_updated_at"
     t.integer  "crop_type_id"
+    t.date     "ripe_on"
+    t.date     "expires_on"
   end
 
   add_index "crops", ["crop_type_id"], name: "index_crops_on_crop_type_id"
