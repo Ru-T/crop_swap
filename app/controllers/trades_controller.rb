@@ -4,7 +4,7 @@ class TradesController < ApplicationController
 
   # GET /trades
   def index
-    @trades = Trade.where(consumer_id: session[:user_id]) && Trade.where(grower_id: session[:user_id])
+    @trades = Trade.where(grower_id: session[:user_id]) || Trade.where(consumer_id: session[:user_id]) 
   end
 
   # GET /trades/1
