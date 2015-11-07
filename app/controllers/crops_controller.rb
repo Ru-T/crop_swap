@@ -1,6 +1,6 @@
 class CropsController < ApplicationController
   before_action :set_crop, only: [:show, :edit, :update, :destroy]
-  before_action :logged_in
+  before_action :logged_in, except: [:index]
   # before_action :no_access, only: [:edit]
 
   # GET /crops

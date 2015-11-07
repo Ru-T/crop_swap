@@ -1,8 +1,8 @@
 <p id="notice"><%= notice %></p>
 
-<% @trades.each do |trade| %>
-  <% if trade.accepted != true %>
-    <h3> Pending Trades </h3>
+<h3> Pending Trades </h3>
+  <% @trades.each do |trade| %>
+    <% if trade.accepted != true && trade.accepted != false %>
       <table>
         <thead>
           <tr>
@@ -35,9 +35,9 @@
   <% end %>
 <% end %>
 
-<% @trades.each do |trade| %>
-  <% if trade.accepted == true %>
-    <h3> Accepted Trades </h3>
+<h3> Accepted Trades </h3>
+  <% @trades.each do |trade| %>
+    <% if trade.accepted == true %>
       <table>
         <thead>
           <tr>
@@ -69,9 +69,9 @@
   <% end %>
 <% end %>
 
-<% @trades.each do |trade| %>
-  <% if trade.accepted == false %>
-    <h3> Rejected Trades </h3>
+<h3> Rejected Trades </h3>
+  <% @trades.each do |trade| %>
+    <% if trade.accepted == false %>
       <table>
         <thead>
           <tr>
