@@ -1,104 +1,73 @@
 <p id="notice"><%= notice %></p>
 
-<h3> Pending Trades </h3>
-  <% @trades.each do |trade| %>
-    <% if trade.accepted != true && trade.accepted != false %>
-      <table>
-        <thead>
-          <tr>
-            <th>Trade type</th>
-            <th>Crop</th>
-            <th>Consumer</th>
-            <th>Accepted</th>
-            <th>Message</th>
-            <th>Message response</th>
-            <th colspan="3"></th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td><%= trade.trade_type_id %></td>
-            <td><%= trade.crop_id %></td>
-            <td><%= trade.consumer_id %></td>
-            <td><%= trade.accepted %></td>
-            <td><%= trade.message %></td>
-            <td><%= trade.message_response %></td>
-            <td><%= trade.crop.crop_type.crop_type %></td>
-            <td><%= trade.crop.description %></td>
-            <td><%= trade.crop.weight %></td>
-            <td><%= trade.crop.ripe_on %></td>
-            <td><%= trade.crop.expires_on %></td>
-            <td><%= link_to 'Edit', edit_trade_path(trade) %></td>
-          </tr>
-        </tbody>
-    </table>
-  <% end %>
-<% end %>
+<div class="container">
+  <div class="jumbotron">
+    <h1>Trades</h1>
+    <p class="text-center">The Status of Your Trades</p>
+  </div>
 
-<h3> Accepted Trades </h3>
-  <% @trades.each do |trade| %>
-    <% if trade.accepted == true %>
-      <table>
-        <thead>
-          <tr>
-            <th>Trade type</th>
-            <th>Crop</th>
-            <th>Consumer</th>
-            <th>Accepted</th>
-            <th>Message</th>
-            <th>Message response</th>
-            <th colspan="3"></th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td><%= trade.trade_type_id %></td>
-            <td><%= trade.crop_id %></td>
-            <td><%= trade.consumer_id %></td>
-            <td><%= trade.accepted %></td>
-            <td><%= trade.message %></td>
-            <td><%= trade.message_response %></td>
-            <td><%= trade.crop.crop_type.crop_type %></td>
-            <td><%= trade.crop.description %></td>
-            <td><%= trade.crop.weight %></td>
-            <td><%= trade.crop.ripe_on %></td>
-            <td><%= trade.crop.expires_on %></td>
-          </tr>
-        </tbody>
-    </table>
-  <% end %>
-<% end %>
+<div class="row">
+  <div class="col-md-4">
+    <h3> Pending Trades </h3>
+    </div>
+    <div class="col-md-8">
+      <% @trades.each do |trade| %>
+        <% if trade.accepted != true && trade.accepted != false %>
+          <p>Trade Type: <%= trade.trade_type_id %></p>
+          <p>Consumer: <%= trade.consumer_id %></p>
+          <p>Message: <%= trade.message %></p>
+          <p>Crop Type: <%= trade.crop.crop_type.crop_type %></p>
+          <p>Crop Description: <%= trade.crop.description %></p>
+          <p>Weight: <%= trade.crop.weight %></p>
+          <p>Ripe On: <%= trade.crop.ripe_on %></p>
+          <p>Expires On: <%= trade.crop.expires_on %></p>
+          <p><%= link_to 'Edit', edit_trade_path(trade) %></p>
+        <% end %>
+      <% end %>
+  </div>
+</div>
 
-<h3> Rejected Trades </h3>
-  <% @trades.each do |trade| %>
-    <% if trade.accepted == false %>
-      <table>
-        <thead>
-          <tr>
-            <th>Trade type</th>
-            <th>Crop</th>
-            <th>Consumer</th>
-            <th>Accepted</th>
-            <th>Message</th>
-            <th>Message response</th>
-            <th colspan="3"></th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td><%= trade.trade_type_id %></td>
-            <td><%= trade.crop_id %></td>
-            <td><%= trade.consumer_id %></td>
-            <td><%= trade.accepted %></td>
-            <td><%= trade.message %></td>
-            <td><%= trade.message_response %></td>
-            <td><%= trade.crop.crop_type.crop_type %></td>
-            <td><%= trade.crop.description %></td>
-            <td><%= trade.crop.weight %></td>
-            <td><%= trade.crop.ripe_on %></td>
-            <td><%= trade.crop.expires_on %></td>
-          </tr>
-        </tbody>
-    </table>
-  <% end %>
-<% end %>
+<div class="row">
+  <div class="col-md-4">
+    <h3> Accepted Trades </h3>
+  </div>
+  <div class="col-md-8">
+    <% @trades.each do |trade| %>
+      <% if trade.accepted == true %>
+        <p>Trade Type: <%= trade.trade_type_id %></p>
+        <p>Consumer: <%= trade.consumer_id %></p>
+        <p>Message: <%= trade.message %></p>
+        <p>Response: <%= trade.message_response %></p>
+        <p>Crop Type: <%= trade.crop.crop_type.crop_type %></p>
+        <p>Crop Description: <%= trade.crop.description %></p>
+        <p>Weight: <%= trade.crop.weight %></p>
+        <p>Ripe On: <%= trade.crop.ripe_on %></p>
+        <p>Expires On: <%= trade.crop.expires_on %></p>
+      <% end %>
+    <% end %>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-md-4">
+    <h3> Rejected Trades </h3>
+  </div>
+  <div class="col-md-8">
+    <% @trades.each do |trade| %>
+      <% if trade.accepted == false %>
+        <p>Trade Type: <%= trade.trade_type_id %></p>
+        <p>Consumer: <%= trade.consumer_id %></p>
+        <p>Message: <%= trade.message %></p>
+        <p>Response: <%= trade.message_response %></p>
+        <p>Crop Type: <%= trade.crop.crop_type.crop_type %></p>
+        <p>Crop Description: <%= trade.crop.description %></p>
+        <p>Weight: <%= trade.crop.weight %></p>
+        <p>Ripe On: <%= trade.crop.ripe_on %></p>
+        <p>Expires On: <%= trade.crop.expires_on %></p>
+      <% end %>
+    <% end %>
+  </div>
+</div>
+
+</div>
+</div>
