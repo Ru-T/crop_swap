@@ -19,8 +19,8 @@
   </div>
 
   <%@user.crops.each do |crop| %>
-    <%#if crop.trades.each do |t|%>
-      <%# crop.trades && t.accepted != true && t.accepted != false %>
+    <%if crop.trades.each do |t|%>
+      <% crop.trades.blank? == false && t.accepted != true && t.accepted != false %>
         <div class="row">
           <div class="col-md-3">
           </div>
@@ -70,7 +70,7 @@
             </dl>
           </div>
         </div>
-      <%#end %>
-    <%#end %>
+      <%end %>
+    <%end %>
   <% end %>
 </div>
