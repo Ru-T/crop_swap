@@ -4,8 +4,14 @@ one:
   user_id: 1
   description: MyText
   weight: 1
+  crop_type_id: 1
+  ripe_on: 2015-11-29
+  expires_on: 2015-12-01
 
 two:
   user_id: 1
   description: MyText
   weight: 1
+  crop_type_id: 2
+  ripe_on: 2015-11-29
+  expires_on: 2015-12-01

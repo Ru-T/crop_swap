@@ -3,7 +3,7 @@ require 'test_helper'
 class UsersControllerTest < ActionController::TestCase
   setup do
     @user = users(:one)
-    session[:user_id] = users(one).id
+    session[:user_id] = users(:one).id
   end
 
   test "should get index" do
@@ -19,10 +19,10 @@ class UsersControllerTest < ActionController::TestCase
 
   test "should create user" do
     assert_difference('User.count') do
-      post :create, user: { description: @user.description, email: @user.email, name: @user.name, password_digest: @user.password_digest, phone_number: @user.phone_number, zip_code: @user.zip_code }
+      post :create, user: { description: @user.description, email: @user.email, name: @user.name, password: "password", phone_number: @user.phone_number, zip_code: @user.zip_code }
     end
 
-    assert_redirected_to user_path(assigns(:user))
+    assert_redirected_to new_crop_path
   end
 
   test "should show user" do

@@ -1,7 +1,9 @@
 require 'test_helper'
 
 class TradeTest < ActiveSupport::TestCase
-  # test "the truth" do
+
+  # test "reject all trades" do
   #   assert true
   # end
+
 end

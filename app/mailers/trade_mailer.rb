@@ -10,7 +10,6 @@ class TradeMailer < ApplicationMailer
 
     mail to: email, subject: "A New Trade Has Been Proposed!",
     from: "cropswap@cropswap.com"
-    #mail to:
   end
 
   # Subject can be set in your I18n file at config/locales/en.yml
