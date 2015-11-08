@@ -32,7 +32,7 @@
 // });
 
 $(document).ready(function () {
-  var map = L.map('map', 'mapbox.streets')
+  var map = L.map('map', 'crops')
   .setView([35.994, -78.898], 9);
   L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}', {
     attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="http://mapbox.com">Mapbox</a>',
@@ -41,10 +41,18 @@ $(document).ready(function () {
     accessToken: 'pk.eyJ1IjoiZWJhaWRlbiIsImEiOiJjaWdtbHozMjEwMDA3bjlrb2gwaTY1ZThqIn0.w4-Mcgb3JXeCNLjFvigYDg',
 
 
+
   }).addTo(map);
 
   L.mapbox.accessToken = 'pk.eyJ1IjoiZWJhaWRlbiIsImEiOiJjaWdtbHozMjEwMDA3bjlrb2gwaTY1ZThqIn0.w4-Mcgb3JXeCNLjFvigYDg';
 
+
+
+  /*
+  needed for code  L.mapbox.featureLayer
+   */
+
+  //L.mapbox.featureLayer
 
     //var crops = [];
 
@@ -52,12 +60,14 @@ $(document).ready(function () {
         .bindPopup('Your Here')
         .openPopup();
 
-        var featureLayer = L.mapbox.tileLayer().addTo(map);
+        // var featureLayer = L.mapbox.tileLayer().addTo(map);
 
 
-$('#search').keyup(search);
+        var layer = L.mapbox.tileLayer('')
+        layer.on('ready', function() {
 
-;
+        })
+
 
 // function search() {
 //     // get the value of the search input field
@@ -84,6 +94,7 @@ $('#search').keyup(search);
 
 // https://api.mapbox.com/v4/{resource}.json?access_token=pk.eyJ1IjoiZWJhaWRlbiIsImEiOiJjaWdtZ3FnYjAwMjR5dWpsemRyYWNpdmlrIn0.XW3IoHY9t2AEg68CcrD2_Q
 
+// https://api.mapbox.com/v4/{resource}.json?secure=1
 
     // map.panTo(new L.LatLng(35.994, -78.898));
     // function searchByAjax(text, callResponse) {
