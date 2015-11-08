@@ -15,6 +15,7 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .
+//= require mapbox.js
 //
 // $(document).ready(function() {
 //   var map = L.map('map', {
@@ -37,26 +38,64 @@ $(document).ready(function () {
     attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="http://mapbox.com">Mapbox</a>',
     maxZoom: 18,
     id: 'ebaiden.cigmgqf43027nurkrnufjii94',
-    accessToken: 'pk.eyJ1IjoiZWJhaWRlbiIsImEiOiJjaWdtbHozMjEwMDA3bjlrb2gwaTY1ZThqIn0.w4-Mcgb3JXeCNLjFvigYDg'
+    accessToken: 'pk.eyJ1IjoiZWJhaWRlbiIsImEiOiJjaWdtbHozMjEwMDA3bjlrb2gwaTY1ZThqIn0.w4-Mcgb3JXeCNLjFvigYDg',
+
 
   }).addTo(map);
 
+  L.mapbox.accessToken = 'pk.eyJ1IjoiZWJhaWRlbiIsImEiOiJjaWdtbHozMjEwMDA3bjlrb2gwaTY1ZThqIn0.w4-Mcgb3JXeCNLjFvigYDg';
+
+
+    //var crops = [];
 
     L.marker([35.994, -78.898]).addTo(map)
         .bindPopup('Your Here')
         .openPopup();
 
-    //map.panTo(new L.LatLng(35.994, -78.898));
-    /*function searchByAjax(text, callResponse) {
-      return $.ajax({
-        url: '',
-        data: {crops: text},
-        dataType: 'json',
-        success: function(json) {
-            callResponse(json)
-        }
-      })
-    }
+        var featureLayer = L.mapbox.tileLayer().addTo(map);
 
-    	map.addControl( new L.Control.Search({sourceData: searchByAjax, text:'Color...', markerLocation: true}) ); */
+
+$('#search').keyup(search);
+
+;
+
+// function search() {
+//     // get the value of the search input field
+//     var searchString = $('#search').val().toLowerCase();
+//
+//     csvLayer.setFilter(showState);
+
+    // here we're simply comparing the 'state' property of each marker
+    // to the search string, seeing whether the former contains the latter.
+
+
+    // map.addControl( new L.Control.Search({layer: searchLayer}) );
+    //   initialize: function  (options) {
+    //     L.Util.setOptions(this, options);
+    //   },
+    //   onAdd: function (map) {
+    //
+    //   },
+    //   onRemove: function (map) {
+    //
+      //  }
+
+    // });
+
+// https://api.mapbox.com/v4/{resource}.json?access_token=pk.eyJ1IjoiZWJhaWRlbiIsImEiOiJjaWdtZ3FnYjAwMjR5dWpsemRyYWNpdmlrIn0.XW3IoHY9t2AEg68CcrD2_Q
+
+
+    // map.panTo(new L.LatLng(35.994, -78.898));
+    // function searchByAjax(text, callResponse) {
+    //   return $.ajax({
+    //     url: '',
+    //     data: {crops: text},
+    //     dataType: 'json',
+    //     success: function(json) {
+    //         callResponse(json)
+    //     }
+    //   })
+    // }
+
+    	// map.addControl( new L.Control.Search({sourceData: searchByAjax, text:'Color...', markerLocation: true}) );
 }); // end of the function
