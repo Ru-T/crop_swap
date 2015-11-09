@@ -51,6 +51,7 @@ GEM
     bootstrap-sass (3.3.5.1)
       autoprefixer-rails (>= 5.0.0.1)
       sass (>= 3.3.0)
+    bower-rails (0.10.0)
     builder (3.2.2)
     byebug (6.0.2)
     climate_control (0.0.3)
@@ -181,6 +182,7 @@ DEPENDENCIES
   aws-sdk (~> 1.6)
   bcrypt (~> 3.1.7)
   bootstrap-sass (~> 3.3.5)
+  bower-rails (~> 0.10.0)
   byebug
   coffee-rails (~> 4.1.0)
   d3_rails

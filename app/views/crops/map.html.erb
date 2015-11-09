@@ -1,8 +1,13 @@
-<div class="container">
+<div class="container leaftlet-container map">
   <h3 class="text-center">Search for Local Crops</h3>
     <p class="text-center">Ditch the supermarket and search for crops in your area. </p>
-    <input id='search' class='search-crops' placeholder='Enter Your Zip Code' />
-    <button type="submit" value="submit" class="find-crops">Find Crops</button>
+    <div class="leaflet-control-search leaftlet-control">
+      <label class="search-input" for="searhtext9"></label>
+      <input class="search-input" type="text" autocomplete="off" placeholder="Enter Your Zip" />
+      <a class="search-cancel" href="#" title="cancel"></a>
+      <a class="search-button" href="#" title="Enter Your Zip"></a>
+    </div>
+
     <!--  <a href="#" class="btn btn-info btn-lg"><span class="glyphicon glyphicon-search"></span> Search</a> -->
     <div id="map"></div>
     <input id='search' class='search-crops' placeholder='Enter Your Zip Code' />

@@ -9,7 +9,9 @@
 //
 // Read Sprockets README (https://github.com/rails/sprockets#sprockets-directives) for details
 // about supported directives.
-//
+/// Bower packages
+//= require d3/d3
+//= require underscore/underscore
 //= require leaflet
 //= require jquery
 //= require jquery_ujs
@@ -103,6 +105,9 @@ $(document).ready(function () {
 
 });
 
+
+// Leaftlet/map code
+
 $(document).ready(function () {
   var map = L.map('map', 'crops')
   .setView([35.994, -78.898], 9);
@@ -112,12 +117,38 @@ $(document).ready(function () {
     id: 'ebaiden.cigmgqf43027nurkrnufjii94',
     accessToken: 'pk.eyJ1IjoiZWJhaWRlbiIsImEiOiJjaWdtbHozMjEwMDA3bjlrb2gwaTY1ZThqIn0.w4-Mcgb3JXeCNLjFvigYDg',
 
-
-
   }).addTo(map);
 
-  L.mapbox.accessToken = 'pk.eyJ1IjoiZWJhaWRlbiIsImEiOiJjaWdtbHozMjEwMDA3bjlrb2gwaTY1ZThqIn0.w4-Mcgb3JXeCNLjFvigYDg';
 
+
+  // L.mapbox.accessToken = 'pk.eyJ1IjoiZWJhaWRlbiIsImEiOiJjaWdtbHozMjEwMDA3bjlrb2gwaTY1ZThqIn0.w4-Mcgb3JXeCNLjFvigYDg';
+  //
+  // L.Control.Search = L.Control.extend({
+  //
+  //   options {
+  //
+  //     url: 'localhost:3000/crops.json',
+  //     container: 'leaftlet-container',
+  //     position: 'topleft',
+  //     casesentitive: 'false',
+  //     markerLocation: 'true'
+  //
+  //
+  //   },
+  //   addTo: function (map) {
+
+		// if(this.options.container) {
+		// 	this._container = this.onAdd(map);
+		// 	this._wrapper = L.DomUtil.get(this.options.container);
+		// 	this._wrapper.style.position = 'relative';
+		// 	this._wrapper.appendChild(this._container);
+		// }
+		// else
+		// 	L.Control.prototype.addTo.call(this, map);
+    //
+		// return this;
+	// },
+  // }).addTo(map);
 
 
   /*
@@ -141,14 +172,6 @@ $(document).ready(function () {
         // });
 
 
-// function search() {
-//     // get the value of the search input field
-//     var searchString = $('#search').val().toLowerCase();
-//
-//     csvLayer.setFilter(showState);
-
-    // here we're simply comparing the 'state' property of each marker
-    // to the search string, seeing whether the former contains the latter.
 
 
     // map.addControl( new L.Control.Search({layer: searchLayer}) );
@@ -182,59 +205,3 @@ $(document).ready(function () {
 
     	// map.addControl( new L.Control.Search({sourceData: searchByAjax, text:'Color...', markerLocation: true}) );
 }); // end of the function
-
-// $(document).ready(function () {
-//   var margin = {top: 20, right: 30, bottom: 30, left: 40},
-//       width = 960 - margin.left - margin.right,
-//       height = 500 - margin.top - margin.bottom;
-//
-//   var x = d3.scale.ordinal()
-//       .rangeRoundBands([0, width], .1);
-//
-//   var y = d3.scale.linear()
-//       .range([height, 0]);
-//
-//   var xAxis = d3.svg.axis()
-//       .scale(x)
-//       .orient("bottom");
-//
-//   var yAxis = d3.svg.axis()
-//       .scale(y)
-//       .orient("left");
-//
-//   var chart = d3.select(".chart")
-//       .attr("width", width + margin.left + margin.right)
-//       .attr("height", height + margin.top + margin.bottom)
-//     .append("g")
-//       .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
-//
-//   d3.csv("/avgexpenses.csv", type, function(error, data) {
-//     x.domain(data.map(function(d) { return d.name; }));
-//     y.domain([0, d3.max(data, function(d) { return d.value; })]);
-//
-//     chart.append("g")
-//         .attr("class", "x axis")
-//         .attr("transform", "translate(0," + height + ")")
-//         .call(xAxis);
-//
-//     chart.append("g")
-//         .attr("class", "y axis")
-//         .call(yAxis);
-//
-//     chart.selectAll(".bar")
-//         .data(data)
-//       .enter().append("rect")
-//         .attr("class", "bar")
-//         .attr("x", function(d) { return x(d.name); })
-//         .attr("y", function(d) { return y(d.value); })
-//         .attr("height", function(d) { return height - y(d.value); })
-//         .attr("width", x.rangeBand());
-//   });
-//
-//   function type(d) {
-//     d.value = +d.value; // coerce to number
-//     return d;
-//   };
-//
-// });
-//
