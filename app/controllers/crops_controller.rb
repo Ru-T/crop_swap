@@ -11,13 +11,10 @@ class CropsController < ApplicationController
 
   def graph
   end
-  def data
-    respond_to do |format|
-      format.json {
-        render :json => [1,2,3,4,5]
-      }
-    end
+
+  def map
   end
+
   # GET /crops/1
   def show
   end

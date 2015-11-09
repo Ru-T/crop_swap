@@ -5,9 +5,7 @@ Rails.application.routes.draw do
   resources :crops
   resources :users
 
-
-  get 'crops/graph'
-
+  get 'map' => 'crops#map'
 
   get 'graph' => "crops#graph"
   get 'crops/data', :defaults => { :format => 'json' }
