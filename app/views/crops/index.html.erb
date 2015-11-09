@@ -3,30 +3,27 @@
 <div class="container">
   <div class="jumbotron">
     <h1>Browse for Local Crops</h1>
-    <p class="text-center">Ditch the supermarket and search for crops in your area. </p>
+    <p class="text-center">Ditch the supermarket and browse excess crops in your area. </p>
   </div>
 
-<div class="row">
-  <% @crops.each do |crop| %>
-      <div class="col-sm-3">
-        <div class="card card-block">
-          <img class="card-img-top" data-src="holder.js/100%x180/"> <%= image_tag crop.crop_pic.url %>
-          <h4 class="card-title"><%= crop.crop_type.crop_type %> </h4>
-          <p class="card-text"><%= crop.description %></p>
+  <div class="row">
+    <% @crops.each do |crop| %>
+        <div class="col-sm-3">
+          <div class="card card-block">
+            <img class="card-img-top" data-src="holder.js/100%x180/"> <%= image_tag crop.crop_pic.url %>
+            <h4 class="card-title"><%= crop.crop_type.crop_type %> </h4>
+            <p class="card-text"><%= crop.description %></p>
+          </div>
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item">Ripe On: <%= crop.ripe_on %></li>
+            <li class="list-group-item">Expires On: <%= crop.expires_on %></li>
+            <button type="button" class="btn btn-success">
+              <%=link_to 'Propose Swap', new_trade_path %>
+              <!-- #(crop_id: crop.id,consumer_id: @current_user.id, grower_id: crop.user_id, trade_type_id: "trade_type_id") %> -->
+            </button>
+          </ul>
         </div>
-        <ul class="list-group list-group-flush">
-          <li class="list-group-item">Ripe On: <%= crop.ripe_on %></li>
-          <li class="list-group-item">Expires On: <%= crop.expires_on %></li>
-          <button type="button" class="btn btn-success">
-            <%=link_to 'Propose Trade', new_trade_path %>
-            <!-- #(crop_id: crop.id,consumer_id: @current_user.id, grower_id: crop.user_id, trade_type_id: "trade_type_id") %> -->
-          </button>
-        </ul>
-      </div>
-  <% end %>
-</div>
+    <% end %>
+  </div>
 
-  <br>
-
-  <%= link_to 'New Crop', new_crop_path %>
 </div>
