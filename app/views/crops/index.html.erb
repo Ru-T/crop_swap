@@ -17,7 +17,10 @@
         <ul class="list-group list-group-flush">
           <li class="list-group-item">Ripe On: <%= crop.ripe_on %></li>
           <li class="list-group-item">Expires On: <%= crop.expires_on %></li>
-          <a href="#" class="btn btn-primary">Propose Swap</a>
+          <button type="button" class="btn btn-success">
+            <%=link_to 'Propose Trade', new_trade_path %>
+            <!-- #(crop_id: crop.id,consumer_id: @current_user.id, grower_id: crop.user_id, trade_type_id: "trade_type_id") %> -->
+          </button>
         </ul>
       </div>
   <% end %>
