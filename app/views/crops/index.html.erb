@@ -13,7 +13,7 @@
     <% @crops.each do |crop| %>
       <div class="col-sm-3">
         <div class="card">
-          <img class="card-img-top" data-src="holder.js/100%x180/"> <%= image_tag crop.crop_pic.url %>
+          <img class="card-img-top" style="width:210;height:210px;" data-src="holder.js/100%x180/"> <%= image_tag crop.crop_pic.url %></img>
           <h4 class="card-title"><%= crop.crop_type.crop_type %> </h4>
           <p class="card-text"><%= crop.description %></p>
           <% if crop.about_to_expire? %>
