@@ -9,9 +9,7 @@
 //
 // Read Sprockets README (https://github.com/rails/sprockets#sprockets-directives) for details
 // about supported directives.
-/// Bower packages
-//= require d3/d3
-//= require underscore/underscore
+
 //= require leaflet
 //= require jquery
 //= require jquery_ujs
@@ -60,23 +58,12 @@ $(document).ready(function () {
   //   .style("font-size","12px")
   //   .call(d3.legend);
   //
-  //
-  var color_hash = {  0 : ["apple", "green"],
-  1 : ["mango", "orange"],
-  2 : ["cherry", "red"]
-}
-//
-// var legend = svg.append("g")
-// 	  .attr("class", "legend")
-// 	  .attr("x", width - 65)
-// 	  .attr("y", 25)
-// 	  .attr("height", 100)
-// 	  .attr("width", 100);
+//   //
+//   var color_hash = {  0 : ["apple", "green"],
+//   1 : ["mango", "orange"],
+//   2 : ["cherry", "red"]
+// }
 
-  //
-  // legend.selectAll('circle')
-  //     .data(dataset)
-  //     .enter()
 
   var x = d3.scale.linear()
       .domain([0, 1000000])
@@ -118,7 +105,26 @@ $(document).ready(function () {
     accessToken: 'pk.eyJ1IjoiZWJhaWRlbiIsImEiOiJjaWdtbHozMjEwMDA3bjlrb2gwaTY1ZThqIn0.w4-Mcgb3JXeCNLjFvigYDg',
 
   }).addTo(map);
+  var data = [{
+      "id": 4,
+      "user_id": 1,
+      "crop_type_id": 1,
+      "description": "This potato is delectable. You want to trade me for this beet.",
+      "weight": 3,
+      "url": "http://localhost:3000/crops/4.json"
+    },
+    {
+      "id": 5,
+      "user_id": 2,
+      "crop_type_id": 2,
+      "description": "This tomato is delectable. You want to trade me for this beet.",
+      "weight": 2,
+      "url": "http://localhost:3000/crops/5.json"
+    }];
 
+  console.log(data);
+
+  var map = new L.Map('map', {zoom: 9, center: new L.latLng(data[0].loc) });
 
 
   // L.mapbox.accessToken = 'pk.eyJ1IjoiZWJhaWRlbiIsImEiOiJjaWdtbHozMjEwMDA3bjlrb2gwaTY1ZThqIn0.w4-Mcgb3JXeCNLjFvigYDg';
