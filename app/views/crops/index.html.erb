@@ -1,39 +1,29 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Listing Crops</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>User</th>
-      <th>Description</th>
-      <th>Weight</th>
-      <th>Crop Type Id</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @crops.each do |crop| %>
-      <tr>
-        <td><%= crop.user_id %></td>
-        <td><%= crop.description %></td>
-        <td><%= crop.weight %></td>
-        <td><%= crop.crop_type_id %></td>
-        <td><%= link_to 'Show', crop %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'Post A Crop', new_crop_path %>
-
 <div class="container">
   <div class="jumbotron">
-    <h1>Search for Local Crops</h1>
-    <p>Ditch the supermarket and search for crops in your area. </p>
-    <a href="#" class="btn btn-info btn-lg"><span class="glyphicon glyphicon-search"></span> Search</a>
+    <h1>Browse for Local Crops</h1>
+    <p class="text-center">Ditch the supermarket and search for crops in your area. </p>
   </div>
+
+<div class="row">
+  <% @crops.each do |crop| %>
+      <div class="col-sm-3">
+        <div class="card card-block">
+          <img class="card-img-top" data-src="holder.js/100%x180/"> <%= image_tag crop.crop_pic.url %>
+          <h4 class="card-title"><%= crop.crop_type.crop_type %> </h4>
+          <p class="card-text"><%= crop.description %></p>
+        </div>
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item">Ripe On: <%= crop.ripe_on %></li>
+          <li class="list-group-item">Expires On: <%= crop.expires_on %></li>
+          <a href="#" class="btn btn-primary">Propose Swap</a>
+        </ul>
+      </div>
+  <% end %>
+</div>
+
+  <br>
+
+  <%= link_to 'New Crop', new_crop_path %>
 </div>
