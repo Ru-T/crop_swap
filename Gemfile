@@ -39,6 +39,8 @@ gem 'd3_rails'
 
 gem 'remove_tl'
 
+gem 'where-or'
+
 gem 'puma'
 
 group :production do

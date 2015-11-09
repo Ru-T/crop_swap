@@ -11,7 +11,8 @@ class Trade < ActiveRecord::Base
 
   def reject_other_trades
     if self.accepted == true
-      Trade.where(crop_id: self.crop_id).where.not(consumer_id: self.consumer_id).where.not(accepted: true).update_all(accepted: false)
+      Trade.where(crop_id: self.crop_id).where.not(consumer_id: self.consumer_id).
+        where.not(accepted: true).update_all(accepted: false)
     end
   end
 
