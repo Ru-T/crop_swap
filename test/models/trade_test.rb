@@ -18,7 +18,9 @@ class TradeTest < ActiveSupport::TestCase
 
     t1.accepted = true
     t1.save
-    
+
+    t2.reload
+
     assert_equal false, t2.accepted
   end
 
