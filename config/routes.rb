@@ -5,6 +5,8 @@ Rails.application.routes.draw do
   resources :crops
   resources :users
 
+  get 'crops/graph'
+
   get 'session/new'
   post 'session/create'
   delete 'session/destroy'

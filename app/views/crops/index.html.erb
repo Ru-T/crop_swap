@@ -11,10 +11,8 @@
         <div class="col-sm-3">
           <div class="card">
             <img class="card-img-top" data-src="holder.js/100%x180/"> <%= image_tag crop.crop_pic.url %>
-            <div class-"card-block"
-              <h4 class="card-title"><%= crop.crop_type.crop_type %> </h4>
-              <p class="card-text"><%= crop.description %></p>
-            </div>
+            <h4 class="card-title"><%= crop.crop_type.crop_type %> </h4>
+            <p class="card-text"><%= crop.description %></p>
           </div>
           <ul class="list-group list-group-flush">
             <li class="list-group-item">Ripe On: <%= crop.ripe_on %></li>
