@@ -119,6 +119,17 @@ $(document).ready(function () {
 
   L.mapbox.accessToken = 'pk.eyJ1IjoiZWJhaWRlbiIsImEiOiJjaWdtbHozMjEwMDA3bjlrb2gwaTY1ZThqIn0.w4-Mcgb3JXeCNLjFvigYDg';
 
+  // function searchByAjax(text, callResponse) {
+  //   L.control.Search({
+  //   		url: 'http://cropswap.herokuapp.com/crops.json/',
+  //   		text: 'Color...',
+  //   		collapsed: false,
+  //   		markerLocation: true,
+  //   		markerIcon: new L.Icon({iconUrl:'data/custom-icon.png', iconSize: [20,20]})
+  //   	}).addTo(map);
+  // };
+
+
 
 
   /*
