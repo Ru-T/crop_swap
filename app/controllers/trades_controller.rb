@@ -47,7 +47,7 @@ class TradesController < ApplicationController
       else
         TradeMailer.modified_trade(@grower.email).deliver_now
       end
-      redirect_to @trade, notice: 'Trade was successfully updated.'
+      redirect_to trades_path, notice: 'Trade was successfully updated.'
     else
       render :edit
     end
