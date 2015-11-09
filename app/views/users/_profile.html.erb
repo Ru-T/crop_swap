@@ -28,12 +28,8 @@
           <em>Posted on <%=crop.created_at.strftime("%b %d %Y")%></em>
           <dd class="details panel-body"> <%= crop.description %></dd>
           <dd class="details panel-body">Amount: <%= crop.weight %> lbs</dd>
-          <%if crop.ripe_on.blank? == false%>
-            <dd class="details panel-body">Ripe On: <%= crop.ripe_on %></dd>
-          <%end%>
-          <%if crop.ripe_on.blank? == false%>
-            <dd class="details panel-body">Expires On: <%= crop.expires_on %></dd>
-          <%end%>
+          <dd class="details panel-body">Ripe On: <%= crop.ripe_on %></dd>
+          <dd class="details panel-body">Expires On: <%= crop.expires_on %></dd>
           <div>
             <% crop.trade_types.each do |tt| %>
               <label class="radio-inline">
@@ -49,6 +45,7 @@
               </label>
             <% end %>
           </div>
+          <!--  placeholder for if user already has open trade on this crop -->
           <button type="button" class="btn btn-success">
             <%=link_to 'Propose Swap', new_trade_path(crop_id: crop.id,
               consumer_id: @current_user.id, grower_id: crop.user_id, trade_type_id: "trade_type_id") %>

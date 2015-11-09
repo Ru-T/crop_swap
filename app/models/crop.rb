@@ -14,4 +14,12 @@ class Crop < ActiveRecord::Base
   has_attached_file :crop_pic
   validates_attachment_content_type :crop_pic, content_type: /\Aimage\/.*\Z/
 
+  def is_ripe?
+    return true if Date.today >= self.ripe_on && Date.today < self.expires_on
+  end
+
+  def about_to_expire?
+    return true if Date.today < self.expires_on && Date.today > self.expires_on - 3.days #by less than 3 days
+  end
+
 end

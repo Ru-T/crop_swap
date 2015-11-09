@@ -1,5 +1,4 @@
-<main class="container crop-form">
-
+<div class="container">
   <%= form_for @crop  do |f| %>
     <% if @crop.errors.any? %>
       <div id="error_explanation">
@@ -11,10 +10,8 @@
           </ul>
       </div>
     <% end %>
-  <body class="backg">
-<div class="backg">
 
-    <h1>Post A Crop</h1>
+  <h1>Post A Crop</h1>
     <div class="form-group">
       <%= f.label :weight, "Weight:", class: "col-md-4 control-label" %>
       <div class="col-md-8">
@@ -59,5 +56,4 @@
 
   <% end %>
 
-  </main> <!-- end of main.container -->
-</body>
+</div> <!-- end of main.container -->

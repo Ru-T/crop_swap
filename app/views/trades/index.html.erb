@@ -15,6 +15,7 @@
         <% if trade.accepted != true && trade.accepted != false %>
           <p>Swap Type: <%= trade.trade_type_id %></p>
           <p>Consumer: <%= trade.consumer_id %></p>
+          <p>Grower: <%= trade.grower_id %></p>
           <p>Message: <%= trade.message %></p>
           <p>Crop Type: <%= trade.crop.crop_type.crop_type %></p>
           <p>Crop Description: <%= trade.crop.description %></p>
@@ -36,6 +37,7 @@
       <% if trade.accepted == true %>
         <p>Swap Type: <%= trade.trade_type_id %></p>
         <p>Consumer: <%= trade.consumer_id %></p>
+        <p>Grower: <%= trade.grower_id %></p>
         <p>Message: <%= trade.message %></p>
         <p>Response: <%= trade.message_response %></p>
         <p>Crop Type: <%= trade.crop.crop_type.crop_type %></p>
