@@ -64,6 +64,8 @@ GEM
       coffee-script-source
       execjs
     coffee-script-source (1.9.1.1)
+    d3_rails (3.5.6)
+      railties (>= 3.1.0)
     debug_inspector (0.0.2)
     erubis (2.7.0)
     execjs (2.6.0)
@@ -178,6 +180,7 @@ DEPENDENCIES
   bootstrap-sass (~> 3.3.5)
   byebug
   coffee-rails (~> 4.1.0)
+  d3_rails
   faker
   httparty
   jquery-rails

@@ -141,7 +141,7 @@ input#password:focus {
 
 #map {
   height: 500px;
-  width: 100%;
+  width: 800px;
   top: 0;
   bottom: 0;
   border-radius: .3;
@@ -152,4 +152,48 @@ input#password:focus {
   top:10px;
   right:10px;
   z-index:1000;
+  }
+
+  svg {
+    width: 1000px;
+    height: 500px;
+    border: 1px solid lightgrey;
+    font-family: sans-serif;
+    font-weight: 200;
+    font-size: 12px;
+  }
+
+  path {
+    stroke: black;
+    fill: none;
+  }
+
+  .tick {
+    stroke: black;
+  }
+
+  circle {
+    stroke: darkblue;
+    fill: lightblue;
+  }
+  .bar {
+    fill: steelblue;
+  }
+
+  .bar:hover {
+    fill: brown;
+  }
+
+  .axis {
+    font: 10px sans-serif;
+  }
+
+  .axis path,
+  .axis line {
+    fill: none;
+    stroke: #000;
+  }
+
+  .x.axis path {
+    display: none;
   }

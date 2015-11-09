@@ -35,6 +35,8 @@ gem 'bootstrap-sass', '~> 3.3.5'
 gem 'leaflet-rails'
 gem 'mapbox-rails'
 
+gem 'd3_rails'
+
 
 gem 'puma'
 
