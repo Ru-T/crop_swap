@@ -16,6 +16,13 @@ class Crop < ActiveRecord::Base
   has_attached_file :crop_pic
   validates_attachment_content_type :crop_pic, content_type: /\Aimage\/.*\Z/
 
+  # def reject_other_trades
+  #   c = Crop.find(id: crop.id)
+  #   c.trades.each do |t|
+  #     if t.accepted == true
+  #
+  # end
+
   # def accepted_trade(crop)
   #   if crop.trades.blank? == false
   #     crop.trades.each do |t|
