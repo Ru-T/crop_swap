@@ -105,26 +105,21 @@ $(document).ready(function () {
     accessToken: 'pk.eyJ1IjoiZWJhaWRlbiIsImEiOiJjaWdtbHozMjEwMDA3bjlrb2gwaTY1ZThqIn0.w4-Mcgb3JXeCNLjFvigYDg',
 
   }).addTo(map);
-  var data = [{
-      "id": 4,
-      "user_id": 1,
-      "crop_type_id": 1,
-      "description": "This potato is delectable. You want to trade me for this beet.",
-      "weight": 3,
-      "url": "http://localhost:3000/crops/4.json"
-    },
-    {
-      "id": 5,
-      "user_id": 2,
-      "crop_type_id": 2,
-      "description": "This tomato is delectable. You want to trade me for this beet.",
-      "weight": 2,
-      "url": "http://localhost:3000/crops/5.json"
-    }];
 
-  console.log(data);
 
-  var map = new L.Map('map', {zoom: 9, center: new L.latLng(data[0].loc) });
+  var markersLayer = new L.LayerGroup();
+      map.addLayer(markersLayer);
+
+      L.marker([35.994, -78.898]).addTo(map)
+          .bindPopup('You are Here')
+          .openPopup();
+
+// 
+// var description = addressPoints[0].description,
+//     testMarker = new L.Marker(new [34, -77], {weight: weight});
+//     testMarker.bindPopup('weight' + weight);
+
+
 
 
   // L.mapbox.accessToken = 'pk.eyJ1IjoiZWJhaWRlbiIsImEiOiJjaWdtbHozMjEwMDA3bjlrb2gwaTY1ZThqIn0.w4-Mcgb3JXeCNLjFvigYDg';
@@ -165,9 +160,6 @@ $(document).ready(function () {
 
     //var crops = [];
 
-    L.marker([35.994, -78.898]).addTo(map)
-        .bindPopup('You are Here')
-        .openPopup();
 
         // var featureLayer = L.mapbox.tileLayer().addTo(map);
 
