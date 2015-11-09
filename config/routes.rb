@@ -5,7 +5,12 @@ Rails.application.routes.draw do
   resources :crops
   resources :users
 
+
   get 'crops/graph'
+
+
+  get 'graph' => "crops#graph"
+  get 'crops/data', :defaults => { :format => 'json' }
 
   get 'session/new'
   post 'session/create'

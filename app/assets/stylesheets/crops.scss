@@ -50,3 +50,44 @@ h1 {
 .crop-button:hover {
   background-color: #CF6622;
 }
+
+.jumbotron {
+  position: relative;
+  height: 100%;
+  width: 100%;
+  background-color: #D9CAA5;
+}
+
+.search-crops {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  z-index: 1000;
+  margin-right: 600px;
+}
+
+.find-crops {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  z-index: 1000;
+  margin-right: 510px;
+  background-color: #d37538;
+  font-weight: bolder;
+}
+
+.find-crops:hover {
+  background-color: #CF6622;
+}
+
+.search-crops:focus {
+  background-color: #ffef99;
+}
+
+h3 {
+  text-align: center;
+}
+
+p {
+  text-align: center;
+}

@@ -9,6 +9,15 @@ class CropsController < ApplicationController
     # @current_user = User.find_by_id(session[:user_id])
   end
 
+  def graph
+  end
+  def data
+    respond_to do |format|
+      format.json {
+        render :json => [1,2,3,4,5]
+      }
+    end
+  end
   # GET /crops/1
   def show
   end
