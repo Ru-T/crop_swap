@@ -13,7 +13,7 @@
     <div class="col-md-8">
       <% @trades.each do |trade| %>
         <% if trade.accepted != true && trade.accepted != false %>
-          <p>Trade Type: <%= trade.trade_type_id %></p>
+          <p>Swap Type: <%= trade.trade_type_id %></p>
           <p>Consumer: <%= trade.consumer_id %></p>
           <p>Message: <%= trade.message %></p>
           <p>Crop Type: <%= trade.crop.crop_type.crop_type %></p>
@@ -34,7 +34,7 @@
   <div class="col-md-8">
     <% @trades.each do |trade| %>
       <% if trade.accepted == true %>
-        <p>Trade Type: <%= trade.trade_type_id %></p>
+        <p>Swap Type: <%= trade.trade_type_id %></p>
         <p>Consumer: <%= trade.consumer_id %></p>
         <p>Message: <%= trade.message %></p>
         <p>Response: <%= trade.message_response %></p>
@@ -55,7 +55,7 @@
   <div class="col-md-8">
     <% @trades.each do |trade| %>
       <% if trade.accepted == false %>
-        <p>Trade Type: <%= trade.trade_type_id %></p>
+        <p>Swap Type: <%= trade.trade_type_id %></p>
         <p>Consumer: <%= trade.consumer_id %></p>
         <p>Message: <%= trade.message %></p>
         <p>Response: <%= trade.message_response %></p>

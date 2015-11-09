@@ -20,7 +20,7 @@
   </div>
 
 
-  <h3> Pending Trade Crops </h3>
+  <h3> Pending Swap Crops </h3>
     <% @user.crops.each do |crop| %>
       <div class="row">
         <div class="col-md-3">
@@ -49,10 +49,10 @@
                           <%= image_tag t.crop_pic.url  %>
                         <% end %>
                         <button type="button" class="btn btn-success">
-                          <%=link_to 'Accept Trade', edit_trade_path(accepted: true)%>
+                          <%=link_to 'Accept Swap', edit_trade_path(accepted: true)%>
                         </button>
                         <button type="button" class="btn btn-success">
-                          <%=link_to 'Reject Trade', edit_trade_path(accepted: false)%>
+                          <%=link_to 'Reject Swap', edit_trade_path(accepted: false)%>
                         </button>
                     <% elsif t.accepted == true %>
                       <h3> Accepted Trades </h3>
@@ -75,7 +75,7 @@
       </div>
     <% end %>
 
-    <h3> No Trade Crops </h3>
+    <h3> No Swap Crops </h3>
       <% @user.crops.each do |crop| %>
         <div class="row">
           <div class="col-md-3">
@@ -95,7 +95,7 @@
                 <%end%>
                     <% crop.trades.each do |t| %>
                       <% if t.accepted != true && t.accepted != false %>
-                        <h3> Pending Trades </h3>
+                        <h3> Pending Swaps </h3>
                           <p>I would like to swap for: <strong><%#= t.trade_type.name %></strong></p>
                           <p><%= t.message %></p>
                           <% if t.crop_pic.blank? %>
@@ -104,15 +104,15 @@
                             <%= image_tag t.crop_pic.url  %>
                           <% end %>
                           <button type="button" class="btn btn-success">
-                            <%=link_to 'Accept Trade', edit_trade_path(accepted: true)%>
+                            <%=link_to 'Accept Swap', edit_trade_path(accepted: true)%>
                           </button>
                           <button type="button" class="btn btn-success">
-                            <%=link_to 'Reject Trade', edit_trade_path(accepted: false)%>
+                            <%=link_to 'Reject Swap', edit_trade_path(accepted: false)%>
                           </button>
                       <% elsif t.accepted == true %>
-                        <h3> Accepted Trades </h3>
+                        <h3> Accepted Swaps </h3>
                       <% else t.accepted == false %>
-                        <h3> Rejected Trades </h3>
+                        <h3> Rejected Swaps </h3>
                       <% end %>
                     <% end %>
               </dl>
