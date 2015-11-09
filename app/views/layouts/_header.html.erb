@@ -5,6 +5,7 @@
       <div class="navbar-header">
         <a class="navbar-brand" href="<%= crops_path %>"><%= image_tag asset_url ("cropswap-logo.png") %></a>
       </div>
+      <% if session[:user_id]%>
         <div>
           <ul class="nav navbar-nav">
             <li><a href="<%= @current_user %>">Profile</a></li>
@@ -12,6 +13,10 @@
             <li><a href="<%= crops_path %>">Browse Crops</a></li>
             <li><a href="<%= graph_path %>">Metrics</a></li>
           </ul>
+          <span class="navbar-right"><%= link_to 'Logout', session_destroy_path, method: :delete, class: "nav-text"%></span>
+        <% else %>
+          <span class="navbar-right"> <%= link_to "Log in", session_new_path, class: "nav-text" %> </span>
+        <% end %>
       <!-- <div class="crops-btn btn-group">
 
   <header class="navbar-fixed-top">
@@ -30,11 +35,8 @@ feature--last-button
       </div> -->
 
 
-            <% if session[:user_id]%>
-              <span class="navbar-right"><%= link_to 'Logout', session_destroy_path, method: :delete, class: "nav-text"%></span>
-            <% else %>
-              <span class="navbar-right"> <%= link_to "Log in", session_new_path, class: "nav-text" %> </span>
-            <% end %>
+        
+
         </div>
     </div>
   </nav>

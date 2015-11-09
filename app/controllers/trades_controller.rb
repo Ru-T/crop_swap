@@ -1,6 +1,7 @@
 class TradesController < ApplicationController
   before_action :set_trade, only: [:show, :edit, :update, :destroy]
   before_action :no_edit, only: [:edit]
+  before_action :logged_in
 
   # GET /trades
   def index

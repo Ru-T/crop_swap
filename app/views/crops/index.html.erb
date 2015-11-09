@@ -19,10 +19,9 @@
           </div>
           <ul class="list-group list-group-flush">
             <li class="list-group-item">Ripe On: <%= crop.ripe_on %></li>
-            <li class="list-group-item">Expires On: <%= crop.expires_on %></li>
+            <li class="list-group-item">Expires On: <%= crop.expires_on %></li>    
             <button type="button" class="btn btn-success">
               <%= link_to 'View Crop', crop %></td>
-
               <!-- #(crop_id: crop.id,consumer_id: @current_user.id, grower_id: crop.user_id, trade_type_id: "trade_type_id") %> -->
             </button>
           </ul>
