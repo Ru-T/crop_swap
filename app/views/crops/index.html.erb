@@ -9,7 +9,6 @@
     </button>
   </div>
 
-<div class="card-columns">
   <div class="row">
     <% @crops.each do |crop| %>
       <div class="col-sm-3">
@@ -17,6 +16,11 @@
           <img class="card-img-top" data-src="holder.js/100%x180/"> <%= image_tag crop.crop_pic.url %>
           <h4 class="card-title"><%= crop.crop_type.crop_type %> </h4>
           <p class="card-text"><%= crop.description %></p>
+          <% if crop.about_to_expire? %>
+            <p> ABOUT TO EXPIRE! </p>
+          <% elsif crop.is_ripe? %>
+            <p> RIPE NOW! </p>
+          <% end %>
         </div>
         <ul class="list-group list-group-flush">
           <li class="list-group-item">Ripe On: <%= crop.ripe_on %></li>
@@ -28,4 +32,3 @@
       </div>
     <% end %>
   </div>
-</div>

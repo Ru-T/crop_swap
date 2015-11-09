@@ -12,8 +12,6 @@ class Trade < ActiveRecord::Base
   def reject_other_trades
     if self.accepted == true
       Trade.where(crop_id: self.crop_id).where.not(id: self.id).update_all(accepted: false)
-      # (self.crop.trades - [self]).each &:reject!
-      # self.crop.trades.reject{|t| t != self}.each &:reject!
     end
   end
 
