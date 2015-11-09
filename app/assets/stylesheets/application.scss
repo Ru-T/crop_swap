@@ -80,10 +80,9 @@ body {
 
   }
 
-body.backg {
-  background: image-url('veggie1.jpg') no-repeat center center fixed;
-}
-
+  body.backg {
+    background: image-url('veggie1.jpg') no-repeat center center fixed;
+  }
 
   .login-button {
     background-color: #d37538;
@@ -92,67 +91,66 @@ body.backg {
     margin-left: 50px;
   }
 
+  .login-button:hover {
+    background-color: #CF6622;
+  }
 
-.login-button:hover {
-  background-color: #CF6622;
-}
+  .img {
+    vertical-align: text-top;
 
-.img {
-  vertical-align: text-top;
+  }
 
-}
+  a.nav-text {
+    float: right;
+    padding-right: 10px;
+    margin-top: 18px;
+  }
 
-a.nav-text {
-  float: right;
-  padding-right: 10px;
-  margin-top: 18px;
-}
+  button.btn.btn-default.btn-sm.dropdown-toggle {
+    margin-left: 900px;
+    background-color: #d37538;
+  }
 
-button.btn.btn-default.btn-sm.dropdown-toggle {
-  margin-left: 900px;
-  background-color: #d37538;
-}
+  button.btn.btn-default.btn-sm.dropdown-toggle:hover {
+    background-color: #CF6622;
+  }
 
-button.btn.btn-default.btn-sm.dropdown-toggle:hover {
-  background-color: #CF6622;
-}
+  input#email {
+    margin-left: 53px;
+    height: 25px;
+    width: 55%;
+  }
 
-input#email {
-  margin-left: 53px;
-  height: 25px;
-  width: 55%;
-}
+  input#email:focus {
+    background-color: #ffef99;
 
-input#email:focus {
-  background-color: #ffef99;
+  }
 
-}
+  input#password {
+    margin-left: 25px;
+    width: 55%;
+  }
 
-input#password {
-  margin-left: 25px;
-  width: 55%;
-}
-
-input#password:focus {
-  background-color: #ffef99;
-}
+  input#password:focus {
+    background-color: #ffef99;
+  }
 
 // map for leaflet
 
-#map {
-  height: 500px;
-  width: 800px;
-  top: 0;
-  bottom: 0;
-  border-radius: .3;
-}
-
-.search-ui {
-  position:absolute;
-  top:10px;
-  right:10px;
-  z-index:1000;
+  #map {
+    height: 500px;
+    width: 800px;
+    top: 0;
+    bottom: 0;
+    border-radius: .3;
   }
+
+  .search-ui {
+    position:absolute;
+    top:10px;
+    right:10px;
+    z-index:1000;
+    }
 
   svg {
     width: 1000px;
