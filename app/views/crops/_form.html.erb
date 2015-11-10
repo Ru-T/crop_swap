@@ -1,5 +1,5 @@
   <div class="container browse-crops">
-
+      <br>
       <div class="jumbotron">
         <div class="header text-center">Post An Excess Crop</div>
         <p class="text-center">Ditch the supermarket and browse excess crops in your area. </p>
@@ -69,27 +69,27 @@
 
         <div class="row crop-form-label">
           <h4 class="post-crop-title">What are you willing to swap?</h4>
-            <div class="col-md-4">
+        </div>
+        <div class="row">
+          <% TradeType.all.each do |t| %>
+            <div class="col-md-3">
+              <div class="form-group crop-types">
+                <%= check_box_tag 'trade_types[]', t.id, @crop.trade_types.include?(t) %>
+                <% if t.id == 1 %>
+                  <%= t.name %> <span class="glyphicon glyphicon-apple" aria-hidden="true"></span>
+                <% elsif t.id == 2 %>
+                  <%= t.name %> <span class="glyphicon glyphicon-time" aria-hidden="true"></span>
+                <% else%>
+                  <%= t.name %> <span class="glyphicon glyphicon-leaf" aria-hidden="true"></span>
+                <% end %>
+              </div>
             </div>
-            <div class="row">
-              <% TradeType.all.each do |t| %>
-                <div class="col-md-2">
-                  <div class="form-group">
-                    <%= check_box_tag 'trade_types[]', t.id, @crop.trade_types.include?(t) %>
-                    <% if t.id == 1 %>
-                      <%= t.name %> <span class="glyphicon glyphicon-apple" aria-hidden="true"></span>
-                    <% elsif t.id == 2 %>
-                      <%= t.name %> <span class="glyphicon glyphicon-time" aria-hidden="true"></span>
-                    <% else%>
-                      <%= t.name %> <span class="glyphicon glyphicon-leaf" aria-hidden="true"></span>
-                    <% end %>
-                  </div>
-                </div>
-              <% end %>
-            </div>
+          <% end %>
+        </div>
         </div>
 
         <span class="crop-form-label"><%= f.submit "Post A Crop", class: "crop-button" %></span>
+
 
       <% end %>
 
