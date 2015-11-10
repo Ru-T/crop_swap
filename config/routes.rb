@@ -4,6 +4,7 @@ Rails.application.routes.draw do
 
   resources :crops
   resources :users
+  get 'users/edit_profile'
 
   get 'map' => 'crops#map'
 

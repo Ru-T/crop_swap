@@ -1,6 +1,39 @@
-<h1>Editing User</h1>
+<main class="container new-user-form">
 
-  <%= render 'form' %>
+  <%= form_for(@user) do |f| %>
+    <% if @user.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(@user.errors.count, "error") %> prohibited this user from being saved:</h2>
 
-<%= link_to 'Show', @user %> |
-<%= link_to 'Back', users_path %>
+        <ul>
+        <% @user.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+        </ul>
+      </div>
+    <% end %>
+<body class="backg">
+    <h1>Fill Out Your Profile</h1>
+    <div class="form-group">
+      <%= f.label :profile_pic %><br>
+      <%= f.file_field :profile_pic %>
+    </div>
+    <div class="form-group">
+      <%= f.label :phone_number %><br>
+      <%= f.text_field :phone_number, class: "new-phone-number form control", :placeholder => "999-999-9999" %>
+    </div>
+    <div class="form-group">
+      <%= f.label :description %><br>
+      <%= f.text_area :description, class: "new-description form-control" %>
+    </div>
+    <div class="form-group">
+      <%= f.label :zip_code %><br>
+      <%= f.number_field :zip_code, class: "new-zip-code form-control" %>
+    </div>
+    <div class="actions">
+      <%= f.submit class: "new-button" %>
+    </div>
+  <% end %>
+
+</main> <!-- end of main.container -->
+</body>
