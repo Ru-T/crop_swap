@@ -5,7 +5,7 @@
     <div class="header text-center">Browse for Local Crops</div>
     <p class="text-center">Ditch the supermarket and browse excess crops in your area. </p>
     <button type="button" class="btn btn-success center-block">
-      <%=link_to 'Browse Crops Near You', map_path %>
+      <div><%=link_to 'Browse Crops Near You', map_path %></div>
     </button>
   </div>
 
@@ -35,7 +35,7 @@
               <p class="card-text"><%= crop.description %></p>
             </div>
             <button type="button" class="btn btn-success">
-              <div class="button-link"><%= link_to 'View Crop', crop.user %></div>
+              <div><%= link_to 'View Crop', crop.user %></div>
             </button>
           </div>
         </div>
