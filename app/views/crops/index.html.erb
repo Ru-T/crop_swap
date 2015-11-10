@@ -14,6 +14,15 @@
       <% @crops.each do |crop| %>
         <div class="col-sm-3">
           <div class="card">
+            <div class="card-header">
+              <div>
+                <% if crop.about_to_expire? %>
+                  <p class="expire"> ABOUT TO EXPIRE! </p>
+                <% elsif crop.is_ripe? %>
+                  <p class="ripe"> RIPE NOW! </p>
+                <% end %>
+              </div>
+            </div>
             <% if crop.crop_pic.blank? %>
               <%= image_tag asset_url ("crop-default-image.png") %>
             <% else%>
@@ -24,13 +33,6 @@
               <h6 class="card-subtitle text-muted">Ripe On: <%= crop.ripe_on.strftime("%b %d %Y") %></h6>
               <h6 class="card-subtitle text-muted">Expires On: <%= crop.expires_on.strftime("%b %d %Y") %></h6>
               <p class="card-text"><%= crop.description %></p>
-            </div>
-            <div>
-              <% if crop.about_to_expire? %>
-                <p> ABOUT TO EXPIRE! </p>
-              <% elsif crop.is_ripe? %>
-                <p> RIPE NOW! </p>
-              <% end %>
             </div>
             <button type="button" class="btn btn-success">
               <div class="button-link"><%= link_to 'View Crop', crop %></div>

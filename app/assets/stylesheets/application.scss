@@ -30,9 +30,6 @@
  $default-hover-bttncolor: #CF6622;
  $default-focus: #ffef99;
 
-
-
-
 body {
   background-color: #F5F5F5;
   padding-top: 56px;
@@ -67,15 +64,14 @@ h1 {
   margin-bottom: 5%;
 }
 
-a {
+.nav-link {
   color: #d37538;
   font-weight: 500;
   font-size: 12pt;
   padding: 20px;
-
 }
 
-a:hover {
+.nav-link:hover {
   color: #CF6622;
 }
 

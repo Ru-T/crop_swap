@@ -83,7 +83,7 @@ h4.post-crop-title {
   height: 100%;
   width: 100%;
   background-color: #D9CAA5;
-  padding: 10px;
+  padding: 20px;
 }
 
 .header {
@@ -123,14 +123,26 @@ h4.post-crop-title {
   border-style: solid;
   border-width: 1px;
   border-color: black;
+  border-radius: 5px;
   background-color: #D9CAA5;
   margin-bottom: 15px;
 }
 
 .button-link {
-  color: #white;
+  color: white;
 }
 
 img {
   width:100%;
+  // &:hover{
+  //   opacity: .3;
+  // }
+}
+
+.ripe {
+  color: red;
+}
+
+.expire {
+  color: green;
 }
