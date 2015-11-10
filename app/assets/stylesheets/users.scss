@@ -53,6 +53,10 @@ border: solid #e5e5e5;
   border: solid #d37538;
 
 }
+
+.crop-posted {
+  margin-left: 5px;
+}
 .user-crop-weight {
   margin-bottom: -20px;
 }
@@ -62,9 +66,22 @@ border: solid #e5e5e5;
 
 }
 
+.pending-trades {
+  border-top: 1px solid #d37538;
+  padding-top: 10px;
+  padding-left: 10px;
+}
+
+.pending-text {
+  padding-left: 10px;
+}
 .profile-wrapper {
   width: 100%;
 
+}
+
+.panel-heading {
+  font-size: 14pt;
 }
 
 .crop-name {
@@ -73,5 +90,3 @@ border: solid #e5e5e5;
 .new-button:hover {
   background-color: #CF6622;
 }
-
-.panel-info {}

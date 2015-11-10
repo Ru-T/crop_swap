@@ -9,17 +9,17 @@
       <% else%>
         <%= image_tag @user.profile_pic.url %>
       <% end %>
-      <h3><%= @user.name %></h3>
-      <p><%= @user.zip_code %><br>
-      <em>Joined on <%=@user.created_at.strftime("%b %d %Y")%></em></p>
+      <h3 class="myprofile-username"><%= @user.name %></h3>
+      <p class="myprofile-zipcode"><%= @user.zip_code %><br>
+      <em class="myprofile-joined">Joined on <%=@user.created_at.strftime("%b %d %Y")%></em></p>
       <p><%= @user.description %></p>
       <p><%= link_to 'Trade History', trades_path%></p>
     </div>
     <div class="col-md-9">
       <ul class="nav nav-tabs" role="tablist">
-        <li role="presentation" class="active"><a href="#home" aria-controls="home" role="tab" data-toggle="tab">Pending Swap Crops</a></li>
-        <li role="presentation"><a href="#profile" aria-controls="profile" role="tab" data-toggle="tab">No Swap Crops</a></li>
-        <li role="presentation"><a href="#messages" aria-controls="messages" role="tab" data-toggle="tab">All Crops</a></li>
+        <li role="presentation" class="active"><a href="#home" class="nav-stuff" aria-controls="home" role="tab" data-toggle="tab">Pending Swap Crops</a></li>
+        <li role="presentation"><a href="#profile" class="nav-stuff" aria-controls="profile" role="tab" data-toggle="tab">No Swap Crops</a></li>
+        <li role="presentation"><a href="#messages" class="nav-stuff" aria-controls="messages" role="tab" data-toggle="tab">All Crops</a></li>
       </ul>
       <% @user.crops.each do |crop| %>
         <div class="row">
@@ -34,16 +34,17 @@
                 </div>
               <div class="profile-wrapper">
               <dt class="crop_name panel-heading"><%=crop.crop_type.crop_type%></dt>
-              <em>Posted on <%=crop.created_at.strftime("%b %d %Y")%></em>
+              <em class="crop-posted">Posted on <%=crop.created_at.strftime("%b %d %Y")%></em>
               <dd class="details panel-body"> <%= crop.description %></dd>
               <dd class="details panel-body user-crop-weight">Amount: <%= crop.weight %> lbs</dd>
               <dd class="details panel-body">Ripe On: <%= crop.ripe_on %></dd>
               <dd class="details panel-body">Expires On: <%= crop.expires_on %></dd>
               <% crop.trades.each do |t| %>
                 <% if t.accepted != true && t.accepted != false %>
-                  <h3> Pending Trades </h3>
-                    <p>I would like to swap for: <strong><%#= t.trade_type.name %></strong></p>
-                    <p><%= t.message %></p>
+                <div class="row">
+                  <h3 class="pending-trades"> Pending Trades </h3>
+                    <p class="pending-text">I would like to swap for: <strong><%#= t.trade_type.name %></strong></p>
+                    <p class="pending-text"><%= t.message %></p>
                     <% if t.crop_pic.blank? %>
                       <%= image_tag asset_url ("crop-default-image.png") %>
                     <% else%>
@@ -61,7 +62,7 @@
                   <h4> Swap Rejected </h4>
                 <% end %>
               <% end %>
-
+                </div>
             </dl>
           </div>
         <!--  <div class="col-md-4">

@@ -126,5 +126,3 @@ $(document).ready(function () {
 
     	// map.addControl( new L.Control.Search({sourceData: searchByAjax, text:'Color...', markerLocation: true}) );
 }); // end of the function
-
-$('')
