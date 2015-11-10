@@ -27,6 +27,7 @@
   <% else %>
     <% @trade.crop.trade_types.each do |tt| %>
       <label class="radio-inline">
+        <%=radio_button("trade_type_id", "#{tt.id}", "no")%>
         <input type="radio" name="trade_type" id="inlineRadio" value="trade_type_id">
           <% if tt.id == 1 %>
             <span class="glyphicon glyphicon-apple" aria-hidden="true"></span>
