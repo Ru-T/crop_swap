@@ -2,14 +2,14 @@
 
 <div class="container browse-crops">
   <div class="jumbotron">
-    <h1>Browse for Local Crops</h1>
+    <h1 class="text-center">Browse for Local Crops</h1>
     <p class="text-center">Ditch the supermarket and browse excess crops in your area. </p>
     <button type="button" class="btn btn-success center-block">
       <%=link_to 'Browse Crops Near You', map_path %>
     </button>
   </div>
 
-  <div class="card">
+  <div>
     <div class="row">
       <% @crops.each do |crop| %>
         <div class="col-sm-3">
@@ -21,6 +21,8 @@
             <% end %>
             <div class="card-block">
               <h4 class="card-title"><%= crop.crop_type.crop_type %> </h4>
+              <h6 class="card-subtitle text-muted">Ripe On: <%= crop.ripe_on %></h6>
+              <h6 class="card-subtitle text-muted">Expires On: <%= crop.expires_on %></h6>
               <p class="card-text"><%= crop.description %></p>
             </div>
             <div>
@@ -30,13 +32,9 @@
                 <p> RIPE NOW! </p>
               <% end %>
             </div>
-            <ul class="list-group list-group-flush">
-              <li class="list-group-item">Ripe On: <%= crop.ripe_on %></li>
-              <li class="list-group-item">Expires On: <%= crop.expires_on %></li>
-              <button type="button" class="btn btn-success">
-                <%= link_to 'View Crop', crop %></td>
-              </button>
-            </ul>
+            <button type="button" class="btn btn-success">
+              <div class="button-link"><%= link_to 'View Crop', crop %></div>
+            </button>
           </div>
         </div>
       <% end %>
