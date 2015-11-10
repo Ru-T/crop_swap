@@ -113,20 +113,21 @@ a {
    border-radius: 5px;
 }
 
-.background_image {
-
-  background-image: image-url('veggie1.jpg') no-repeat center center fixed;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
-  background-attachment: fixed;
-  position: static;
-
-  }
+// .background_image {
+//
+//   background-image: image-url('veggie1.jpg') no-repeat center center fixed;
+//   -webkit-background-size: cover;
+//   -moz-background-size: cover;
+//   -o-background-size: cover;
+//   background-size: cover;
+//   background-attachment: fixed;
+//   position: static;
+//
+//   }
 
 body.backg {
-  background: image-url('veggie1.jpg') no-repeat center center fixed;
+  background-color: #FFA366;
+  // background: image-url('veggie1.jpg') no-repeat center center fixed;
 }
 
 .login-button {

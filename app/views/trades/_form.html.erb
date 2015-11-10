@@ -1,8 +1,16 @@
+<div class="container">
+    <br>
+    <div class="jumbotron">
+      <div class="header text-center">Propose a Swap</div>
+      <p class="text-center">Let the grower of your crop know what you're willing to swap.</p>
+    </div>
+    <br>
+    <br>
+
 <%= form_for(@trade) do |f| %>
   <% if @trade.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@trade.errors.count, "error") %> prohibited this trade from being saved:</h2>
-
       <ul>
       <% @trade.errors.full_messages.each do |message| %>
         <li><%= message %></li>
@@ -17,44 +25,62 @@
     <p><strong>Consumer:</strong><%= @trade.consumer_id %></p>
     <p><strong>Message:</strong><%= @trade.message %></p>
     <%= f.hidden_field :accepted, value: params[:accepted] %>
-    <div class="form-group">
-      <%= f.label :message_response, "Response" %><br>
-      <%= f.text_area :message_response %>
+    <div class="row crop-form-label">
+      <div class="form-group">
+        <%= f.label :message_response, "Response" %><br>
+        <%= f.text_area :message_response %>
+      </div>
     </div>
-    <div class="actions">
+    <div class="actions crop-form-label">
       <%= f.submit %>
     </div>
+
   <% else %>
+  <div class="row crop-form-label">
     <% @trade.crop.trade_types.each do |tt| %>
-      <label class="radio-inline">
-        <%=radio_button("trade_type_id", "#{tt.id}", "no")%>
-        <input type="radio" name="trade_type" id="inlineRadio" value="trade_type_id">
-          <% if tt.id == 1 %>
-            <span class="glyphicon glyphicon-apple" aria-hidden="true"></span>
-          <% elsif tt.id == 2 %>
-            <span class="glyphicon glyphicon-time" aria-hidden="true"></span>
-          <% else%>
-            <span class="glyphicon glyphicon-leaf" aria-hidden="true"></span>
-          <% end %>
-          <%= tt.name %>
-      </label>
+        <label class="radio-inline">
+          <%=radio_button("trade_type_id", "#{tt.id}", "no")%>
+          <input type="radio" name="trade_type" id="inlineRadio" value="trade_type_id">
+            <% if tt.id == 1 %>
+              <span class="glyphicon glyphicon-apple" aria-hidden="true"></span>
+            <% elsif tt.id == 2 %>
+              <span class="glyphicon glyphicon-time" aria-hidden="true"></span>
+            <% else%>
+              <span class="glyphicon glyphicon-leaf" aria-hidden="true"></span>
+            <% end %>
+            <%= tt.name %>
+        </label>
     <% end %>
-    <div class="form-group" id="crop_pic">
-      <%= f.label :crop_pic %><br>
-      <%= f.file_field :crop_pic %>
+  </div>
+
+  <div class="row crop-form-label">
+    <div class="form-group crop-pic">
+      <%= f.label :crop_pic, "Crop Pic:", class: "col-md-2 control-label crop-pic"%> <br>
+      <div class="col-md-8">
+        <%= f.file_field :crop_pic %>
+      </div>
     </div>
+  </div>
+  <div class="row crop-form-label">
+    <div class="form-group crop-description">
+      <%= f.label :message, "Message:", class: "col-md-4 control-label" %>
+      <div class="col-md-8">
+        <%= f.text_area :message, class: "crop-description form-control" %>
+      </div>
+    </div>
+  </div>
+
       <%= f.hidden_field :crop_id, value: params[:crop_id] %>
       <%= f.hidden_field :consumer_id, value: params[:consumer_id]  %>
       <%= f.hidden_field :trade_type_id, value: params[:trade_type_id]  %>
       <%= f.hidden_field :grower_id, value: params[:grower_id]  %>
-    <div class="form-group">
-      <%= f.label :message %><br>
-      <%= f.text_area :message %>
-    </div>
-    <div class="actions">
+    <div class="actions crop-form-label">
       <%= f.submit %>
     </div>
 
   <% end %>
 
 <% end %>
+<%= link_to 'Back', trades_path %>
+
+</div>
