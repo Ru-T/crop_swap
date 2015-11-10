@@ -14,7 +14,11 @@
     <% @crops.each do |crop| %>
       <div class="col-sm-3">
         <div class="card">
-          <img class="card-img-top" data-src="holder.js/100%x180/"> <%= image_tag crop.crop_pic.url %>
+          <% if crop.crop_pic.blank? %>
+            <dt class="crop_name panel-body"><%= image_tag asset_url("crop-default-image.png") %></dt>
+          <% else %>
+            <img class="card-img-top" data-src="holder.js/100%x180/"> <%= image_tag crop.crop_pic.url %>
+          <% end %>
           <h4 class="card-title"><%= crop.crop_type.crop_type %> </h4>
           <p class="card-text"><%= crop.description %></p>
         </div>
