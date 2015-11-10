@@ -4,9 +4,6 @@
 //
 //
 
-
-
-
 main.container {
   max-width: 500px;
 }
@@ -81,12 +78,18 @@ h4.post-crop-title {
   background-color: #CF6622;
 }
 
-
 .jumbotron {
   position: relative;
   height: 100%;
   width: 100%;
   background-color: #D9CAA5;
+  padding: 10px;
+}
+
+.header {
+  font-size: 36px;
+  font-style: bold;
+  padding: 5px;
 }
 
 .search-crops {
@@ -120,10 +123,14 @@ h4.post-crop-title {
   border-style: solid;
   border-width: 1px;
   border-color: black;
-  background-color: #FFFFE0;
+  background-color: #D9CAA5;
   margin-bottom: 15px;
 }
 
 .button-link {
   color: #white;
+}
+
+img {
+  width:100%;
 }

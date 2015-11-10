@@ -67,7 +67,6 @@ h1 {
   margin-bottom: 5%;
 }
 
-
 a {
   color: #d37538;
   font-weight: 500;
@@ -79,8 +78,8 @@ a {
 a:hover {
   color: #CF6622;
 }
-//Navbar
 
+//Navbar
 
 #notice {
  color: green;
@@ -118,159 +117,156 @@ a:hover {
 
   }
 
-  body.backg {
-    background: image-url('veggie1.jpg') no-repeat center center fixed;
-  }
+body.backg {
+  background: image-url('veggie1.jpg') no-repeat center center fixed;
+}
 
-  .login-button {
-    background-color: #d37538;
-    width: 32%;
-    font-weight: bold;
-    margin-left: 27%;
-    border: solid #d37538;
-    font-weight: bolder;
-    font-size: 13pt;
-    color: #FDFDFD;
-    float: left;
-    padding-right: 10px;
-  }
+.login-button {
+  background-color: #d37538;
+  width: 32%;
+  font-weight: bold;
+  margin-left: 27%;
+  border: solid #d37538;
+  font-weight: bolder;
+  font-size: 13pt;
+  color: #FDFDFD;
+  float: left;
+  padding-right: 10px;
+}
 
-  .login-button:hover {
-    background-color: #CF6622;
-  }
+.login-button:hover {
+  background-color: #CF6622;
+}
 
-  .img {
-    vertical-align: text-top;
-    padding-bottom: 300px;
+.img {
+  vertical-align: text-top;
+  padding-bottom: 300px;
 
-  }
+}
 
 h4.post-crop-title {
   text-align: left;
 
 }
-  a.nav-text {
+a.nav-text {
 
-    padding-right: 10px;
-    padding-left: 10px;
-    position: relative;
-    margin-top: -15px;
-  }
+  padding-right: 10px;
+  padding-left: 10px;
+  position: relative;
+  margin-top: -15px;
+}
 
-  a.nav-a {
-    font-size: 13pt;
-    margin-right: 20px;
-    margin-top: 9px;
-    vertical-align: baseline;
-  }
+a.nav-a {
+  font-size: 13pt;
+  margin-right: 20px;
+  margin-top: 9px;
+  vertical-align: baseline;
+}
 
+.nav.navbar-nav {
 
+  margin-left: 40%;
+  padding-right: 20px;
+  color: #d37538;
 
-  .nav.navbar-nav {
+}
 
-    margin-left: 40%;
-    padding-right: 20px;
-    color: #d37538;
+navbar-brand {
+  margin-bottom: 30px;
+}
 
-  }
+button.btn.btn-default.btn-sm.dropdown-toggle {
+  margin-left: 900px;
+  background-color: #d37538;
+}
 
+button.btn.btn-default.btn-sm.dropdown-toggle:hover {
+  background-color: #CF6622;
+}
 
-  navbar-brand {
-    margin-bottom: 30px;
-  }
+input#email {
+  margin-left: 55px;
+  height: 25px;
+  width: 55%;
+  color: black;
+  vertical-align: text-bottom;
+}
 
-  button.btn.btn-default.btn-sm.dropdown-toggle {
-    margin-left: 900px;
-    background-color: #d37538;
-  }
+input#email:focus {
+  border: solid #e5e5e5;
 
-  button.btn.btn-default.btn-sm.dropdown-toggle:hover {
-    background-color: #CF6622;
-  }
+}
 
-  input#email {
-    margin-left: 55px;
-    height: 25px;
-    width: 55%;
-    color: black;
-    vertical-align: text-bottom;
-  }
+input#password {
+  margin-left: 13px;
+  width: 55%;
+  color: black;
+  vertical-align: text-bottom;
 
-  input#email:focus {
-    border: solid #e5e5e5;
+}
 
-  }
+input#password:focus {
+  border: solid #e5e5e5;
+}
 
-  input#password {
-    margin-left: 13px;
-    width: 55%;
-    color: black;
-    vertical-align: text-bottom;
-
-  }
-
-  input#password:focus {
-    border: solid #e5e5e5;
-  }
-
-  .container-fluid {
-    background-color: #FDFDFD;
-  }
+.container-fluid {
+  background-color: #FDFDFD;
+}
 
 // map for leaflet
 
-  #map {
-    height: 500px;
-    width: 800px;
-    top: 0;
-    bottom: 0;
-    border-radius: .3;
-  }
+#map {
+  height: 500px;
+  width: 800px;
+  top: 0;
+  bottom: 0;
+  border-radius: .3;
+}
 
 
-  svg {
-    width: 1000px;
-    height: 500px;
-    border: 1px solid lightgrey;
-    font-family: sans-serif;
-    font-weight: 200;
-    font-size: 12px;
-  }
+svg {
+  width: 1000px;
+  height: 500px;
+  border: 1px solid lightgrey;
+  font-family: sans-serif;
+  font-weight: 200;
+  font-size: 12px;
+}
 
-  path {
-    stroke: black;
-    fill: none;
-  }
+path {
+  stroke: black;
+  fill: none;
+}
 
-  .tick {
-    stroke: black;
-  }
+.tick {
+  stroke: black;
+}
 
-  circle {
-    stroke: darkblue;
-    fill: lightblue;
-  }
-  .bar {
-    fill: steelblue;
-  }
+circle {
+  stroke: darkblue;
+  fill: lightblue;
+}
+.bar {
+  fill: steelblue;
+}
 
-  .bar:hover {
-    fill: brown;
-  }
+.bar:hover {
+  fill: brown;
+}
 
-  .axis {
-    font: 10px sans-serif;
-  }
+.axis {
+  font: 10px sans-serif;
+}
 
-  .axis path,
-  .axis line {
-    fill: none;
-    stroke: #000;
-  }
+.axis path,
+.axis line {
+  fill: none;
+  stroke: #000;
+}
 
-  .x.axis path {
-    display: none;
-  }
+.x.axis path {
+  display: none;
+}
 
 //map styling code
 
@@ -287,8 +283,4 @@ h4.post-crop-title {
 
 input.search-crops {
   width: 100%;
-}
-
-.button-link {
-  color: white;
 }

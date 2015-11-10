@@ -2,7 +2,7 @@
 
 <div class="container browse-crops">
   <div class="jumbotron">
-    <h1 class="text-center">Browse for Local Crops</h1>
+    <div class="header text-center">Browse for Local Crops</div>
     <p class="text-center">Ditch the supermarket and browse excess crops in your area. </p>
     <button type="button" class="btn btn-success center-block">
       <%=link_to 'Browse Crops Near You', map_path %>
@@ -15,14 +15,14 @@
         <div class="col-sm-3">
           <div class="card">
             <% if crop.crop_pic.blank? %>
-              <img class="card-img-top" style="width:210;height:210px;" data-src="holder.js/100%x180/"><%= image_tag asset_url ("crop-default-image.png") %>
+              <%= image_tag asset_url ("crop-default-image.png") %>
             <% else%>
-              <img class="card-img-top" style="width:210;height:210px;" data-src="holder.js/100%x180/"> <%= image_tag crop.crop_pic.url %></img>
+              <%= image_tag crop.crop_pic.url %>
             <% end %>
             <div class="card-block">
               <h4 class="card-title"><%= crop.crop_type.crop_type %> </h4>
-              <h6 class="card-subtitle text-muted">Ripe On: <%= crop.ripe_on %></h6>
-              <h6 class="card-subtitle text-muted">Expires On: <%= crop.expires_on %></h6>
+              <h6 class="card-subtitle text-muted">Ripe On: <%= crop.ripe_on.strftime("%b %d %Y") %></h6>
+              <h6 class="card-subtitle text-muted">Expires On: <%= crop.expires_on.strftime("%b %d %Y") %></h6>
               <p class="card-text"><%= crop.description %></p>
             </div>
             <div>
