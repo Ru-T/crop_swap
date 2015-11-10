@@ -33,8 +33,6 @@
           <div>
           <% if crop.trades.empty? %>
             <% crop.trade_types.each do |tt| %>
-              <label class="radio-inline">
-                <input type="radio" name="trade_type" id="inlineRadio" value="trade_type_id">
                   <% if tt.id == 1 %>
                     <span class="glyphicon glyphicon-apple" aria-hidden="true"></span>
                   <% elsif tt.id == 2%>
@@ -43,12 +41,11 @@
                     <span class="glyphicon glyphicon-leaf" aria-hidden="true"></span>
                   <% end %>
                   <%= tt.name %>
-              </label>
             <% end %>
           </div>
             <button type="button" class="btn btn-success">
               <%=link_to 'Propose Swap', new_trade_path(crop_id: crop.id,
-                consumer_id: @current_user.id, grower_id: crop.user_id, trade_type_id: "trade_type_id") %>
+                consumer_id: @current_user.id, grower_id: crop.user_id) %>
             </button>
         <% else %>
           <p> Pending Trade </p>

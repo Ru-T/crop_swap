@@ -9,38 +9,12 @@
 //
 // Read Sprockets README (https://github.com/rails/sprockets#sprockets-directives) for details
 // about supported directives.
-
 //= require leaflet
 //= require jquery
 //= require jquery_ujs
-//= require_tree .
-//= require jquery
 //= require bootstrap-sprockets
+//= require_tree .
 
-// $('#trade_type').bind('change', function() {
-//   $('#crop_pic').hide();
-//   $('#crop_pic input').attr('disabled', true);
-//   var selection = $(this).val();
-//   $('#crop_pic' + selection).show();
-//   $('#crop_pic' + selection + ' input').attr('disabled', false);
-// }).change();
-
-//= require mapbox.js
-//= require d3
-//
-// $(document).ready(function() {
-//   var map = L.map('map', {
-//     center: [35.98, 78.90],
-//     zoom: 13
-//   });
-//   L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-//       attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/search?query=durham%20nc#map=12/35.9940/-78.8986"',
-//       maxZoom: 18
-//   }).addTo(map);
-//
-//   //var marker = L.maker([35.98, 78.90]).addTo(map);
-//
-// });
 
 
 $(document).ready(function () {
@@ -114,7 +88,7 @@ $(document).ready(function () {
           .bindPopup('You are Here')
           .openPopup();
 
-// 
+//
 // var description = addressPoints[0].description,
 //     testMarker = new L.Marker(new [34, -77], {weight: weight});
 //     testMarker.bindPopup('weight' + weight);
