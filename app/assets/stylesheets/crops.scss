@@ -47,13 +47,28 @@ h1 {
 .crop-pic {
   margin-right: 15px;
 }
+.crop-ripe {
+  margin-left: 13px;
+}
+.crop-expires {
+  margin-left: 13px;
+}
+.crop-select {
+  margin-right: 5px;
+  padding-bottom: 7px;
+}
 
+h4.post-crop-title {
+  padding-top: 13px;
+  padding-bottom: 5px;
+  margin-left: 14px;
+}
 .crop-ripe-on {
   margin-bottom: 20px;
 }
 .crop-button {
   background-color: #d37538;
-  width: 100%;
+  width: 32%;
   margin-top: 20px;
   font-weight: bold;
   border: solid #d37538;
