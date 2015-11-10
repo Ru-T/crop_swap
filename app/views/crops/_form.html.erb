@@ -39,8 +39,10 @@
 
       <div class="row crop-form-label">
         <div class="form-group crop-pic">
-          <%= f.label :crop_pic, "Crop Pic:", class: "col-md-4 control-label crop-pic"%> <br>
-          <%= f.file_field :crop_pic %>
+          <%= f.label :crop_pic, "Crop Pic:", class: "col-md-2 control-label crop-pic"%> <br>
+          <div class="col-md-8">
+            <%= f.file_field :crop_pic %>
+          </div>
         </div>
       </div>
 

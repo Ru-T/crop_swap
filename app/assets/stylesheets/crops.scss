@@ -40,14 +40,15 @@ h1 {
 .crop-pic {
   position: relative;
   overflow: hidden;
+  text-align: left;
 }
 
 .crop-ripe {
-  max-width: 500px;
+  width: 47.3%;
   text-align: left;
 }
 .crop-expires {
-  max-width: 500px;
+  width: 47.3%;
   text-align: left;
 }
 .crop-select {
@@ -147,7 +148,7 @@ img {
 }
 
 .crop-types {
-  margin-left: 150px;
+  margin-left: 168px;
   font-size: 16px;
 }
 
