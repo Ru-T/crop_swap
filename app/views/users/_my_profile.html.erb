@@ -9,15 +9,22 @@
       <% else%>
         <%= image_tag @user.profile_pic.url %>
       <% end %>
-    </div>
-    <div class="col-md-9">
       <h3><%= @user.name %></h3>
       <p><%= @user.zip_code %><br>
       <em>Joined on <%=@user.created_at.strftime("%b %d %Y")%></em></p>
       <p><%= @user.description %></p>
       <p><%= link_to 'Trade History', trades_path%></p>
     </div>
+    <div class="col-md-9">
+      <ul class="nav nav-tabs" role="tablist">
+        <li role="presentation" class="active"><a href="#home" aria-controls="home" role="tab" data-toggle="tab">Pending Swap Crops</a></li>
+        <li role="presentation"><a href="#profile" aria-controls="profile" role="tab" data-toggle="tab">No Swap Crops</a></li>
+        <li role="presentation"><a href="#messages" aria-controls="messages" role="tab" data-toggle="tab">All Crops</a></li>
+      </ul>
+    </div>
   </div>
+
+
 
   <h3> Pending Swap Crops </h3>
     <% @user.crops.each do |crop| %>
