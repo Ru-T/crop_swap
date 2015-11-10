@@ -138,27 +138,31 @@ a:hover {
   .img {
     vertical-align: text-top;
     margin-top: 30px;
-    margin-bottom: 10px;
+
   }
 
+h4.post-crop-title {
+  text-align: left;
+
+}
   a.nav-text {
-    float: right;
+
     padding-right: 10px;
     padding-left: 10px;
-
-
+    position: relative;
+    margin-top: -15px;
   }
 
   a.nav-a {
     font-size: 13pt;
     margin-right: 20px;
-    color: #d37538;
-    margin-top: 30px;
+    padding-top: 30px;
+    vertical-align: baseline;
   }
 
 
 
-  ul.nav.navbar-nav {
+  .nav.navbar-nav {
 
     margin-left: 40%;
     padding-right: 20px;
