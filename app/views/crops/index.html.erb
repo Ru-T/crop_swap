@@ -1,6 +1,6 @@
 <p id="notice"><%= notice %></p>
 
-<div class="container">
+<div class="container browse-crops">
   <div class="jumbotron">
     <h1>Browse for Local Crops</h1>
     <p class="text-center">Ditch the supermarket and browse excess crops in your area. </p>
@@ -9,27 +9,36 @@
     </button>
   </div>
 
-<div class="card-columns">
-  <div class="row">
-    <% @crops.each do |crop| %>
-      <div class="col-sm-3">
-        <div class="card">
-          <% if crop.crop_pic.blank? %>
-            <dt class="crop_name panel-body"><%= image_tag asset_url("crop-default-image.png") %></dt>
-          <% else %>
-            <img class="card-img-top" data-src="holder.js/100%x180/"> <%= image_tag crop.crop_pic.url %>
-          <% end %>
-          <h4 class="card-title"><%= crop.crop_type.crop_type %> </h4>
-          <p class="card-text"><%= crop.description %></p>
+  <div class="card">
+    <div class="row">
+      <% @crops.each do |crop| %>
+        <div class="col-sm-3">
+          <div class="card">
+            <% if crop.crop_pic.blank? %>
+              <img class="card-img-top" style="width:210;height:210px;" data-src="holder.js/100%x180/"><%= image_tag asset_url ("crop-default-image.png") %>
+            <% else%>
+              <img class="card-img-top" style="width:210;height:210px;" data-src="holder.js/100%x180/"> <%= image_tag crop.crop_pic.url %></img>
+            <% end %>
+            <div class="card-block">
+              <h4 class="card-title"><%= crop.crop_type.crop_type %> </h4>
+              <p class="card-text"><%= crop.description %></p>
+            </div>
+            <div>
+              <% if crop.about_to_expire? %>
+                <p> ABOUT TO EXPIRE! </p>
+              <% elsif crop.is_ripe? %>
+                <p> RIPE NOW! </p>
+              <% end %>
+            </div>
+            <ul class="list-group list-group-flush">
+              <li class="list-group-item">Ripe On: <%= crop.ripe_on %></li>
+              <li class="list-group-item">Expires On: <%= crop.expires_on %></li>
+              <button type="button" class="btn btn-success">
+                <%= link_to 'View Crop', crop %></td>
+              </button>
+            </ul>
+          </div>
         </div>
-        <ul class="list-group list-group-flush">
-          <li class="list-group-item">Ripe On: <%= crop.ripe_on %></li>
-          <li class="list-group-item">Expires On: <%= crop.expires_on %></li>
-          <button type="button" class="btn btn-success">
-            <%= link_to 'View Crop', crop %></td>
-          </button>
-        </ul>
-      </div>
-    <% end %>
+      <% end %>
+    </div>
   </div>
-</div>

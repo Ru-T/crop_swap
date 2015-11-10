@@ -25,6 +25,20 @@
       <%= f.submit %>
     </div>
   <% else %>
+    <% @trade.crop.trade_types.each do |tt| %>
+      <label class="radio-inline">
+        <input type="radio" name="trade_type" id="inlineRadio" value="trade_type_id">
+          <% if tt.id == 1 %>
+            <span class="glyphicon glyphicon-apple" aria-hidden="true"></span>
+          <% elsif tt.id == 2 %>
+            <span class="glyphicon glyphicon-time" aria-hidden="true"></span>
+          <% else%>
+            <span class="glyphicon glyphicon-leaf" aria-hidden="true"></span>
+          <% end %>
+          <%= tt.name %>
+      </label>
+    <% end %>
+
     <div class="form-group" id="trade_type">
       <%= f.label :trade_type_id %><br>
       <%= f.number_field :trade_type_id %>
@@ -44,5 +58,7 @@
     <div class="actions">
       <%= f.submit %>
     </div>
+
   <% end %>
+
 <% end %>
