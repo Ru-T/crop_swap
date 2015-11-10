@@ -34,7 +34,7 @@
 
 
 body {
-  background-color: #FDFDFD;
+  background-color: #e9e9e9;
   padding-top: 56px;
 }
 
@@ -137,7 +137,7 @@ a:hover {
 
   .img {
     vertical-align: text-top;
-    margin-top: 30px;
+    padding-bottom: 300px;
 
   }
 
@@ -156,7 +156,7 @@ h4.post-crop-title {
   a.nav-a {
     font-size: 13pt;
     margin-right: 20px;
-    padding-top: 30px;
+    margin-top: 9px;
     vertical-align: baseline;
   }
 
@@ -167,10 +167,11 @@ h4.post-crop-title {
     margin-left: 40%;
     padding-right: 20px;
     color: #d37538;
+
   }
 
   navbar-brand {
-    margin-top: 30px;
+    margin-bottom: 30px;
   }
 
   button.btn.btn-default.btn-sm.dropdown-toggle {
