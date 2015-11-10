@@ -1,11 +1,14 @@
 
 
-<body class="backg">
+
 
 
   <main class="container login-form">
+    <section class="sign-in-form">
+<body class="backg">
+
     <%=form_tag(session_create_path) do%>
-    <h1>Sign In</h1>
+    <h1 class="sign-in-title">Sign into your account</h1>
   <div class="form-group">
      <%=label_tag :email %>
     <%=email_field_tag :email %>
@@ -23,7 +26,6 @@
   <br>
 
   <%= link_to 'Sign Up', new_user_path %>
-
+  </section>
+  </body>
   </main>
-
-</body>

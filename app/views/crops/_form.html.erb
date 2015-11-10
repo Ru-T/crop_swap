@@ -11,14 +11,14 @@
           </ul>
       </div>
     <% end %>
-  <body class="backg">
-<div class="backg">
 
-    <h1>Post A Crop</h1>
+<body class="backg">
+
+    <h1 class="post-crop-title">Post A Crop</h1>
     <div class="form-group">
-      <%= f.label :weight, "Weight:", class: "col-md-4 control-label" %>
+      <%= f.label :weight, "Weight:", class: "col-md-4 control-label crop-weight-field" %>
       <div class="col-md-8">
-        <%= f.number_field :weight, class: "crop-weight form-control" %>
+        <%= f.number_field :weight, class: "crop-weight form-control crop-weight-field" %>
       </div>
     </div>
     <div class="form-group">
@@ -47,7 +47,7 @@
     </div>
     <%= f.hidden_field :user_id %>
     <br>
-    <h4 class="text-center">What are you willing to swap?</h4>
+    <h4>What are you willing to swap?</h4>
 
     <% TradeType.all.each do |t| %>
       <div class="form-group">

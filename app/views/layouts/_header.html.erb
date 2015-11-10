@@ -1,6 +1,6 @@
 <div class="container">
 
-  <nav class="navbar-default navbar-fixed-top">
+  <nav class="navbar navbar-fixed-top">
     <div class="container-fluid">
       <div class="navbar-header">
         <a class="navbar-brand" href="<%= crops_path %>"><%= image_tag asset_url ("cropswap-logo.png") %></a>
@@ -8,10 +8,10 @@
       <% if session[:user_id]%>
         <div>
           <ul class="nav navbar-nav">
-            <li><a href="<%= @current_user %>">Profile</a></li>
-            <li><a href="<%= new_crop_path %>">Post A Crop</a></li>
-            <li><a href="<%= crops_path %>">Browse Crops</a></li>
-            <li><a href="<%= graph_path %>">Metrics</a></li>
+            <li><a class="nav-a" href="<%= @current_user %>">Profile</a></li>
+            <li><a class="nav-a" href="<%= new_crop_path %>">Post A Crop</a></li>
+            <li><a class="nav-a" href="<%= crops_path %>">Browse Crops</a></li>
+            <li><a class="nav-a" href="<%= graph_path %>">Metrics</a></li>
           </ul>
           <span class="navbar-right"><%= link_to 'Logout', session_destroy_path, method: :delete, class: "nav-text"%></span>
         <% else %>
@@ -35,7 +35,7 @@ feature--last-button
       </div> -->
 
 
-        
+
 
         </div>
     </div>

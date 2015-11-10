@@ -30,19 +30,53 @@
  $default-hover-bttncolor: #CF6622;
  $default-focus: #ffef99;
 
+
+
+
+body {
+  background-color: #FDFDFD;
+  padding-top: 56px;
+}
+
+//Sign in Page
 main.login-form {
   background-color: #D9CAA5;
   margin-top: 50px;
-  padding-top: 20px;
+  padding-top: 10px;
   border-radius: .3em;
   padding-bottom: 25px;
-  opacity: .8;
+  color: #323232;
+  opacity: .96;
+  color: #FDFDFD;
+  border: solid #D9CAA5;
+  position: relative;
 }
 
-//Navbar
-body {
-    padding-top: 56px;
+label {
+  font-size: 15.5pt;
+  text-align: left;
 }
+h1 {
+  padding-bottom: 5px;
+  text-align: left;
+  font-size: 22pt;
+  margin-bottom: 5%;
+}
+
+
+a {
+  color: #d37538;
+  font-weight: 500;
+  font-size: 12pt;
+  padding: 20px;
+
+}
+
+a:hover {
+  color: #CF6622;
+}
+//Navbar
+
 
 #notice {
  color: green;
@@ -86,9 +120,15 @@ body {
 
   .login-button {
     background-color: #d37538;
-    width: 75%;
+    width: 32%;
     font-weight: bold;
-    margin-left: 50px;
+    margin-left: 25%;
+    border: solid #d37538;
+    font-weight: bolder;
+    font-size: 13pt;
+    color: #FDFDFD;
+    float: left;
+    padding-right: 10px;
   }
 
   .login-button:hover {
@@ -97,13 +137,36 @@ body {
 
   .img {
     vertical-align: text-top;
-
+    margin-top: 30px;
+    margin-bottom: 10px;
   }
 
   a.nav-text {
     float: right;
     padding-right: 10px;
-    margin-top: 18px;
+    padding-left: 10px;
+
+
+  }
+
+  a.nav-a {
+    font-size: 13pt;
+    margin-right: 20px;
+    color: #d37538;
+    margin-top: 30px;
+  }
+
+
+
+  ul.nav.navbar-nav {
+
+    margin-left: 40%;
+    padding-right: 20px;
+    color: #d37538;
+  }
+
+  navbar-brand {
+    margin-top: 30px;
   }
 
   button.btn.btn-default.btn-sm.dropdown-toggle {
@@ -116,23 +179,32 @@ body {
   }
 
   input#email {
-    margin-left: 53px;
+    margin-left: 55px;
     height: 25px;
     width: 55%;
+    color: black;
+    vertical-align: text-bottom;
   }
 
   input#email:focus {
-    background-color: #ffef99;
+    border: solid #e5e5e5;
 
   }
 
   input#password {
-    margin-left: 25px;
+    margin-left: 13px;
     width: 55%;
+    color: black;
+    vertical-align: text-bottom;
+
   }
 
   input#password:focus {
-    background-color: #ffef99;
+    border: solid #e5e5e5;
+  }
+
+  .container-fluid {
+    background-color: #FDFDFD;
   }
 
 // map for leaflet
@@ -145,12 +217,6 @@ body {
     border-radius: .3;
   }
 
-  .search-ui {
-    position:absolute;
-    top:10px;
-    right:10px;
-    z-index:1000;
-    }
 
   svg {
     width: 1000px;
@@ -201,6 +267,12 @@ body {
 .map {
   width: 100%;
   height: 100%;
+  align-self: center;
+}
+
+.crop-weight-field {
+  color: black;
+
 }
 
 input.search-crops {
