@@ -13,18 +13,9 @@ h1 {
   margin-left: 17px;
 }
 
-.crop-form {
-  background-color: #D9CAA5;
-  opacity: .96;
-  border-radius: .3em;
-  padding-bottom: 25px;
-  margin-top: 45px;
-  color: #FDFDFD;
-}
-
 .crop-description {
   margin-bottom: 15px;
-  max-width: 400px;
+  max-width: 500px;
   text-align: left;
 }
 
@@ -34,22 +25,30 @@ h1 {
 
 .crop-weight {
   margin-bottom: 20px;
-  max-width: 400px;
+  max-width: 500px;
   text-align: left;
 }
 .crop-weight:focus {
   border: solid #e5e5e5;
 }
 
-.crop-pic {
-  margin-right: 15px;
-
+.crop-type {
+  max-width: 500px;
+  text-align: left;
 }
+
+.crop-pic {
+  position: relative;
+  overflow: hidden;
+}
+
 .crop-ripe {
-  margin-left: 13px;
+  max-width: 500px;
+  text-align: left;
 }
 .crop-expires {
-  margin-left: 13px;
+  max-width: 500px;
+  text-align: left;
 }
 .crop-select {
   margin-right: 5px;

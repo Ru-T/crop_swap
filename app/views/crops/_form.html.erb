@@ -20,7 +20,7 @@
       <%= f.hidden_field :user_id %>
 
       <div class="row crop-form-label">
-        <div class="form-group">
+        <div class="form-group crop-type">
           <%= f.label :crop_type_id, "Crop Type:", class: "col-md-4 control-label" %>
           <div class="col-md-8">
             <%= f.collection_select :crop_type_id, CropType.all, :id, :crop_type, class: "form-control crop-select" %>
@@ -29,7 +29,7 @@
       </div>
 
       <div class="row crop-form-label">
-        <div class="form-group">
+        <div class="form-group crop-description">
           <%= f.label :description, "Description:", class: "col-md-4 control-label" %>
           <div class="col-md-8">
             <%= f.text_area :description, class: "crop-description form-control" %>
@@ -38,14 +38,14 @@
       </div>
 
       <div class="row crop-form-label">
-        <div class="form-group">
+        <div class="form-group crop-pic">
           <%= f.label :crop_pic, "Crop Pic:", class: "col-md-4 control-label crop-pic"%> <br>
           <%= f.file_field :crop_pic %>
         </div>
       </div>
 
       <div class="row crop-form-label">
-        <div class="form-group">
+        <div class="form-group crop-weight">
           <%= f.label :weight, "Weight:", class: "col-md-4 control-label" %>
           <div class="col-md-8">
             <%= f.number_field :weight, class: "crop-weight form-control" %>
@@ -54,21 +54,21 @@
       </div>
 
         <div class="row crop-form-label">
-          <div class="form-group">
+          <div class="form-group crop-ripe">
             <%= f.label :ripe_on, "Ripe On:", class: "col-md-4 control-label crop-ripe-on"%> <br>
             <%= f.date_field :ripe_on, class: "crop-ripe" %>
           </div>
         </div>
 
         <div class="row crop-form-label">
-          <div class="form-group">
+          <div class="form-group crop-expires">
             <%= f.label :expires_on, "Expires On:", class: "col-md-4 control-label"%> <br>
             <%= f.date_field :expires_on, class: "crop-expires" %>
           </div>
         </div>
 
         <div class="row crop-form-label">
-          <h4 class="post-crop-title ">What are you willing to swap?</h4>
+          <h4 class="post-crop-title">What are you willing to swap?</h4>
             <div class="col-md-4">
             </div>
             <% TradeType.all.each do |t| %>
