@@ -34,6 +34,7 @@ gem 'aws-sdk', '~> 1.6'
 gem 'bootstrap-sass', '~> 3.3.5'
 gem 'leaflet-rails'
 gem 'mapbox-rails'
+gem "bower-rails", "~> 0.10.0"
 
 gem 'd3_rails'
 

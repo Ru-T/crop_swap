@@ -10,41 +10,47 @@ $default-focus: #ffef99;
   border-radius: .3em;
   padding-bottom: 20px;
   margin-top: 45px;
+  opacity: .96;
+  color: #FDFDFD;
+  width: 40%;
 }
 
 h1 {
-  text-align: center;
+
+  margin-right: 8px;
   margin-bottom: 10px;
 }
 
 .new-email:focus {
-  background-color: $default-focus;
+ border: solid #e5e5e5;
 }
 
 .new-password:focus {
-  background-color: $default-focus;
+  border: solid #e5e5e5;
 }
 
 .new-name:focus {
-  background-color: $default-focus;
+ border: solid #e5e5e5;
 }
 
 .new-phone-number:focus {
-  background-color: $default-focus;
+border: solid #e5e5e5;
 }
 
 .new-zip-code:focus {
-  background-color: $default-focus;
+ border: solid #e5e5e5;
 }
 
 .new-description:focus {
-  background-color: $default-focus;
+  border: solid #e5e5e5;
 }
 
 .new-button {
   background-color: #d37538;
-  width: 100%;
+  width: 32%;
   font-weight: bold;
+  font-size: 12pt;
+  border: solid #d37538;
 
 }
 

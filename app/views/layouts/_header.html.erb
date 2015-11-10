@@ -8,9 +8,11 @@
       <% if session[:user_id]%>
         <div>
           <ul class="nav navbar-nav">
-            <li><a href="<%= @user %>">Profile</a></li>
-            <li><a href="<%= new_crop_path %>">Post A Crop</a></li>
-            <li><a href="<%= crops_path %>">Browse Crops</a></li>
+
+            <li><a class="nav-a" href="<%= @current_user %>">Profile</a></li>
+            <li><a class="nav-a" href="<%= new_crop_path %>">Post A Crop</a></li>
+            <li><a class="nav-a" href="<%= crops_path %>">Browse Crops</a></li>
+
           </ul>
           <span class="navbar-right"><%= link_to 'Logout', session_destroy_path, method: :delete, class: "nav-text"%></span>
         <% else %>
