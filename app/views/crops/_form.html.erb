@@ -1,9 +1,9 @@
-  <div class="container">
+  <div class="container browse-crops">
 
-    <div class="jumbotron">
-      <div class="header text-center">Post An Excess Crop</div>
-      <p class="text-center">Ditch the supermarket and browse excess crops in your area. </p>
-    </div>
+      <div class="jumbotron">
+        <div class="header text-center">Post An Excess Crop</div>
+        <p class="text-center">Ditch the supermarket and browse excess crops in your area. </p>
+      </div>
 
     <%= form_for @crop  do |f| %>
       <% if @crop.errors.any? %>
@@ -55,15 +55,15 @@
 
         <div class="row crop-form-label">
           <div class="form-group crop-ripe">
-            <%= f.label :ripe_on, "Ripe On:", class: "col-md-4 control-label crop-ripe-on"%> <br>
-            <%= f.date_field :ripe_on, class: "crop-ripe" %>
+            <%= f.label :ripe_on, "Ripe On:", class: "col-md-4 crop-ripe-on"%> <br>
+            <%= f.date_field :ripe_on %>
           </div>
         </div>
 
         <div class="row crop-form-label">
           <div class="form-group crop-expires">
-            <%= f.label :expires_on, "Expires On:", class: "col-md-4 control-label"%> <br>
-            <%= f.date_field :expires_on, class: "crop-expires" %>
+            <%= f.label :expires_on, "Expires On:", class: "col-md-4"%> <br>
+            <%= f.date_field :expires_on %>
           </div>
         </div>
 
@@ -71,16 +71,25 @@
           <h4 class="post-crop-title">What are you willing to swap?</h4>
             <div class="col-md-4">
             </div>
-            <% TradeType.all.each do |t| %>
-              <div class="col-md-2">
-                <div class="form-group">
-                  <%= check_box_tag 'trade_types[]', t.id, @crop.trade_types.include?(t) %> <%= t.name %>
+            <div class="row">
+              <% TradeType.all.each do |t| %>
+                <div class="col-md-2">
+                  <div class="form-group">
+                    <%= check_box_tag 'trade_types[]', t.id, @crop.trade_types.include?(t) %>
+                    <% if t.id == 1 %>
+                      <%= t.name %> <span class="glyphicon glyphicon-apple" aria-hidden="true"></span>
+                    <% elsif t.id == 2 %>
+                      <%= t.name %> <span class="glyphicon glyphicon-time" aria-hidden="true"></span>
+                    <% else%>
+                      <%= t.name %> <span class="glyphicon glyphicon-leaf" aria-hidden="true"></span>
+                    <% end %>
+                  </div>
                 </div>
-              </div>
-            <% end %>
+              <% end %>
+            </div>
         </div>
 
-        <span class="crop-form-label"><%= f.submit "Submit", class: "crop-button "%></span>
+        <span class="crop-form-label"><%= f.submit "Post A Crop", class: "crop-button" %></span>
 
       <% end %>
 
