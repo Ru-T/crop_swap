@@ -23,12 +23,20 @@
       </ul>
       <% @user.crops.each do |crop| %>
         <div class="row">
-          <div class="col-md-8 panel panel-default">
+          <div class="col-md-10 panel panel-default">
             <dl>
+              <div class="move-right">
+                    <% if crop.crop_pic.blank? %>
+                      <div class="crop_name panel-body"><%= image_tag asset_url("crop-default-image.png") %></div>
+                    <% else %>
+                      <div class="crop_name panel-body"><%= image_tag crop.crop_pic.url %></div>
+                    <% end %>
+                </div>
+              <div class="profile-wrapper">
               <dt class="crop_name panel-heading"><%=crop.crop_type.crop_type%></dt>
               <em>Posted on <%=crop.created_at.strftime("%b %d %Y")%></em>
               <dd class="details panel-body"> <%= crop.description %></dd>
-              <dd class="details panel-body">Amount: <%= crop.weight %> lbs</dd>
+              <dd class="details panel-body user-crop-weight">Amount: <%= crop.weight %> lbs</dd>
               <dd class="details panel-body">Ripe On: <%= crop.ripe_on %></dd>
               <dd class="details panel-body">Expires On: <%= crop.expires_on %></dd>
               <% crop.trades.each do |t| %>
@@ -53,15 +61,16 @@
                   <h4> Swap Rejected </h4>
                 <% end %>
               <% end %>
+
             </dl>
           </div>
-          <div class="col-md-4">
+        <!--  <div class="col-md-4">
               <% if crop.crop_pic.blank? %>
                 <div class="crop_name panel-body"><%= image_tag asset_url("crop-default-image.png") %></div>
               <% else %>
                 <div class="crop_name panel-body"><%= image_tag crop.crop_pic.url %></div>
               <% end %>
-          </div>
+          </div> -->
         </div>
       <% end %>
       </div>
