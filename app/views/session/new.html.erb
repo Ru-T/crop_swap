@@ -14,13 +14,12 @@
             <%=password_field_tag :password %>
           </div>
 
-          <%=submit_tag "Log In", class: "login-button" %>
+        <%=submit_tag "Log In", class: "login-button" %>
 
       <% end %>
-
-      <br>
-
-      <%= link_to 'Sign Up', new_user_path %>
+      <br />
+      <br />
+      <p class="sign-up"><%= link_to 'Sign Up', new_user_path %></p>
     </section>
   </body>
 </main>

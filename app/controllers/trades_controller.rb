@@ -14,7 +14,7 @@ class TradesController < ApplicationController
 
   # GET /trades/new
   def new
-    @trade = Trade.new
+    @trade = Trade.new(crop_id: params[:crop_id], consumer: @current_user)
   end
 
   # GET /trades/1/edit
@@ -41,7 +41,6 @@ class TradesController < ApplicationController
 
     if @trade.update(trade_params)
       if @trade.accepted == true
-        # Trade.reject_other_trades(crop)
         TradeMailer.accepted_trade(@consumer.email).deliver_now
       elsif @trade.accepted == false
         TradeMailer.rejected_trade(@consumer.email).deliver_now

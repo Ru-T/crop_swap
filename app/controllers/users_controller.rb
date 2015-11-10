@@ -27,7 +27,7 @@ class UsersController < ApplicationController
 
     if @user.save
       session[:user_id] = @user.id
-      redirect_to new_crop_path
+      redirect_to edit_user_path(@user)
     else
       render :new
     end
