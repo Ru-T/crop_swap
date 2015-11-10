@@ -56,13 +56,11 @@
             </dl>
           </div>
           <div class="col-md-4">
-            <dl>
               <% if crop.crop_pic.blank? %>
-                <dt class="crop_name panel-body"><%= image_tag asset_url("crop-default-image.png") %></dt>
+                <div class="crop_name panel-body"><%= image_tag asset_url("crop-default-image.png") %></div>
               <% else %>
-                <dt class="crop_name panel-body"><%= image_tag crop.crop_pic.url %></dt>
+                <div class="crop_name panel-body"><%= image_tag crop.crop_pic.url %></div>
               <% end %>
-            </dl>
           </div>
         </div>
       <% end %>
