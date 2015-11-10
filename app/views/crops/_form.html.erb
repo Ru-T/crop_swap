@@ -1,62 +1,87 @@
-<div class="container">
-  <%= form_for @crop  do |f| %>
-    <% if @crop.errors.any? %>
-      <div id="error_explanation">
-        <h2><%= pluralize(@crop.errors.count, "error") %> prohibited this crop from being saved:</h2>
-          <ul>
-            <% @crop.errors.full_messages.each do |message| %>
-            <li><%= message %></li>
+  <div class="container">
+
+    <div class="jumbotron">
+      <div class="header text-center">Post An Excess Crop</div>
+      <p class="text-center">Ditch the supermarket and browse excess crops in your area. </p>
+    </div>
+
+    <%= form_for @crop  do |f| %>
+      <% if @crop.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(@crop.errors.count, "error") %> prohibited this crop from being saved:</h2>
+            <ul>
+              <% @crop.errors.full_messages.each do |message| %>
+              <li><%= message %></li>
+              <% end %>
+            </ul>
+        </div>
+      <% end %>
+
+      <%= f.hidden_field :user_id %>
+
+      <div class="row crop-form-label">
+        <div class="form-group">
+          <%= f.label :crop_type_id, "Crop Type:", class: "col-md-4 control-label" %>
+          <div class="col-md-8">
+            <%= f.collection_select :crop_type_id, CropType.all, :id, :crop_type, class: "form-control crop-select" %>
+          </div>
+        </div>
+      </div>
+
+      <div class="row crop-form-label">
+        <div class="form-group">
+          <%= f.label :description, "Description:", class: "col-md-4 control-label" %>
+          <div class="col-md-8">
+            <%= f.text_area :description, class: "crop-description form-control" %>
+          </div>
+        </div>
+      </div>
+
+      <div class="row crop-form-label">
+        <div class="form-group">
+          <%= f.label :crop_pic, "Crop Pic:", class: "col-md-4 control-label crop-pic"%> <br>
+          <%= f.file_field :crop_pic %>
+        </div>
+      </div>
+
+      <div class="row crop-form-label">
+        <div class="form-group">
+          <%= f.label :weight, "Weight:", class: "col-md-4 control-label" %>
+          <div class="col-md-8">
+            <%= f.number_field :weight, class: "crop-weight form-control" %>
+          </div>
+        </div>
+      </div>
+
+        <div class="row crop-form-label">
+          <div class="form-group">
+            <%= f.label :ripe_on, "Ripe On:", class: "col-md-4 control-label crop-ripe-on"%> <br>
+            <%= f.date_field :ripe_on, class: "crop-ripe" %>
+          </div>
+        </div>
+
+        <div class="row crop-form-label">
+          <div class="form-group">
+            <%= f.label :expires_on, "Expires On:", class: "col-md-4 control-label"%> <br>
+            <%= f.date_field :expires_on, class: "crop-expires" %>
+          </div>
+        </div>
+
+        <div class="row crop-form-label">
+          <h4 class="post-crop-title ">What are you willing to swap?</h4>
+            <div class="col-md-4">
+            </div>
+            <% TradeType.all.each do |t| %>
+              <div class="col-md-2">
+                <div class="form-group">
+                  <%= check_box_tag 'trade_types[]', t.id, @crop.trade_types.include?(t) %> <%= t.name %>
+                </div>
+              </div>
             <% end %>
-          </ul>
-      </div>
-    <% end %>
+        </div>
 
+        <span class="crop-form-label"><%= f.submit "Submit", class: "crop-button "%></span>
 
-<body class="backg">
+      <% end %>
 
-    <h1 class="post-crop-title">Post A Crop</h1>
-    <div class="form-group">
-      <%= f.label :weight, "Weight:", class: "col-md-4 control-label" %>
-      <div class="col-md-8">
-        <%= f.number_field :weight, class: "crop-weight form-control" %>
-      </div>
-    </div>
-    <div class="form-group">
-      <%= f.label :description, "Description:", class: "col-md-4 control-label" %>
-      <div class="col-md-8">
-        <%= f.text_area :description, class: "crop-description form-control" %>
-      </div>
-    </div>
-    <div class="form-group">
-      <%= f.label :crop_pic, "Crop Pic:", class: "col-md-4 control-label crop-pic"%> <br>
-      <%= f.file_field :crop_pic %>
-    </div>
-    <div class="form-group">
-      <%= f.label :ripe_on, "Ripe On:", class: "col-md-4 control-label crop-ripe-on"%> <br>
-      <%= f.date_field :ripe_on, class: "crop-ripe" %>
-    </div>
-    <div class="form-group">
-      <%= f.label :expires_on, "Expires On:", class: "col-md-4 control-label"%> <br>
-      <%= f.date_field :expires_on, class: "crop-expires" %>
-    </div>
-    <div class="form-group">
-      <%= f.label :crop_type_id, "Crop Type:", class: "col-md-4 control-label" %>
-      <div class="col-md-8">
-        <%= f.collection_select :crop_type_id, CropType.all, :id, :crop_type, class: "form-control crop-select" %>
-      </div>
-    </div>
-    <%= f.hidden_field :user_id %>
-    <br>
-    <h4 class="post-crop-title">What are you willing to swap?</h4>
-
-    <% TradeType.all.each do |t| %>
-      <div class="form-group">
-        <%= check_box_tag 'trade_types[]', t.id, @crop.trade_types.include?(t) %> <%= t.name %>
-      </div>
-    <% end %>
-
-    <span><%= f.submit "Submit", class: "crop-button"%></span>
-
-  <% end %>
-
-</div> <!-- end of main.container -->
+  </div>
