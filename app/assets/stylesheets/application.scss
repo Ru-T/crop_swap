@@ -38,15 +38,15 @@ body {
 
 //Sign in Page
 main.login-form {
-  background-color: #D9CAA5;
+  background-color: white;
   margin-top: 50px;
   padding-top: 10px;
   border-radius: .3em;
   padding-bottom: 25px;
   color: #323232;
   opacity: .96;
-  color: #FDFDFD;
-  border: solid #D9CAA5;
+  color: #3b444b;
+  border: solid #fefdfb;
   position: relative;
 }
 
@@ -64,6 +64,7 @@ h1 {
   text-align: left;
   font-size: 22pt;
   margin-bottom: 5%;
+  color: #3b444b;
 }
 
 a {
@@ -126,10 +127,7 @@ a {
 //   }
 
 body.backg {
-  // background-color: #FFA366;
-  // background: image-url('field.jpg') no-repeat center center fixed;
-  // background: image-url('beans.jpg') no-repeat center center fixed;
-  background: image-url('corn.jpg') no-repeat center center fixed;
+  background: image-url('tomatoes.jpg') no-repeat center center fixed;
 }
 
 .login-button {
@@ -143,6 +141,7 @@ body.backg {
   color: #FDFDFD;
   float: left;
   padding-right: 10px;
+  border-radius: 5px;
 }
 
 .login-button:hover {

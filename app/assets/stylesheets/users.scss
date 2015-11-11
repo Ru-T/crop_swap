@@ -5,14 +5,16 @@
 $default-focus: #ffef99;
 
 .new-user-form{
-  background-color: #D9CAA5;
-  opacity: .8;
+  background-color: white;
+  margin-top: 50px;
+  padding-top: 10px;
   border-radius: .3em;
-  padding-bottom: 20px;
-  margin-top: 45px;
+  padding-bottom: 25px;
+  color: #323232;
   opacity: .96;
-  color: #FDFDFD;
-  width: 40%;
+  color: #3b444b;
+  border: solid #fefdfb;
+  position: relative;
 }
 
 h1 {
@@ -51,7 +53,7 @@ border: solid #e5e5e5;
   font-weight: bold;
   font-size: 12pt;
   border: solid #d37538;
-
+  border-radius: 5px; 
 }
 
 .new-button:hover {
