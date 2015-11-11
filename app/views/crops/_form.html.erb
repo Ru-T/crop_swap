@@ -40,7 +40,7 @@
       <div class="row crop-form-label">
         <div class="form-group crop-pic">
           <%= f.label :crop_pic, "Crop Pic:", class: "col-md-2 control-label crop-pic"%> <br>
-          <div class="col-md-8">
+          <div class="col-md-8 crop-pic-field">
             <%= f.file_field :crop_pic %>
           </div>
         </div>
@@ -64,7 +64,7 @@
 
         <div class="row crop-form-label">
           <div class="form-group crop-expires">
-            <%= f.label :expires_on, "Expires On:", class: "col-md-4"%> <br>
+            <span class="crop-time-label"><%= f.label :expires_on, "Expires On:", class: "col-md-4"%> </span><br>
             <%= f.date_field :expires_on %>
           </div>
         </div>
@@ -74,7 +74,7 @@
         </div>
         <div class="row">
           <% TradeType.all.each do |t| %>
-            <div class="col-md-3">
+            <div class="col-md-2.5">
               <div class="form-group crop-types">
                 <%= check_box_tag 'trade_types[]', t.id, @crop.trade_types.include?(t) %>
                 <% if t.id == 1 %>
