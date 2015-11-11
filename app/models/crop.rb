@@ -2,7 +2,13 @@ class Crop < ActiveRecord::Base
   belongs_to :user
   belongs_to :crop_type
   has_and_belongs_to_many :trade_types
-  has_many :trades
+  has_many :trades do
+    def pending
+      where(accepted: nil)
+    end
+    # def accepted
+    # end
+  end
 
   validates :user_id, presence: true
   validates :description, presence: true

@@ -93,9 +93,9 @@
         <div class="col-md-2">
         </div>
         <div class="col-md-10">
-          <div class="row trade-form-label">
+          <div class="row ">
             <% @trade.crop.trade_types.each do |tt| %>
-              <%= f.label :trade_type_id, "#{tt.name}" %>
+              <p class="trade-form-label"><%= f.label :trade_type_id, "#{tt.name}" %>
                 <% if tt.id == 1 %>
                   <span class="glyphicon glyphicon-apple" aria-hidden="true"></span>
                 <% elsif tt.id == 2 %>
@@ -103,7 +103,7 @@
                 <% else%>
                   <span class="glyphicon glyphicon-leaf" aria-hidden="true"></span>
                 <% end %>
-              <%= f.radio_button :trade_type_id, tt.id %>
+              <%= f.radio_button :trade_type_id, tt.id %></p>
             <% end %>
           </div>
           <div class="row crop-form-label">
