@@ -22,49 +22,49 @@
         <li role="presentation"><a href="#messages" aria-controls="messages" role="tab" data-toggle="tab">All Crops</a></li>
       </ul>
       <% @user.crops.each do |crop| %>
-        <div class="row">
-          <div class="col-md-8 panel panel-default">
-            <dl>
-              <dt class="crop_name panel-heading"><%=crop.crop_type.crop_type%></dt>
-              <em>Posted on <%=crop.created_at.strftime("%b %d %Y")%></em>
-              <dd class="details panel-body"> <%= crop.description %></dd>
-              <dd class="details panel-body">Amount: <%= crop.weight %> lbs</dd>
-              <dd class="details panel-body">Ripe On: <%= crop.ripe_on %></dd>
-              <dd class="details panel-body">Expires On: <%= crop.expires_on %></dd>
-              <% crop.trades.each do |t| %>
-                <% if t.accepted != true && t.accepted != false %>
-                  <h3> Pending Trades </h3>
-                    <p>I would like to swap for: <strong><%#= t.trade_type.name %></strong></p>
-                    <p><%= t.message %></p>
-                    <% if t.crop_pic.blank? %>
-                      <%= image_tag asset_url ("crop-default-image.png") %>
-                    <% else%>
-                      <%= image_tag t.crop_pic.url  %>
-                    <% end %>
-                    <button type="button" class="btn btn-success">
-                      <%=link_to 'Accept Swap', edit_trade_path(accepted: true)%>
-                    </button>
-                    <button type="button" class="btn btn-success">
-                      <%=link_to 'Reject Swap', edit_trade_path(accepted: false)%>
-                    </button>
-                <% elsif t.accepted == true %>
-                  <h4> Swap Accepted </h4>
-                <% else t.accepted == false %>
-                  <h4> Swap Rejected </h4>
-                <% end %>
-              <% end %>
-            </dl>
+        <div class="row crop-item">
+          <div class="col-md-3">
+            <% if crop.crop_pic.blank? %>
+              <div class="crop_name panel-body"><%= image_tag asset_url("crop-default-image.png") %></div>
+            <% else %>
+              <div class="crop_name panel-body"><%= image_tag crop.crop_pic.url %></div>
+            <% end %>
+            <em>Ripe On: <%= crop.ripe_on %></em><br>
+            <em>Expires On: <%= crop.expires_on %></em><br><br>
           </div>
-          <div class="col-md-4">
-              <% if crop.crop_pic.blank? %>
-                <div class="crop_name panel-body"><%= image_tag asset_url("crop-default-image.png") %></div>
-              <% else %>
-                <div class="crop_name panel-body"><%= image_tag crop.crop_pic.url %></div>
-              <% end %>
+          <div class="col-md-7">
+            <div>
+              <h3><%=crop.crop_type.crop_type%></h3>
+              <div class="crop-description"> <%= crop.description %></p>
+              <div class="details"> Amount: <%= crop.weight %> lbs</p>
+            </div>
           </div>
         </div>
-      <% end %>
+        <div class="row">
+          <% crop.trades.each do |t| %>
+            <% if t.accepted != true && t.accepted != false %>
+              <h4> Pending Trades </h4>
+              <p><%=t.consumer.name %> would like to swap for <strong><%#= t.trade_type.name %></strong></p>
+              <p>Message: <%= t.message %></p>
+              <% if t.crop_pic.blank? == false %>
+                <%= image_tag t.crop_pic.url  %>
+              <% end %>
+              <button type="button" class="btn btn-success">
+                <%=link_to 'Accept Swap', edit_trade_path(accepted: true)%>
+              </button>
+              <button type="button" class="btn btn-success">
+                <%=link_to 'Reject Swap', edit_trade_path(accepted: false)%>
+              </button>
+          <% elsif t.accepted == true %>
+            <h4> Swap Accepted </h4>
+          <% else t.accepted == false %>
+            <h4> Swap Rejected </h4>
+          <% end %>
+        <% end %>
       </div>
-    </div>
-
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
 </div>
