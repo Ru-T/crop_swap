@@ -23,52 +23,54 @@
       </ul>
       <div id="my-swap-crops">
         <% @user.crops.each do |crop| %>
-          <div class="crop-item">
-            <div class="row">
-              <div class="col-md-3">
-                <% if crop.crop_pic.blank? %>
-                  <div class="crop_name panel-body"><%= image_tag asset_url("crop-default-image.png") %></div>
-                <% else %>
-                  <div class="crop_name panel-body"><%= image_tag crop.crop_pic.url %></div>
-                <% end %>
-              </div>
-              <div class="col-md-9">
-                <div>
-                  <h3><%=crop.crop_type.crop_type%></h3>
-                  <div class="crop-description"> <%= crop.description %></div>
-                  <div class="details"> Amount: <%= crop.weight %> lbs</div>
-                  <div>
-                    <% if crop.about_to_expire? %>
-                      <p class="expire"> ABOUT TO EXPIRE! </p>
-                    <% elsif crop.is_ripe? %>
-                      <p class="ripe"> RIPE NOW! </p>
-                    <% end %>
-                  </div>
-                  <em>Ripe On: <%= crop.ripe_on %></em><br>
-                  <em>Expires On: <%= crop.expires_on %></em><br><br>
-                </div>
-              </div>
-            </div>
-            <div class="row trades">
-              <% crop.trades.each do |t| %>
-                <div class="col-md-8">
-                  <h4> Pending Trades </h4>
-                  <p><%=t.consumer.name %> would like to swap for <strong><%#= t.trade_type.name %></strong></p>
-                  <p>Message: <%= t.message %></p>
-                  <% if t.crop_pic.blank? == false %>
-                    <%= image_tag t.crop_pic.url  %>
+          <% if crop.trades.blank? == false %>
+            <div class="crop-item">
+              <div class="row">
+                <div class="col-md-3">
+                  <% if crop.crop_pic.blank? %>
+                    <div class="crop_name panel-body"><%= image_tag asset_url("crop-default-image.png") %></div>
+                  <% else %>
+                    <div class="crop_name panel-body"><%= image_tag crop.crop_pic.url %></div>
                   <% end %>
                 </div>
-                <div class="col-md-4">
-                  <button type="button" class="btn btn-success">
-                    <%=link_to 'Accept Swap', edit_trade_path(accepted: true)%>
-                  </button>
-                  <button type="button" class="btn btn-success">
-                    <%=link_to 'Reject Swap', edit_trade_path(accepted: false)%>
-                  </button>
+                <div class="col-md-9">
+                  <div>
+                    <h3><%=crop.crop_type.crop_type%></h3>
+                    <div class="crop-description"> <%= crop.description %></div>
+                    <div class="details"> Amount: <%= crop.weight %> lbs</div>
+                    <div>
+                      <% if crop.about_to_expire? %>
+                        <p class="expire"> ABOUT TO EXPIRE! </p>
+                      <% elsif crop.is_ripe? %>
+                        <p class="ripe"> RIPE NOW! </p>
+                      <% end %>
+                    </div>
+                    <em>Ripe On: <%= crop.ripe_on %></em><br>
+                    <em>Expires On: <%= crop.expires_on %></em><br><br>
+                  </div>
                 </div>
-              <% end %>
-            </div>
+              </div>
+              <div class="row trades">
+                <% crop.trades.each do |t| %>
+                  <div class="col-md-8">
+                    <h4> Pending Trades </h4>
+                    <p><%=t.consumer.name %> would like to swap for <strong><%#= t.trade_type.name %></strong></p>
+                    <p>Message: <%= t.message %></p>
+                    <% if t.crop_pic.blank? == false %>
+                      <%= image_tag t.crop_pic.url  %>
+                    <% end %>
+                  </div>
+                  <div class="col-md-4">
+                    <button type="button" class="btn btn-success">
+                      <%=link_to 'Accept Swap', edit_trade_path(accepted: true)%>
+                    </button>
+                    <button type="button" class="btn btn-success">
+                      <%=link_to 'Reject Swap', edit_trade_path(accepted: false)%>
+                    </button>
+                  </div>
+                <% end %>
+              </div>
+            <% end %>
           <% end %>
         </div>
       </div>
