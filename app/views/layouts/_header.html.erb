@@ -9,9 +9,9 @@
         <div>
           <ul class="nav navbar-nav">
 
-            <li><a class="nav-a" href="<%= @current_user %>">Profile</a></li>
-            <li><a class="nav-a" href="<%= new_crop_path %>">Post A Crop</a></li>
-            <li><a class="nav-a" href="<%= crops_path %>">Browse Crops</a></li>
+            <li><%= link_to "Browse Crops", crops_path, class: "nav-a" %></li>
+            <li><%= link_to "Post A Crop", new_crop_path, class: "nav-a" %></li>
+            <li><%= link_to "Profile", @user, class: "nav-a" %></li>
 
           </ul>
           <span class="navbar-right nav-link"><%= link_to 'Logout', session_destroy_path, method: :delete, class: "nav-text"%></span>

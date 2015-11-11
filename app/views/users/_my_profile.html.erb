@@ -156,6 +156,12 @@
                       </div>
                   </div>
                 </div>
+              <% else %>
+                <br>
+                <h4> You do not currently have any swaps.</h4>
+                <button type="button" class="btn btn-warning">
+                  <%=link_to 'View Trade History', trades_path%>
+                </button>
               <% end %>
             <% end %>
           </div>
