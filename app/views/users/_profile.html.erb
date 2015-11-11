@@ -9,58 +9,52 @@
       <% else%>
         <%= image_tag @user.profile_pic.url %>
       <% end %>
-    </div>
-    <div class="col-md-9">
       <h3><%= @user.name %></h3>
       <p><%= @user.zip_code %><br>
       <em>Joined on <%=@user.created_at.strftime("%b %d %Y")%></em></p>
       <p><%= @user.description %></p>
     </div>
-  </div>
-
-  <%@user.crops.each do |crop| %>
-    <div class="row">
-      <div class="col-md-3">
-      </div>
-      <div class="col-md-5 panel panel-default">
-        <dl>
-          <dt class="crop_name panel-heading"><%=crop.crop_type.crop_type%></dt>
-          <em>Posted on <%=crop.created_at.strftime("%b %d %Y")%></em>
-          <dd class="details panel-body"> <%= crop.description %></dd>
-          <dd class="details panel-body">Amount: <%= crop.weight %> lbs</dd>
-          <dd class="details panel-body">Ripe On: <%= crop.ripe_on %></dd>
-          <dd class="details panel-body">Expires On: <%= crop.expires_on %></dd>
-          <div>
-          <% if crop.trades.empty? %>
-            <% crop.trade_types.each do |tt| %>
-                  <% if tt.id == 1 %>
-                    <span class="glyphicon glyphicon-apple" aria-hidden="true"></span>
-                  <% elsif tt.id == 2%>
-                    <span class="glyphicon glyphicon-time" aria-hidden="true"></span>
-                  <% else%>
-                    <span class="glyphicon glyphicon-leaf" aria-hidden="true"></span>
-                  <% end %>
-                  <%= tt.name %>
+    <div class="col-md-9">
+      <div class="crop-item">
+        <% @user.crops.each do |crop| %>
+          <div class="row">
+            <div class="col-md-3">
+              <% if crop.crop_pic.blank? %>
+                <div class="crop_name panel-body"><%= image_tag asset_url("crop-default-image.png") %></div>
+              <% else %>
+                <div class="crop_name panel-body"><%= image_tag crop.crop_pic.url %></div>
+              <% end %>
+            </div>
+            <div class="col-md-9">
+              <div>
+                <h3><%=crop.crop_type.crop_type%></h3>
+                <div class="crop-description"> <%= crop.description %></div>
+                <div class="details"> Amount: <%= crop.weight %> lbs</div><br>
+                <em>Ripe On: <%= crop.ripe_on %></em><br>
+                <em>Expires On: <%= crop.expires_on %></em><br><br>
+              </div>
+            </div>
+          </div>
+          <div class="row trades">
+            <% if crop.trades.empty? %>
+              <% crop.trade_types.each do |tt| %>
+                <% if tt.id == 1 %>
+                  <span class="glyphicon glyphicon-apple" aria-hidden="true"></span>
+                <% elsif tt.id == 2%>
+                  <span class="glyphicon glyphicon-time" aria-hidden="true"></span>
+                <% else%>
+                  <span class="glyphicon glyphicon-leaf" aria-hidden="true"></span>
+                <% end %>
+                <%= tt.name %>
+              <% end %>
+              <button type="button" class="btn btn-success">
+                <%=link_to 'Propose Swap', new_trade_path(crop_id: crop.id,
+                  consumer_id: @current_user.id, grower_id: crop.user_id) %>
+              </button>
+            <% else %>
+              <p> Pending Trade </p>
             <% end %>
           </div>
-            <button type="button" class="btn btn-success">
-              <%=link_to 'Propose Swap', new_trade_path(crop_id: crop.id,
-                consumer_id: @current_user.id, grower_id: crop.user_id) %>
-            </button>
-        <% else %>
-          <p> Pending Trade </p>
         <% end %>
-        </dl>
-      </div>
-      <div class="col-md-4">
-        <dl>
-          <% if crop.crop_pic.blank? %>
-            <dt class="crop_name panel-body"><%= image_tag asset_url("crop-default-image.png") %></dt>
-          <% else %>
-            <dt class="crop_name panel-body"><%= image_tag crop.crop_pic.url %></dt>
-          <% end %>
-        </dl>
       </div>
     </div>
-  <%end %>
-</div>
