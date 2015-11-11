@@ -39,28 +39,33 @@
                 </div>
                 <em>Ripe On: <%= crop.ripe_on %></em><br>
                 <em>Expires On: <%= crop.expires_on %></em><br><br>
+                <p>This crop can be swapped for:
+                  <% crop.trade_types.each do |tt| %>
+                    <% if tt.id == 1 %>
+                      <span class="glyphicon glyphicon-apple" aria-hidden="true"></span>
+                    <% elsif tt.id == 2%>
+                      <span class="glyphicon glyphicon-time" aria-hidden="true"></span>
+                    <% else%>
+                      <span class="glyphicon glyphicon-leaf" aria-hidden="true"></span>
+                    <% end %>
+                    <%= tt.name%>
+                  <% end %>
+                  <p>
               </div>
             </div>
           </div>
           <div class="row trades">
             <% if crop.trades.empty? %>
-              <% crop.trade_types.each do |tt| %>
-                <div class="col-md-4">
-                  <% if tt.id == 1 %>
-                    <span class="glyphicon glyphicon-apple" aria-hidden="true"></span>
-                  <% elsif tt.id == 2%>
-                    <span class="glyphicon glyphicon-time" aria-hidden="true"></span>
-                  <% else%>
-                    <span class="glyphicon glyphicon-leaf" aria-hidden="true"></span>
-                  <% end %>
-                  <%= tt.name %>
-                </div>
-              <% end %>
+              <div class="col-md-8">
+              </div>
               <div class="col-md-4">
                 <button type="button" class="btn btn-success">
                   <%=link_to 'Propose Swap', new_trade_path(crop_id: crop.id,
                     consumer_id: @current_user.id, grower_id: crop.user_id) %>
                 </button>
+                <br>
+                <br>
+              </div>
             <% else %>
               <div class="col-md-4">
               </div>
@@ -68,8 +73,8 @@
                 <button type="button" disabled="disabled" class="btn btn-success">
                   <%='Pending Swap' %>
                 </button>
+              </div>
             <% end %>
-            </div>
         </div>
       </div>
     <% end %>
