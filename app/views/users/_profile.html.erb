@@ -55,9 +55,14 @@
                     consumer_id: @current_user.id, grower_id: crop.user_id) %>
                 </button>
             <% else %>
-                <p> Pending Trade </p>
+              <div class="col-md-4">
+              </div>
+              <div class="col-md-4">
+                <button type="button" disabled="disabled" class="btn btn-success">
+                  <%='Pending Swap' %>
+                </button>
             <% end %>
-
+            </div>
         </div>
       </div>
     <% end %>
