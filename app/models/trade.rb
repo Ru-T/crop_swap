@@ -11,7 +11,7 @@ class Trade < ActiveRecord::Base
 
   def reject_other_trades
     if self.accepted == true
-      Trade.where(crop_id: self.crop_id).where.not(id: self.id).update_all(accepted: false)
+      Trade.where(crop_id: self.crop_id).where.not(id: self.id).update_all(accepted: false, message_response: "Sorry - another swap was chosen this time.")
     end
   end
 
