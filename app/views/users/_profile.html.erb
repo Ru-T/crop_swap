@@ -38,7 +38,7 @@
           <div class="row trades">
             <% if crop.trades.empty? %>
               <% crop.trade_types.each do |tt| %>
-                <div class="col-md-8">
+                <div class="col-md-4">
                   <% if tt.id == 1 %>
                     <span class="glyphicon glyphicon-apple" aria-hidden="true"></span>
                   <% elsif tt.id == 2%>
@@ -50,13 +50,14 @@
                 </div>
               <% end %>
               <div class="col-md-4">
-              <button type="button" class="btn btn-success">
-                <%=link_to 'Propose Swap', new_trade_path(crop_id: crop.id,
-                  consumer_id: @current_user.id, grower_id: crop.user_id) %>
-              </button>
-          <% else %>
-              <div> Pending Trade </div>
-          <% end %>
+                <button type="button" class="btn btn-success">
+                  <%=link_to 'Propose Swap', new_trade_path(crop_id: crop.id,
+                    consumer_id: @current_user.id, grower_id: crop.user_id) %>
+                </button>
+            <% else %>
+                <p> Pending Trade </p>
+            <% end %>
+
         </div>
       </div>
     <% end %>
