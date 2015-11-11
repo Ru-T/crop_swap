@@ -31,6 +31,7 @@
               <% else %>
                 <h6 class="card-subtitle text-muted">Expires: <%= crop.expires_on.strftime("%b %d %Y") %></h6>
               <% end %>
+              <h6><%= crop.user.zip_code %></h6>
               <p class="card-text"><%= crop.description %></p>
             </div>
             <button type="button" class="btn btn-success">
