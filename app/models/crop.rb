@@ -6,8 +6,12 @@ class Crop < ActiveRecord::Base
     def pending
       where(accepted: nil)
     end
-    # def accepted
-    # end
+    def accepted
+      where(accepted: true)
+    end
+    def rejected
+      where(accepted: false)
+    end
   end
 
   validates :user_id, presence: true

@@ -21,15 +21,16 @@
             <% end %>
             <div class="card-block">
               <h4 class="card-title"><%= crop.crop_type.crop_type %> </h4>
-              <div>
-                <% if crop.about_to_expire? %>
-                  <p class="expire"> ABOUT TO EXPIRE! </p>
-                <% elsif crop.is_ripe? %>
-                  <p class="ripe"> RIPE NOW! </p>
-                <% end %>
-              </div>
-              <h6 class="card-subtitle text-muted">Ripe On: <%= crop.ripe_on.strftime("%b %d %Y") %></h6>
-              <h6 class="card-subtitle text-muted">Expires On: <%= crop.expires_on.strftime("%b %d %Y") %></h6>
+              <% if crop.is_ripe? %>
+                <h6 class="ripe"> RIPE NOW! </h6>
+              <% else %>
+                <h6 class="card-subtitle text-muted">Ripe: <%= crop.ripe_on.strftime("%b %d %Y") %></h6>
+              <% end %>
+              <% if crop.about_to_expire?  %>
+                <h6 class="expire"> ABOUT TO EXPIRE! </h6>
+              <% else %>
+                <h6 class="card-subtitle text-muted">Expires: <%= crop.expires_on.strftime("%b %d %Y") %></h6>
+              <% end %>
               <p class="card-text"><%= crop.description %></p>
             </div>
             <button type="button" class="btn btn-success">
