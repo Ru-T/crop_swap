@@ -26,6 +26,19 @@ $('#myTabs a[href="#my-swap-crops"]').tab('show') // Select tab by name
 $('#myTabs a:first').tab('show') // Select first tab
 $('#myTabs a:last').tab('show') // Select last tab
 
+// Trades
+
+var checkbox = document.getElementById('trade_trade_type_id');
+var details_div = document.getElementById('crop-pic');
+radio_button.onselect = function() {
+   if(this.selected) {
+     details_div.style['display'] = 'block';
+   } else {
+     details_div.style['display'] = 'none';
+   }
+};
+
+
 // Leaftlet/map code
 
 $(document).ready(function () {
