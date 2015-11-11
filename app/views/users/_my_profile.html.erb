@@ -19,10 +19,11 @@
       <ul class="nav nav-tabs" role="tablist">
         <li role="presentation" class="active"><a href="#my-swap-crops" aria-controls="home" role="tab" data-toggle="tab">Pending Swap Crops</a></li>
         <li role="presentation"><a href="#my-crops" aria-controls="profile" role="tab" data-toggle="tab">No Swap Crops</a></li>
-        <li role="presentation"><a href="#my-swaps" aria-controls="messages" role="tab" data-toggle="tab">All Crops</a></li>
+        <li role="presentation"><a href="#my-swaps" aria-controls="messages" role="tab" data-toggle="tab">My Swaps</a></li>
       </ul>
 
       <div class="tab-content">
+
         <div role="tabpanel" class="tab-pane active" id="my-swap-crops">
           <% @user.crops.each do |crop| %>
             <% trades = crop.trades.pending %>
@@ -53,8 +54,8 @@
                     </div>
                   </div>
                 </div>
-                <div class="row trades">
-                  <% trades.each do |t| %>
+                <% trades.each do |t| %>
+                  <div class="row trades">
                     <div class="col-md-2">
                     </div>
                     <div class="col-md-5 trades">
@@ -73,13 +74,14 @@
                         <%=link_to 'Reject Swap', edit_trade_path(accepted: false)%>
                       </button>
                     </div>
-                  <% end %>
-                </div>
+                  </div>
+                <% end %>
               <% end %>
             <% end %>
           </div>
         </div>
-        <div role="tabpanel" class="tab-pane active" id="my-crops">
+
+        <div role="tabpanel" class="tab-pane" id="my-crops">
           <% @user.crops.each do |crop| %>
             <% if crop.trades.blank? %>
               <div class="crop-item">
@@ -111,6 +113,53 @@
               <% end %>
             <% end %>
           </div>
+        </div>
+
+        <div role="tabpanel" class="tab-pane" id="my-swaps">
+          <% @user.trades.each do |trade| %>
+            <% if trade.consumer.id == @user.id %>
+              <div class="crop-item">
+                <div class="row">
+                  <div class="col-md-3">
+                    <% if trade.crop.crop_pic.blank? %>
+                      <div class="crop_name panel-body"><%= image_tag asset_url("crop-default-image.png") %></div>
+                    <% else %>
+                      <div class="crop_name panel-body"><%= image_tag trade.crop.crop_pic.url %></div>
+                    <% end %>
+                  </div>
+                  <div class="col-md-9">
+                    <div>
+                      <h3><%=trade.crop.crop_type.crop_type%></h3>
+                      <div class="crop-description"> <%= trade.crop.description %></div>
+                      <div class="details"> Amount: <%= trade.crop.weight %> lbs</div>
+                      <div>
+                        <% if trade.crop.about_to_expire? %>
+                          <p class="expire"> ABOUT TO EXPIRE! </p>
+                        <% elsif trade.crop.is_ripe? %>
+                          <p class="ripe"> RIPE NOW! </p>
+                        <% end %>
+                      </div>
+                      <em>Ripe On: <%= trade.crop.ripe_on %></em><br>
+                      <em>Expires On: <%= trade.crop.expires_on %></em><br><br>
+                    </div>
+                  </div>
+                  <div class="row trades">
+                      <div class="col-md-2">
+                      </div>
+                      <div class="col-md-5 trades">
+                        <h4> Pending Trades </h4>
+                        <p><%=trade.consumer.name %> would like to swap for <strong><%#= t.trade_type.name %></strong></p>
+                        <p>Message: <%= trade.message %></p>
+                        <% if trade.crop_pic.blank? == false %>
+                          <%= image_tag trade.crop_pic.url  %>
+                        <% end %>
+                      </div>
+                  </div>
+                </div>
+              <% end %>
+            <% end %>
+          </div>
+        </div>
         </div>
       </div>
     </div>
