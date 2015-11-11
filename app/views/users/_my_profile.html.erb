@@ -21,8 +21,8 @@
         <li role="presentation"><a href="#profile" aria-controls="profile" role="tab" data-toggle="tab">No Swap Crops</a></li>
         <li role="presentation"><a href="#messages" aria-controls="messages" role="tab" data-toggle="tab">All Crops</a></li>
       </ul>
-      <div class="crop-item">
-        <% @user.crops.each do |crop| %>
+      <% @user.crops.each do |crop| %>
+        <div class="crop-item">
           <div class="row">
             <div class="col-md-3">
               <% if crop.crop_pic.blank? %>

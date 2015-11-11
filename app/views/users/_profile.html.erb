@@ -15,8 +15,8 @@
       <p><%= @user.description %></p>
     </div>
     <div class="col-md-9">
-      <div class="crop-item">
-        <% @user.crops.each do |crop| %>
+      <% @user.crops.each do |crop| %>
+        <div class="crop-item">
           <div class="row">
             <div class="col-md-3">
               <% if crop.crop_pic.blank? %>
@@ -38,23 +38,27 @@
           <div class="row trades">
             <% if crop.trades.empty? %>
               <% crop.trade_types.each do |tt| %>
-                <% if tt.id == 1 %>
-                  <span class="glyphicon glyphicon-apple" aria-hidden="true"></span>
-                <% elsif tt.id == 2%>
-                  <span class="glyphicon glyphicon-time" aria-hidden="true"></span>
-                <% else%>
-                  <span class="glyphicon glyphicon-leaf" aria-hidden="true"></span>
-                <% end %>
-                <%= tt.name %>
+                <div class="col-md-8">
+                  <% if tt.id == 1 %>
+                    <span class="glyphicon glyphicon-apple" aria-hidden="true"></span>
+                  <% elsif tt.id == 2%>
+                    <span class="glyphicon glyphicon-time" aria-hidden="true"></span>
+                  <% else%>
+                    <span class="glyphicon glyphicon-leaf" aria-hidden="true"></span>
+                  <% end %>
+                  <%= tt.name %>
+                </div>
               <% end %>
+              <div class="col-md-4">
               <button type="button" class="btn btn-success">
                 <%=link_to 'Propose Swap', new_trade_path(crop_id: crop.id,
                   consumer_id: @current_user.id, grower_id: crop.user_id) %>
               </button>
-            <% else %>
-              <p> Pending Trade </p>
-            <% end %>
-          </div>
-        <% end %>
+          <% else %>
+              <div> Pending Trade </div>
+          <% end %>
+        </div>
       </div>
-    </div>
+    <% end %>
+  </div>
+</div>
