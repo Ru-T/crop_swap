@@ -15,6 +15,16 @@
 //= require bootstrap-sprockets
 //= require_tree .
 
+// Profile tabs
+
+$('#myTabs a').click(function (e) {
+  e.preventDefault()
+  $(this).tab('show')
+})
+
+$('#myTabs a[href="#my-swap-crops"]').tab('show') // Select tab by name
+$('#myTabs a:first').tab('show') // Select first tab
+$('#myTabs a:last').tab('show') // Select last tab
 
 // Leaftlet/map code
 
