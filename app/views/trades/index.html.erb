@@ -24,8 +24,8 @@
       </div>
       <div class="col-md-9">
         <h3><%=trade.crop.crop_type.crop_type%></h3>
-        <div class="crop-description"> <%= trade.crop.description %></div>
         <h4>Swap Accepted on <%=trade.created_at.strftime("%b %d %Y") %></h4>
+        <div class="crop-description"> <%= trade.crop.description %></div>
         <p>Swap Type: <%= trade.trade_type.name %></p>
         <p>Consumer: <%= trade.consumer.name %></p>
         <p>Message: <%= trade.message %></p>
@@ -50,8 +50,8 @@
       </div>
       <div class="col-md-9">
         <h3><%=trade.crop.crop_type.crop_type%></h3>
-        <div class="crop-description"> <%= trade.crop.description %></div>
         <h4>Swap Rejected on <%=trade.created_at.strftime("%b %d %Y") %></h4>
+        <div class="crop-description"> <%= trade.crop.description %></div>
         <p>Swap Type: <%= trade.trade_type.name %></p>
         <p>Consumer: <%= trade.consumer.name %></p>
         <p>Message: <%= trade.message %></p>
