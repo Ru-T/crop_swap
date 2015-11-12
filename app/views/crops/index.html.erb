@@ -27,7 +27,7 @@
                 <h6 class="card-subtitle text-muted">Ripe: <%= crop.ripe_on.strftime("%b %d %Y") %></h6>
               <% end %>
               <% if crop.about_to_expire?  %>
-                <h6 class="expire"> ABOUT TO EXPIRE! </h6>
+                <h6 class="card-subtitle expire">Expires: <%= crop.expires_on.strftime("%b %d %Y") %></h6>
               <% else %>
                 <h6 class="card-subtitle text-muted">Expires: <%= crop.expires_on.strftime("%b %d %Y") %></h6>
               <% end %>

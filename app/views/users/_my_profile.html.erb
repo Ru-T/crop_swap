@@ -43,16 +43,16 @@
                         <h3><%=crop.crop_type.crop_type%></h3>
                         <div class="crop-description"> <%= crop.description %></div>
                         <div class="details"> Amount: <%= crop.weight %> lbs</div>
-                        <div>
-                          <% if crop.about_to_expire? %>
-                            <p class="expire"> ABOUT TO EXPIRE! </p>
-                          <% elsif crop.is_ripe? %>
-                            <p class="ripe"> RIPE NOW! </p>
-                          <% end %>
-                        </div>
-                        <em>Ripe On: <%= crop.ripe_on %></em><br>
-                        <em>Expires On: <%= crop.expires_on %></em><br><br>
-                      </div>
+                        <% if crop.is_ripe? %>
+                          <em class="ripe"> RIPE NOW! </em><br>
+                        <% else %>
+                          <em>Ripe On: <%= crop.ripe_on %></em><br>
+                        <% end %>
+                        <% if crop.about_to_expire?  %>
+                          <em class="expire">Expires On: <%= crop.expires_on %></em><br><br>
+                        <% else %>
+                          <em>Expires On: <%= crop.expires_on %></em><br><br>
+                        <% end %>
                     </div>
                   </div>
                   <% trades.each do |t| %>
@@ -106,16 +106,16 @@
                       <h3><%=crop.crop_type.crop_type%></h3>
                       <div class="crop-description"> <%= crop.description %></div>
                       <div class="details"> Amount: <%= crop.weight %> lbs</div>
-                      <div>
-                        <% if crop.about_to_expire? %>
-                          <p class="expire"> ABOUT TO EXPIRE! </p>
-                        <% elsif crop.is_ripe? %>
-                          <p class="ripe"> RIPE NOW! </p>
-                        <% end %>
-                      </div>
-                      <em>Ripe On: <%= crop.ripe_on %></em><br>
-                      <em>Expires On: <%= crop.expires_on %></em><br><br>
-                    </div>
+                      <% if crop.is_ripe? %>
+                        <em class="ripe"> RIPE NOW! </em><br>
+                      <% else %>
+                        <em>Ripe On: <%= crop.ripe_on %></em><br>
+                      <% end %>
+                      <% if crop.about_to_expire?  %>
+                        <em class="expire">Expires On: <%= crop.expires_on %></em><br><br>
+                      <% else %>
+                        <em>Expires On: <%= crop.expires_on %></em><br><br>
+                      <% end %>
                   </div>
                 </div>
               <% end %>
@@ -140,16 +140,16 @@
                       <h3><%=trade.crop.crop_type.crop_type%></h3>
                       <div class="crop-description"> <%= trade.crop.description %></div>
                       <div class="details"> Amount: <%= trade.crop.weight %> lbs</div>
-                      <div>
-                        <% if trade.crop.about_to_expire? %>
-                          <p class="expire"> ABOUT TO EXPIRE! </p>
-                        <% elsif trade.crop.is_ripe? %>
-                          <p class="ripe"> RIPE NOW! </p>
-                        <% end %>
-                      </div>
-                      <em>Ripe On: <%= trade.crop.ripe_on %></em><br>
-                      <em>Expires On: <%= trade.crop.expires_on %></em><br><br>
-                    </div>
+                      <% if crop.is_ripe? %>
+                        <em class="ripe"> RIPE NOW! </em><br>
+                      <% else %>
+                        <em>Ripe On: <%= crop.ripe_on %></em><br>
+                      <% end %>
+                      <% if crop.about_to_expire?  %>
+                        <em class="expire">Expires On: <%= crop.expires_on %></em><br><br>
+                      <% else %>
+                        <em>Expires On: <%= crop.expires_on %></em><br><br>
+                      <% end %>
                   </div>
                   <div class="row trades">
                       <div class="col-md-2">
