@@ -26,9 +26,6 @@ $('#myTabs a[href="#my-swap-crops"]').tab('show') // Select tab by name
 $('#myTabs a[href="#my-crops"]').tab('show') // Select tab by name
 $('#myTabs a[href="#my-swaps"]').tab('show') // Select tab by name
 
-// $('#myTabs a:first').tab('show') // Select first tab
-// $('#myTabs a:last').tab('show') // Select last tab
-
 // Trades
 
 var checkbox = document.getElementById('trade_trade_type_id');
