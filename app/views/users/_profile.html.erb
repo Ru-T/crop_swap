@@ -34,12 +34,12 @@
                   <% if crop.is_ripe? %>
                     <em class="ripe"> RIPE NOW! </em><br>
                   <% else %>
-                    <em>Ripe On: <%= crop.ripe_on %></em><br>
+                    <em>Ripe in <%= distance_of_time_in_words_to_now(crop.ripe_on) %></em><br>
                   <% end %>
                   <% if crop.about_to_expire?  %>
-                    <em class="expire">Expires On: <%= crop.expires_on %></em><br><br>
+                    <em class="expire">Expires in <%= distance_of_time_in_words_to_now(crop.expires_on) %></em><br><br>
                   <% else %>
-                    <em>Expires On: <%= crop.expires_on %></em><br><br>
+                    <em>Expires in <%= distance_of_time_in_words_to_now(crop.expires_on) %></em><br><br>
                   <% end %>
                   <p>This crop can be swapped for:
                     <% crop.trade_types.each do |tt| %>

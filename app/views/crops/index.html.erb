@@ -24,12 +24,12 @@
               <% if crop.is_ripe? %>
                 <h6 class="ripe"> RIPE NOW! </h6>
               <% else %>
-                <h6 class="card-subtitle text-muted">Ripe: <%= crop.ripe_on.strftime("%b %d %Y") %></h6>
+                <h6 class="card-subtitle text-muted">Ripe in <%= distance_of_time_in_words_to_now(crop.ripe_on) %></h6>
               <% end %>
               <% if crop.about_to_expire?  %>
-                <h6 class="card-subtitle expire">Expires: <%= crop.expires_on.strftime("%b %d %Y") %></h6>
+                <h6 class="card-subtitle expire">Expires in <%= distance_of_time_in_words_to_now(crop.expires_on) %></h6>
               <% else %>
-                <h6 class="card-subtitle text-muted">Expires: <%= crop.expires_on.strftime("%b %d %Y") %></h6>
+                <h6 class="card-subtitle text-muted">Expires in <%= distance_of_time_in_words_to_now(crop.expires_on) %></h6>
               <% end %>
               <h6><%= crop.user.zip_code %></h6>
               <p class="card-text"><%= crop.description %></p>
