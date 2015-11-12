@@ -33,7 +33,7 @@
 
 body {
   background-color: #F5F5F5;
-  padding-top: 56px;
+  padding-top: 66px;
 }
 
 //Sign in Page
@@ -92,10 +92,14 @@ a {
 
 #notice {
  color: green;
+ padding-top: 10px;
+ padding-left: 10px;
 }
 
 #alert {
  color: red;
+ padding-top: 10px;
+ padding-left: 10px;
 }
 
 .crop_name {

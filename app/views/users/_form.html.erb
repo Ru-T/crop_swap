@@ -1,36 +1,35 @@
 <main class="container new-user-form">
+ <body class="backg">
+    <%= form_for(@user) do |f| %>
+      <% if @user.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(@user.errors.count, "error") %> prohibited this user from being saved:</h2>
 
-  <%= form_for(@user) do |f| %>
-    <% if @user.errors.any? %>
-      <div id="error_explanation">
-        <h2><%= pluralize(@user.errors.count, "error") %> prohibited this user from being saved:</h2>
+          <ul>
+          <% @user.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+          </ul>
+        </div>
+      <% end %>
 
-        <ul>
-        <% @user.errors.full_messages.each do |message| %>
-          <li><%= message %></li>
-        <% end %>
-        </ul>
+      <h1 class="sign-in-title">Sign Up</h1>
+
+      <div class="form-group">
+        <%= f.label :name %><br>
+        <%= f.text_field :name, class: "new-name form-control" %>
+      </div>
+      <div class="form-group">
+        <%= f.label :email %><br>
+        <%= f.text_field :email, class: "new-email form-control", :placeholder => "user@mail.com" %>
+      </div>
+      <div class="form-group">
+        <%= f.label :password %><br>
+        <%= f.password_field :password, class: "new-password form-control" %>
+      </div>
+      <div class="actions">
+        <%= f.submit "Sign Up", class: "login-button" %>
       </div>
     <% end %>
-<body class="backg">
-    <h1 class="sign-in-title">Sign Up</h1>
-
-    <div class="form-group">
-      <%= f.label :name %><br>
-      <%= f.text_field :name, class: "new-name form-control" %>
-    </div>
-    <div class="form-group">
-      <%= f.label :email %><br>
-      <%= f.text_field :email, class: "new-email form-control", :placeholder => "user@mail.com" %>
-    </div>
-    <div class="form-group">
-      <%= f.label :password %><br>
-      <%= f.password_field :password, class: "new-password form-control" %>
-    </div>
-    <div class="actions">
-      <%= f.submit class: "new-button" %>
-    </div>
-  <% end %>
-
+  </body>
 </main> <!-- end of main.container -->
-</body>

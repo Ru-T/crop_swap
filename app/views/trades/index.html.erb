@@ -2,8 +2,8 @@
 
 <div class="container browse-crops">
   <div class="jumbotron">
-    <div class="header text-center">Trade History</div>
-    <p class="text-center">Check our your past accepted or rejected trades.</p>
+    <div class="header text-center">Swap History</div>
+    <p class="text-center">Check our your past accepted or rejected swaps.</p>
     <button type="button" class="btn btn-success center-block">
       <div><%=link_to 'Browse Crops', crops_path %></div>
     </button>
@@ -12,14 +12,14 @@
   <div class="row">
     <div class="col-md-12">
       <% if @trades.blank?%>
-          <h4> You do not have any past trades.</h4>
+          <h4> You do not have any past swaps.</h4>
           <button type="button" class="btn btn-warning">
             <%=link_to 'Browse Crops', crops_path%>
           </button>
     </div>
       <% else %>
         <div class="col-md-3">
-          <h3> Accepted Trades </h3>
+          <h3> Accepted Swaps </h3>
           <% @trades.each do |trade| %>
             <% if trade.accepted == true %>
               <% if trade.crop.crop_pic.blank? %>
@@ -42,7 +42,7 @@
   </div>
   <div class="row">
     <div class="col-md-3">
-      <h3> Rejected Trades </h3>
+      <h3> Rejected Swaps </h3>
         <% if trade.accepted == false %>
           <% if trade.crop.crop_pic.blank? %>
             <div class="crop_name panel-body"><%= image_tag asset_url("crop-default-image.png") %></div>
@@ -59,7 +59,7 @@
           <p>Grower: <%= trade.crop.user.name %></p>
           <p>Message: <%= trade.message %></p>
           <p>Response: <%= trade.message_response %></p>
-        </div>  
+        </div>
         <% end %>
       <% end %>
     <% end %>
