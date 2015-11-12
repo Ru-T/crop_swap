@@ -24,8 +24,13 @@
 
       <div class="tab-content">
         <div role="tabpanel" class="tab-pane active" id="my-swap-crops">
-          <%# if @user.crops.blank? == false %>
-          <% @user.crops.each do |crop| %>
+          <%# if @user.trades.pending.blank? == true %>
+            <!-- <h4> FIRST TAB: You do not have any active crops.</h4> -->
+            <!-- <button type="button" class="btn btn-warning"> -->
+              <%#=link_to 'View Swap History', trades_path%>
+            <!-- </button> -->
+          <%# else %>
+            <% @user.crops.each do |crop| %>
               <% trades = crop.trades.pending %>
               <% unless trades.blank? %>
                 <div class="crop-item">
@@ -78,12 +83,6 @@
                   <% end %>
                 <% end %>
               <% end %>
-            <%# else %>
-              <!-- <br>
-              <h4> FIRST TAB: You do not have any active crops.</h4> -->
-              <!-- <button type="button" class="btn btn-warning"> -->
-                <%#=link_to 'View Swap History', trades_path%>
-              <!-- </button> -->
             <%# end %>
           </div>
         </div>
