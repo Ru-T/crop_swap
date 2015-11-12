@@ -5,8 +5,8 @@ class CropsController < ApplicationController
 
   # GET /crops
   def index
-    @crops = Crop.where('expires_on >= ?', Date.today)
-    # @current_user = User.find_by_id(session[:user_id])
+    @current_user = User.find_by_id(session[:user_id])
+    @crops = Crop.where('expires_on >= ?', Date.today) && Crop.where.not(user_id: @current_user.id)
   end
 
   def graph
