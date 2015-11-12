@@ -89,12 +89,12 @@ Trade.create!(trade_type_id: 1, crop_id: 1, consumer_id: 4, message: "I'd like t
   grower_id: 1)
 Trade.create!(trade_type_id: 2, crop_id: 2, consumer_id: 5, message: "I'd like to swap for my time.",
   grower_id: 2)
-Trade.create!(trade_type_id: 3, crop_id: 3, consumer_id: 6, message: "I'd like to swap for my labor in the farmer's market. I'd like to swap for my eggplants.",
+Trade.create!(trade_type_id: 3, crop_id: 5, consumer_id: 6, message: "I'd like to swap for my labor in the farmer's market. I'd like to swap for my eggplants.",
   grower_id: 3)
 
 Trade.create!(trade_type_id: 1, crop_id: 1, consumer_id: 1, message: "I'd like to swap for my eggplants.",
   grower_id: 1)
 Trade.create!(trade_type_id: 2, crop_id: 2, consumer_id: 1, message: "I'd like to swap for my time. I'd like to swap for my eggplants.",
   grower_id: 2)
-Trade.create!(trade_type_id: 3, crop_id: 3, consumer_id: 2, message: "I'd like to swap for my labor in the farmer's market.",
+Trade.create!(trade_type_id: 3, crop_id: 5, consumer_id: 2, message: "I'd like to swap for my labor in the farmer's market.",
   grower_id: 3)

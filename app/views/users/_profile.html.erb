@@ -57,7 +57,7 @@
               </div>
             </div>
             <div class="row trades">
-              <% if crop.trades.empty? %>
+              <% unless @current_user.has_proposed_trade_for?(crop) %>
                 <div class="col-md-8">
                 </div>
                 <div class="col-md-4">

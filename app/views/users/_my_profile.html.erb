@@ -124,48 +124,45 @@
 
         <div role="tabpanel" class="tab-pane" id="my-swaps">
           <% @user.trades.each do |trade| %>
-            <% if trade.consumer == @user %>
-              <div class="crop-item">
-                <div class="row">
-                  <div class="col-md-3">
-                    <% if trade.crop.crop_pic.blank? %>
-                      <div class="crop_name panel-body"><%= image_tag asset_url("crop-default-image.png") %></div>
-                    <% else %>
-                      <div class="crop_name panel-body"><%= image_tag trade.crop.crop_pic.url %></div>
-                    <% end %>
-                  </div>
-                  <div class="col-md-9">
-                    <h3><%=trade.crop.crop_type.crop_type%></h3>
-                    <div class="crop-description">
-                      <%= trade.crop.description %>
-                    </div>
-                    <div class="details">
-                      Amount: <%= trade.crop.weight %> lbs
-                    </div>
-                    <% if trade.crop.is_ripe? %>
-                      <em class="ripe"> RIPE NOW! </em><br>
-                    <% else %>
-                      <em>Ripe in <%= distance_of_time_in_words_to_now(trade.crop.ripe_on) %></em><br>
-                    <% end %>
-                    <% if trade.crop.about_to_expire?  %>
-                      <em class="expire">Expires in: <%= distance_of_time_in_words_to_now(trade.crop.expires_on) %></em><br><br>
-                    <% else %>
-                      <em>Expires in <%= distance_of_time_in_words_to_now(trade.crop.expires_on) %></em><br><br>
-                    <% end %>
-                  </div>
+            <div class="crop-item">
+              <div class="row">
+                <div class="col-md-3">
+                  <% if trade.crop.crop_pic.blank? %>
+                    <div class="crop_name panel-body"><%= image_tag asset_url("crop-default-image.png") %></div>
+                  <% else %>
+                    <div class="crop_name panel-body"><%= image_tag trade.crop.crop_pic.url %></div>
+                  <% end %>
                 </div>
-                <div class="row trades">
-                  <div class="col-md-2">
+                <div class="col-md-9">
+                  <h3><%=trade.crop.crop_type.crop_type%></h3>
+                  <div class="crop-description">
+                    <%= trade.crop.description %>
                   </div>
-                  <div class="col-md-5 trades">
-                    <h4> Pending Swaps </h4>
-                    <p><%=trade.consumer.name %> would like to swap for <strong><%= trade.trade_type.name %></strong></p>
-                    <p>Message: <%= trade.message %></p>
+                  <div class="details">
+                    Amount: <%= trade.crop.weight %> lbs
                   </div>
+                  <% if trade.crop.is_ripe? %>
+                    <em class="ripe"> RIPE NOW! </em><br>
+                  <% else %>
+                    <em>Ripe in <%= distance_of_time_in_words_to_now(trade.crop.ripe_on) %></em><br>
+                  <% end %>
+                  <% if trade.crop.about_to_expire?  %>
+                    <em class="expire">Expires in: <%= distance_of_time_in_words_to_now(trade.crop.expires_on) %></em><br><br>
+                  <% else %>
+                    <em>Expires in <%= distance_of_time_in_words_to_now(trade.crop.expires_on) %></em><br><br>
+                  <% end %>
+                </div>
+              </div>
+              <div class="row trades">
+                <div class="col-md-2">
+                </div>
+                <div class="col-md-5 trades">
+                  <h4> Pending Swaps </h4>
+                  <p><%=trade.consumer.name %> would like to swap for <strong><%= trade.trade_type.name %></strong></p>
+                  <p>Message: <%= trade.message %></p>
                 </div>
               </div>
             </div>
-            <% end %>
           <% end %>
         </div>
 
