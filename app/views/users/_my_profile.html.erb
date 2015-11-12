@@ -24,12 +24,12 @@
 
       <div class="tab-content">
         <div role="tabpanel" class="tab-pane active" id="my-swap-crops">
-          <%#if some method i still have to write on the user %>
-            <!-- <h4> FIRST TAB: You do not have any active crops.</h4> -->
-            <!-- <button type="button" class="btn btn-warning"> -->
-              <%#=link_to 'View Swap History', trades_path%>
-            <!-- </button> -->
-          <%# else %>
+          <!-- <%#if @user.has_pending_trade? %>
+            <h4> FIRST TAB: You do not have any active crops.</h4>
+            <button type="button" class="btn btn-warning">
+              <%=link_to 'View Swap History', trades_path%>
+            </button>
+          <%# else %> -->
             <% @user.crops.each do |crop| %>
               <% trades = crop.trades.pending %>
               <% unless trades.blank? %>
@@ -174,8 +174,16 @@
                 <div class="row trades">
                   <div class="col-md-2">
                   </div>
+                  <div class="col-md-1">
+                    <% if trade.trade_type_id == 1 %>
+                      <span class="glyphicon glyphicon-apple proposed-swap-type" aria-hidden="true"></span>
+                    <% elsif trade.trade_type_id == 2%>
+                      <span class="glyphicon glyphicon-time proposed-swap-type" aria-hidden="true"></span>
+                    <% else%>
+                      <span class="glyphicon glyphicon-leaf proposed-swap-type" aria-hidden="true"></span>
+                    <% end %>
+                  </div>
                   <div class="col-md-5 trades">
-                    <h4> Pending Swaps </h4>
                     <p><%=trade.consumer.name %> would like to swap for <strong><%= trade.trade_type.name %></strong></p>
                     <p>Message: <%= trade.message %></p>
                   </div>
