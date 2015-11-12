@@ -29,7 +29,7 @@ class TradesController < ApplicationController
 
     if @trade.save
       TradeMailer.new_proposed_trade(@grower.email).deliver_now
-      redirect_to @trade, notice: 'Trade was successfully created.'
+      redirect_to crops_path, notice: 'Your swap has been proposed.'
     else
       render :new
     end
@@ -48,7 +48,7 @@ class TradesController < ApplicationController
       else
         TradeMailer.modified_trade(@grower.email).deliver_now
       end
-      redirect_to trades_path, notice: 'Trade was successfully updated.'
+      redirect_to crops_path, notice: 'Your swap was successfully acted upon.'
     else
       render :edit
     end

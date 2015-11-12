@@ -40,7 +40,6 @@
             </div>
             <div class="col-md-10">
               <h4><%=@trade.consumer.name %> would like to swap for
-                <%= @trade.trade_type.name %>
                 <% if @trade.trade_type_id == 1 %>
                   <span class="glyphicon glyphicon-apple" aria-hidden="true"></span>
                 <% elsif @trade.trade_type_id == 2%>
@@ -48,13 +47,14 @@
                 <% else%>
                   <span class="glyphicon glyphicon-leaf" aria-hidden="true"></span>
                 <% end %>
+                <%= @trade.trade_type.name %>
               </h4>
-              <h5><strong>Message: </strong><%= @trade.message %><h5>
+              <h5><strong>Message:</strong></h5><p><%= @trade.message %></p>
               <%= f.hidden_field :accepted, value: params[:accepted] %>
               <div class="row">
                 <div class="form-group trade-form-label">
                   <%= f.label :message_response, "Response" %><br>
-                  <%= f.text_area :message_response %>
+                  <%= f.text_area :message_response, class: "swap-message" %>
                 </div>
               </div>
               <div class="actions crop-form-label">
