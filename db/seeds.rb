@@ -18,6 +18,12 @@ User.create!(email: "mason@mail.com", name: "Mason the Farmer", password: "passw
 User.create!(email: "kelly@mail.com", name: "Kelly the Farmer", password: "password",
   description: "I am a farmer's market addict living in the Hillsborough area. I grow potatoes and radishes and am excited to swap!",
   zip_code: 27701, phone_number: "555-555-5555")
+User.create!(email: "ilan@mail.com", name: "Ilan the Farmer", password: "password",
+  description: "I am a pig farmer and I am loving it living in the Hillsborough area. I grow potatoes and radishes and am excited to swap!",
+  zip_code: 27701, phone_number: "555-555-5555")
+User.create!(email: "joelle@mail.com", name: "Joelle the Farmer", password: "password",
+  description: "I am a farmer's market addict living in the Hillsborough area. I grow potatoes and radishes and am excited to swap!",
+  zip_code: 27701, phone_number: "555-555-5555")
 
 CropType.create!(crop_type: "Potato")
 CropType.create!(crop_type: "Tomato")
@@ -77,4 +83,18 @@ Trade.create!(trade_type_id: 1, crop_id: 1, consumer_id: 2, message: "I'd like t
 Trade.create!(trade_type_id: 2, crop_id: 2, consumer_id: 3, message: "I'd like to swap for my time.",
   grower_id: 2)
 Trade.create!(trade_type_id: 3, crop_id: 3, consumer_id: 4, message: "I'd like to swap for my labor in the farmer's market.",
+  grower_id: 3)
+
+Trade.create!(trade_type_id: 1, crop_id: 1, consumer_id: 4, message: "I'd like to swap for my eggplants. I'd like to swap for my eggplants.",
+  grower_id: 1)
+Trade.create!(trade_type_id: 2, crop_id: 2, consumer_id: 5, message: "I'd like to swap for my time.",
+  grower_id: 2)
+Trade.create!(trade_type_id: 3, crop_id: 3, consumer_id: 6, message: "I'd like to swap for my labor in the farmer's market. I'd like to swap for my eggplants.",
+  grower_id: 3)
+
+Trade.create!(trade_type_id: 1, crop_id: 1, consumer_id: 1, message: "I'd like to swap for my eggplants.",
+  grower_id: 1)
+Trade.create!(trade_type_id: 2, crop_id: 2, consumer_id: 1, message: "I'd like to swap for my time. I'd like to swap for my eggplants.",
+  grower_id: 2)
+Trade.create!(trade_type_id: 3, crop_id: 3, consumer_id: 2, message: "I'd like to swap for my labor in the farmer's market.",
   grower_id: 3)

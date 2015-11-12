@@ -23,8 +23,11 @@ $('#myTabs a').click(function (e) {
 })
 
 $('#myTabs a[href="#my-swap-crops"]').tab('show') // Select tab by name
-$('#myTabs a:first').tab('show') // Select first tab
-$('#myTabs a:last').tab('show') // Select last tab
+$('#myTabs a[href="#my-crops"]').tab('show') // Select tab by name
+$('#myTabs a[href="#my-swaps"]').tab('show') // Select tab by name
+
+// $('#myTabs a:first').tab('show') // Select first tab
+// $('#myTabs a:last').tab('show') // Select last tab
 
 // Trades
 
