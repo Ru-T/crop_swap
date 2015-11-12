@@ -43,16 +43,19 @@
                         <h3><%=crop.crop_type.crop_type%></h3>
                         <div class="crop-description"> <%= crop.description %></div>
                         <div class="details"> Amount: <%= crop.weight %> lbs</div>
-                        <% if crop.is_ripe? %>
-                          <em class="ripe"> RIPE NOW! </em><br>
-                        <% else %>
-                          <em>Ripe On: <%= crop.ripe_on %></em><br>
-                        <% end %>
-                        <% if crop.about_to_expire?  %>
-                          <em class="expire">Expires On: <%= crop.expires_on %></em><br><br>
-                        <% else %>
-                          <em>Expires On: <%= crop.expires_on %></em><br><br>
-                        <% end %>
+                        <div>
+                          <% if crop.is_ripe? %>
+                            <em class="ripe"> RIPE NOW! </em><br>
+                          <% else %>
+                            <em>Ripe On: <%= crop.ripe_on %></em><br>
+                          <% end %>
+                          <% if crop.about_to_expire?  %>
+                            <em class="expire">Expires On: <%= crop.expires_on %></em><br><br>
+                          <% else %>
+                            <em>Expires On: <%= crop.expires_on %></em><br><br>
+                          <% end %>
+                        </div>
+                      </div>
                     </div>
                   </div>
                   <% trades.each do |t| %>
@@ -116,7 +119,7 @@
                       <% else %>
                         <em>Expires On: <%= crop.expires_on %></em><br><br>
                       <% end %>
-                  </div>
+                    </div>
                 </div>
               <% end %>
             <% end %>
