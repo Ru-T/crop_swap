@@ -22,10 +22,9 @@
         <li role="presentation"><a href="#my-swaps" aria-controls="my-swaps" role="tab" data-toggle="tab">Proposed Swaps</a></li>
       </ul>
 
-
       <div class="tab-content">
         <div role="tabpanel" class="tab-pane active" id="my-swap-crops">
-          <% if @user.crops.blank? == false %>
+          <%# if @user.crops.blank? == false %>
           <% @user.crops.each do |crop| %>
               <% trades = crop.trades.pending %>
               <% unless trades.blank? %>
@@ -63,8 +62,8 @@
                       <div class="col-md-2">
                       </div>
                       <div class="col-md-5 trades">
-                        <h4> Pending Trades </h4>
-                        <p><%=t.consumer.name %> would like to swap for <strong><%#= t.trade_type.name %></strong></p>
+                        <h4> Pending Swap </h4>
+                        <p><%=t.consumer.name %> would like to swap for <%= t.trade_type.name %></p>
                         <p>Message: <%= t.message %></p>
                       </div>
                       <div class="col-md-4">
@@ -79,13 +78,13 @@
                   <% end %>
                 <% end %>
               <% end %>
-            <% else %>
-              <br>
-              <h4> FIRST TAB: You do not have any active crops.</h4>
-              <button type="button" class="btn btn-warning">
-                <%=link_to 'View Swap History', trades_path%>
-              </button>
-            <% end %>
+            <%# else %>
+              <!-- <br>
+              <h4> FIRST TAB: You do not have any active crops.</h4> -->
+              <!-- <button type="button" class="btn btn-warning"> -->
+                <%#=link_to 'View Swap History', trades_path%>
+              <!-- </button> -->
+            <%# end %>
           </div>
         </div>
 
@@ -137,45 +136,40 @@
                     <% end %>
                   </div>
                   <div class="col-md-9">
-                    <div>
-                      <h3><%=trade.crop.crop_type.crop_type%></h3>
-                      <div class="crop-description"> <%= trade.crop.description %></div>
-                      <div class="details"> Amount: <%= trade.crop.weight %> lbs</div>
-                      <% if trade.crop.is_ripe? %>
-                        <em class="ripe"> RIPE NOW! </em><br>
-                      <% else %>
-                        <em>Ripe On: <%= trade.crop.ripe_on %></em><br>
-                      <% end %>
-                      <% if trade.crop.about_to_expire?  %>
-                        <em class="expire">Expires On: <%= trade.crop.expires_on %></em><br><br>
-                      <% else %>
-                        <em>Expires On: <%= trade.crop.expires_on %></em><br><br>
-                      <% end %>
+                    <h3><%=trade.crop.crop_type.crop_type%></h3>
+                    <div class="crop-description">
+                      <%= trade.crop.description %>
                     </div>
-                  <div class="row trades">
-                      <div class="col-md-2">
-                      </div>
-                      <div class="col-md-5 trades">
-                        <h4> Pending Trades </h4>
-                        <p><%=trade.consumer.name %> would like to swap for <strong><%#= t.trade_type.name %></strong></p>
-                        <p>Message: <%= trade.message %></p>
-                        <% if trade.crop_pic.blank? == false %>
-                          <%= image_tag trade.crop_pic.url  %>
-                        <% end %>
-                      </div>
+                    <div class="details">
+                      Amount: <%= trade.crop.weight %> lbs
+                    </div>
+                    <% if trade.crop.is_ripe? %>
+                      <em class="ripe"> RIPE NOW! </em><br>
+                    <% else %>
+                      <em>Ripe On: <%= trade.crop.ripe_on %></em><br>
+                    <% end %>
+                    <% if trade.crop.about_to_expire?  %>
+                      <em class="expire">Expires On: <%= trade.crop.expires_on %></em><br><br>
+                    <% else %>
+                      <em>Expires On: <%= trade.crop.expires_on %></em><br><br>
+                    <% end %>
                   </div>
                 </div>
-              <% else %>
-                <br>
-                <h4> You do not currently have any swaps.</h4>
-                <button type="button" class="btn btn-warning">
-                  <%=link_to 'View Swap History', trades_path%>
-                </button>
+                <div class="row trades">
+                  <div class="col-md-2">
+                  </div>
+                  <div class="col-md-5 trades">
+                    <h4> Pending Swaps </h4>
+                    <p><%=trade.consumer.name %> would like to swap for <strong><%= trade.trade_type.name %></strong></p>
+                    <p>Message: <%= trade.message %></p>
+                  </div>
+                </div>
               </div>
             </div>
+            <% end %>
           <% end %>
-        <% end %>
         </div>
+
       </div>
     </div>
   </div>
