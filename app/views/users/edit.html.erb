@@ -13,7 +13,7 @@
       </div>
     <% end %>
 <body class="backg">
-    <h1>Fill Out Your Profile</h1>
+    <h1 class="sign-in-title">Fill Out Your Profile</h1>
     <div class="form-group">
       <%= f.label :profile_pic %><br>
       <%= f.file_field :profile_pic %>
@@ -31,7 +31,7 @@
       <%= f.number_field :zip_code, class: "new-zip-code form-control" %>
     </div>
     <div class="actions">
-      <%= f.submit class: "new-button" %>
+      <%= f.submit class: "login-button" %>
     </div>
   <% end %>
 
