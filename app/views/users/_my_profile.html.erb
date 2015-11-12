@@ -66,8 +66,16 @@
                     <div class="row trades">
                       <div class="col-md-2">
                       </div>
-                      <div class="col-md-5 trades">
-                        <h4> Pending Swap </h4>
+                      <div class="col-md-1">
+                        <% if t.trade_type_id == 1 %>
+                          <span class="glyphicon glyphicon-apple proposed-swap-type" aria-hidden="true"></span>
+                        <% elsif t.trade_type_id == 2%>
+                          <span class="glyphicon glyphicon-time proposed-swap-type" aria-hidden="true"></span>
+                        <% else%>
+                          <span class="glyphicon glyphicon-leaf proposed-swap-type" aria-hidden="true"></span>
+                        <% end %>
+                      </div>
+                      <div class="col-md-4 trades">
                         <p><%=t.consumer.name %> would like to swap for <%= t.trade_type.name %></p>
                         <p>Message: <%= t.message %></p>
                       </div>

@@ -6,9 +6,13 @@ class CropsController < ApplicationController
   # GET /crops
   def index
     @current_user = User.find_by_id(session[:user_id])
-    @crops = Crop.where('expires_on >= ?', Date.today)
-    #&& Crop.where.not(user_id: @current_user.id)
-    #&& Crop.where(pending: nil).or.Crop.where(pending:false)
+    @crops = Crop.all#available_crops(@current_user)
+
+    # where('expires_on >= ? AND user_id != ?', Date.today, @current_user.id)
+    # left join in trades on crops.id ... trades.crop_id
+    # checking for a null on the right side
+    # and a where on the right side
+    # OR a ruby loop to reject those with accepted trades
   end
 
   def graph
