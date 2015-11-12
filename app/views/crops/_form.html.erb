@@ -64,7 +64,7 @@
 
         <div class="row crop-form-label">
           <div class="form-group crop-expires">
-            <span class="crop-time-label"><%= f.label :expires_on, "Expires On:", class: "col-md-4"%> </span><br>
+            <span class="crop-time-label"><%= f.label :expires_on, "Expires On:", class: "col-md-4 crop-expires-on"%> </span><br>
             <%= f.date_field :expires_on %>
           </div>
         </div>
@@ -89,7 +89,7 @@
           <% end %>
         </div>
 
-        <span class="crop-form-label"><%= f.submit "Post A Crop", class: "crop-button" %></span>
+        <span class="crop-form-label"><%= f.submit "Post A Crop", class: "btn btn-success" %></span>
 
       <% end %>
       <br>
