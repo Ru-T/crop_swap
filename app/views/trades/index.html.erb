@@ -16,7 +16,7 @@
           <button type="button" class="btn btn-warning">
             <%=link_to 'Browse Crops', crops_path%>
           </button>
-    </div>    
+    </div>
       <% else %>
         <div class="col-md-3">
           <h3> Accepted Trades </h3>
@@ -59,9 +59,9 @@
           <p>Grower: <%= trade.crop.user.name %></p>
           <p>Message: <%= trade.message %></p>
           <p>Response: <%= trade.message_response %></p>
+        </div>  
         <% end %>
       <% end %>
-      </div>
     <% end %>
   </div>
 </div>

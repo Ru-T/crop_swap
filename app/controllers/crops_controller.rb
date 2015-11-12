@@ -6,7 +6,9 @@ class CropsController < ApplicationController
   # GET /crops
   def index
     @current_user = User.find_by_id(session[:user_id])
-    @crops = Crop.where('expires_on >= ?', Date.today) && Crop.where.not(user_id: @current_user.id)
+    @crops = Crop.where('expires_on >= ?', Date.today)
+    #&& Crop.where.not(user_id: @current_user.id)
+    #&& Crop.where(pending: nil).or.Crop.where(pending:false)
   end
 
   def graph
