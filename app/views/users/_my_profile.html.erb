@@ -89,7 +89,7 @@
                 <% end %>
               <% end %>
             <% else %>
-              <h4> You do not have any active crops.</h4>
+              <h4> You do not have any active crops with pending swaps.</h4>
               <button type="button" class="btn btn-warning">
                 <%=link_to 'View Swap History', trades_path%>
               </button>
@@ -98,41 +98,45 @@
         </div>
 
         <div role="tabpanel" class="tab-pane" id="my-crops">
-          <%# if some method I still have to write %>
-          <%#else%>
-          <% @user.crops.each do |crop| %>
-            <% if crop.trades.blank? %>
-              <div class="crop-item">
-                <div class="row">
-                  <div class="col-md-3">
-                    <% if crop.crop_pic.blank? %>
-                      <div class="crop_name panel-body"><%= image_tag asset_url("crop-default-image.png") %></div>
-                    <% else %>
-                      <div class="crop_name panel-body"><%= image_tag crop.crop_pic.url %></div>
-                    <% end %>
-                  </div>
-                  <div class="col-md-9">
-                    <div>
-                      <h3><%=crop.crop_type.crop_type%></h3>
-                      <div class="crop-description"> <%= crop.description %></div>
-                      <div class="details"> Amount: <%= crop.weight %> lbs</div>
-                      <% if crop.is_ripe? %>
-                        <em class="ripe"> RIPE NOW! </em><br>
+          <% if @user.has_crop_without_pending_trade? %>
+            <% @user.crops.each do |crop| %>
+              <% if crop.trades.blank? %>
+                <div class="crop-item">
+                  <div class="row">
+                    <div class="col-md-3">
+                      <% if crop.crop_pic.blank? %>
+                        <div class="crop_name panel-body"><%= image_tag asset_url("crop-default-image.png") %></div>
                       <% else %>
-                        <em>Ripe in <%= distance_of_time_in_words_to_now(crop.ripe_on) %></em><br>
+                        <div class="crop_name panel-body"><%= image_tag crop.crop_pic.url %></div>
                       <% end %>
-                      <% if crop.about_to_expire?  %>
-                        <em class="expire">Expires in <%= distance_of_time_in_words_to_now(crop.expires_on) %></em><br><br>
-                      <% else %>
-                        <em>Expires in <%= distance_of_time_in_words_to_now(crop.expires_on) %></em><br><br>
-                      <% end %>
+                    </div>
+                    <div class="col-md-9">
+                      <div>
+                        <h3><%=crop.crop_type.crop_type%></h3>
+                        <div class="crop-description"> <%= crop.description %></div>
+                        <div class="details"> Amount: <%= crop.weight %> lbs</div>
+                        <% if crop.is_ripe? %>
+                          <em class="ripe"> RIPE NOW! </em><br>
+                        <% else %>
+                          <em>Ripe in <%= distance_of_time_in_words_to_now(crop.ripe_on) %></em><br>
+                        <% end %>
+                        <% if crop.about_to_expire?  %>
+                          <em class="expire">Expires in <%= distance_of_time_in_words_to_now(crop.expires_on) %></em><br><br>
+                        <% else %>
+                          <em>Expires in <%= distance_of_time_in_words_to_now(crop.expires_on) %></em><br><br>
+                        <% end %>
+                      </div>
                     </div>
                   </div>
                 </div>
-              </div>
+              <% end %>
             <% end %>
-          <% end %>
-          <%#end%>
+          <%else%>
+            <h4> You do not have any active crops without pending swaps.</h4>
+            <button type="button" class="btn btn-warning">
+              <%=link_to 'View Swap History', trades_path%>
+            </button>
+          <%end%>
         </div>
 
         <div role="tabpanel" class="tab-pane" id="my-swaps">
