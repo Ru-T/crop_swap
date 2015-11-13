@@ -22,7 +22,7 @@ class UsersControllerTest < ActionController::TestCase
       post :create, user: { description: @user.description, email: @user.email, name: @user.name, password: "password", phone_number: @user.phone_number, zip_code: @user.zip_code }
     end
 
-    assert_redirected_to new_crop_path
+    assert_redirected_to edit_user_path(assigns(:user))
   end
 
   test "should show user" do
@@ -37,7 +37,7 @@ class UsersControllerTest < ActionController::TestCase
 
   test "should update user" do
     patch :update, id: @user, user: { description: @user.description, email: @user.email, name: @user.name, password_digest: @user.password_digest, phone_number: @user.phone_number, zip_code: @user.zip_code }
-    assert_redirected_to user_path(assigns(:user))
+    assert_redirected_to new_crop_path
   end
 
   test "should destroy user" do

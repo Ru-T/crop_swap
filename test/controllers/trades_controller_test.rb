@@ -12,10 +12,10 @@ class TradesControllerTest < ActionController::TestCase
     assert_not_nil assigns(:trades)
   end
 
-  test "should get new" do
-    get :new
-    assert_response :success
-  end
+  # test "should get new" do
+  #   get :new
+  #   assert_response :success
+  # end
 
   # test "should create trade" do
   #   assert_difference('Trade.count') do
