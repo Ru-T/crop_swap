@@ -19,4 +19,12 @@ class Trade < ActiveRecord::Base
     self.update(accepted: false)
   end
 
+  # def self.user_trades(user)
+  #   Trade.where(grower_id: user.id).or(Trade.where(consumer_id: user.id))
+  # end
+
+  def accepted_trades?
+
+  end
+
 end
