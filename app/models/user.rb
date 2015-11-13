@@ -22,4 +22,15 @@ class User < ActiveRecord::Base
     false
   end
 
+  def has_crop_without_pending_trade?
+    if crops.blank? == false
+      crops.each do |crop|
+        return true if crop.trades.blank? == true
+      end
+      false
+    else
+      false
+    end
+  end
+
 end
