@@ -14,12 +14,16 @@ class User < ActiveRecord::Base
   end
 
   def has_crop_with_pending_trade?
-    crops.each do |crop|
-      crop.trades.each do |trade|
-        return true if trade.accepted == nil
+    if crops.blank? == false
+      crops.each do |crop|
+        crop.trades.each do |trade|
+          return true if trade.accepted == nil
+        end
       end
+      false
+    else
+      false
     end
-    false
   end
 
   def has_crop_without_pending_trade?
