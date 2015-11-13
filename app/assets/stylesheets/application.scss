@@ -123,18 +123,6 @@ a {
    border-radius: 5px;
 }
 
-// .background_image {
-//
-//   background-image: image-url('veggie1.jpg') no-repeat center center fixed;
-//   -webkit-background-size: cover;
-//   -moz-background-size: cover;
-//   -o-background-size: cover;
-//   background-size: cover;
-//   background-attachment: fixed;
-//   position: static;
-//
-//   }
-
 body.backg {
   background: image-url('tomatoes.jpg') no-repeat center center fixed;
 }
@@ -317,7 +305,7 @@ input.search-crops {
 }
 
 .trades {
-  margin-left: 32px;
+  margin-left: 45px;
 }
 
 .swap-message {
@@ -340,9 +328,18 @@ input.search-crops {
 }
 
 .proposed-swap-type {
-  margin-top: 5px;
+  margin-top: 10px;
   padding: 5px;
-  background-color: lightgrey;
+  background-color: #F5F5F5;
   font-size: 3.2em;
   margin-left: 30px;
+  border-radius: 5px;
+  border: solid gray 1px;
+  padding-right: 5px;
+
+}
+
+.swap-type-label {
+  margin-left: 40px;
+  padding-top: 3px;
 }
