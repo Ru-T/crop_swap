@@ -1,12 +1,24 @@
 <p id="notice"><%= notice %></p>
 
 <div class="container browse-crops">
-  <div class="jumbotron">
+  <div class="jumbotron browse-jumbotron">
     <div class="header text-center">Browse for Local Crops</div>
     <p class="text-center">Ditch the supermarket and browse excess crops in your area. </p>
     <button type="button" class="btn btn-success center-block">
       <div><%=link_to 'Browse Crops Near You', map_path %></div>
     </button>
+  </div>
+
+  <div class="btn-group" data-toggle="buttons">
+    <label class="btn btn-primary active">
+      <input type="radio" name="options" id="option1" autocomplete="off" checked> By Ripe Date
+    </label>
+    <label class="btn btn-primary">
+      <input type="radio" name="options" id="option2" autocomplete="off"> Newest
+    </label>
+    <label class="btn btn-primary">
+      <input type="radio" name="options" id="option3" autocomplete="off"> Near You
+    </label>
   </div>
 
   <div>
