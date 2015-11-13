@@ -16,7 +16,7 @@
       <p><%= link_to 'Swap History', trades_path%></p>
     </div>
     <div class="col-md-9">
-      <ul class="nav nav-tabs" role="tablist">
+      <ul class="nav nav-tabs"role="tablist">
         <li role="presentation" class="active"><a href="#my-swap-crops" aria-controls="my-swap-crops" role="tab" data-toggle="tab">Pending Swap Crops</a></li>
         <li role="presentation"><a href="#my-crops" aria-controls="my-crops" role="tab" data-toggle="tab">Other Crops</a></li>
         <li role="presentation"><a href="#my-swaps" aria-controls="my-swaps" role="tab" data-toggle="tab">Proposed Swaps</a></li>
@@ -30,52 +30,9 @@
               <% trades = crop.trades.pending %>
               <% unless trades.blank? %>
                 <div class="crop-item">
-                  <div class="row">
-                    <div class="col-md-3">
-                      <% if crop.crop_pic.blank? %>
-                        <div class="crop_name panel-body"><%= image_tag asset_url("crop-default-image.png") %></div>
-                      <% else %>
-                        <div class="crop_name panel-body"><%= image_tag crop.crop_pic.url %></div>
-                      <% end %>
-                    </div>
-                    <div class="col-md-9">
-                      <div>
-                        <h3><%=crop.crop_type.crop_type%></h3>
-                        <div class="crop-description"> <%= crop.description %></div>
-                        <div class="details"> Amount: <%= crop.weight %> lbs</div>
-                        <div>
-                          <% if crop.is_ripe? %>
-                            <em class="ripe"> RIPE NOW! </em><br>
-                          <% else %>
-                            <em>Ripe in <%= distance_of_time_in_words_to_now(crop.ripe_on) %></em><br>
-                          <% end %>
-                          <% if crop.about_to_expire?  %>
-                            <em class="expire">Expires in <%= distance_of_time_in_words_to_now(crop.expires_on) %></em><br><br>
-                          <% else %>
-                            <em>Expires in <%= distance_of_time_in_words_to_now(crop.expires_on) %></em><br><br>
-                          <% end %>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
+                  <%= render partial: 'crop', locals: { crop: crop } %>
                   <% trades.each do |t| %>
-                    <div class="row trades">
-                      <div class="col-md-2">
-                      </div>
-                      <div class="col-md-1">
-                        <% if t.trade_type_id == 1 %>
-                          <span class="glyphicon glyphicon-apple proposed-swap-type" aria-hidden="true"></span>
-                        <% elsif t.trade_type_id == 2%>
-                          <span class="glyphicon glyphicon-time proposed-swap-type" aria-hidden="true"></span>
-                        <% else%>
-                          <span class="glyphicon glyphicon-leaf proposed-swap-type" aria-hidden="true"></span>
-                        <% end %>
-                        <div class="swap-type-label"><%= t.trade_type.name %></div>
-                      </div>
-                      <div class="col-md-4 trades">
-                        <h5><%=t.consumer.name %></h5>
-                        <p>Message: <%= t.message %></p>
-                      </div>
+                    <%= render partial: 'trade', locals: { t: t } %>
                       <div class="col-md-4">
                         <button type="button" class="btn btn-success">
                           <%=link_to 'Accept Swap', edit_trade_path(accepted: true)%>
@@ -103,32 +60,7 @@
             <% @user.crops.each do |crop| %>
               <% if crop.trades.blank? %>
                 <div class="crop-item">
-                  <div class="row">
-                    <div class="col-md-3">
-                      <% if crop.crop_pic.blank? %>
-                        <div class="crop_name panel-body"><%= image_tag asset_url("crop-default-image.png") %></div>
-                      <% else %>
-                        <div class="crop_name panel-body"><%= image_tag crop.crop_pic.url %></div>
-                      <% end %>
-                    </div>
-                    <div class="col-md-9">
-                      <div>
-                        <h3><%=crop.crop_type.crop_type%></h3>
-                        <div class="crop-description"> <%= crop.description %></div>
-                        <div class="details"> Amount: <%= crop.weight %> lbs</div>
-                        <% if crop.is_ripe? %>
-                          <em class="ripe"> RIPE NOW! </em><br>
-                        <% else %>
-                          <em>Ripe in <%= distance_of_time_in_words_to_now(crop.ripe_on) %></em><br>
-                        <% end %>
-                        <% if crop.about_to_expire?  %>
-                          <em class="expire">Expires in <%= distance_of_time_in_words_to_now(crop.expires_on) %></em><br><br>
-                        <% else %>
-                          <em>Expires in <%= distance_of_time_in_words_to_now(crop.expires_on) %></em><br><br>
-                        <% end %>
-                      </div>
-                    </div>
-                  </div>
+                  <%= render partial: 'crop', locals: { crop: crop } %>
                 </div>
               <% end %>
             <% end %>
@@ -149,53 +81,37 @@
               <%=link_to 'Browse Crops', crops_path%>
             </button>
           <% else %>
-            <% @user.trades.each do |trade| %>
+            <% @user.trades.each do |t| %>
               <div class="crop-item">
                 <div class="row">
                   <div class="col-md-3">
-                    <% if trade.crop.crop_pic.blank? %>
+                    <% if t.crop.crop_pic.blank? %>
                       <div class="crop_name panel-body"><%= image_tag asset_url("crop-default-image.png") %></div>
                     <% else %>
                       <div class="crop_name panel-body"><%= image_tag trade.crop.crop_pic.url %></div>
                     <% end %>
                   </div>
                   <div class="col-md-9">
-                    <h3><%=trade.crop.crop_type.crop_type%></h3>
+                    <h3><%=t.crop.crop_type.crop_type%></h3>
                     <div class="crop-description">
-                      <%= trade.crop.description %>
+                      <%= t.crop.description %>
                     </div>
                     <div class="details">
-                      Amount: <%= trade.crop.weight %> lbs
+                      Amount: <%= t.crop.weight %> lbs
                     </div>
-                    <% if trade.crop.is_ripe? %>
+                    <% if t.crop.is_ripe? %>
                       <em class="ripe"> RIPE NOW! </em><br>
                     <% else %>
-                      <em>Ripe in <%= distance_of_time_in_words_to_now(trade.crop.ripe_on) %></em><br>
+                      <em>Ripe in <%= distance_of_time_in_words_to_now(t.crop.ripe_on) %></em><br>
                     <% end %>
-                    <% if trade.crop.about_to_expire?  %>
-                      <em class="expire">Expires in: <%= distance_of_time_in_words_to_now(trade.crop.expires_on) %></em><br><br>
+                    <% if t.crop.about_to_expire?  %>
+                      <em class="expire">Expires in: <%= distance_of_time_in_words_to_now(t.crop.expires_on) %></em><br><br>
                     <% else %>
-                      <em>Expires in <%= distance_of_time_in_words_to_now(trade.crop.expires_on) %></em><br><br>
+                      <em>Expires in <%= distance_of_time_in_words_to_now(t.crop.expires_on) %></em><br><br>
                     <% end %>
                   </div>
                 </div>
-                <div class="row trades">
-                  <div class="col-md-2">
-                  </div>
-                  <div class="col-md-1">
-                    <% if trade.trade_type_id == 1 %>
-                      <span class="glyphicon glyphicon-apple proposed-swap-type" aria-hidden="true"></span>
-                    <% elsif trade.trade_type_id == 2%>
-                      <span class="glyphicon glyphicon-time proposed-swap-type" aria-hidden="true"></span>
-                    <% else%>
-                      <span class="glyphicon glyphicon-leaf proposed-swap-type" aria-hidden="true"></span>
-                    <% end %>
-                    <div class="swap-type-label"><%= trade.trade_type.name %></div>
-                  </div>
-                  <div class="col-md-5 trades">
-                    <h5><%= trade.grower.name %></h5>
-                    <p>Your Message: <%= trade.message %></p>
-                  </div>
+                  <%= render partial: 'trade', locals: { t: t } %>
                 </div>
               </div>
             <% end %>

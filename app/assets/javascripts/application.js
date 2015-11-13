@@ -17,11 +17,11 @@
 
 // Profile tabs
 
-$('#myTabs a').click(function (e) {
+$('.nav-tabs a').click(function (e) {
   e.preventDefault()
   $(this).tab('show')
 })
 
-$('#myTabs a[href="#my-swap-crops"]').tab('show')
-$('#myTabs a[href="#my-crops"]').tab('show')
-$('#myTabs a[href="#my-swaps"]').tab('show')
+$('.nav-tabs a a[href="#my-swap-crops"]').tab('show')
+$('.nav-tabs a a[href="#my-crops"]').tab('show')
+$('.nav-tabs a a[href="#my-swaps"]').tab('show')
