@@ -13,10 +13,13 @@ class User < ActiveRecord::Base
     trades.where(crop: crop).first
   end
 
-  # def has_pending_trade?
-  #   crops.each do |c|
-  #     return true if c.trades.pending.blank? == false
-  #   end
-  # end
+  def has_crop_with_pending_trade?
+    crops.each do |crop|
+      crop.trades.each do |trade|
+        return true if trade.accepted == nil
+      end
+    end
+    false
+  end
 
 end
