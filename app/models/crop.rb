@@ -6,6 +6,9 @@ class Crop < ActiveRecord::Base
     def pending
       where(accepted: nil)
     end
+    def accepted
+      where(accepted: true)
+    end
   end
 
   validates :user_id, presence: true
@@ -26,9 +29,10 @@ class Crop < ActiveRecord::Base
     return true if Date.today < self.expires_on && Date.today > self.expires_on - 3.days #by less than 3 days
   end
 
-  # def available_crops(user)
-  #
-  #
-  # end
+  def self.available_crops(user)
+    available_crops = Crop.where('expires_on >= ? AND user_id != ?', Date.today, user.id)
+    available_crops.reject { |crop | crop.trades.accepted == true }
+    available_crops
+  end
 
 end

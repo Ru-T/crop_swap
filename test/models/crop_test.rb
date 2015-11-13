@@ -81,7 +81,8 @@ class CropTest < ActiveSupport::TestCase
     trade = Trade.create!(trade_type_id: 1, crop: off_the_market_crop, consumer_id: 2, message: "I'd like to swap for my eggplants.",
       grower_id: 1, accepted: true)
 
-    assert Crop.available_crops(current_user).include?(available_crop)
+    c1 = Crop.available_crops(current_user)
+    assert c1.include?(available_crop)
     refute Crop.available_crops(current_user).include?(expired_crop)
     refute Crop.available_crops(current_user).include?(my_crop)
     refute Crop.available_crops(current_user).include?(off_the_market_crop)
