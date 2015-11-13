@@ -35,10 +35,10 @@
                     <%= render partial: 'trade', locals: { t: t } %>
                       <div class="col-md-4">
                         <button type="button" class="btn btn-success">
-                          <%=link_to 'Accept Swap', edit_trade_path(accepted: true)%>
+                          <%=link_to 'Accept Swap', edit_trade_path(t, accepted: true)%>
                         </button>
                         <button type="button" class="btn btn-warning">
-                          <%=link_to 'Reject Swap', edit_trade_path(accepted: false)%>
+                          <%=link_to 'Reject Swap', edit_trade_path(t, accepted: false)%>
                         </button>
                       </div>
                     </div>
