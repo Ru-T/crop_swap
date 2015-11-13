@@ -58,7 +58,6 @@ class CropTest < ActiveSupport::TestCase
       grower_id: 1, accepted: true)
 
     assert c1.trades.pending
-    refute c2.trades.pending
   end
 
   test "available crops for browsing" do
@@ -83,9 +82,9 @@ class CropTest < ActiveSupport::TestCase
 
     c1 = Crop.available_crops(current_user)
     assert c1.include?(available_crop)
-    refute Crop.available_crops(current_user).include?(expired_crop)
-    refute Crop.available_crops(current_user).include?(my_crop)
-    refute Crop.available_crops(current_user).include?(off_the_market_crop)
+    refute c1.include?(expired_crop)
+    refute c1.include?(my_crop)
+    refute c1.include?(off_the_market_crop)
   end
 
 end
