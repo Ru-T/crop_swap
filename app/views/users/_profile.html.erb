@@ -28,7 +28,7 @@
               </div>
               <div class="col-md-9">
                 <div>
-                  <h3><%=crop.crop_type.crop_type%></h3><span class="wishlist glyphicon glyphicon-heart" aria-hidden="true"> <%= link_to "Wishlist", wishlist_path, remote: true%></span>
+                  <h3><%=crop.crop_type.crop_type%></h3><span class="wishlist"> <%= link_to "Add to Wishlist", wishlist_path, remote: true%></span>
                   <div class="crop-description"> <%= crop.description %></div>
                   <div class="details"> Amount: <%= crop.weight %> lbs</div><br>
                   <% if crop.is_ripe? %>
