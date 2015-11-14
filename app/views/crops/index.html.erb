@@ -9,15 +9,15 @@
     </button>
   </div>
 
-  <div class="btn-group" data-toggle="buttons">
-    <label class="btn btn-warning active">
-      <input type="radio" name="options" id="option1" autocomplete="off" checked><%=link_to 'Ripe Now', :sort => "ripe_on" %>
+  <div class="btn-group">
+    <label class="btn btn-warning">
+      <%=link_to 'Ripe Now', crops_path(:sort => "ripe_on") %>
     </label>
     <label class="btn btn-warning">
-      <input type="radio" name="options" id="option2" autocomplete="off"> <%=link_to 'Newest', :sort => "created_at" %>
+      <%=link_to 'Newest', crops_path(:sort => "created_at") %>
     </label>
     <label class="btn btn-warning">
-      <input type="radio" name="options" id="option3" autocomplete="off"><%=link_to 'Near You', :sort => "zip_code" %>
+      <%=link_to 'Expires Soon', crops_path(:sort => "expires_on") %>
     </label>
   </div>
 
