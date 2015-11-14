@@ -80,6 +80,10 @@ a:hover {
   color: #c6682c;
 }
 
+a:hover, a:focus {
+  color: #c6682c;
+}
+
 .btn {
   a {
     color: white;
