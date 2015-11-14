@@ -51,6 +51,20 @@ c6 = Crop.create!(user_id: 2, crop_type_id: 6, description: "This spinach is del
   weight: 13, ripe_on: "2015-12-01", expires_on: "2015-12-10")
 c7 = Crop.create!(user_id: 3, crop_type_id: 7, description: "This watermelon is delectable. You want to trade me for this beet.",
   weight: 2, ripe_on: "2015-11-19", expires_on: "2015-11-19")
+c8 = Crop.create!(user_id: 1, crop_type_id: 3, description: "This potato is delectable. You want to trade me for this beet.",
+  weight: 3, ripe_on: Date.today - 2.days, expires_on: Date.today + 8.days)
+c9 = Crop.create!(user_id: 2, crop_type_id: 6, description: "This tomato is delectable. You want to trade me for this beet.",
+  weight: 2, ripe_on: "2015-11-19", expires_on: "2015-11-24")
+c10 = Crop.create!(user_id: 3, crop_type_id: 7, description: "This beet is delectable. You want to trade me for this beet.",
+  weight: 4, ripe_on: "2015-11-19", expires_on: "2015-11-19")
+c11 = Crop.create!(user_id: 4, crop_type_id: 2, description: "This carrot is delectable. You want to trade me for this beet.",
+  weight: 13, ripe_on: Date.today - 2.days, expires_on: Date.today + 2.days)
+c12 = Crop.create!(user_id: 1, crop_type_id: 4, description: "This radish is delectable. You want to trade me for this beet.",
+  weight: 30, ripe_on: "2015-11-22", expires_on: "2015-11-29")
+c13 = Crop.create!(user_id: 2, crop_type_id: 1, description: "This spinach is delectable. You want to trade me for this beet.",
+  weight: 13, ripe_on: "2015-12-01", expires_on: "2015-12-10")
+c14 = Crop.create!(user_id: 3, crop_type_id: 5, description: "This watermelon is delectable. You want to trade me for this beet.",
+  weight: 2, ripe_on: "2015-11-19", expires_on: "2015-11-19")
 
 c1.trade_types << tt1
 c1.save
