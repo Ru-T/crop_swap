@@ -35,5 +35,4 @@ class Crop < ActiveRecord::Base
     available_crops
   end
 
-
 end
