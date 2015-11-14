@@ -11,13 +11,13 @@
 
   <div class="btn-group" data-toggle="buttons">
     <label class="btn btn-warning active">
-      <input type="radio" name="options" id="option1" autocomplete="off" checked> Ripe Now
+      <input type="radio" name="options" id="option1" autocomplete="off" checked><%=link_to 'Ripe Now', :sort => "ripe_on" %>
     </label>
     <label class="btn btn-warning">
-      <input type="radio" name="options" id="option2" autocomplete="off"> Newest
+      <input type="radio" name="options" id="option2" autocomplete="off"> <%=link_to 'Newest', :sort => "created_at" %>
     </label>
     <label class="btn btn-warning">
-      <input type="radio" name="options" id="option3" autocomplete="off"> Near You
+      <input type="radio" name="options" id="option3" autocomplete="off"><%=link_to 'Near You', :sort => "zip_code" %>
     </label>
   </div>
 
