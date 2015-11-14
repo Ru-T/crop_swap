@@ -28,7 +28,7 @@
               </div>
               <div class="col-md-9">
                 <div>
-                  <h3><%=crop.crop_type.crop_type%></h3>
+                  <h3><%=crop.crop_type.crop_type%></h3><span class="wishlist"><%= link_to "Wishlist", wishlist_path, remote: true%></span>
                   <div class="crop-description"> <%= crop.description %></div>
                   <div class="details"> Amount: <%= crop.weight %> lbs</div><br>
                   <% if crop.is_ripe? %>
@@ -89,7 +89,7 @@
         <button type="button" class="btn btn-warning">
           <%=link_to 'Browse Crops', crops_path%>
         </button>
-      </div>  
+      </div>
     <%end%>
   </div>
 </div>

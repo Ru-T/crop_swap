@@ -9,10 +9,7 @@ class CropsController < ApplicationController
     @crops = Crop.available_crops(@current_user).order(params[:sort]).paginate(:page => params[:page], :per_page => 12)
   end
 
-  def graph
-  end
-
-  def map
+  def wishlist
   end
 
   # GET /crops/1

@@ -4,12 +4,8 @@ Rails.application.routes.draw do
 
   resources :crops
   resources :users
-  get 'users/edit_profile'
 
-  get 'map' => 'crops#map'
-
-  get 'graph' => "crops#graph"
-  get 'crops/data', :defaults => { :format => 'json' }
+  get 'wishlist' => 'crops#wishlist'
 
   get 'session/new'
   post 'session/create'
