@@ -39,6 +39,7 @@ gem "bower-rails", "~> 0.10.0"
 gem 'd3_rails'
 
 gem 'remove_tl'
+gem 'will_paginate', '~> 3.0.6'
 
 gem 'where-or'
 

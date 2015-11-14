@@ -6,7 +6,7 @@ class CropsController < ApplicationController
   # GET /crops
   def index
     @current_user = User.find_by_id(session[:user_id])
-    @crops = Crop.available_crops(@current_user).order(:ripe_on)
+    @crops = Crop.available_crops(@current_user).order(:ripe_on).paginate(:page => params[:page], :per_page => 4)
   end
 
   def graph
