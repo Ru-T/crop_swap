@@ -83,14 +83,13 @@ a {
 }
 
 .nav-link {
-
   font-weight: 500;
   font-size: 12pt;
   padding: 20px;
 }
 
 .nav-link:hover {
-  color: #CF6622;
+  color: #c6682c;
 }
 
 //Navbar
@@ -359,7 +358,8 @@ input.search-crops {
 
 .wishlist {
   float: right;
-  margin-top: -28px;
-  margin-left: -100px;
+  margin-top: -34px;
+  margin-right: 50px;
   font-size: 16px;
+  color: #d37538;
 }
