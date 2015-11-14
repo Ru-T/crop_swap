@@ -33,7 +33,6 @@
             <% end %>
             <div class="card-block">
               <h4 class="card-title"><%= crop.crop_type.crop_type %> </h4>
-              <h6 class="card-subtitle text-muted">Posted <%= distance_of_time_in_words_to_now(crop.created_at) %> ago</h6>
               <% if crop.is_ripe? %>
                 <h6 class="ripe"> RIPE NOW! </h6>
               <% else %>
@@ -44,6 +43,7 @@
               <% else %>
                 <h6 class="card-subtitle text-muted">Expires in <%= distance_of_time_in_words_to_now(crop.expires_on) %></h6>
               <% end %>
+              <h6 class="card-subtitle text-muted">Posted <%= distance_of_time_in_words_to_now(crop.created_at) %> ago</h6>
               <h6><%= crop.user.zip_code %></h6>
               <p class="card-text"><%= crop.description %></p>
             </div>
