@@ -40,6 +40,7 @@ gem 'd3_rails'
 
 gem 'remove_tl'
 gem 'will_paginate', '~> 3.0.6'
+gem 'will_paginate-bootstrap'
 
 gem 'where-or'
 
