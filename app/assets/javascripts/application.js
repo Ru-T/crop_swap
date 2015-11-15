@@ -25,3 +25,7 @@ $('.nav-tabs a').click(function (e) {
 $('.nav-tabs a a[href="#my-swap-crops"]').tab('show')
 $('.nav-tabs a a[href="#my-crops"]').tab('show')
 $('.nav-tabs a a[href="#my-swaps"]').tab('show')
+
+$('.btn-warning').click(function(){
+   $(this).toggleClass('active');
+})
