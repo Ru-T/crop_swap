@@ -85,7 +85,7 @@
               <button type="button" class="btn btn-warning">
                 <%=link_to 'Browse Crops', crops_path%>
               </button>
-            </div>  
+            </div>
           <% else %>
             <% @user.trades.each do |t| %>
               <div class="crop-item">
@@ -94,7 +94,7 @@
                     <% if t.crop.crop_pic.blank? %>
                       <div class="crop_name panel-body"><%= image_tag asset_url("crop-default-image.png") %></div>
                     <% else %>
-                      <div class="crop_name panel-body"><%= image_tag trade.crop.crop_pic.url %></div>
+                      <div class="crop_name panel-body"><%= image_tag t.crop.crop_pic.url %></div>
                     <% end %>
                   </div>
                   <div class="col-md-9">
