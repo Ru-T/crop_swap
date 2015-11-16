@@ -23,8 +23,6 @@ class Crop < ActiveRecord::Base
   has_attached_file :crop_pic
   validates_attachment_content_type :crop_pic, content_type: /\Aimage\/.*\Z/
 
-  acts_as_mappable
-
   def is_ripe?
     return true if Date.today >= self.ripe_on && Date.today < self.expires_on
   end
@@ -37,11 +35,6 @@ class Crop < ActiveRecord::Base
     available_crops = Crop.where('expires_on >= ? AND user_id != ?', Date.today, user.id)
     available_crops.reject { |crop | crop.trades.accepted == true }
     available_crops
-  end
-
-  def self.sort_by_distance
-    crops = Crop.find(:all, origin: self.user.zip_code, order: 'distance')
-    crops
   end
 
 end
