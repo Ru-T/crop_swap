@@ -5,6 +5,7 @@ class User < ActiveRecord::Base
   has_many :trades, foreign_key: "consumer_id"
 
   has_many :crops
+  has_many :wishlists
 
   has_attached_file :profile_pic
   validates_attachment_content_type :profile_pic, content_type: /\Aimage\/.*\Z/

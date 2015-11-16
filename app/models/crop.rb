@@ -1,7 +1,9 @@
 class Crop < ActiveRecord::Base
   belongs_to :user
   belongs_to :crop_type
+
   has_and_belongs_to_many :trade_types
+  has_many :wishlists
   has_many :trades do
     def pending
       where(accepted: nil)
