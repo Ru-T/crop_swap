@@ -40,7 +40,16 @@ $('.btn-toggle').click(function(e){
 $(function() {
   $(".wishlist a").css({"color": "gray"});
   $(".wishlist a").on("click", function (e){
-    $(this).css({"color": "blue"});
+    $(this).css({"color": "#d37538"});
+    e.preventDefault();
+    e.stopPropagation();
+  })
+});
+
+$(function() {
+  $(".wishlist-browse a").css({"color": "gray"});
+  $(".wishlist-browse a").on("click", function (e){
+    $(this).css({"color": "#d37538"});
     e.preventDefault();
     e.stopPropagation();
   })
