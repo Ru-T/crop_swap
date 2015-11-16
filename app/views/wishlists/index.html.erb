@@ -8,38 +8,49 @@
       <div><%=link_to 'Browse Crops', crops_path %></div>
     </button>
   </div>
+  <br>
 
   <div>
     <div class="row">
-      <% @wishlists.each do |wishlist|  %>
-        <div class="col-sm-3">
-          <div class="card">
-            <% if wishlist.crop.crop_pic.blank? %>
-              <%= image_tag asset_url ("crop-default-image.png") %>
-            <% else%>
-              <%= image_tag wishlist.crop.crop_pic.url %>
-            <% end %>
-            <div class="card-block">
-              <h4 class="card-title"><%= wishlist.crop.crop_type.crop_type %> </h4>
-              <% if wishlist.crop.is_ripe? %>
-                <h6 class="ripe"> RIPE NOW! </h6>
-              <% else %>
-                <h6 class="card-subtitle text-muted">Ripe in <%= distance_of_time_in_words_to_now(wishlist.crop.ripe_on) %></h6>
-              <% end %>
-              <% if wishlist.crop.about_to_expire?  %>
-                <h6 class="card-subtitle expire">Expires in <%= distance_of_time_in_words_to_now(wishlist.crop.expires_on) %></h6>
-              <% else %>
-                <h6 class="card-subtitle text-muted">Expires in <%= distance_of_time_in_words_to_now(wishlist.crop.expires_on) %></h6>
-              <% end %>
-              <h6 class="card-subtitle text-muted">Posted <%= distance_of_time_in_words_to_now(wishlist.crop.created_at) %> ago</h6>
-              <h6><%= wishlist.crop.user.zip_code %></h6>
-              <p class="card-text"><%= wishlist.crop.description %></p>
-            </div>
-            <button type="button" class="btn btn-success">
-              <div><%= link_to 'View Crop', wishlist.crop.user %></div>
-            </button>
-          </div>
+      <% if @wishlists.blank? %>
+        <div class="empty-state-wishlist">
+          <br>
+          <h4> You do not yet have any wishlisted crops.</h4>
+          <button type="button" class="btn btn-warning">
+            <%=link_to 'Browse Crops', crops_path%>
+          </button>
         </div>
+      <% else %>
+        <% @wishlists.each do |wishlist|  %>
+          <div class="col-sm-3">
+            <div class="card">
+              <% if wishlist.crop.crop_pic.blank? %>
+                <%= image_tag asset_url ("crop-default-image.png") %>
+              <% else%>
+                <%= image_tag wishlist.crop.crop_pic.url %>
+              <% end %>
+              <div class="card-block">
+                <h4 class="card-title"><%= wishlist.crop.crop_type.crop_type %> </h4>
+                <% if wishlist.crop.is_ripe? %>
+                  <h6 class="ripe"> RIPE NOW! </h6>
+                <% else %>
+                  <h6 class="card-subtitle text-muted">Ripe in <%= distance_of_time_in_words_to_now(wishlist.crop.ripe_on) %></h6>
+                <% end %>
+                <% if wishlist.crop.about_to_expire?  %>
+                  <h6 class="card-subtitle expire">Expires in <%= distance_of_time_in_words_to_now(wishlist.crop.expires_on) %></h6>
+                <% else %>
+                  <h6 class="card-subtitle text-muted">Expires in <%= distance_of_time_in_words_to_now(wishlist.crop.expires_on) %></h6>
+                <% end %>
+                <h6 class="card-subtitle text-muted">Posted <%= distance_of_time_in_words_to_now(wishlist.crop.created_at) %> ago</h6>
+                <h6><%= wishlist.crop.user.zip_code %></h6>
+                <p class="card-text"><%= wishlist.crop.description %></p>
+              </div>
+              <button type="button" class="btn btn-success">
+                <div><%= link_to 'View Crop', wishlist.crop.user %></div>
+              </button>
+            </div>
+          </div>
+        <% end %>
       <% end %>
     </div>
   </div>
