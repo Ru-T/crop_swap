@@ -3,7 +3,7 @@ class WishlistsController < ApplicationController
 
   # GET /wishlists
   def index
-    @wishlists = Wishlist.all
+    @wishlists = Wishlist.where(user_id: session[:user_id])
   end
 
   # GET /wishlists/1
