@@ -359,14 +359,6 @@ input.search-crops {
   padding-left: 15px;
 }
 
-.wishlist {
-  float: right;
-  margin-top: -34px;
-  margin-right: 50px;
-  font-size: 16px;
-  color: #d37538;
-}
-
 .btn-toggle:hover {
   background-color: #CF6622;
 }
@@ -388,4 +380,19 @@ input.search-crops {
   margin-top: 7px;
   font-size: 1.6em;
   padding-right: 30px;
+}
+
+.wishlist {
+  float: right;
+  margin-top: -34px;
+  margin-right: 50px;
+  font-size: 16px;
+  color: #d37538;
+}
+
+.wishlist-browse {
+  float: right;
+  margin-top: -34px;
+  font-size: 16px;
+  color: #d37538;
 }
