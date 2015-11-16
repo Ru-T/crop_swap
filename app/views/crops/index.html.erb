@@ -33,7 +33,9 @@
             <% end %>
             <div class="card-block">
               <h4 class="card-title"><%= crop.crop_type.crop_type %> </h4>
-              <span class="wishlist-browse"><%= link_to "♡", wishlists_path(wishlist: {crop_id: crop.id, user_id: @current_user.id}), method: :post, remote: true%></span>
+              <% if session[:user_id] %>
+                <span class="wishlist-browse"><%= link_to "♡", wishlists_path(wishlist: {crop_id: crop.id, user_id: @current_user.id}), method: :post, remote: true%></span>
+              <% end %>
               <% if crop.is_ripe? %>
                 <h6 class="ripe"> RIPE NOW! </h6>
               <% else %>
@@ -55,5 +57,7 @@
         </div>
       <% end %>
     </div>
-    <span class="pagination"><%= will_paginate @crops, renderer: BootstrapPagination::Rails %></span>
+    <% if session[:user_id] %>
+      <span class="pagination"><%= will_paginate @crops, renderer: BootstrapPagination::Rails %></span>
+    <% end %>
   </div>

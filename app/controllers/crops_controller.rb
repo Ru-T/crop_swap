@@ -6,7 +6,11 @@ class CropsController < ApplicationController
   # GET /crops
   def index
     @current_user = User.find_by_id(session[:user_id])
-    @crops = Crop.available_crops(@current_user).order(params[:sort]).paginate(:page => params[:page], :per_page => 12)
+    if session[:user_id]
+      @crops = Crop.available_crops(@current_user).order(params[:sort]).paginate(:page => params[:page], :per_page => 12)
+    else
+      @crops = Crop.all
+    end  
   end
   # GET /crops/1
   def show
