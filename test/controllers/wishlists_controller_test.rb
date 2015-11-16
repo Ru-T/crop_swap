@@ -11,31 +11,11 @@ class WishlistsControllerTest < ActionController::TestCase
     assert_not_nil assigns(:wishlists)
   end
 
-  test "should get new" do
-    get :new
-    assert_response :success
-  end
-
   test "should create wishlist" do
     assert_difference('Wishlist.count') do
       post :create, wishlist: { crop_id: @wishlist.crop_id, user_id: @wishlist.user_id }
     end
 
-    assert_redirected_to wishlist_path(assigns(:wishlist))
-  end
-
-  test "should show wishlist" do
-    get :show, id: @wishlist
-    assert_response :success
-  end
-
-  test "should get edit" do
-    get :edit, id: @wishlist
-    assert_response :success
-  end
-
-  test "should update wishlist" do
-    patch :update, id: @wishlist, wishlist: { crop_id: @wishlist.crop_id, user_id: @wishlist.user_id }
     assert_redirected_to wishlist_path(assigns(:wishlist))
   end
 
