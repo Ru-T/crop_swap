@@ -13,32 +13,43 @@
     <div class="row swap-history-title">
       <h3> Accepted Swaps </h3>
     </div>
-    <% @trades.each do |trade| %>
-      <% if trade.accepted == true %>
-      <div class="row">
-        <div class="col-md-3">
-          <% if trade.crop.crop_pic.blank? %>
-            <div class="crop_name panel-body"><%= image_tag asset_url("crop-default-image.png") %></div>
-          <% else %>
-            <div class="crop_name panel-body"><%= image_tag trade.crop.crop_pic.url %></div>
-          <% end %>
+    <% if @trades.user_has_accepted_trades? %>
+      <% @trades.each do |trade| %>
+        <% if trade.accepted == true %>
+        <div class="row">
+          <div class="col-md-3">
+            <% if trade.crop.crop_pic.blank? %>
+              <div class="crop_name panel-body"><%= image_tag asset_url("crop-default-image.png") %></div>
+            <% else %>
+              <div class="crop_name panel-body"><%= image_tag trade.crop.crop_pic.url %></div>
+            <% end %>
+          </div>
+          <div class="col-md-9">
+            <h3><%=trade.crop.crop_type.crop_type%></h3>
+            <h4>Swap Accepted on <%=trade.created_at.strftime("%b %d %Y") %></h4>
+            <div class="crop-description"> <%= trade.crop.description %></div>
+            <p>Swap Type: <%= trade.trade_type.name %></p>
+            <p>Consumer: <%= trade.consumer.name %></p>
+            <p>Message: <%= trade.message %></p>
+            <p>Response: <%= trade.message_response %></p>
+          </div>
         </div>
-        <div class="col-md-9">
-          <h3><%=trade.crop.crop_type.crop_type%></h3>
-          <h4>Swap Accepted on <%=trade.created_at.strftime("%b %d %Y") %></h4>
-          <div class="crop-description"> <%= trade.crop.description %></div>
-          <p>Swap Type: <%= trade.trade_type.name %></p>
-          <p>Consumer: <%= trade.consumer.name %></p>
-          <p>Message: <%= trade.message %></p>
-          <p>Response: <%= trade.message_response %></p>
-        </div>
-      </div>
       <% end %>
     <% end %>
-
-    <div class="row swap-history-title">
-      <h3> Rejected Swaps </h3>
+  <% else %>
+    <div class="empty-state">
+      <br>
+      <h4> You do not yet have any accepted swaps.</h4>
+      <button type="button" class="btn btn-warning">
+        <%=link_to 'Browse Crops', crops_path%>
+      </button>
     </div>
+  <% end %>
+
+  <div class="row swap-history-title">
+    <h3> Rejected Swaps </h3>
+  </div>
+  <% if @trades.user_has_accepted_trades? %>
     <% @trades.each do |trade| %>
       <% if trade.accepted == false %>
         <div class="row">
@@ -61,5 +72,14 @@
         </div>
       <% end %>
     <% end %>
+  <% else %>
+    <div class="empty-state">
+      <br>
+      <h4> You do not yet have any rejected swaps.</h4>
+      <button type="button" class="btn btn-warning">
+        <%=link_to 'Browse Crops', crops_path%>
+      </button>
+    </div>
+  <% end %>
   </div>
 </div>

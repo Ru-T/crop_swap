@@ -30,7 +30,7 @@ class Crop < ActiveRecord::Base
   end
 
   def about_to_expire?
-    return true if Date.today < self.expires_on && Date.today > self.expires_on - 3.days #by less than 3 days
+    return true if Date.today < self.expires_on && Date.today > self.expires_on - 3.days 
   end
 
   def self.available_crops(user)
