@@ -47,6 +47,6 @@ class Crop < ActiveRecord::Base
 
   def self.sort_by_location
     Crop.find(:all, :origin=>self.user.zip_code, :order=>'distance')
-  end  
+  end
 
 end
