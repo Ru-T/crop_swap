@@ -63,6 +63,19 @@ c10 = Crop.create!(user_id: 5, crop_type_id: 4, description: "Grab these carrots
 c11 = Crop.create!(user_id: 5, crop_type_id: 5, description: "Radishes make the ideal snack - grab some dip and start chompin.",
   weight: 1, ripe_on: Date.today - 2.days, expires_on: Date.today + 2.days)
 
+c12 = Crop.create!(user_id: 5, crop_type_id: 2, description: "Tomatoes are almost out of season - grab some today!",
+weight: 2, ripe_on: "2015-11-19", expires_on: "2015-11-24")
+c13 = Crop.create!(user_id: 5, crop_type_id: 4, description: "Grab these carrots and put them in a pot.",
+weight: 4, ripe_on: "2015-11-19", expires_on: "2015-11-19")
+c14 = Crop.create!(user_id: 5, crop_type_id: 5, description: "Radishes make the ideal snack - grab some dip and start chompin.",
+weight: 1, ripe_on: Date.today - 2.days, expires_on: Date.today + 2.days)
+c15 = Crop.create!(user_id: 5, crop_type_id: 2, description: "Tomatoes are almost out of season - grab some today!",
+  weight: 2, ripe_on: "2015-11-19", expires_on: "2015-11-24")
+c16 = Crop.create!(user_id: 5, crop_type_id: 4, description: "Grab these carrots and put them in a pot.",
+  weight: 4, ripe_on: "2015-11-19", expires_on: "2015-11-19")
+c17 = Crop.create!(user_id: 5, crop_type_id: 6, description: "Spinach is the perfect vegetable for a stir fry or a salad.",
+  weight: 4, ripe_on: "2015-12-01", expires_on: "2015-12-10")
+
 c1.trade_types << tt1
 c1.save
 
