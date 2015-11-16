@@ -23,14 +23,14 @@ class Crop < ActiveRecord::Base
   has_attached_file :crop_pic
   validates_attachment_content_type :crop_pic, content_type: /\Aimage\/.*\Z/
 
-  # acts_as_mappable
+  acts_as_mappable
 
   def is_ripe?
     return true if Date.today >= self.ripe_on && Date.today < self.expires_on
   end
 
   def about_to_expire?
-    return true if Date.today < self.expires_on && Date.today > self.expires_on - 3.days 
+    return true if Date.today < self.expires_on && Date.today > self.expires_on - 3.days
   end
 
   def self.available_crops(user)
@@ -39,16 +39,9 @@ class Crop < ActiveRecord::Base
     available_crops
   end
 
-  # def self.search(search)
-  #   if search
-  #     find(:all, :conditions => ['self.crop_type.crop_type LIKE ?', "%#{search}%"])
-  #   else
-  #     find(:all)
-  #   end
-  # end
-  #
-  # def self.sort_by_location
-  #   Crop.find(:all, :origin=>self.user.zip_code, :order=>'distance')
-  # end
+  def self.sort_by_distance
+    crops = Crop.find(:all, origin: self.user.zip_code, order: 'distance')
+    crops
+  end
 
 end

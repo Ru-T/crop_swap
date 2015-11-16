@@ -20,7 +20,7 @@
 $('.nav-tabs a').click(function (e) {
   e.preventDefault()
   $(this).tab('show')
-})
+});
 
 $('.nav-tabs a a[href="#my-swap-crops"]').tab('show')
 $('.nav-tabs a a[href="#my-crops"]').tab('show')
@@ -32,7 +32,6 @@ $('.nav-tabs a a[href="#my-swaps"]').tab('show')
 $('.btn-toggle').click(function(e){
   e.preventDefault();
    $(this).toggleClass('active').siblings().removeClass('active');
-
 });
 
 // Wishlist button
@@ -45,7 +44,14 @@ $('.btn-toggle').click(function(e){
 //     e.stopPropagation();
 //   })
 // });
-
-
+//
+// $(function() {
+//   $(".wishlist-browse a").css({"color": "gray"});
+//   $(".wishlist-browse a").on("click", function (e){
+//     $(this).css({"color": "#d37538"});
+//     e.preventDefault();
+//     e.stopPropagation();
+//   })
+// });
 
 // $(".wishlist a").on("click", disableOnClick);
