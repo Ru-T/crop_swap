@@ -29,7 +29,7 @@
               <div class="col-md-9">
                 <div>
                   <h3><%=crop.crop_type.crop_type%></h3>
-                  <span class="wishlist"> <%= link_to "Add to Wishlist", wishlists_path(wishlist: {crop_id: crop.id, user_id: @current_user.id}), method: :post, remote: true%></span>
+                  <span class="wishlist"> <i class="fa fa-heart"></i><%= link_to " Wishlist", wishlists_path(wishlist: {crop_id: crop.id, user_id: @current_user.id}), method: :post, remote: true%></span>
                   <div class="crop-description"> <%= crop.description %></div>
                   <div class="details"> Amount: <%= crop.weight %> lbs</div><br>
                   <% if crop.is_ripe? %>

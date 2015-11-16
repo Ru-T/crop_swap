@@ -33,7 +33,7 @@
             <% end %>
             <div class="card-block">
               <h4 class="card-title"><%= crop.crop_type.crop_type %> </h4>
-              <span class="wishlist-browse"> <%= link_to "Add to Wishlist", wishlists_path(wishlist: {crop_id: crop.id, user_id: @current_user.id}), method: :post, remote: true%></span>
+              <span class="wishlist-browse"> <i class="fa fa-heart"></i><%= link_to " Wishlist", wishlists_path(wishlist: {crop_id: crop.id, user_id: @current_user.id}), method: :post, remote: true%></span>
               <% if crop.is_ripe? %>
                 <h6 class="ripe"> RIPE NOW! </h6>
               <% else %>

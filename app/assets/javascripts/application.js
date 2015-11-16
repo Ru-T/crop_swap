@@ -29,6 +29,25 @@ $('.nav-tabs a a[href="#my-swaps"]').tab('show')
 
 // Sort toggles
 
-$('.btn-toggle').click(function(){
-   $(this).toggleClass('active');
+$('.btn-toggle').click(function(e){
+  e.preventDefault();
+   $(this).toggleClass('active').siblings().removeClass('active');
+
 });
+
+// Wishlist button
+
+$(function() {
+  $(".wishlist a").css({"color": "gray"});
+  $(".wishlist a").on("click", function (e){
+    $(this).css({"color": "blue"});
+    e.preventDefault();
+    e.stopPropagation();
+  })
+});
+
+
+
+
+
+// $(".wishlist a").on("click", disableOnClick);
