@@ -105,13 +105,13 @@ a:hover, a:focus {
 #notice {
  color: green;
  padding-top: 10px;
- padding-left: 10px;
+ padding-left: 150px;
 }
 
 #alert {
  color: red;
  padding-top: 10px;
- padding-left: 10px;
+ padding-left: 150px;
 }
 
 .crop_name {
@@ -160,10 +160,9 @@ body.backg {
 
 h4.post-crop-title {
   text-align: left;
-
 }
-a.nav-text {
 
+a.nav-text {
   padding-right: 10px;
   padding-left: 10px;
   position: relative;
@@ -180,6 +179,11 @@ a.nav-a {
 .nav.navbar-nav {
   padding-right: 20px;
   color: #d37538;
+}
+
+.navbar-nav > li > a {
+    padding-top: 13px;
+    padding-bottom: 15px;
 }
 
 navbar-brand {
@@ -397,4 +401,17 @@ a.wishlist-nav {
 
 .wishlist:active {
   color:blue;
+}
+
+.crop-select-tab {
+  padding-top: 5px;
+}
+
+.pagination > .active > a, .pagination > .active > a:hover, .pagination > .active > a:focus, .pagination > .active > span, .pagination > .active > span:hover, .pagination > .active > span:focus {
+  background-color: #d37538;
+  border-color: #d37538;
+}
+
+.pagination > li > a, .pagination > li > span {
+  color: #d37538;
 }

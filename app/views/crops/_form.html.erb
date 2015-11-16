@@ -18,11 +18,11 @@
       <% end %>
 
       <%= f.hidden_field :user_id %>
-
+    <div class="crop-item post-a-crop">
       <div class="row crop-form-label">
         <div class="form-group crop-type">
-          <%= f.label :crop_type_id, "Crop Type:", class: "col-md-4 control-label" %>
-          <div class="col-md-8">
+          <%= f.label :crop_type_id, "Crop Type:", class: "col-md-4 control-label crop-label" %>
+          <div class="col-md-8 crop-select-tab">
             <%= f.collection_select :crop_type_id, CropType.all, :id, :crop_type, class: "form-control crop-select" %>
           </div>
         </div>
@@ -30,7 +30,7 @@
 
       <div class="row crop-form-label">
         <div class="form-group crop-description">
-          <%= f.label :description, "Description:", class: "col-md-4 control-label" %>
+          <%= f.label :description, "Description:", class: "col-md-4 control-label crop-label" %>
           <div class="col-md-8">
             <%= f.text_area :description, class: "crop-description form-control" %>
           </div>
@@ -39,7 +39,7 @@
 
       <div class="row crop-form-label">
         <div class="form-group crop-pic">
-          <%= f.label :crop_pic, "Crop Pic:", class: "col-md-2 control-label crop-pic"%> <br>
+          <%= f.label :crop_pic, "Crop Pic:", class: "col-md-2 control-label crop-pic crop-label"%> <br>
           <div class="col-md-8 crop-pic-field">
             <%= f.file_field :crop_pic %>
           </div>
@@ -48,7 +48,7 @@
 
       <div class="row crop-form-label">
         <div class="form-group crop-weight">
-          <%= f.label :weight, "Weight:", class: "col-md-4 control-label" %>
+          <%= f.label :weight, "Weight:", class: "col-md-4 control-label crop-label" %>
           <div class="col-md-8">
             <%= f.number_field :weight, class: "crop-weight form-control" %>
           </div>
@@ -57,14 +57,14 @@
 
         <div class="row crop-form-label">
           <div class="form-group crop-ripe">
-            <%= f.label :ripe_on, "Ripe On:", class: "col-md-4 crop-ripe-on"%> <br>
+            <%= f.label :ripe_on, "Ripe On:", class: "col-md-4 crop-ripe-on crop-label"%> <br>
             <%= f.date_field :ripe_on %>
           </div>
         </div>
 
         <div class="row crop-form-label">
           <div class="form-group crop-expires">
-            <span class="crop-time-label"><%= f.label :expires_on, "Expires On:", class: "col-md-4 crop-expires-on"%> </span><br>
+            <span class="crop-time-label"><%= f.label :expires_on, "Expires On:", class: "col-md-4 crop-expires-on crop-label"%> </span><br>
             <%= f.date_field :expires_on %>
           </div>
         </div>
@@ -94,5 +94,5 @@
       <% end %>
       <br>
       <br>
-
+    </div>
   </div>
