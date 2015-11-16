@@ -1,5 +1,6 @@
 class WishlistsController < ApplicationController
   before_action :set_wishlist, only: [:show, :edit, :update, :destroy]
+  before_action :logged_in
 
   # GET /wishlists
   def index

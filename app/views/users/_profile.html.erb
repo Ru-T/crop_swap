@@ -29,7 +29,7 @@
               <div class="col-md-9">
                 <div>
                   <h3><%=crop.crop_type.crop_type%></h3>
-                  <span class="wishlist"><%= link_to "♡", wishlists_path(wishlist: {crop_id: crop.id, user_id: @current_user.id}), method: :post, remote: true%></span>
+                  <span class="wishlist wishlist-shared"><%= link_to "♡", wishlists_path(wishlist: {crop_id: crop.id, user_id: @current_user.id}), method: :post, remote: true%></span>
                   <div class="crop-description"> <%= crop.description %></div>
                   <div class="details"> Amount: <%= crop.weight %> lbs</div><br>
                   <% if crop.is_ripe? %>
@@ -45,11 +45,11 @@
                   <p>This crop can be swapped for:
                     <% crop.trade_types.each do |tt| %>
                       <% if tt.id == 1 %>
-                        <span class="glyphicon glyphicon-apple" aria-hidden="true"></span>
+                        <span class="glyphicon glyphicon-grain" aria-hidden="true"></span>
                       <% elsif tt.id == 2%>
                         <span class="glyphicon glyphicon-time" aria-hidden="true"></span>
                       <% else%>
-                        <span class="glyphicon glyphicon-leaf" aria-hidden="true"></span>
+                        <span class="glyphicon glyphicon-wrench" aria-hidden="true"></span>
                       <% end %>
                       <%= tt.name%>
                     <% end %>

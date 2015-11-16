@@ -60,7 +60,6 @@
               <div class="actions crop-form-label">
                 <%= f.submit "Act On Swap", class: "btn btn-success" %>
               </div>
-              <br>
               <%= link_to 'Never Mind', trades_path %>
             </div>
           </div>
@@ -101,11 +100,11 @@
               <% @trade.crop.trade_types.each do |tt| %>
                 <div class="trade_type"><%= f.radio_button :trade_type_id, tt.id %>
                   <% if tt.id == 1 %>
-                    <span class="glyphicon glyphicon-apple" aria-hidden="true"></span>
+                    <span class="glyphicon glyphicon-grain" aria-hidden="true"></span>
                   <% elsif tt.id == 2 %>
                     <span class="glyphicon glyphicon-time" aria-hidden="true"></span>
                   <% else%>
-                    <span class="glyphicon glyphicon-leaf" aria-hidden="true"></span>
+                    <span class="glyphicon glyphicon-wrench" aria-hidden="true"></span>
                   <% end %>
                   <%= f.label :trade_type_id, "#{tt.name}" %>
                 </div>

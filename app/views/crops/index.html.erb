@@ -9,6 +9,7 @@
     </button>
   </div>
 
+<% if session[:user_id] %>
   <div class="btn-group">
     <label class="btn btn-warning btn-toggle">
       <%=link_to 'Newest', crops_path(:sort => "created_at") %>
@@ -20,6 +21,7 @@
       <%=link_to 'Expires Soon', crops_path(:sort => "expires_on") %>
     </label>
   </div>
+<% end %>
 
   <div>
     <div class="row">
@@ -34,7 +36,7 @@
             <div class="card-block">
               <h4 class="card-title"><%= crop.crop_type.crop_type %> </h4>
               <% if session[:user_id] %>
-                <span class="wishlist-browse"><%= link_to "♡", wishlists_path(wishlist: {crop_id: crop.id, user_id: @current_user.id}), method: :post, remote: true%></span>
+                <span class="wishlist-browse wishlist-shared"><%= link_to "♡", wishlists_path(wishlist: {crop_id: crop.id, user_id: @current_user.id}), method: :post, remote: true%></span>
               <% end %>
               <% if crop.is_ripe? %>
                 <h6 class="ripe"> RIPE NOW! </h6>

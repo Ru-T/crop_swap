@@ -29,29 +29,17 @@ $('.nav-tabs a a[href="#my-swaps"]').tab('show')
 
 // Sort toggles
 
-$('.btn-toggle').click(function(e){
-  e.preventDefault();
-   $(this).toggleClass('active').siblings().removeClass('active');
-});
+// $('.btn-toggle').click(function(e){
+//   e.preventDefault();
+//    $(this).toggleClass('active').siblings().removeClass('active');
+// });
 
 // Wishlist button
 
 // $(function() {
-//   $(".wishlist a").css({"color": "gray"});
+//   $(".wishlist-shared a").css({"color": "gray"});
 //   $(".wishlist a").on("click", function (e){
-//     $(this).css({"color": "#d37538"});
-//     e.preventDefault();
-//     e.stopPropagation();
+//     $(this).#add a class jquery command ("class", "wishlisted");
 //   })
 // });
-//
-// $(function() {
-//   $(".wishlist-browse a").css({"color": "gray"});
-//   $(".wishlist-browse a").on("click", function (e){
-//     $(this).css({"color": "#d37538"});
-//     e.preventDefault();
-//     e.stopPropagation();
-//   })
-// });
-
-// $(".wishlist a").on("click", disableOnClick);
+// set Timeout for disable 1 second after click without stopping ajax OR create only one per info
