@@ -22,15 +22,15 @@ class WishlistsController < ApplicationController
   # POST /wishlists
   def create
     @wishlist = Wishlist.new(wishlist_params)
-      respond_to do |format|
-        if @wishlist.save
-          format.html { redirect_to @wishlist, notice: 'Wishlist was successfully created.' }
-          format.json { render :show, status: :created, location: @wishlist }
-        else
-          format.html { render :new }
-          format.json { render json: @wishlist.errors, status: :unprocessable_entity }
-        end
+    respond_to do |format|
+      if @wishlist.save
+        format.html { redirect_to @wishlist, notice: 'Wishlist was successfully created.' }
+        format.json { render :show, status: :created, location: @wishlist }
+      else
+        format.html { render :new }
+        format.json { render json: @wishlist.errors, status: :unprocessable_entity }
       end
+    end
   end
 
   # PATCH/PUT /wishlists/1

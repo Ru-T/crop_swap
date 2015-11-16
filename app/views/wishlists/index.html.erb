@@ -1,29 +1,19 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Listing Wishlists</h1>
+<div class="container browse-crops">
+  <div class="jumbotron browse-jumbotron">
+    <div class="header text-center">View Your Crop Wishlist</div>
+    <p class="text-center">Learn more about any crop and propose a trade!</p>
+    <button type="button" class="btn btn-success center-block">
+      <div><%=link_to 'Browse Crops', crops_path %></div>
+    </button>
+  </div>
+</div>
 
-<table>
-  <thead>
-    <tr>
-      <th>User</th>
-      <th>Crop</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
 
-  <tbody>
     <% @wishlists.each do |wishlist| %>
-      <tr>
         <td><%= wishlist.user_id %></td>
         <td><%= wishlist.crop_id %></td>
         <td><%= link_to 'Show', wishlist %></td>
         <td><%= link_to 'Edit', edit_wishlist_path(wishlist) %></td>
-        <td><%= link_to 'Destroy', wishlist, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
     <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New Wishlist', new_wishlist_path %>
