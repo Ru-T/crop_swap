@@ -1,9 +1,10 @@
 Rails.application.routes.draw do
-  resources :wishlists
-  resources :trades
   root 'users#index'
 
+  resources :wishlists
+  resources :trades
   resources :crops
+  get 'crops/search'
   resources :users
 
   get 'session/new'

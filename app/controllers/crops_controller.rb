@@ -42,6 +42,10 @@ class CropsController < ApplicationController
     end
   end
 
+  def search
+    @crops = Crop.all#.search(params[:search])
+  end
+
   # DELETE /crops/1
   def destroy
     @crop.destroy

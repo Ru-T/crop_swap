@@ -36,6 +36,8 @@ gem 'leaflet-rails'
 gem 'mapbox-rails'
 gem "bower-rails", "~> 0.10.0"
 
+gem 'geokit-rails'
+
 gem 'd3_rails'
 
 gem 'remove_tl'
