@@ -11,7 +11,7 @@
           <li><%= link_to "My Profile", @current_user, class: "nav-a" %></li>
           <li><%= link_to "Post A Crop", new_crop_path, class: "nav-a" %></li>
           <li><%= link_to "Browse Crops", crops_path, class: "nav-a" %></li>
-          <li class: "nav-a"><a class="wishlist-nav" href="/wishlists"><span class="glyphicon glyphicon-heart"></span></a></li>
+          <li><a class="wishlist-nav" href="/wishlists"><span class="glyphicon glyphicon-heart"></span></a></li>
         <% if session[:user_id]%>
           <span class="navbar-right nav-link"><%= link_to 'Logout', session_destroy_path, method: :delete, class: "nav-text"%></span>
         </ul>
