@@ -31,7 +31,7 @@ $('.nav-tabs a a[href="#my-swaps"]').tab('show')
 $(function() {
   $(".wishlist-shared a").css({"color": "gray"});
   $(".wishlist-shared a").on("click", function (){
-    $(this).addClass("wishlisted");
+    $(this).addClass("wishlisted").css("color", "#d37538");
   })
 });
 // set Timeout for disable 1 second after click without stopping ajax OR create only one per info
