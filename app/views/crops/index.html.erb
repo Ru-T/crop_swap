@@ -39,9 +39,9 @@
               <h4 class="card-title"><%= crop.crop_type.crop_type %> </h4>
               <% if session[:user_id] %>
                 <% if crop.wishlisted?(@current_user) %>
-                  <span class="wishlist-browse wishlist-shared wishlisted">♡</span>
+                  <span class="wishlist-browse wishlist-shared wishlisted">♥</span>
                 <% else %>
-                  <span class="wishlist-browse wishlist-shared"><%= link_to "♡", wishlists_path(wishlist: {crop_id: crop.id, user_id: @current_user.id}), method: :post, remote: true%></span>
+                  <span class="wishlist-browse wishlist-shared"><%= link_to "♥", wishlists_path(wishlist: {crop_id: crop.id, user_id: @current_user.id}), method: :post, remote: true%></span>
                 <% end %>
               <% end %>
               <% if crop.is_ripe? %>

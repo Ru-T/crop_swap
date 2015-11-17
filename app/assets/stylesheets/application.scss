@@ -333,16 +333,15 @@ input.search-crops {
 
 .wishlist {
   float: right;
-  margin-top: -34px;
-  margin-right: 50px;
-  font-size: 16px;
-  font-size: 20px;
+  margin-top: -40px;
+  margin-right: 125px;
+  font-size: 28px;
 }
 
 .wishlist-browse {
   float: right;
-  margin-top: -34px;
-  font-size: 20px;
+  margin-top: -40px;
+  font-size: 28px;
 }
 
 .wishlist-shared.a:hover {
@@ -351,6 +350,7 @@ input.search-crops {
 
 .wishlisted {
   color: #d37538;
+  font-size: 28px;
 }
 
 // Pagination

@@ -30,9 +30,9 @@
                 <div>
                   <h3><%=crop.crop_type.crop_type%></h3>
                   <% if crop.wishlisted?(@current_user) %>
-                    <span class="wishlist wishlist-shared wishlisted">♡</span>
+                    <span class="wishlist wishlist-shared wishlisted">♥</span>
                   <% else %>
-                    <span class="wishlist wishlist-shared"><%= link_to "♡", wishlists_path(wishlist: {crop_id: crop.id, user_id: @current_user.id}), method: :post, remote: true%></span>
+                    <span class="wishlist wishlist-shared"><%= link_to "♥", wishlists_path(wishlist: {crop_id: crop.id, user_id: @current_user.id}), method: :post, remote: true%></span>
                   <% end %>                  <div class="crop-description"> <%= crop.description %></div>
                   <div class="details"> Amount: <%= crop.weight %> lbs</div><br>
                   <% if crop.is_ripe? %>
