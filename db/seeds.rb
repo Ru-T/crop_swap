@@ -131,7 +131,7 @@ Trade.create!(trade_type_id: 1, crop_id: 1, consumer_id: 3, message: "Hey there!
 Trade.create!(trade_type_id: 2, crop_id: 2, consumer_id: 4, message: "Hey there. I'd be happy to swap my time for your delicious-looking tomatoes. I could help with the Farmer's Market this Saturday if that works for you.",
   grower_id: 1)
 
-Trade.create!(trade_type_id: 1, crop_id: 6, consumer_id: 1, message: "Spinach is my favorite. I have lots of season vegetables I can swap - check out my profile and let me know what you want!",
+Trade.create!(trade_type_id: 1, crop_id: 6, consumer_id: 1, message: "Spinach is my favorite. I have lots of seasonal vegetables I can swap - check out my profile and let me know what you want!",
   grower_id: 3)
 Trade.create!(trade_type_id: 2, crop_id: 6, consumer_id: 4, message: "I'd be happy to swap my time for your delicious looking spinach. I am free this weekend if you need some help with markets.",
   grower_id: 3)
