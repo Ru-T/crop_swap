@@ -21,6 +21,7 @@
  @import "crops";
  @import "users";
 
+// application
 
  *, *::before, *::after {
    box-sizing: border-box;
@@ -30,38 +31,21 @@
  $default-hover-bttncolor: #CF6622;
  $default-focus: #ffef99;
 
-
 body {
   background-color: #F5F5F5;
   padding-top: 66px;
 }
 
-//Sign in Page
-main.login-form {
-  background-color: white;
-  margin-top: 50px;
-  padding-top: 10px;
-  border-radius: .3em;
-  padding-bottom: 25px;
-  color: #323232;
-  opacity: .96;
-  color: #3b444b;
-  border: solid #fefdfb;
-  position: relative;
+#notice {
+ color: green;
+ padding-top: 10px;
+ padding-left: 150px;
 }
 
-section.sign-in-form {
-  padding-left: 38px;
-}
-
-.sign-in-title {
-  margin-left: 0px;
-  text-align: center;
-}
-
-label {
-  font-size: 15.5pt;
-  text-align: left;
+#alert {
+ color: red;
+ padding-top: 10px;
+ padding-left: 150px;
 }
 
 h1 {
@@ -90,48 +74,38 @@ a:hover, a:focus {
   }
 }
 
-.nav-link {
-  font-weight: 500;
-  font-size: 12pt;
-  padding: 20px;
-}
-
-.nav-link:hover {
-  color: #c6682c;
-}
-
-//Navbar
-
-#notice {
- color: green;
- padding-top: 10px;
- padding-left: 150px;
-}
-
-#alert {
- color: red;
- padding-top: 10px;
- padding-left: 150px;
-}
-
-.crop_name {
- font-size: 20px;
-}
-
-.details {
- font-size: 16px;
-}
-
-.btn {
-   margin-top: 20px;
-}
-
-.crop_name {
-   border-radius: 5px;
-}
 
 body.backg {
   background: image-url('tomatoes.jpg') no-repeat center center fixed;
+}
+
+//Sign in Page
+
+main.login-form {
+  background-color: white;
+  margin-top: 50px;
+  padding-top: 10px;
+  border-radius: .3em;
+  padding-bottom: 25px;
+  color: #323232;
+  opacity: .96;
+  color: #3b444b;
+  border: solid #fefdfb;
+  position: relative;
+}
+
+section.sign-in-form {
+  padding-left: 38px;
+}
+
+.sign-in-title {
+  margin-left: 0px;
+  text-align: center;
+}
+
+label {
+  font-size: 15.5pt;
+  text-align: left;
 }
 
 .login-button {
@@ -152,14 +126,51 @@ body.backg {
   background-color: #CF6622;
 }
 
-.img {
-  vertical-align: text-top;
-  padding-bottom: 300px;
+input#email {
+  margin-left: 55px;
+  height: 25px;
+  width: 55%;
+  color: black;
+  vertical-align: text-bottom;
+}
+
+input#email:focus {
+  border: solid #e5e5e5;
 
 }
 
-h4.post-crop-title {
-  text-align: left;
+input#password {
+  margin-left: 13px;
+  width: 55%;
+  color: black;
+  vertical-align: text-bottom;
+
+}
+
+input#password:focus {
+  border: solid #e5e5e5;
+}
+
+.container-fluid {
+  background-color: #f0eeee;
+  border-bottom: solid #eae3e3 1px;
+}
+
+
+.sign-up {
+  padding-left: 165px;
+}
+
+//Navbar
+
+.nav-link {
+  font-weight: 500;
+  font-size: 12pt;
+  padding: 20px;
+}
+
+.nav-link:hover {
+  color: #c6682c;
 }
 
 a.nav-text {
@@ -200,97 +211,32 @@ button.btn.btn-default.btn-sm.dropdown-toggle:hover {
   background-color: #CF6622;
 }
 
-input#email {
-  margin-left: 55px;
-  height: 25px;
-  width: 55%;
-  color: black;
-  vertical-align: text-bottom;
+// Crops
+
+.crop_name {
+ font-size: 20px;
 }
 
-input#email:focus {
-  border: solid #e5e5e5;
+.details {
+ font-size: 16px;
+}
+
+.btn {
+   margin-top: 20px;
+}
+
+.crop_name {
+   border-radius: 5px;
+}
+
+.img {
+  vertical-align: text-top;
+  padding-bottom: 300px;
 
 }
 
-input#password {
-  margin-left: 13px;
-  width: 55%;
-  color: black;
-  vertical-align: text-bottom;
-
-}
-
-input#password:focus {
-  border: solid #e5e5e5;
-}
-
-.container-fluid {
-  background-color: #f0eeee;
-  border-bottom: solid #eae3e3 1px;
-}
-
-// map for leaflet
-
-#map {
-  height: 500px;
-  width: 800px;
-  top: 0;
-  bottom: 0;
-  border-radius: .3;
-}
-
-
-svg {
-  width: 1000px;
-  height: 500px;
-  border: 1px solid lightgrey;
-  font-family: sans-serif;
-  font-weight: 200;
-  font-size: 12px;
-}
-
-path {
-  stroke: black;
-  fill: none;
-}
-
-.tick {
-  stroke: black;
-}
-
-circle {
-  stroke: darkblue;
-  fill: lightblue;
-}
-.bar {
-  fill: steelblue;
-}
-
-.bar:hover {
-  fill: brown;
-}
-
-.axis {
-  font: 10px sans-serif;
-}
-
-.axis path,
-.axis line {
-  fill: none;
-  stroke: #000;
-}
-
-.x.axis path {
-  display: none;
-}
-
-//map styling code
-
-.map {
-  width: 100%;
-  height: 100%;
-  text-align: center;
+h4.post-crop-title {
+  text-align: left;
 }
 
 .crop-weight-field {
@@ -302,9 +248,11 @@ input.search-crops {
   width: 100%;
 }
 
-.sign-up {
-  padding-left: 165px;
+.crop-select-tab {
+  padding-top: 5px;
 }
+
+// Swaps
 
 .trade-form-label {
   margin-left: 15px;
@@ -371,6 +319,9 @@ input.search-crops {
   background-color: #CF6622;
 }
 
+
+//Wishlist
+
 .empty-state-wishlist {
   background-color: white;
   margin-left: 15px;
@@ -380,16 +331,11 @@ input.search-crops {
   padding-left: 15px;
 }
 
-a.wishlist-nav {
-  font-size: 25px;
-}
-
 .wishlist {
   float: right;
   margin-top: -34px;
   margin-right: 50px;
   font-size: 16px;
-  color: #d37538;
   font-size: 20px;
 }
 
@@ -397,16 +343,17 @@ a.wishlist-nav {
   float: right;
   margin-top: -34px;
   font-size: 20px;
+}
+
+.wishlist-shared.a:hover {
+  text-decoration: none;
+}
+
+.wishlisted {
   color: #d37538;
 }
 
-.wishlist:active {
-  color:blue;
-}
-
-.crop-select-tab {
-  padding-top: 5px;
-}
+// Pagination
 
 .pagination > .active > a, .pagination > .active > a:hover, .pagination > .active > a:focus, .pagination > .active > span, .pagination > .active > span:hover, .pagination > .active > span:focus {
   background-color: #d37538;

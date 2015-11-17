@@ -87,4 +87,24 @@ class CropTest < ActiveSupport::TestCase
     refute c1.include?(off_the_market_crop)
   end
 
+  test "crop is already wishlisted" do
+    current_user = User.create!(email: "ruti@mail.com", name: "Ruti the Farmer", password: "password",
+      description: "I am a happy farmer living in the Hillsborough area. I grow potatoes and radishes and am excited to swap!",
+      zip_code: 27701, phone_number: "555-555-5555")
+    grower = User.create!(email: "ruti2@mail.com", name: "Ruti the Farmer", password: "password",
+      description: "I am a happy farmer living in the Hillsborough area. I grow potatoes and radishes and am excited to swap!",
+      zip_code: 27701, phone_number: "555-555-5555")
+
+    non_wishlisted_crop = Crop.create!(user: grower, crop_type_id: 1,
+      description: "This potato is delectable. You want to trade me for this beet.",
+      weight: 3, ripe_on: Date.today - 2.days, expires_on: Date.today + 2.days)
+    wishlisted_crop = Crop.create!(user: grower, crop_type_id: 1,
+      description: "This potato is delectable. You want to trade me for this beet.",
+      weight: 3, ripe_on: Date.today - 2.days, expires_on: Date.today + 2.days)
+    Wishlist.create!(user: current_user, crop: wishlisted_crop)
+
+    assert wishlisted_crop.wishlisted?(current_user)
+    refute non_wishlisted_crop.wishlisted?(current_user)
+  end
+
 end

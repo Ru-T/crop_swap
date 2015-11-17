@@ -26,20 +26,12 @@ $('.nav-tabs a a[href="#my-swap-crops"]').tab('show')
 $('.nav-tabs a a[href="#my-crops"]').tab('show')
 $('.nav-tabs a a[href="#my-swaps"]').tab('show')
 
-
-// Sort toggles
-
-// $('.btn-toggle').click(function(e){
-//   e.preventDefault();
-//    $(this).toggleClass('active').siblings().removeClass('active');
-// });
-
 // Wishlist button
 
-// $(function() {
-//   $(".wishlist-shared a").css({"color": "gray"});
-//   $(".wishlist a").on("click", function (e){
-//     $(this).#add a class jquery command ("class", "wishlisted");
-//   })
-// });
+$(function() {
+  $(".wishlist-shared a").css({"color": "gray"});
+  $(".wishlist-shared a").on("click", function (){
+    $(this).addClass("wishlisted");
+  })
+});
 // set Timeout for disable 1 second after click without stopping ajax OR create only one per info

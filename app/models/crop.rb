@@ -37,4 +37,14 @@ class Crop < ActiveRecord::Base
     available_crops
   end
 
+  def wishlisted?(user)
+    if self.wishlists.blank? == false
+      self.wishlists.each do |w|
+        return true if w.user_id == user.id
+      end  
+    else
+      return false
+    end
+  end
+
 end
