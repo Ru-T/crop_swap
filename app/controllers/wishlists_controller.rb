@@ -25,7 +25,7 @@ class WishlistsController < ApplicationController
     @wishlist = Wishlist.new(wishlist_params)
     respond_to do |format|
       if @wishlist.save
-        format.html { redirect_to @wishlist, notice: 'Crop was successfully wishlisted.' }
+        format.html { redirect_to @wishlist }
         format.json { render :show, status: :created, location: @wishlist }
       else
         format.html { render :new }

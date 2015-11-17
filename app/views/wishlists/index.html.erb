@@ -31,7 +31,7 @@
               <% end %>
               <div class="card-block">
                 <h4 class="card-title"><%= wishlist.crop.crop_type.crop_type %> </h4>
-                <!-- <span class="wishlist-browse"> <%#= link_to "Remove from Wishlist", wishlists_path(wishlist: {id: wishlist.id}), method: :destroy, remote: true%></span> -->
+                <span class="wishlist-browse wishlisted"> <%= link_to "♥", wishlists_path(wishlist: {id: wishlist.id}), method: :destroy, remote: true%></span>
                 <% if wishlist.crop.is_ripe? %>
                   <h6 class="ripe"> RIPE NOW! </h6>
                 <% else %>

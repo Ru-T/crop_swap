@@ -34,4 +34,10 @@ $(function() {
     $(this).addClass("wishlisted").css("color", "#d37538");
   })
 });
-// set Timeout for disable 1 second after click without stopping ajax OR create only one per info
+
+$(function() {
+  $(".wishlisted a").css({"color": "#d37538"});
+  $(".wishlisted a").on("click", function (){
+    $(this).removeClass("wishlisted").css("color", "gray");
+  })
+});
