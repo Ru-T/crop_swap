@@ -46,7 +46,7 @@ class WishlistsController < ApplicationController
   # DELETE /wishlists/1
   def destroy
     @wishlist.destroy
-    redirect_to wishlists_url, notice: 'Wishlist was successfully destroyed.'
+    redirect_to wishlists_url
   end
 
   private
