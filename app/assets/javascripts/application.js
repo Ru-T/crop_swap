@@ -38,6 +38,6 @@ $(function() {
 $(function() {
   $(".wishlisted a").css({"color": "#d37538"});
   $(".wishlisted a").on("click", function (){
-    $(this).removeClass("wishlisted").css("color", "gray");
+    $(this).removeClass("wishlisted").css("color", "gray").closest(".card").fadeOut();
   })
 });

@@ -23,7 +23,7 @@
       <% else %>
         <% @wishlists.each do |wishlist|  %>
           <div class="col-sm-3">
-            <div class="card">
+            <div class="card animated">
               <% if wishlist.crop.crop_pic.blank? %>
                 <%= image_tag asset_url ("crop-default-image.png") %>
               <% else%>
@@ -32,7 +32,6 @@
               <div class="card-block">
                 <h4 class="card-title"><%= wishlist.crop.crop_type.crop_type %> </h4>
                 <span class="wishlist-browse wishlisted"> <%= link_to "♥", wishlist, method: :delete, remote: true %></span>
-                    <%#= link_to 'Destroy', pony, method: :delete, data: { confirm: 'Are you sure?' }, :remote => true, :class => 'delete_pony' %>
                 <% if wishlist.crop.is_ripe? %>
                   <h6 class="ripe"> RIPE NOW! </h6>
                 <% else %>
