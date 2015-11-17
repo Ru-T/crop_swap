@@ -344,8 +344,9 @@ input.search-crops {
   font-size: 28px;
 }
 
-.wishlist-browse.a:hover {
-  text-decoration: none;
+a:hover, a:focus {
+    color: #23527c;
+    text-decoration: none;
 }
 
 .wishlist-shared.a:hover {
