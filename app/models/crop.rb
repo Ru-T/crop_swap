@@ -42,6 +42,7 @@ class Crop < ActiveRecord::Base
       self.wishlists.each do |w|
         return true if w.user == user
       end
+      false
     else
       return false
     end
