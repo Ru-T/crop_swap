@@ -5,7 +5,7 @@ class ApplicationController < ActionController::Base
 
   private def logged_in
     @current_user = User.find_by_id(session[:user_id])
-    redirect_to session_new_path unless @current_user
+    redirect_to login_path unless @current_user
   end
 
 end
