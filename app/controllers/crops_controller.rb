@@ -1,9 +1,7 @@
 class CropsController < ApplicationController
   before_action :set_crop, only: [:edit, :update, :destroy]
   before_action :logged_in, except: [:index]
-  # before_action :no_access, only: [:edit]
 
-  # GET /crops
   def index
     @current_user = User.find_by_id(session[:user_id])
     if session[:user_id]
@@ -15,16 +13,10 @@ class CropsController < ApplicationController
     end
   end
 
-  # GET /crops/new
   def new
     @crop = Crop.new(user: @current_user)
   end
 
-  # GET /crops/1/edit
-  def edit
-  end
-
-  # POST /crops
   def create
     @crop = Crop.new(crop_params)
 
@@ -36,7 +28,6 @@ class CropsController < ApplicationController
     end
   end
 
-  # PATCH/PUT /crops/1
   def update
     if @crop.update(crop_params)
       redirect_to @crop, notice: 'Crop was successfully updated.'
@@ -45,7 +36,6 @@ class CropsController < ApplicationController
     end
   end
 
-  # DELETE /crops/1
   def destroy
     @crop.destroy
     redirect_to crops_url, notice: 'Crop was successfully destroyed.'
@@ -57,7 +47,6 @@ class CropsController < ApplicationController
       @crop = Crop.find(params[:id])
     end
 
-    # Only allow a trusted parameter "white list" through.
     def crop_params
       params.require(:crop).permit(:user_id, :description, :weight, :crop_pic,
       :crop_type_id, :ripe_on, :expires_on)
