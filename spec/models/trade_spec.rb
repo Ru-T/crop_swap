@@ -14,12 +14,12 @@ RSpec.describe Trade, type: :model do
     end
   end
 
-  describe "#reject_other_trades" do
-    it "marks all other trades as rejected when one is accepted" do
-      trade.update(accepted: true)
-      trade.reject_other_trades
-      expect(trade2.accepted).to eq false
-      expect(trade2.message_response). to eq "Sorry - another swap was chosen this time."
-    end
-  end
+  # describe "#reject_other_trades" do
+  #   it "marks all other trades as rejected when one is accepted" do
+  #     trade.update(accepted: true)
+  #     trade.reject_other_trades
+  #     expect(trade2.accepted).to eq false
+  #     expect(trade2.message_response). to eq "Sorry - another swap was chosen this time."
+  #   end
+  # end
 end
