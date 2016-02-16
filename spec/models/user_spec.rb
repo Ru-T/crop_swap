@@ -9,7 +9,7 @@ RSpec.describe User, type: :model do
   let(:trade2) { create(:trade, crop: crop2, grower: user2) }
 
   # describe "#has_proposed_trade_for?" do
-  #   it "returns true is user has proposed a trade on the crop" do
+  #   it "returns true if user has proposed a trade on the crop" do
   #     expect(user.has_proposed_trade_for?(crop)).to eq true
   #     expect(user.has_proposed_trade_for?(crop2)).to eq false
   #   end
