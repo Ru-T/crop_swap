@@ -59,4 +59,16 @@ RSpec.describe Crop, type: :model do
       expect(crop3.about_to_expire?).to eq true
     end
   end
+
+  describe ".available_crops" do
+    it "returns all crops that are currently available" do
+      expect(Crop.available_crops(user)).to eq [crop2, crop3]
+    end
+  end
 end
+#
+# def self.available_crops(user)
+#   available_crops = Crop.where('expires_on >= ? AND user_id != ?', Date.today, user.id)
+#   available_crops.reject { |crop | crop.trades.accepted == true }
+#   available_crops
+# end
