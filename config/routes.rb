@@ -4,6 +4,6 @@ Rails.application.routes.draw do
   resources :wishlists, except: [:show, :edit]
   resources :trades
   resources :crops, except: [:show]
-  # resources :users, only: [:show]
+  resources :users, only: [:show]
   devise_for :users
 end

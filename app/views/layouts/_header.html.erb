@@ -11,7 +11,7 @@
           <% if current_user%>
             <li><%= link_to "Post A Crop", new_crop_path, class: "nav-a" %></li>
             <li><%= link_to "Browse Crops", crops_path, class: "nav-a" %></li>
-            <li><%#= link_to "My Profile", @current_user, class: "nav-a" %></li>
+            <li><%= link_to "My Profile", current_user, class: "nav-a" %></li>
             <li><%= link_to "Wishlist", wishlists_path, class: "nav-a" %></li>
             <span class="navbar-right nav-link"><%= link_to 'Logout', destroy_user_session_path, method: :delete, class: "nav-text"%></span>
           <% else %>
