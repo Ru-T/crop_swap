@@ -1,5 +1,6 @@
 class CropsController < ApplicationController
   before_action :set_crop, only: [:edit, :update, :destroy]
+  before_action :authenticate_user!
 
   def index
     if session[:user_id]
@@ -46,7 +47,14 @@ class CropsController < ApplicationController
     end
 
     def crop_params
-      params.require(:crop).permit(:user_id, :description, :weight, :crop_pic,
-      :crop_type_id, :ripe_on, :expires_on)
+      params.require(:crop).permit(
+        :user_id,
+        :description,
+        :weight,
+        :crop_pic,
+        :crop_type_id,
+        :ripe_on, 
+        :expires_on
+      )
     end
 end
