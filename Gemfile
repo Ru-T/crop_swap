@@ -8,7 +8,7 @@ gem 'sass-rails', '~> 5.0'
 gem 'uglifier', '>= 1.3.0'
 # Use CoffeeScript for .coffee assets and views
 gem 'coffee-rails', '~> 4.1.0'
-# Use postgresql 
+# Use postgresql
 gem 'pg'
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
@@ -65,6 +65,7 @@ group :development, :test do
   gem 'factory_girl_rails', '~> 4.0'
   gem 'cucumber-rails', :require => false
   gem 'database_cleaner'
+  gem 'sqlite3'
 end
 
 group :development do
