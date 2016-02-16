@@ -1,10 +1,5 @@
 Given(/^I have an account on the site$/) do
-  visit root_path
-  click_on "Sign up"
-  fill_in 'Email', with: 'newestuser@test.com'
-  fill_in 'Password', with: 'password'
-  fill_in 'Password confirmation', with: 'password'
-  click_on 'Sign up'
+  FactoryGirl.create(:user, email: "newestuser@test.com", password: "password")
 end
 
 When(/^I visit the site root path$/) do

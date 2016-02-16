@@ -10,5 +10,5 @@ Rails.application.routes.draw do
     post 'signup' => 'devise/sessions#create', :as => :user_session
     delete 'logout' => 'devise/sessions#destroy', :as => :destroy_user_session
   end
-  get 'users/:id' => 'users#show', as: :user
+  resources :users, only: [:show]
 end

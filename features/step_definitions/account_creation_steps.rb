@@ -10,17 +10,17 @@ When(/^I enter my email address$/) do
 end
 
 When(/^I enter a password with correct confirmation$/) do
-  fill_in 'Password', with: 'password'
-  fill_in 'Password confirmation', with: 'password'
+  find("#user_password").set("password")
+  find("#user_password_confirmation").set("password")
 end
 
 When(/^I enter a password with incorrect confirmation$/) do
-  fill_in 'Password', with: 'password'
-  fill_in 'Password confirmation', with: 'xyz'
+  find("#user_password").set("password")
+  find("#user_password_confirmation").set("xyz")
 end
 
 Then(/^I am notified that my password confirmation does not match$/) do
-  expect(page).to have_content("Password confirmation doesn't match Password")
+  expect(page).to have_content("doesn't match Password")
 end
 
 When(/^I enter "([^"]*)" as my email address$/) do |email|
@@ -28,5 +28,5 @@ When(/^I enter "([^"]*)" as my email address$/) do |email|
 end
 
 Then(/^I am notified that my email address is invalid\.$/) do
-  expect(page).to have_content("Email is invalid")
+  expect(page).to have_content("is invalid")
 end
