@@ -5,11 +5,7 @@ class WishlistsController < ApplicationController
   def index
     @wishlists = Wishlist.where(user: current_user)
   end
-
-  def new
-    @wishlist = Wishlist.new
-  end
-
+  
   def create
     @wishlist = Wishlist.new(wishlist_params)
     if @wishlist.save
