@@ -29,10 +29,10 @@
               <div class="col-md-9">
                 <div>
                   <h3><%=crop.crop_type.crop_type%></h3>
-                  <% if crop.wishlisted?(@current_user) %>
+                  <% if crop.wishlisted?(current_user) %>
                     <span class="wishlist wishlist-shared wishlisted">♥</span>
                   <% else %>
-                    <span class="wishlist wishlist-shared"><%= link_to "♥", wishlists_path(wishlist: {crop_id: crop.id, user_id: @current_user.id}), method: :post, remote: true%></span>
+                    <span class="wishlist wishlist-shared"><%= link_to "♥", wishlists_path(wishlist: {crop_id: crop.id, user_id: current_user.id}), method: :post, remote: true%></span>
                   <% end %>
                   <div class="crop-description"> <%= crop.description %></div>
                   <div class="details"> Amount: <%= crop.weight %> lbs</div><br>
@@ -62,13 +62,13 @@
               </div>
             </div>
             <div class="row trades">
-              <% unless @current_user.has_proposed_trade_for?(crop) %>
+              <% unless current_user.has_proposed_trade_for?(crop) %>
                 <div class="col-md-8">
                 </div>
                 <div class="col-md-4">
                   <button type="button" class="btn btn-success">
                     <%=link_to 'Propose Swap', new_trade_path(crop_id: crop.id,
-                      consumer_id: @current_user.id, grower_id: crop.user_id) %>
+                      consumer_id: current_user.id, grower_id: crop.user_id) %>
                   </button>
                   <br>
                   <br>

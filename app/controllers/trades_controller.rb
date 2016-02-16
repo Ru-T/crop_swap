@@ -1,14 +1,14 @@
 class TradesController < ApplicationController
   before_action :set_trade, only: [:show, :edit, :update, :destroy]
   before_action :no_edit, only: [:edit]
-  before_action :logged_in
+  before_action :authenticate_user!
 
   def index
     @trades = Trade.where(grower_id: session[:user_id]).or(Trade.where(consumer_id: session[:user_id]))
   end
 
   def new
-    @trade = Trade.new(crop_id: params[:crop_id], consumer: @current_user)
+    @trade = Trade.new(crop_id: params[:crop_id], consumer: current_user)
   end
 
   def create
