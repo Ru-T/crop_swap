@@ -12,12 +12,10 @@ class WishlistsController < ApplicationController
 
   def create
     @wishlist = Wishlist.new(wishlist_params)
-    respond_to do |format|
-      if @wishlist.save
-        redirect_to @wishlist
-      else
-        render :new
-      end
+    if @wishlist.save
+      redirect_to @wishlist
+    else
+      render :new
     end
   end
 
