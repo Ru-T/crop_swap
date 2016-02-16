@@ -1,9 +1,8 @@
 class WishlistsController < ApplicationController
   before_action :set_wishlist, only: [:destroy]
-  before_action :logged_in
 
   def index
-    @wishlists = Wishlist.where(user_id: current_user.id)
+    @wishlists = Wishlist.where(user: current_user)
   end
 
   def new
