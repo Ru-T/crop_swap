@@ -62,16 +62,16 @@ RSpec.describe Crop, type: :model do
     end
   end
 
-  # describe ".available_crops" do
-  #   it "returns all crops that are currently available" do
-  #     expect(Crop.all.available_crops(user)).to eq [crop2, crop3]
-  #   end
-  # end
-  # 
-  # describe "#wishlisted?" do
-  #   it "returns true if user has wishlisted the crop" do
-  #     expect(crop.wishlisted?(user)).to eq true
-  #     expect(crop2.wishlisted?(user)).to eq false
-  #   end
-  # end
+  describe ".available_crops" do
+    it "returns all crops that are currently available" do
+      expect(Crop.all.available_crops(user)).to eq [crop2, crop3]
+    end
+  end
+
+  describe "#wishlisted?" do
+    it "returns true if user has wishlisted the crop" do
+      expect(crop.wishlisted?(user)).to eq true
+      expect(crop2.wishlisted?(user)).to eq false
+    end
+  end
 end
