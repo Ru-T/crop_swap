@@ -14,4 +14,14 @@ RSpec.describe User, type: :model do
   #     expect(user.has_proposed_trade_for?(crop2)).to eq false
   #   end
   # end
+
+  # describe "#has_crop_with_pending_trade?" do
+  #   it "returns true if user has crop with pending trade" do
+  #   end
+  # end
+
+  # describe "#has_crop_without_pending_trade?" do
+  #   it "returns true if user has crop without pending trade" do
+  #   end
+  # end
 end

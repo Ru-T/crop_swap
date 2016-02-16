@@ -20,4 +20,17 @@ RSpec.describe Trade, type: :model do
   #     expect(trade2.message_response). to eq "Sorry - another swap was chosen this time."
   #   end
   # end
+
+  # describe ".user_has_accepted_trades" do
+  #   it "returns true if user has accepted trades" do
+
+  #   end
+  # end
+
+  # describe ".user_has_rejected_trades" do
+  #   it "returns true if user has rejected trades" do
+
+  #   end
+  # end
+
 end
