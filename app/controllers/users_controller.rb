@@ -8,17 +8,9 @@ class UsersController < ApplicationController
     @users = User.all
   end
 
-  # GET /users/1
-  def show
-  end
-
   # GET /users/new
   def new
     @user = User.new
-  end
-
-  # GET /users/1/edit
-  def edit
   end
 
   # POST /users
@@ -52,6 +44,7 @@ class UsersController < ApplicationController
     def no_access
       redirect_to crops_path, notice: "You do not have access to this information." unless @current_user == @user
     end
+    
     # Use callbacks to share common setup or constraints between actions.
     def set_user
       @user = User.find(params[:id])

@@ -9,17 +9,9 @@ class TradesController < ApplicationController
     #Trade.user_trades(@current_user)
   end
 
-  # GET /trades/1
-  def show
-  end
-
   # GET /trades/new
   def new
     @trade = Trade.new(crop_id: params[:crop_id], consumer: @current_user)
-  end
-
-  # GET /trades/1/edit
-  def edit
   end
 
   # POST /trades
@@ -66,6 +58,7 @@ class TradesController < ApplicationController
         redirect_to crops_path, notice: "You cannot edit a trade once it has been acted upon."
       end
     end
+    
     # Use callbacks to share common setup or constraints between actions.
     def set_trade
       @trade = Trade.find(params[:id])

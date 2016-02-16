@@ -1,5 +1,5 @@
 class CropsController < ApplicationController
-  before_action :set_crop, only: [:show, :edit, :update, :destroy]
+  before_action :set_crop, only: [:edit, :update, :destroy]
   before_action :logged_in, except: [:index]
   # before_action :no_access, only: [:edit]
 
@@ -7,13 +7,12 @@ class CropsController < ApplicationController
   def index
     @current_user = User.find_by_id(session[:user_id])
     if session[:user_id]
-      @crops = Crop.available_crops(@current_user).order(params[:sort]).paginate(:page => params[:page], :per_page => 12)
+      @crops = Crop.available_crops(@current_user)
+                   .order(params[:sort])
+                   .paginate(:page => params[:page], :per_page => 12)
     else
       @crops = Crop.all
     end
-  end
-  # GET /crops/1
-  def show
   end
 
   # GET /crops/new
@@ -44,10 +43,6 @@ class CropsController < ApplicationController
     else
       render :edit
     end
-  end
-
-  def search
-    @crops = Crop.all#.search(params[:search])
   end
 
   # DELETE /crops/1

@@ -1,5 +1,5 @@
 class WishlistsController < ApplicationController
-  before_action :set_wishlist, only: [:show, :edit, :update, :destroy]
+  before_action :set_wishlist, only: [:destroy]
   before_action :logged_in
 
   # GET /wishlists
@@ -7,17 +7,9 @@ class WishlistsController < ApplicationController
     @wishlists = Wishlist.where(user_id: session[:user_id])
   end
 
-  # GET /wishlists/1
-  def show
-  end
-
   # GET /wishlists/new
   def new
     @wishlist = Wishlist.new
-  end
-
-  # GET /wishlists/1/edit
-  def edit
   end
 
   # POST /wishlists
@@ -31,15 +23,6 @@ class WishlistsController < ApplicationController
         format.html { render :new }
         format.json { render json: @wishlist.errors, status: :unprocessable_entity }
       end
-    end
-  end
-
-  # PATCH/PUT /wishlists/1
-  def update
-    if @wishlist.update(wishlist_params)
-      redirect_to @wishlist, notice: 'Wishlist was successfully updated.'
-    else
-      render :edit
     end
   end
 
