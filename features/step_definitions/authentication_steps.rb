@@ -12,7 +12,7 @@ When(/^I visit the site root path$/) do
 end
 
 Then(/^I am presented with a login page$/) do
-  expect(page).to_have content("Login")
+  expect(page).to have_content("Log in")
 end
 
 When(/^I enter my correct email$/) do
