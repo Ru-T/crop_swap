@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe Crop, type: :model do
   let(:crop) { create(:crop) }
-  
+
   describe "validations" do
     it "must have user_id to be valid" do
       expect(build(:crop, user_id: nil)).to_not be_valid

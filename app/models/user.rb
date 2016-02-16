@@ -5,7 +5,6 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
   has_many :trades, foreign_key: "consumer_id"
-
   has_many :crops
   has_many :wishlists
 
