@@ -65,7 +65,6 @@ group :development, :test do
   gem 'factory_girl_rails', '~> 4.0'
   gem 'cucumber-rails', :require => false
   gem 'database_cleaner'
-  gem 'sqlite3'
 end
 
 group :development do
