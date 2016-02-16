@@ -7,7 +7,7 @@
     </button>
   </div>
 
-<% if session[:user_id] %>
+<% if current_user %>
   <div class="btn-group">
     <label class="btn btn-warning btn-toggle <% if params[:sort] == "created_at" %> active" <% end %>">
       <%=link_to 'Newest', crops_path(:sort => "created_at") %>
