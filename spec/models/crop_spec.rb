@@ -10,7 +10,7 @@ RSpec.describe Crop, type: :model do
   let(:expired_crop) { create(:crop, user: user, expires_on: Date.today - 2.days) }
   let(:trade) { create(:trade, crop: crop, accepted: nil) }
   let(:trade2) { create(:trade, crop: crop, accepted: true) }
-  let(:wishlist) { create(:wishlist, crop: crop, user: user) }
+  let(:wishlist) { create(:wishlist, crop: crop2, user: current_user) }
 
   describe "validations" do
     it "must have user_id to be valid" do
@@ -67,16 +67,16 @@ RSpec.describe Crop, type: :model do
   describe ".available_crops" do
     it "returns all crops that are currently available" do
       available_crop = FactoryGirl.create(:crop, user: user, expires_on: Date.today + 2.days)
-      available_crops = Crop.available_crops(current_user)
-      expect(available_crops).to include available_crop
-      expect(available_crops).to_not include expired_crop
+      expect(Crop.available_crops(current_user)).to include available_crop
+      expect(Crop.available_crops(current_user)).to_not include expired_crop
     end
   end
 
-  # describe "#wishlisted?" do
-  #   it "returns true if user has wishlisted the crop" do
-  #     expect(crop.wishlisted?(user)).to eq true
-  #     expect(crop2.wishlisted?(user)).to eq false
-  #   end
-  # end
+  describe "#wishlisted?" do
+    it "returns true if user has wishlisted the crop" do
+      wishlist.reload
+      expect(crop.wishlisted?(current_user)).to eq false
+      expect(crop2.wishlisted?(current_user)).to eq true
+    end
+  end
 end
