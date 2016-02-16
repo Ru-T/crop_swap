@@ -15,15 +15,18 @@ RSpec.describe Trade, type: :model do
     end
   end
 
-  # describe "#reject_other_trades" do
-  #   it "marks all other trades as rejected when one is accepted" do
-  #     trade.reject_other_trades
-  #     trade2.reload
-  #     expect(trade2.accepted).to eq false
-  #     expect(trade2.message_response). to eq "Sorry - another swap was chosen this time."
-  #   end
-  # end
-  #
+  describe "#reject_other_trades" do
+    it "marks all other trades as rejected when one is accepted" do
+      t1 = FactoryGirl.create(:trade, crop: crop, consumer: user2, grower: user)
+      t2 = FactoryGirl.create(:trade, crop: crop, consumer: user3, grower: user)
+      t1.accepted = true
+      t1.save
+      t2.reload
+      expect(t2.accepted).to eq false
+      expect(t2.message_response). to eq "Sorry - another swap was chosen this time."
+    end
+  end
+
   # describe ".user_has_accepted_trades" do
   #   it "returns true if user has accepted trades" do
   #     expect(Trade.all.user_has_accepted_trades?).to eq true
