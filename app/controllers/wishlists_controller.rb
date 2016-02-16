@@ -3,7 +3,7 @@ class WishlistsController < ApplicationController
   before_action :logged_in
 
   def index
-    @wishlists = Wishlist.where(user_id: session[:user_id])
+    @wishlists = Wishlist.where(user_id: current_user.id)
   end
 
   def new
@@ -14,11 +14,9 @@ class WishlistsController < ApplicationController
     @wishlist = Wishlist.new(wishlist_params)
     respond_to do |format|
       if @wishlist.save
-        format.html { redirect_to @wishlist }
-        format.json { render :show, status: :created, location: @wishlist }
+        redirect_to @wishlist
       else
-        format.html { render :new }
-        format.json { render json: @wishlist.errors, status: :unprocessable_entity }
+        render :new
       end
     end
   end

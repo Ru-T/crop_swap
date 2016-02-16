@@ -1,6 +1,5 @@
 class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :destroy]
-  before_action :logged_in, except: [:new, :edit, :create]
 
   def index
     @users = User.all
@@ -14,7 +13,7 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
 
     if @user.save
-      session[:user_id] = @user.id
+      current_user = @user
       redirect_to edit_user_path(@user)
     else
       render :new

@@ -1,11 +1,9 @@
 class CropsController < ApplicationController
   before_action :set_crop, only: [:edit, :update, :destroy]
-  before_action :logged_in, except: [:index]
 
   def index
-    @current_user = User.find_by_id(session[:user_id])
     if session[:user_id]
-      @crops = Crop.available_crops(@current_user)
+      @crops = Crop.available_crops(current_user)
                    .order(params[:sort])
                    .paginate(:page => params[:page], :per_page => 12)
     else
@@ -14,7 +12,7 @@ class CropsController < ApplicationController
   end
 
   def new
-    @crop = Crop.new(user: @current_user)
+    @crop = Crop.new(user: current_user)
   end
 
   def create
@@ -22,7 +20,7 @@ class CropsController < ApplicationController
 
     if @crop.save
       @crop.trade_types = params[:trade_types].map {|id| TradeType.find(id)}
-      redirect_to @current_user
+      redirect_to current_user
     else
       render :new
     end
