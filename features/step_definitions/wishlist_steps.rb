@@ -1,13 +1,14 @@
 Then(/^I wishlist one of the crops$/) do
-  pending # Write code here that turns the phrase above into concrete actions
+  find("#wishlist_icon", match: :first).click
 end
 
-Then(/^I visit my wishlist page$/) do
-  pending # Write code here that turns the phrase above into concrete actions
+Then(/^I visit my wishlisted crops page$/) do
+  visit wishlists_path
 end
 
 Then(/^I see the wishlisted crop$/) do
-  pending # Write code here that turns the phrase above into concrete actions
+  pending
+  # expect(page).to have_content("Posted") NO WISHLISTED CROPS
 end
 
 Then(/^I view one of the crops$/) do
@@ -15,10 +16,6 @@ Then(/^I view one of the crops$/) do
 end
 
 Given(/^I have wishlisted a crop$/) do
-  pending # Write code here that turns the phrase above into concrete actions
-end
-
-When(/^I visit my wishlist page$/) do
   pending # Write code here that turns the phrase above into concrete actions
 end
 

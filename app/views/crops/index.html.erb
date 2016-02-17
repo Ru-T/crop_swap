@@ -35,12 +35,12 @@
                 <%= image_tag crop.crop_pic.url %>
               <% end %>
               <div class="card-block">
-                <h4 class="card-title"><%= crop.crop_type.crop_type %> </h4>
+                <h4 class="card-title"><%#= crop.crop_type.crop_type %> </h4>
                 <% if current_user %>
                   <% if crop.wishlisted?(current_user) %>
                     <span class="wishlist-browse wishlist-shared animated wishlisted">♥</span>
                   <% else %>
-                    <span class="wishlist-browse wishlist-shared hvr-grow"><%= link_to "♥", wishlists_path(wishlist: {crop_id: crop.id, user_id: current_user.id}), method: :post, remote: true%></span>
+                    <span class="wishlist-browse wishlist-shared hvr-grow" id="wishlist_icon"><%= link_to "♥", wishlists_path(wishlist: {crop_id: crop.id, user_id: current_user.id}), method: :post, remote: true%></span>
                   <% end %>
                 <% end %>
                 <% if crop.is_ripe? %>
@@ -58,7 +58,7 @@
                 <p class="card-text"><%= crop.description %></p>
               </div>
               <button type="button" class="btn btn-success">
-                <div><%= link_to 'View Crop', crop.user %></div>
+                <div id="view_crop"><%= link_to 'View Crop', crop.user %></div>
               </button>
             </div>
           </div>

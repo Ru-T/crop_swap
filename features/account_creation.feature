@@ -1,5 +1,4 @@
 Feature: User Account Creation
-
   Scenario: Happy Path
     Given I do not have an account on the site
     When I visit the site root path
