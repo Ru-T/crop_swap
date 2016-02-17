@@ -1,10 +1,8 @@
 Given(/^there are (\d+) crops in the database$/) do |number|
-  user = FactoryGirl.create(:user, email: "otheruser@mail.com")
-  FactoryGirl.create_list(:crop, number.to_i, user: user)
+  FactoryGirl.create_list(:crop, number.to_i, user: FactoryGirl.create(:user))
 end
 
 Given(/^I am logged into the site$/) do
-  FactoryGirl.create(:user, email: "newestuser@test.com", password: "password")
   visit root_path
   fill_in 'Email', with: 'newestuser@test.com'
   fill_in 'Password', with: 'password'
@@ -15,14 +13,12 @@ Then(/^I see a list of crops in the database$/) do
   expect(Crop.all.count).to eq 100
 end
 
-Then(/^the list of (\d+) crops are paginated in pages of (\d+) books per page$/) do |arg1, arg2|
-  # expect(page).to have_link("View Crop", count: 25)
-  # find("//*[@class='pagination']//a[text()='2']").click
-  # expect(page).to have_link("View Crop", count: 25)
-  # find("//*[@class='pagination']//a[text()='3']").click
-  # expect(page).to have_link("View Crop", count: 25)
-  # find("//*[@class='pagination']//a[text()='4']").click
-  # expect(page).to have_link("View Crop", count: 25)
+Then(/^the list of (\d+) crops are paginated in pages of (\d+) books per page$/) do |number_crops, number_pages|
+  expect(page).to have_link("View Crop", count: (number_crops / number_pages))
+  find("//*[@class='pagination']//a[text()='2']").click
+  expect(page).to have_link("View Crop", count: (number_crops / number_pages))
+  find("//*[@class='pagination']//a[text()='3']").click
+  expect(page).to have_link("View Crop", count: (number_crops / number_pages))
 end
 
 Then(/^I sort the crops by "([^"]*)"$/) do |sort|
