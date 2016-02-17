@@ -7,7 +7,7 @@ When(/^I enter a description$/) do
 end
 
 When(/^I upload a crop pic$/) do
-  attach_file('file','image.png')
+  attach_file('Image', '/path/to/image.jpg')
 end
 
 When(/^I enter a crop weight$/) do
@@ -23,7 +23,7 @@ When(/^I enter a expires on date$/) do
 end
 
 When(/^I select what I am willing to swap$/) do
-  pending # Write code here that turns the phrase above into concrete actions
+  check('A Checkbox')
 end
 
 When(/^I visit my profile page$/) do
