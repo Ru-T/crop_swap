@@ -11,7 +11,7 @@ Feature: Crops index page
     And I am logged into the site
     And there are 36 crops in the database
     And I sort the crops by "Newest"
-    Then the crops are sorted based on when they were posted
+    #Then the crops are sorted based on when they were posted
     And I sort the crops by "Ripe Now"
     Then the crops are sorted by ripe on date
     And I sort the crops by "Expires Soon"
@@ -21,5 +21,5 @@ Feature: Crops index page
     Given I have an account on the site
     And I am logged into the site
     And there are 36 crops in the database
-    Then I see if a crop is ripe
+    #Then I see if a crop is ripe
     And I see when a crop is about to expire
