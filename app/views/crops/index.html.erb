@@ -63,7 +63,7 @@
         </div>
       <% end %>
     </div>
-    <% if session[:user_id] %>
-      <span class="pagination"><%= will_paginate @crops, renderer: BootstrapPagination::Rails %></span>
+    <% if current_user %>
+      <%= paginate @crops %>
     <% end %>
   </div>

@@ -43,9 +43,6 @@ gem 'geokit-rails'
 
 gem 'd3_rails'
 
-gem 'will_paginate', '~> 3.0.6'
-gem 'will_paginate-bootstrap'
-
 gem 'where-or'
 gem 'puma'
 
