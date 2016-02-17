@@ -25,45 +25,47 @@
 
   <div>
     <div class="row">
-      <% @crops.each do |crop| %>
-        <div class="col-sm-3">
-          <div class="card">
-            <% if crop.crop_pic.blank? %>
-              <%= image_tag asset_url ("crop-default-image.png") %>
-            <% else%>
-              <%= image_tag crop.crop_pic.url %>
-            <% end %>
-            <div class="card-block">
-              <h4 class="card-title"><%= crop.crop_type.crop_type %> </h4>
-              <% if current_user %>
-                <% if crop.wishlisted?(current_user) %>
-                  <span class="wishlist-browse wishlist-shared animated wishlisted">♥</span>
-                <% else %>
-                  <span class="wishlist-browse wishlist-shared hvr-grow"><%= link_to "♥", wishlists_path(wishlist: {crop_id: crop.id, user_id: current_user.id}), method: :post, remote: true%></span>
+      <% unless @crops.blank? %>
+        <% @crops.each do |crop| %>
+          <div class="col-sm-3">
+            <div class="card">
+              <% if crop.crop_pic.blank? %>
+                <%= image_tag asset_url ("crop-default-image.png") %>
+              <% else%>
+                <%= image_tag crop.crop_pic.url %>
+              <% end %>
+              <div class="card-block">
+                <h4 class="card-title"><%= crop.crop_type.crop_type %> </h4>
+                <% if current_user %>
+                  <% if crop.wishlisted?(current_user) %>
+                    <span class="wishlist-browse wishlist-shared animated wishlisted">♥</span>
+                  <% else %>
+                    <span class="wishlist-browse wishlist-shared hvr-grow"><%= link_to "♥", wishlists_path(wishlist: {crop_id: crop.id, user_id: current_user.id}), method: :post, remote: true%></span>
+                  <% end %>
                 <% end %>
-              <% end %>
-              <% if crop.is_ripe? %>
-                <h6 class="ripe"> RIPE NOW! </h6>
-              <% else %>
-                <h6 class="card-subtitle text-muted">Ripe in <%= distance_of_time_in_words_to_now(crop.ripe_on) %></h6>
-              <% end %>
-              <% if crop.about_to_expire?  %>
-                <h6 class="card-subtitle expire">Expires in <%= distance_of_time_in_words_to_now(crop.expires_on) %></h6>
-              <% else %>
-                <h6 class="card-subtitle text-muted">Expires in <%= distance_of_time_in_words_to_now(crop.expires_on) %></h6>
-              <% end %>
-              <h6 class="card-subtitle text-muted">Posted <%= distance_of_time_in_words_to_now(crop.created_at) %> ago</h6>
-              <h6><%= crop.user.zip_code %></h6>
-              <p class="card-text"><%= crop.description %></p>
+                <% if crop.is_ripe? %>
+                  <h6 class="ripe"> RIPE NOW! </h6>
+                <% else %>
+                  <h6 class="card-subtitle text-muted">Ripe in <%= distance_of_time_in_words_to_now(crop.ripe_on) %></h6>
+                <% end %>
+                <% if crop.about_to_expire?  %>
+                  <h6 class="card-subtitle expire">Expires in <%= distance_of_time_in_words_to_now(crop.expires_on) %></h6>
+                <% else %>
+                  <h6 class="card-subtitle text-muted">Expires in <%= distance_of_time_in_words_to_now(crop.expires_on) %></h6>
+                <% end %>
+                <h6 class="card-subtitle text-muted">Posted <%= distance_of_time_in_words_to_now(crop.created_at) %> ago</h6>
+                <h6><%= crop.user.zip_code %></h6>
+                <p class="card-text"><%= crop.description %></p>
+              </div>
+              <button type="button" class="btn btn-success">
+                <div><%= link_to 'View Crop', crop.user %></div>
+              </button>
             </div>
-            <button type="button" class="btn btn-success">
-              <div><%= link_to 'View Crop', crop.user %></div>
-            </button>
           </div>
-        </div>
+        <% end %>
       <% end %>
     </div>
-    <% if session[:user_id] %>
-      <span class="pagination"><%= will_paginate @crops, renderer: BootstrapPagination::Rails %></span>
+    <% if current_user %>
+      <%= paginate @crops %>
     <% end %>
   </div>

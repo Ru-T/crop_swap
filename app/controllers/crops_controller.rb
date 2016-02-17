@@ -3,10 +3,10 @@ class CropsController < ApplicationController
   before_action :authenticate_user!
 
   def index
-    if session[:user_id]
+    if current_user
       @crops = Crop.available_crops(current_user)
                    .order(params[:sort])
-                   .paginate(:page => params[:page], :per_page => 12)
+                   .page(params[:page])
     else
       @crops = Crop.all
     end
@@ -53,7 +53,7 @@ class CropsController < ApplicationController
         :weight,
         :crop_pic,
         :crop_type_id,
-        :ripe_on, 
+        :ripe_on,
         :expires_on
       )
     end

@@ -48,40 +48,40 @@ tt3 = TradeType.create!(name: "Labor")
 c1 = Crop.create!(user_id: 1, crop_type_id: 11, description: "I have three pounds of delicious red potatoes - perfect for a winter stew!",
   weight: 3, ripe_on: Date.today - 2.days, expires_on: Date.today + 8.days)
 c2 = Crop.create!(user_id: 1, crop_type_id: 15, description: "Juicy tomatoes available to swap! All colors and sizes.",
-  weight: 2, ripe_on: "2015-11-19", expires_on: "2015-11-24")
+  weight: 2, ripe_on: Date.today + 3.days, expires_on: Date.today + 10.days)
 c3 = Crop.create!(user_id: 1, crop_type_id: 1, description: "Check out these beets - the greens make a delicious pesto.",
-  weight: 4, ripe_on: "2015-11-25", expires_on: "2015-11-30")
+  weight: 4, ripe_on: Date.today + 5.days, expires_on: Date.today + 12.days)
 c4 = Crop.create!(user_id: 1, crop_type_id: 6, description: "The perfect carrots to snack on with some ranch dressing.",
   weight: 5, ripe_on: Date.today - 2.days, expires_on: Date.today + 2.days)
 c5 = Crop.create!(user_id: 1, crop_type_id: 12, description: "Radishes - my favorite. Roast em in the oven with some cumin!",
-  weight: 2, ripe_on: "2015-11-25", expires_on: "2015-12-02")
+  weight: 2, ripe_on: Date.today + 13.days, expires_on: Date.today + 23.days)
 
 c6 = Crop.create!(user_id: 3, crop_type_id: 13, description: "Spinach is the perfect vegetable for a stir fry or a salad.",
-  weight: 4, ripe_on: "2015-12-01", expires_on: "2015-12-10")
+  weight: 4, ripe_on: Date.today + 7.days, expires_on: Date.today + 10.days)
 c7 = Crop.create!(user_id: 3, crop_type_id: 8, description: "Seasonal collard greens - great for mixing into grits.",
-  weight: 2, ripe_on: "2015-11-19", expires_on: "2015-11-19")
+  weight: 2, ripe_on: Date.today + 24.days, expires_on: Date.today + 29.days)
 c8 = Crop.create!(user_id: 3, crop_type_id: 3, description: "Bok choy - the ideal stir fry green. Throw in some soy sauce!",
   weight: 3, ripe_on: Date.today - 2.days, expires_on: Date.today + 8.days)
 
 c9 = Crop.create!(user_id: 5, crop_type_id: 2, description: "Blueberries are almost out of season - grab some today!",
-  weight: 2, ripe_on: "2015-11-19", expires_on: "2015-11-24")
+  weight: 2, ripe_on: Date.today + 3.days, expires_on: Date.today + 13.days)
 c10 = Crop.create!(user_id: 5, crop_type_id: 7, description: "Grab some cauliflower and throw em in the oven.",
-  weight: 4, ripe_on: "2015-11-19", expires_on: "2015-11-19")
+  weight: 4, ripe_on: Date.today - 3.days, expires_on: Date.today + 3.days)
 c11 = Crop.create!(user_id: 5, crop_type_id: 9, description: "Eggplants make any dish more beautiful - and delicious!",
   weight: 1, ripe_on: Date.today - 2.days, expires_on: Date.today + 2.days)
 
 c12 = Crop.create!(user_id: 5, crop_type_id: 5, description: "Butternut squash is the perfect base for a winter soup.",
-weight: 2, ripe_on: "2015-11-19", expires_on: "2015-11-24")
+weight: 2, ripe_on: Date.today + 3.days, expires_on: Date.today + 10.days)
 c13 = Crop.create!(user_id: 5, crop_type_id: 4, description: "Delicious brussel sprouts - save the stalk for a stock!",
-weight: 4, ripe_on: "2015-11-19", expires_on: "2015-11-19")
+weight: 4, ripe_on: Date.today + 3.days, expires_on: Date.today + 13.days)
 c14 = Crop.create!(user_id: 5, crop_type_id: 10, description: "Garlic - a necessary ingredient for any meal worth serving.",
 weight: 1, ripe_on: Date.today - 2.days, expires_on: Date.today + 2.days)
 c15 = Crop.create!(user_id: 5, crop_type_id: 14, description: "Strawberries - last of the season! Get em while you can.",
-  weight: 2, ripe_on: "2015-11-19", expires_on: "2015-11-24")
+  weight: 2, ripe_on: Date.today - 1.days, expires_on: Date.today + 3.days)
 c16 = Crop.create!(user_id: 5, crop_type_id: 6, description: "Grab these carrots and put them in a pot.",
-  weight: 4, ripe_on: "2015-11-19", expires_on: "2015-11-19")
+  weight: 4, ripe_on: Date.today + 3.days, expires_on: Date.today + 13.days)
 c17 = Crop.create!(user_id: 5, crop_type_id: 15, description: "Tomatoes are perfect for any salad, stew, or stir fry.",
-  weight: 4, ripe_on: "2015-12-01", expires_on: "2015-12-10")
+  weight: 4, ripe_on: Date.today + 13.days, expires_on: Date.today + 23.days)
 
 c1.trade_types << tt1
 c1.save
