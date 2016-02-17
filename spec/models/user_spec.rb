@@ -5,9 +5,9 @@ RSpec.describe User, type: :model do
   let(:user2) { create(:user, email: "otheruser@mail.com") }
   let(:crop) { create(:crop, user: user2) }
   let(:crop2) { create(:crop, user: user2) }
-  let(:trade) { create(:trade, crop: crop, grower: user2, consumer: user) }
-  let(:trade2) { create(:trade, crop: crop2, grower: user2) }
-  let(:trade3) { create(:trade, crop: crop, grower: user2, consumer: user, accepted: true) }
+  let(:trade) { create(:trade, crop: crop, consumer: user) }
+  let(:trade2) { create(:trade, crop: crop2) }
+  let(:trade3) { create(:trade, crop: crop, consumer: user, accepted: true) }
 
   describe "#has_proposed_trade_for?" do
     it "returns trade if user has proposed a trade on the crop" do
