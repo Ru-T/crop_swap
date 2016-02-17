@@ -1,7 +1,6 @@
 <p id="notice"><%= notice %></p>
 
 <div class="container">
-
   <div class="row">
     <div class="col-md-3">
       <% if @user.profile_pic.blank? %>
@@ -21,9 +20,7 @@
         <li role="presentation"><a href="#my-crops" aria-controls="my-crops" role="tab" data-toggle="tab">Other Crops</a></li>
         <li role="presentation"><a href="#my-swaps" aria-controls="my-swaps" role="tab" data-toggle="tab">Proposed Swaps</a></li>
       </ul>
-
       <div class="tab-content">
-
         <div role="tabpanel" class="tab-pane active" id="my-swap-crops">
           <%if @user.has_crop_with_pending_trade? %>
             <% @user.crops.each do |crop| %>
@@ -123,7 +120,6 @@
             <% end %>
           <% end %>
         </div>
-
       </div>
     </div>
   </div>

@@ -38,13 +38,9 @@ class Crop < ActiveRecord::Base
   end
 
   def wishlisted?(user)
-    if self.wishlists.blank? == false
-      self.wishlists.each do |w|
-        return true if w.user == user
-      end
-      false
-    else
-      return false
+    unless self.wishlists.blank?
+      self.wishlists.each { |wishlist| return true if wishlist.user == user }
     end
+    false
   end
 end
