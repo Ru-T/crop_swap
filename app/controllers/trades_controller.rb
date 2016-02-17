@@ -4,7 +4,7 @@ class TradesController < ApplicationController
   before_action :authenticate_user!
 
   def index
-    @trades = Trade.where(grower_id: session[:user_id]).or(Trade.where(consumer_id: session[:user_id]))
+    @trades = Trade.where(crop.user: current_user).or(Trade.where(consumer: current_user))
   end
 
   def new
@@ -13,10 +13,9 @@ class TradesController < ApplicationController
 
   def create
     @trade = Trade.new(trade_params)
-    @grower = User.find_by_id(@trade[:grower_id])
 
     if @trade.save
-      TradeMailer.new_proposed_trade(@grower.email).deliver_now
+      TradeMailer.new_proposed_trade(@trade.crop.user.email).deliver_now
       redirect_to crops_path, notice: 'Your swap has been proposed.'
     else
       render :new
@@ -25,7 +24,6 @@ class TradesController < ApplicationController
 
   def update
     @consumer = User.find_by_id(@trade[:consumer_id])
-    @grower = User.find_by_id(@trade[:grower_id])
 
     if @trade.update(trade_params)
       if @trade.accepted == true
@@ -33,7 +31,7 @@ class TradesController < ApplicationController
       elsif @trade.accepted == false
         TradeMailer.rejected_trade(@consumer.email).deliver_now
       else
-        TradeMailer.modified_trade(@grower.email).deliver_now
+        TradeMailer.modified_trade(@trade.crop.user.email).deliver_now
       end
       redirect_to crops_path, notice: 'Your swap was successfully acted upon.'
     else
@@ -58,6 +56,14 @@ class TradesController < ApplicationController
     end
 
     def trade_params
-      params.require(:trade).permit(:trade_type_id, :crop_id, :consumer_id, :accepted, :message, :message_response, :crop_pic, :grower_id)
+      params.require(:trade).permit(
+        :trade_type_id,
+        :crop_id,
+        :consumer_id,
+        :accepted,
+        :message,
+        :message_response,
+        :crop_pic
+      )
     end
 end

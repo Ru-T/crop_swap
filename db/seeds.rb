@@ -130,22 +130,11 @@ c11.trade_types << tt1
 c11.trade_types << tt3
 c11.save
 
-Trade.create!(trade_type_id: 1, crop_id: 1, consumer_id: 2, message: "Hi! I'd love to offer up some shishito peppers I've been growing in my backyard in exchange for your potatoes.",
-  grower_id: 1)
-Trade.create!(trade_type_id: 1, crop_id: 1, consumer_id: 3, message: "Hey there! I have a lot of excess seasonal greens and would be happy to swap some for your amazing potatoes.",
-  grower_id: 1)
-
-Trade.create!(trade_type_id: 2, crop_id: 2, consumer_id: 4, message: "Hey there. I'd be happy to swap my time for your delicious-looking tomatoes. I could help with the Farmer's Market this Saturday if that works for you.",
-  grower_id: 1)
-
-Trade.create!(trade_type_id: 1, crop_id: 6, consumer_id: 1, message: "Spinach is my favorite. I have lots of seasonal vegetables I can swap - check out my profile and let me know what you want!",
-  grower_id: 3)
-Trade.create!(trade_type_id: 2, crop_id: 6, consumer_id: 4, message: "I'd be happy to swap my time for your delicious looking spinach. I am free this weekend if you need some help with markets.",
-  grower_id: 3)
-Trade.create!(trade_type_id: 3, crop_id: 6, consumer_id: 6, message: "I'm eager to lend a hand in exchange for this yummy-looking spinach. How's this weekend?",
-  grower_id: 3)
-
-Trade.create!(trade_type_id: 1, crop_id: 11, consumer_id: 5, message: "Hi - I'm also a farmer and have some dikon radishes I'd be happy to swap for your eggplants",
-  grower_id: 5)
-Trade.create!(trade_type_id: 3, crop_id: 11, consumer_id: 2, message: "Nice to meet you - need any help on your land this month in exchange for those yummy eggplants?",
-  grower_id: 5)
+Trade.create!(trade_type_id: 1, crop_id: 1, consumer_id: 2, message: "Hi! I'd love to offer up some shishito peppers I've been growing in my backyard in exchange for your potatoes.")
+Trade.create!(trade_type_id: 1, crop_id: 1, consumer_id: 3, message: "Hey there! I have a lot of excess seasonal greens and would be happy to swap some for your amazing potatoes.")
+Trade.create!(trade_type_id: 2, crop_id: 2, consumer_id: 4, message: "Hey there. I'd be happy to swap my time for your delicious-looking tomatoes. I could help with the Farmer's Market this Saturday if that works for you.")
+Trade.create!(trade_type_id: 1, crop_id: 6, consumer_id: 1, message: "Spinach is my favorite. I have lots of seasonal vegetables I can swap - check out my profile and let me know what you want!")
+Trade.create!(trade_type_id: 2, crop_id: 6, consumer_id: 4, message: "I'd be happy to swap my time for your delicious looking spinach. I am free this weekend if you need some help with markets.")
+Trade.create!(trade_type_id: 3, crop_id: 6, consumer_id: 6, message: "I'm eager to lend a hand in exchange for this yummy-looking spinach. How's this weekend?")
+Trade.create!(trade_type_id: 1, crop_id: 11, consumer_id: 5, message: "Hi - I'm also a farmer and have some dikon radishes I'd be happy to swap for your eggplants")
+Trade.create!(trade_type_id: 3, crop_id: 11, consumer_id: 2, message: "Nice to meet you - need any help on your land this month in exchange for those yummy eggplants?")
