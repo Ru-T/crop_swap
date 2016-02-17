@@ -1,5 +1,6 @@
 When(/^I select a crop type$/) do
-  find('#crop_crop_type_id').find(:xpath, 'option[2]').select_option
+  pending
+  # find('#crop_crop_type_id').find(:xpath, 'option[2]').select_option
 end
 
 When(/^I enter a description$/) do
@@ -15,15 +16,18 @@ When(/^I enter a crop weight$/) do
 end
 
 When(/^I enter a ripe on date$/) do
-  page.execute_script("$('#crop_ripe_on').datepicker('setDate', '02/28/2016')")
+  pending
+  # page.execute_script("$('#crop_ripe_on').datepicker('setDate', '02/28/2016')")
 end
 
 When(/^I enter a expires on date$/) do
-  page.execute_script("$('#crop_expires_on').datepicker('setDate', '03/28/2016')")
+  pending
+  # page.execute_script("$('#crop_expires_on').datepicker('setDate', '03/28/2016')")
 end
 
 When(/^I select what I am willing to swap$/) do
-  check('A Checkbox')
+  pending
+  # check('trade_types[]')
 end
 
 When(/^I visit my profile page$/) do
@@ -36,4 +40,8 @@ end
 
 Then(/^I see an error that weight can't be blank$/) do
   expect(page).to have_content("Weight can't be blank")
+end
+
+Then(/^I click the "([^"]*)" submit button$/) do |button|
+  find("#post_crop", match: :first).click
 end

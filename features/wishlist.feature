@@ -7,7 +7,7 @@ Feature: Crops wishlist
     And I wishlist one of the crops
     Then I visit my wishlisted crops page
     And I see the wishlisted crop
-
+@wip
   Scenario: Wishlist a crop from a user profile
     Given I have an account on the site
     And I am logged into the site
@@ -17,7 +17,7 @@ Feature: Crops wishlist
     And I wishlist one of the crops
     Then I visit my wishlisted crops page
     And I see the wishlisted crop
-
+@wip
   Scenario: Remove from wishlist
     Given I have an account on the site
     And I am logged into the site
