@@ -7,7 +7,7 @@ class CropsController < ApplicationController
       @crops = Crop.available_crops(current_user)
                    .order(params[:sort])
                    .page(params[:page])
-                   .decorate
+                  #  .decorate
     else
       @crops = Crop.all
     end
