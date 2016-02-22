@@ -4,7 +4,7 @@ class TradesController < ApplicationController
   before_action :authenticate_user!
 
   def index
-    @trades = Trade.where(crop.user: current_user).or(Trade.where(consumer: current_user))
+    @trades = Trade.trades(current_user)
   end
 
   def new

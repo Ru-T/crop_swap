@@ -44,7 +44,7 @@ class Trade < ActiveRecord::Base
     end
   end
 
-  def self.current_user_trades(user)
-    self.joins(:crop).where(crops: { user_id: user.id }) || self.where(consumer: user) 
+  def self.trades(user)
+    self.joins(:crop).where(crops: { user_id: user.id }) || self.where(consumer: user)
   end
 end

@@ -44,10 +44,10 @@ RSpec.describe Trade, type: :model do
     end
   end
 
-  describe ".current_user_trades" do
+  describe ".trades" do
     it "returns all trades in which current user is involved" do
-      expect(Trade.current_user_trades(user)).to include trade
-      expect(Trade.current_user_trades(user)).to include trade4
+      expect(Trade.trades(user)).to include trade
+      expect(Trade.trades(user)).to include trade4
     end
   end
 end
