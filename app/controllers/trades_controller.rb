@@ -4,18 +4,21 @@ class TradesController < ApplicationController
   before_action :authenticate_user!
 
   def index
-    @trades = Trade.where(crop.user: current_user).or(Trade.where(consumer: current_user))
+    @trades = Trade.trades(current_user)
   end
 
   def new
-    @trade = Trade.new(crop_id: params[:crop_id], consumer: current_user)
+    @trade = Trade.new(
+               crop_id: params[:crop_id],
+               consumer: current_user
+             )
   end
 
   def create
     @trade = Trade.new(trade_params)
 
     if @trade.save
-      TradeMailer.new_proposed_trade(@trade.crop.user.email).deliver_now
+      @trade.email_trade_proposal
       redirect_to crops_path, notice: 'Your swap has been proposed.'
     else
       render :new
@@ -23,16 +26,8 @@ class TradesController < ApplicationController
   end
 
   def update
-    @consumer = User.find_by_id(@trade[:consumer_id])
-
     if @trade.update(trade_params)
-      if @trade.accepted == true
-        TradeMailer.accepted_trade(@consumer.email).deliver_now
-      elsif @trade.accepted == false
-        TradeMailer.rejected_trade(@consumer.email).deliver_now
-      else
-        TradeMailer.modified_trade(@trade.crop.user.email).deliver_now
-      end
+      @trade.email_trade
       redirect_to crops_path, notice: 'Your swap was successfully acted upon.'
     else
       render :edit
@@ -46,7 +41,7 @@ class TradesController < ApplicationController
 
   private
     def no_edit
-      if @trade.accepted == false || @trade.accepted == true
+      if @trade.accepted != nil
         redirect_to crops_path, notice: "You cannot edit a trade once it has been acted upon."
       end
     end

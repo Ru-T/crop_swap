@@ -13,12 +13,7 @@ class Crop < ActiveRecord::Base
     end
   end
 
-  validates :user_id, presence: true
-  validates :description, presence: true
-  validates :weight, presence: true
-  validates :crop_type_id, presence: true
-  validates :ripe_on, presence: true
-  validates :expires_on, presence: true
+  validates_presence_of :user_id, :description, :weight, :crop_type_id, :ripe_on, :expires_on
 
   has_attached_file :crop_pic
   validates_attachment_content_type :crop_pic, content_type: /\Aimage\/.*\Z/
