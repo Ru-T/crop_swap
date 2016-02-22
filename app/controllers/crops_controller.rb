@@ -41,7 +41,6 @@ class CropsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
     def set_crop
       @crop = Crop.find(params[:id])
     end
