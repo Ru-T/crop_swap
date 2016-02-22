@@ -50,4 +50,17 @@ RSpec.describe Trade, type: :model do
       expect(Trade.trades(user)).to include trade4
     end
   end
+
+  describe "#email_trade" do
+    it "sends an email when a trade is updated" do
+      trade.email_trade
+      expect(ActionMailer::Base.deliveries.last.subject). to eq "Your Trade Has Been Accepted!"
+
+      trade3.email_trade
+      expect(ActionMailer::Base.deliveries.last.subject). to eq "News About Your Trade"
+
+      trade2.email_trade
+      expect(ActionMailer::Base.deliveries.last.subject). to eq "A Pending Trade Has Been Modified"
+    end
+  end
 end

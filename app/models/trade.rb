@@ -47,4 +47,14 @@ class Trade < ActiveRecord::Base
   def self.trades(user)
     self.joins(:crop).where(crops: { user_id: user.id }) || self.where(consumer: user)
   end
+
+  def email_trade
+    if self.accepted == true
+      TradeMailer.accepted_trade(self.consumer.email).deliver_now
+    elsif self.accepted == false
+      TradeMailer.rejected_trade(self.consumer.email).deliver_now
+    else
+      TradeMailer.modified_trade(self.crop.user.email).deliver_now
+    end
+  end
 end

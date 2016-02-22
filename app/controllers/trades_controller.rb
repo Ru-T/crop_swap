@@ -8,7 +8,10 @@ class TradesController < ApplicationController
   end
 
   def new
-    @trade = Trade.new(crop_id: params[:crop_id], consumer: current_user)
+    @trade = Trade.new(
+               crop_id: params[:crop_id],
+               consumer: current_user
+             )
   end
 
   def create
@@ -23,16 +26,10 @@ class TradesController < ApplicationController
   end
 
   def update
-    @consumer = User.find_by_id(@trade[:consumer_id])
+    consumer = User.find_by_id(@trade[:consumer_id])
 
     if @trade.update(trade_params)
-      if @trade.accepted == true
-        TradeMailer.accepted_trade(@consumer.email).deliver_now
-      elsif @trade.accepted == false
-        TradeMailer.rejected_trade(@consumer.email).deliver_now
-      else
-        TradeMailer.modified_trade(@trade.crop.user.email).deliver_now
-      end
+      @trade.email_trade
       redirect_to crops_path, notice: 'Your swap was successfully acted upon.'
     else
       render :edit
