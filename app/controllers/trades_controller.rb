@@ -18,7 +18,7 @@ class TradesController < ApplicationController
     @trade = Trade.new(trade_params)
 
     if @trade.save
-      TradeMailer.new_proposed_trade(@trade.crop.user.email).deliver_now
+      @trade.email_trade_proposal
       redirect_to crops_path, notice: 'Your swap has been proposed.'
     else
       render :new
@@ -26,8 +26,6 @@ class TradesController < ApplicationController
   end
 
   def update
-    consumer = User.find_by_id(@trade[:consumer_id])
-
     if @trade.update(trade_params)
       @trade.email_trade
       redirect_to crops_path, notice: 'Your swap was successfully acted upon.'
@@ -43,7 +41,7 @@ class TradesController < ApplicationController
 
   private
     def no_edit
-      if @trade.accepted == false || @trade.accepted == true
+      if @trade.accepted != nil
         redirect_to crops_path, notice: "You cannot edit a trade once it has been acted upon."
       end
     end

@@ -57,4 +57,8 @@ class Trade < ActiveRecord::Base
       TradeMailer.modified_trade(self.crop.user.email).deliver_now
     end
   end
+
+  def email_trade_proposal
+    TradeMailer.new_proposed_trade(self.crop.user.email).deliver_now
+  end
 end

@@ -63,4 +63,11 @@ RSpec.describe Trade, type: :model do
       expect(ActionMailer::Base.deliveries.last.subject). to eq "A Pending Trade Has Been Modified"
     end
   end
+
+  describe "#email_trade_proposal" do
+    it "sends an email when a trade is updated" do
+      trade2.email_trade_proposal
+      expect(ActionMailer::Base.deliveries.last.subject). to eq "A New Trade Has Been Proposed!"
+    end
+  end
 end
