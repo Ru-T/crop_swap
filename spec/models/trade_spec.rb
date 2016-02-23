@@ -11,13 +11,6 @@ RSpec.describe Trade, type: :model do
   let(:trade3) { create(:trade, crop: crop, consumer: user2, accepted: false) }
   let(:trade4) { create(:trade, crop: crop, consumer: user, accepted: false) }
 
-  describe "#reject!" do
-    it "marked the trade as rejected" do
-      trade.reject!
-      expect(trade.accepted).to eq false
-    end
-  end
-
   describe "#reject_other_trades" do
     it "marks all other trades as rejected when one is accepted" do
       t1 = FactoryGirl.create(:trade, crop: crop, consumer: user2)
@@ -34,13 +27,6 @@ RSpec.describe Trade, type: :model do
     it "returns true if user has accepted trades" do
       trade.reload
       expect(Trade.all.user_has_accepted_trades?).to eq true
-    end
-  end
-
-  describe ".user_has_rejected_trades" do
-    it "returns true if user has rejected trades" do
-      trade3.reload
-      expect(Trade.all.user_has_rejected_trades?).to eq true
     end
   end
 
