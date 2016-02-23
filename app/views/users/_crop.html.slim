@@ -1,0 +1,22 @@
+.row
+  .col-md-3
+    - if crop.crop_pic.present? 
+      = image_tag crop.crop_pic.url 
+    - else
+      = image_tag asset_url ("crop-default-image.png") 
+  .col-md-9
+    h3 =crop.crop_type.name
+      .crop-description = crop.description 
+      .details Amount: #{crop.weight} lbs
+        - if crop.is_ripe?
+          em.ripe = RIPE NOW! 
+          br
+        - else 
+          em Ripe in #{distance_of_time_in_words_to_now(crop.ripe_on)}
+          br
+        - if crop.about_to_expire? 
+          em.expire Expires in #{distance_of_time_in_words_to_now(crop.expires_on)}
+          br
+          br
+        - else 
+          em Expires in #{distance_of_time_in_words_to_now(crop.expires_on)}
