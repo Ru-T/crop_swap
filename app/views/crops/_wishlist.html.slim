@@ -1,0 +1,5 @@
+- if crop.wishlisted?(current_user) && current_user
+  span.wishlist-browse.wishlist-shared.animated.wishlisted ♥
+- elsif current_user 
+  span.wishlist-browse.wishlist-shared.hvr-grow
+    = link_to "♥", wishlists_path(wishlist: {crop_id: crop.id, user_id: current_user.id}), method: :post, remote: true 

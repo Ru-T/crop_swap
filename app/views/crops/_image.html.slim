@@ -1,0 +1,4 @@
+- if crop.crop_pic.present? 
+  = image_tag crop.crop_pic.url 
+- else
+  = image_tag asset_url ("crop-default-image.png") 

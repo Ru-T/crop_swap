@@ -1,0 +1,10 @@
+.container.browse-crops
+  = render 'header'
+  - if current_user
+    = render 'sort'
+  .row
+    - if @crops.present?
+      - @crops.each do |crop|
+        == render partial: 'crop', locals: { crop: crop }
+    - if current_user
+      == paginate @crops
