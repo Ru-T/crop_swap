@@ -1,0 +1,10 @@
+.col-sm-3
+  .card
+    = render partial: 'image', locals: { crop: crop } 
+    .card-block
+      h4.card-title
+        = crop.crop_type.name 
+        = render partial: 'wishlist', locals: { crop: crop } 
+        = render partial: 'metadata', locals: { crop: crop } 
+    button.btn.btn-success
+      = link_to 'View Crop', crop.user 

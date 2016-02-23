@@ -27,17 +27,17 @@ end
 
 Then(/^the crops are sorted based on when they were posted$/) do
   expect(Crop.order(:created_at).first).to eq Crop.first
-  expect(page).to have_content(/#{Crop.first.crop_type.crop_type}.*#{Crop.fifth.crop_type.crop_type}/m)
+  expect(page).to have_content(/#{Crop.first.crop_type.name}.*#{Crop.fifth.crop_type.name}/m)
 end
 
 Then(/^the crops are sorted by ripe on date$/) do
   expect(Crop.order(:ripe_on).first).to eq Crop.first
-  expect(page).to have_content(/#{Crop.first.crop_type.crop_type}.*#{Crop.fifth.crop_type.crop_type}/m)
+  expect(page).to have_content(/#{Crop.first.crop_type.name}.*#{Crop.fifth.crop_type.name}/m)
 end
 
 Then(/^the crops are sorted by expiry date$/) do
   expect(Crop.order(:expires_on).first).to eq Crop.first
-  expect(page).to have_content(/#{Crop.first.crop_type.crop_type}.*#{Crop.fifth.crop_type.crop_type}/m)
+  expect(page).to have_content(/#{Crop.first.crop_type.name}.*#{Crop.fifth.crop_type.name}/m)
 end
 
 Then(/^I see if a crop is ripe$/) do

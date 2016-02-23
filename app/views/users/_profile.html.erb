@@ -1,64 +1,19 @@
-<p id="notice"><%= notice %></p>
-
 <div class="container">
-
   <div class="row">
-    <div class="col-md-3">
-      <% if @user.profile_pic.blank? %>
-        <%= image_tag asset_url ("default-image.png") %>
-      <% else%>
-        <%= image_tag @user.profile_pic.url %>
-      <% end %>
-      <h3><%= @user.name %></h3>
-      <p><%= @user.zip_code %><br>
-      <em>Joined on <%=@user.created_at.strftime("%b %d %Y")%></em></p>
-      <p><%= @user.description %></p>
-    </div>
+    <%= render partial: "basic_info", locals: { user: @user } %>
     <div class="col-md-9">
-      <% if @user.crops.blank? == false %>
+      <% if @user.crops.present? %>
         <% @user.crops.each do |crop| %>
           <div class="crop-item">
             <div class="row">
               <div class="col-md-3">
-                <% if crop.crop_pic.blank? %>
-                  <div class="crop_name panel-body"><%= image_tag asset_url("crop-default-image.png") %></div>
-                <% else %>
-                  <div class="crop_name panel-body"><%= image_tag crop.crop_pic.url %></div>
-                <% end %>
+                <%= render partial: 'crops/image', locals: { crop: crop } %>
               </div>
               <div class="col-md-9">
-                <div>
-                  <h3><%=crop.crop_type.crop_type%></h3>
-                  <% if crop.wishlisted?(current_user) %>
-                    <span class="wishlist wishlist-shared wishlisted">♥</span>
-                  <% else %>
-                    <span class="wishlist wishlist-shared"><%= link_to "♥", wishlists_path(wishlist: {crop_id: crop.id, user_id: current_user.id}), method: :post, remote: true%></span>
-                  <% end %>
-                  <div class="crop-description"> <%= crop.description %></div>
-                  <div class="details"> Amount: <%= crop.weight %> lbs</div><br>
-                  <% if crop.is_ripe? %>
-                    <em class="ripe"> RIPE NOW! </em><br>
-                  <% else %>
-                    <em>Ripe in <%= distance_of_time_in_words_to_now(crop.ripe_on) %></em><br>
-                  <% end %>
-                  <% if crop.about_to_expire?  %>
-                    <em class="expire">Expires in <%= distance_of_time_in_words_to_now(crop.expires_on) %></em><br><br>
-                  <% else %>
-                    <em>Expires in <%= distance_of_time_in_words_to_now(crop.expires_on) %></em><br><br>
-                  <% end %>
-                  <p>This crop can be swapped for:
-                    <% crop.trade_types.each do |tt| %>
-                      <% if tt.id == 1 %>
-                        <span class="glyphicon glyphicon-grain" aria-hidden="true"></span>
-                      <% elsif tt.id == 2%>
-                        <span class="glyphicon glyphicon-time" aria-hidden="true"></span>
-                      <% else%>
-                        <span class="glyphicon glyphicon-wrench" aria-hidden="true"></span>
-                      <% end %>
-                      <%= tt.name%>
-                    <% end %>
-                    <p>
-                </div>
+                  <h3><%=crop.crop_type.name%></h3>
+                  <%= render partial: 'crops/wishlist', locals: { crop: crop } %>
+                  <%= render partial: 'crops/metadata', locals: { crop: crop } %>
+                  <%= render partial: 'swap_types', locals: { crop: crop } %>
               </div>
             </div>
             <div class="row trades">
@@ -68,7 +23,7 @@
                 <div class="col-md-4">
                   <button type="button" class="btn btn-success">
                     <%=link_to 'Propose Swap', new_trade_path(crop_id: crop.id,
-                      consumer_id: current_user.id, grower_id: crop.user_id) %>
+                      consumer_id: current_user.id) %>
                   </button>
                   <br>
                   <br>
@@ -92,7 +47,7 @@
         <br>
         <h4> This user does not current have any crops to swap.</h4>
         <button type="button" class="btn btn-warning">
-          <%=link_to 'Browse Crops', crops_path%>
+          <%= link_to 'Browse Crops', crops_path %>
         </button>
       </div>
     <%end%>

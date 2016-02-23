@@ -1,0 +1,12 @@
+<p>This crop can be swapped for:
+  <% crop.trade_types.each do |tt| %>
+    <% if tt.id == 1 %>
+      <span class="glyphicon glyphicon-grain" aria-hidden="true"></span>
+    <% elsif tt.id == 2%>
+      <span class="glyphicon glyphicon-time" aria-hidden="true"></span>
+    <% else%>
+      <span class="glyphicon glyphicon-wrench" aria-hidden="true"></span>
+    <% end %>
+    <%= tt.name%>
+  <% end %>
+</p>

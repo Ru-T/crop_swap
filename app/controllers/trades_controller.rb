@@ -1,5 +1,5 @@
 class TradesController < ApplicationController
-  before_action :set_trade, only: [:show, :edit, :update, :destroy]
+  before_action :set_trade, only: [:edit, :update, :destroy]
   before_action :no_edit, only: [:edit]
   before_action :authenticate_user!
 
@@ -16,7 +16,6 @@ class TradesController < ApplicationController
 
   def create
     @trade = Trade.new(trade_params)
-
     if @trade.save
       @trade.email_trade_proposal
       redirect_to crops_path, notice: 'Your swap has been proposed.'
