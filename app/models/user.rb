@@ -16,11 +16,9 @@ class User < ActiveRecord::Base
   end
 
   def has_crop_with_pending_trade?
-    if crops.blank? == false
+    if crops.present?
       crops.each do |crop|
-        crop.trades.each do |trade|
-          return true if trade.accepted == nil
-        end
+        crop.trades.each { |trade| return true if trade.accepted == nil }
       end
       false
     else
@@ -29,22 +27,11 @@ class User < ActiveRecord::Base
   end
 
   def has_crop_without_pending_trade?
-    if crops.blank? == false
-      crops.each do |crop|
-        return true if crop.trades.blank? == true
-      end
+    if crops.present?
+      crops.each { |crop| return true if crop.trades.blank? == true }
       false
     else
       false
     end
   end
-
-  def profile_info
-    if self.profile_pic.present?
-      image_tag self.profile_pic.url
-    else
-      image_tag asset_url ("default-image.png")
-    end
-  end
-
 end

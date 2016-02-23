@@ -22,7 +22,7 @@
   
     .row.swap-history-title
       h3 Rejected Swaps
-    - if @trades.user_has_accepted_trades? 
+    - if @trades.user_has_accepted_trades? == false
       - @trades.each do |trade| 
         - if trade.accepted == false 
           .row

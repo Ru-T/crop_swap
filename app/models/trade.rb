@@ -16,28 +16,10 @@ class Trade < ActiveRecord::Base
     end
   end
 
-  def reject!
-    self.update(accepted: false)
-  end
-
   def self.user_has_accepted_trades?
     trades = Trade.all
-    if trades.blank? == false
-      trades.each do |trade|
-        return true if trade.accepted == true
-      end
-      false
-    else
-      false
-    end
-  end
-
-  def self.user_has_rejected_trades?
-    trades = Trade.all
-    if trades.blank? == false
-      trades.each do |trade|
-        return true if trade.accepted == false
-      end
+    if trades.present?
+      trades.each { |trade| return true if trade.accepted == true }
       false
     else
       false

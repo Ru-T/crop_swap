@@ -33,7 +33,7 @@ class Crop < ActiveRecord::Base
   end
 
   def wishlisted?(user)
-    unless self.wishlists.blank?
+    if self.wishlists.present?
       self.wishlists.each { |wishlist| return true if wishlist.user == user }
     end
     false
