@@ -1,12 +1,13 @@
 class CropsController < ApplicationController
   before_action :set_crop, only: [:edit, :update, :destroy]
-  before_action :authenticate_user!
+  before_action :authenticate_user!, except: [:index]
 
   def index
     if current_user
       @crops = Crop.available_crops(current_user)
                    .order(params[:sort])
                    .page(params[:page])
+                  #  .decorate
     else
       @crops = Crop.all
     end
