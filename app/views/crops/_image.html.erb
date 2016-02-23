@@ -1,0 +1,5 @@
+<% if crop.crop_pic.blank? %>
+  <%= image_tag asset_url ("crop-default-image.png") %>
+<% else%>
+  <%= image_tag crop.crop_pic.url %>
+<% end %>

@@ -1,65 +1,23 @@
 <div class="container browse-crops">
   <%= render 'header' %>
+  <%= render 'sort' if current_user %>
 
-<% if current_user %>
-  <div class="btn-group">
-    <label class="btn btn-warning btn-toggle <% if params[:sort] == "created_at" %> active" <% end %>">
-      <%=link_to 'Newest', crops_path(:sort => "created_at") %>
-    </label>
-    <label class="btn btn-warning btn-toggle <% if params[:sort] == "ripe_on" %> active" <% end %>">
-      <%=link_to 'Ripe Now', crops_path(:sort => "ripe_on") %>
-    </label>
-    <label class="btn btn-warning btn-toggle <% if params[:sort] == "expires_on" %> active" <% end %>">
-      <%=link_to 'Expires Soon', crops_path(:sort => "expires_on") %>
-    </label>
-  </div>
-<% else %>
-  <br>
-<% end %>
-
-  <div>
-    <div class="row">
-      <% unless @crops.blank? %>
-        <% @crops.each do |crop| %>
-          <div class="col-sm-3">
-            <div class="card">
-              <% if crop.crop_pic.blank? %>
-                <%= image_tag asset_url ("crop-default-image.png") %>
-              <% else%>
-                <%= image_tag crop.crop_pic.url %>
-              <% end %>
-              <div class="card-block">
-                <h4 class="card-title"><%= crop.crop_type.crop_type %> </h4>
-                <% if current_user %>
-                  <% if crop.wishlisted?(current_user) %>
-                    <span class="wishlist-browse wishlist-shared animated wishlisted">♥</span>
-                  <% else %>
-                    <span class="wishlist-browse wishlist-shared hvr-grow"><%= link_to "♥", wishlists_path(wishlist: {crop_id: crop.id, user_id: current_user.id}), method: :post, remote: true%></span>
-                  <% end %>
-                <% end %>
-                <% if crop.is_ripe? %>
-                  <h6 class="ripe"> RIPE NOW! </h6>
-                <% else %>
-                  <h6 class="card-subtitle text-muted">Ripe in <%= distance_of_time_in_words_to_now(crop.ripe_on) %></h6>
-                <% end %>
-                <% if crop.about_to_expire?  %>
-                  <h6 class="card-subtitle expire">Expires in <%= distance_of_time_in_words_to_now(crop.expires_on) %></h6>
-                <% else %>
-                  <h6 class="card-subtitle text-muted">Expires in <%= distance_of_time_in_words_to_now(crop.expires_on) %></h6>
-                <% end %>
-                <h6 class="card-subtitle text-muted">Posted <%= distance_of_time_in_words_to_now(crop.created_at) %> ago</h6>
-                <h6><%= crop.user.zip_code %></h6>
-                <p class="card-text"><%= crop.description %></p>
-              </div>
-              <button type="button" class="btn btn-success">
-                <div><%= link_to 'View Crop', crop.user %></div>
-              </button>
-            </div>
+  <div class="row">
+    <% @crops.each do |crop| if @crops.present? %>
+      <div class="col-sm-3">
+        <div class="card">
+          <%= render partial: 'image', locals: { crop: crop } %>
+          <div class="card-block">
+            <h4 class="card-title"><%= crop.crop_type.crop_type %> </h4>
+            <%= render partial: 'wishlist', locals: { crop: crop } %>
+            <%= render partial: 'metadata', locals: { crop: crop } %>
           </div>
-        <% end %>
-      <% end %>
-    </div>
-    <% if current_user %>
-      <%= paginate @crops %>
+          <button type="button" class="btn btn-success">
+            <div><%= link_to 'View Crop', crop.user %></div>
+          </button>
+        </div>
+      </div>
     <% end %>
-  </div>
+  <% end %>
+  <%= paginate @crops if current_user%>
+</div>

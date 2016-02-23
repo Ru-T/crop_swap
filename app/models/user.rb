@@ -39,4 +39,12 @@ class User < ActiveRecord::Base
     end
   end
 
+  def profile_info
+    if self.profile_pic.present?
+      image_tag self.profile_pic.url
+    else
+      image_tag asset_url ("default-image.png")
+    end
+  end
+
 end
