@@ -1,11 +1,5 @@
 .container.browse-crops  
-  .jumbotron.browse-jumbotron
-    .header.text-center
-      h2 Swap History
-      p Check our your past accepted or rejected swaps.
-    button.btn.btn-success.center-block
-      = link_to 'Browse Crops', crops_path
-
+  = render 'header'
   .crop-item
     .row.swap-history-title
       h3 Accepted Swaps 
@@ -14,12 +8,7 @@
         - if trade.accepted == true 
         .row
           .col-md-3
-            - if trade.crop.crop_pic.blank? 
-              .crop_name.panel-body
-                = image_tag asset_url("crop-default-image.png") 
-            - else 
-              .crop_name.panel-body
-                = image_tag trade.crop.crop_pic.url 
+            == render partial: "pic", locals: { trade: trade }
           .col-md-9
             h3 #{trade.crop.crop_type.name}
             h4 Swap Accepted on #{trade.created_at.strftime("%b %d %Y")}
@@ -38,10 +27,7 @@
         - if trade.accepted == false 
           .row
             .col-md-3
-              - if trade.crop.crop_pic.blank? 
-                .crop_name.panel-body #{image_tag asset_url("crop-default-image.png")} 
-              - else 
-                .crop_name.panel-body #{image_tag trade.crop.crop_pic.url}
+              == render partial: "pic", locals: { trade: trade }
             .col-md-9
               h3 #{trade.crop.crop_type.name}
               h4 Swap Rejected on #{trade.created_at.strftime("%b %d %Y")}
