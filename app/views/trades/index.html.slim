@@ -23,11 +23,7 @@
           .col-md-9
             h3 #{trade.crop.crop_type.name}
             h4 Swap Accepted on #{trade.created_at.strftime("%b %d %Y")}
-            .crop-description #{trade.crop.description}
-            p Swap Type: #{trade.trade_type.name} 
-            p Consumer: #{trade.consumer.name}
-            p Message: #{trade.message}
-            p Response: #{trade.message_response} 
+            == render partial: "metadata", locals: { trade: trade }
     - else 
       .empty-state
         br
@@ -49,11 +45,7 @@
             .col-md-9
               h3 #{trade.crop.crop_type.name}
               h4 Swap Rejected on #{trade.created_at.strftime("%b %d %Y")}
-              .crop-description #{trade.crop.description}
-              p Swap Type: #{trade.trade_type.name} 
-              p Consumer: #{trade.consumer.name}
-              p Message: #{trade.message}
-              p Response: #{trade.message_response}
+              == render partial: "metadata", locals: { trade: trade }
     - else 
       .empty-state
         br
