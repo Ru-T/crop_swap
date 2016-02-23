@@ -1,0 +1,72 @@
+.container.browse-crops  
+  = render 'header'
+
+  = simple_form_for @crop do |f|
+    - if @crop.errors.any?
+      #error_explanation
+        h2 = "#{pluralize(@crop.errors.count, "error")} prohibited this crop from being saved:"
+        ul
+          - @crop.errors.full_messages.each do |message|
+            li = message
+      
+    = f.input :user, as: :hidden 
+    .crop-item.post-a-crop
+      .row.crop-form-label
+        .form-group.crop-type
+          .col-md-4.control-label.crop-label
+            = f.label :crop_type, label: "Crop Type:"
+          .col-md-8 
+            = f.input_field :crop_type, collection: CropType.all, label: "Crop Type:"
+
+      .row.crop-form-label
+        .form-group.crop-description
+          .col-md-4.control-label.crop-label
+            = f.label :description, label: "Description:"
+          .col-md-8.crop-description
+            = f.input_field :description
+
+      .row.crop-form-label
+        .form-group.crop-pic
+          .col-md-2.control-label.crop-pic.crop-label
+            = f.label :crop_pic, label: "Crop Pic:"
+          .col-md-8
+            = f.input_field :crop_pic
+
+      .row.crop-form-label
+        .form-group.crop-weight
+          .col-md-4.control-label.crop-label
+            = f.label :weight, label: "Weight:"
+          .col-md-8.crop-weight
+            = f.input_field :weight
+            
+      .row.crop-form-label
+        .form-group.crop-ripe
+          .col-md-4.crop-ripe-on.crop-label
+            = f.label :ripe_on, label: "Ripe On:"
+          .col-md-8  
+            = f.date_field :ripe_on   
+            
+      .row.crop-form-label
+        .form-group.crop-expires
+          .col-md-4.crop-expires-on.crop-label
+            = f.label :expires_on, label: "Expires On:"
+          .col-md-8  
+            = f.date_field :expires_on                 
+
+      .row.crop-form-label
+        h4.post-crop-title What are you willing to swap?
+      .row  
+        - TradeType.all.each do |t|
+          .col-md-2.5
+            .form-group.crop-types
+              = check_box_tag 'trade_types[]', t.id, @crop.trade_types.include?(t)
+              - if t.id == 1
+                span.glyphicon.glyphicon-grain aria-hidden="true" #{t.name}
+              - elsif t.id == 2  
+                span.glyphicon.glyphicon-time aria-hidden="true" #{t.name}
+              - else
+                span.glyphicon.glyphicon-wrench aria-hidden="true" #{t.name}
+      .crop-form-label
+        = f.button :submit, "Post A Crop"
+    
+      p = link_to 'Not Right Now', crops_path
