@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   root 'crops#index'
 
   resources :wishlists, except: [:show, :edit]
-  resources :trades
+  resources :trades, except: [:show]
   resources :crops, except: [:show]
   devise_for :users, skip: [:sessions]
   as :user do
