@@ -10,7 +10,7 @@
                 <%= render partial: 'crops/image', locals: { crop: crop } %>
               </div>
               <div class="col-md-9">
-                  <h3><%=crop.crop_type.crop_type%></h3>
+                  <h3><%=crop.crop_type.name%></h3>
                   <%= render partial: 'crops/wishlist', locals: { crop: crop } %>
                   <%= render partial: 'crops/metadata', locals: { crop: crop } %>
                   <%= render partial: 'swap_types', locals: { crop: crop } %>
@@ -50,6 +50,6 @@
           <%= link_to 'Browse Crops', crops_path %>
         </button>
       </div>
-    <%end%> 
+    <%end%>
   </div>
 </div>

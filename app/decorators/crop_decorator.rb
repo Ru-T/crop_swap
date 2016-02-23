@@ -22,7 +22,7 @@ class CropDecorator < Draper::Decorator
   end
 
   def crop_type
-    model.crop_type.crop_type
+    model.crop_type.name
   end
 
 end

@@ -29,7 +29,7 @@
             <% end %>
           </div>
           <div class="col-md-10">
-            <h3><%=@trade.crop.crop_type.crop_type%></h3>
+            <h3><%=@trade.crop.crop_type.name%></h3>
             <div class="details"> <%= @trade.crop.description %></div>
             <br>
             <div class="details"> Amount: <%= @trade.crop.weight %> lbs</div><br>
@@ -84,7 +84,7 @@
           <% end %>
         </div>
         <div class="col-md-10">
-          <h3><%=@trade.crop.crop_type.crop_type%></h3>
+          <h3><%=@trade.crop.crop_type.name%></h3>
           <div class="details"> <%= @trade.crop.description %></div>
           <br>
           <div class="details"> Amount: <%= @trade.crop.weight %> lbs</div><br>

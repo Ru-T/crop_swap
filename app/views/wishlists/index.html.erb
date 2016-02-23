@@ -30,7 +30,7 @@
                 <%= image_tag wishlist.crop.crop_pic.url %>
               <% end %>
               <div class="card-block">
-                <h4 class="card-title"><%= wishlist.crop.crop_type.crop_type %> </h4>
+                <h4 class="card-title"><%= wishlist.crop.crop_type.name %> </h4>
                 <span class="wishlist-browse wishlisted"> <%= link_to "♥", wishlist, method: :delete, remote: true %></span>
                 <% if wishlist.crop.is_ripe? %>
                   <h6 class="ripe"> RIPE NOW! </h6>
