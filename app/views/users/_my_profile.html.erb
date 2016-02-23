@@ -1,17 +1,6 @@
 <div class="container">
   <div class="row">
-    <div class="col-md-3">
-      <% if @user.profile_pic.blank? %>
-        <%= image_tag asset_url ("default-image.png") %>
-      <% else%>
-        <%= image_tag @user.profile_pic.url %>
-      <% end %>
-      <h3><%= @user.name %></h3>
-      <p><%= @user.zip_code %><br>
-      <em>Joined on <%=@user.created_at.strftime("%b %d %Y")%></em></p>
-      <p><%= @user.description %></p>
-      <p><%= link_to 'Swap History', trades_path%></p>
-    </div>
+    <%= render partial: "basic_info", locals: { user: @user } %>
     <div class="col-md-9">
       <ul class="nav nav-tabs"role="tablist">
         <li role="presentation" class="active"><a href="#my-swap-crops" aria-controls="my-swap-crops" role="tab" data-toggle="tab">Pending Swaps</a></li>

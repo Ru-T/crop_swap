@@ -1,9 +1,9 @@
 <div class="row">
   <div class="col-md-3">
-    <% if crop.crop_pic.blank? %>
-      <div class="crop_name panel-body"><%= image_tag asset_url("crop-default-image.png") %></div>
-    <% else %>
-      <div class="crop_name panel-body"><%= image_tag crop.crop_pic.url %></div>
+    <% if crop.crop_pic.present? %>
+      <%= image_tag crop.crop_pic.url %>
+    <% else%>
+      <%= image_tag asset_url ("crop-default-image.png") %>
     <% end %>
   </div>
   <div class="col-md-9">
