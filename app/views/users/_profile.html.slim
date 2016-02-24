@@ -1,6 +1,7 @@
 .container
   .row
-    == render partial: "basic_info", locals: { user: @user } 
+    .col-md-3
+      == render partial: "basic_info", locals: { user: @user } 
     .col-md-9
       - if @user.crops.present? 
         - @user.crops.each do |crop| 
@@ -15,8 +16,7 @@
           .row
             == render partial: 'swap_buttons', locals: { crop: crop }
       - else 
-        .empty-state
-          br
-          h4 This user does not current have any crops to swap.
-          button.btn.btn-warning type="button"
-            = link_to 'Browse Crops', crops_path 
+        == render partial: 'empty_state', 
+          locals: { message: "This user does not current have any crops to swap.",
+                    link_name: "Browse Crops",
+                    path: crops_path}

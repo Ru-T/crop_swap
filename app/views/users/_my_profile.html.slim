@@ -33,12 +33,10 @@
                           button.btn.btn-warning type="button"
                             == link_to 'Reject Swap', edit_swap_path(swap, accepted: false)
           - else 
-            .empty-state
-              br
-              h4 You do not have any active crops with pending swaps.
-              button.btn.btn-warning type="button"
-                == link_to 'View Swap History', swaps_path
-              
+            == render partial: 'empty_state', 
+              locals: { message: "You do not have any active crops with pending swaps.",
+                        link_name: "View Swap History",
+                        path: swaps_path}
         .tab-pane role="tabpanel" id="my-crops"
           - if @user.has_crop_without_pending_swap? 
             - @user.crops.each do |crop| 
@@ -50,11 +48,10 @@
                     h3 = crop.crop_type.name 
                     == render partial: 'crops/metadata', locals: { crop: crop } 
           - else
-            .empty-state
-              br
-              h4 You do not have any active crops without pending swaps.
-              button.btn.btn-warning type="button" 
-                == link_to 'View Swap History', swaps_path
+            == render partial: 'empty_state', 
+              locals: { message: "You do not have any active crops without pending swaps.",
+                        link_name: "View Swap History",
+                        path: swaps_path}
          
         .tab-pane role="tabpanel" id="my-swaps"
           - if @user.swaps.present? 
@@ -71,10 +68,9 @@
                     h5 = t.consumer.name 
                     p Message: #{t.message}   
           - else
-            .empty-state"
-              br
-              h4 You do not have any pending swaps on other grower's crops.
-              button.btn.btn-warning type="button"
-                == link_to 'Browse Crops', crops_path
+            == render partial: 'empty_state', 
+              locals: { message: "You do not have any pending swaps on other grower's crops.",
+                        link_name: "Browse Crops",
+                        path: crops_path}
            
           
