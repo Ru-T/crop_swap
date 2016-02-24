@@ -6,6 +6,6 @@
   h6.card-subtitle.expire Expires in #{distance_of_time_in_words_to_now(crop.expires_on)}
 - else 
   h6.card-subtitle.text-muted Expires in #{distance_of_time_in_words_to_now(crop.expires_on)}
-h6.card-subtitle.text-muted Posted #{distance_of_time_in_words_to_now(crop.created_at)}
+h6.card-subtitle.text-muted Posted #{distance_of_time_in_words_to_now(crop.created_at)} ago
 h6 #{crop.user.zip_code} 
 p.card-text #{crop.description}

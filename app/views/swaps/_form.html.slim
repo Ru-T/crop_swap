@@ -1,10 +1,10 @@
 .container
-  = simple_form_for @trade do |f|
-    - if @trade.errors.any?
+  = simple_form_for @swap do |f|
+    - if @swap.errors.any?
       #error_explanation
-        h2 = "#{pluralize(@trade.errors.count, "error")} prohibited this trade from being saved:"
+        h2 = "#{pluralize(@swap.errors.count, "error")} prohibited this swap from being saved:"
         ul
-          - @trade.errors.full_messages.each do |message|
+          - @swap.errors.full_messages.each do |message|
             li = message
       
     - if params[:accepted] 
@@ -16,31 +16,31 @@
       .crop-item
         .row
           .col-md-2
-            == render partial: "pic", locals: { trade: trade }
+            == render partial: "image", locals: { swap: @swap }
           .col-md-10
-            == render partial: "details", locals: { trade: trade }
+            == render partial: "crops/metadata", locals: { crop: @swap.crop }
         .row
           .col-md-2
           .col-md-10
-            h4 #{@trade.consumer.name} would like to swap for
-              - if @trade.trade_type_id == 1 
-                .glyphicon.glyphicon-grain aria-hidden="true"
-              - elsif @trade.trade_type_id == 2
-                .glyphicon.glyphicon-time aria-hidden="true"
-              - else
-              .glyphicon.glyphicon-leaf aria-hidden="true"
-              = @trade.trade_type.name
+            h4 #{@swap.consumer.name} would like to swap for
+            - if @swap.swap_type_id == 1 
+              .glyphicon.glyphicon-grain aria-hidden="true"
+            - elsif @swap.swap_type_id == 2
+              .glyphicon.glyphicon-time aria-hidden="true"
+            - else
+            .glyphicon.glyphicon-leaf aria-hidden="true"
+            = @swap.swap_type.name
             h5 Message:
-            p #{@trade.message}
+            p #{@swap.message}
             = f.hidden_field :accepted, value: params[:accepted] 
             .row
-              .form-group.trade-form-label
+              .form-group.swap-form-label
                 = f.label :message_response, "Response" 
                 br
                 = f.text_area :message_response, class: "swap-message"       
             .actions.crop-form-label
               = f.submit "Act On Swap", class: "btn btn-success" 
-              = link_to 'Never Mind', trades_path 
+              = link_to 'Never Mind', swaps_path 
     - else 
       .jumbotron.browse-jumbotron
         .header.text-center
@@ -50,25 +50,25 @@
       .crop-item
         .row
           .col-md-2
-            == render partial: "pic", locals: { trade: @trade }
+            == render partial: "pic", locals: { swap: @swap }
           .col-md-10
-            == render partial: "details", locals: { trade: @trade }
+            == render partial: "details", locals: { swap: @swap }
         .row
           .col-md-2
           .col-md-10
             .row
               .col-md-4
                 p.swap-type-selector I would like to swap:
-                - @trade.crop.trade_types.each do |tt|
-                  .trade_type
-                    = f.radio_button :trade_type_id, tt.id
+                - @swap.crop.swap_types.each do |tt|
+                  .swap_type
+                    = f.radio_button :swap_type_id, tt.id
                       - if tt.id == 1 
                         span.glyphicon.glyphicon-grain aria-hidden="true" 
                       - elsif tt.id == 2 
                         span.glyphicon.glyphicon-time aria-hidden="true"
                       - else
                         span.glyphicon.glyphicon-leaf aria-hidden="true"
-                      = f.label :trade_type_id, "#{tt.name}"   
+                      = f.label :swap_type_id, "#{tt.name}"   
                     
               .col-md-7.crop-form-label
                 .form-group
@@ -81,4 +81,4 @@
             .row.swap-action
               .actions.crop-form-label
                 = f.submit "Propose Swap", class: "btn btn-success" 
-                p = link_to 'Never Mind', trades_path 
+                p = link_to 'Never Mind', swaps_path 

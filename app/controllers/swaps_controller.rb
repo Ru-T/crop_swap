@@ -1,23 +1,23 @@
-class TradesController < ApplicationController
-  before_action :set_trade, only: [:edit, :update, :destroy]
+class SwapsController < ApplicationController
+  before_action :set_swap, only: [:edit, :update, :destroy]
   before_action :no_edit, only: [:edit]
   before_action :authenticate_user!
 
   def index
-    @trades = Trade.trades(current_user)
+    @swaps = Swap.swaps(current_user)
   end
 
   def new
-    @trade = Trade.new(
+    @swap = Swap.new(
                crop_id: params[:crop_id],
                consumer: current_user
              )
   end
 
   def create
-    @trade = Trade.new(trade_params)
-    if @trade.save
-      @trade.email_trade_proposal
+    @swap = Swap.new(swap_params)
+    if @swap.save
+      @swap.email_swap_proposal
       redirect_to crops_path, notice: 'Your swap has been proposed.'
     else
       render :new
@@ -25,8 +25,8 @@ class TradesController < ApplicationController
   end
 
   def update
-    if @trade.update(trade_params)
-      @trade.email_trade
+    if @swap.update(swap_params)
+      @swap.email_swap
       redirect_to crops_path, notice: 'Your swap was successfully acted upon.'
     else
       render :edit
@@ -34,24 +34,24 @@ class TradesController < ApplicationController
   end
 
   def destroy
-    @trade.destroy
-    redirect_to trades_url, notice: 'Trade was successfully destroyed.'
+    @swap.destroy
+    redirect_to trades_url, notice: 'Swap was successfully destroyed.'
   end
 
   private
     def no_edit
-      if @trade.accepted != nil
-        redirect_to crops_path, notice: "You cannot edit a trade once it has been acted upon."
+      if @swap.accepted != nil
+        redirect_to crops_path, notice: "You cannot edit a swap once it has been acted upon."
       end
     end
 
-    def set_trade
-      @trade = Trade.find(params[:id])
+    def set_swap
+      @swap = Swap.find(params[:id])
     end
 
-    def trade_params
-      params.require(:trade).permit(
-        :trade_type_id,
+    def swap_params
+      params.require(:swap).permit(
+        :swap_type_id,
         :crop_id,
         :consumer_id,
         :accepted,
