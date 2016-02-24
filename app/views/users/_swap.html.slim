@@ -1,13 +1,6 @@
-.row.swaps
-  .col-md-2
-  .col-md-1
-    - if t.swap_type_id == 1
-      span.glyphicon.glyphicon-grain proposed-swap-type" aria-hidden="true"
-    - elsif t.swap_type_id == 2
-      span.glyphicon.glyphicon-time proposed-swap-type" aria-hidden="true"
-    - else
-      span.glyphicon.glyphicon-wrench proposed-swap-type" aria-hidden="true"
-    
-  .col-md-4.swaps
-    h5 = t.consumer.name 
-    p Message: = t.message 
+- if t.swap_type_id == 1
+  span.glyphicon.glyphicon-grain
+- elsif t.swap_type_id == 2
+  span.glyphicon.glyphicon-time
+- else
+  span.glyphicon.glyphicon-wrench
