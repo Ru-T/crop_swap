@@ -16,20 +16,20 @@
       .crop-item
         .row
           .col-md-2
-            == render partial: "pic", locals: { swap: swap }
+            == render partial: "image", locals: { swap: @swap }
           .col-md-10
-            == render partial: "details", locals: { swap: swap }
+            == render partial: "crops/metadata", locals: { crop: @swap.crop }
         .row
           .col-md-2
           .col-md-10
             h4 #{@swap.consumer.name} would like to swap for
-              - if @swap.swap_type_id == 1 
-                .glyphicon.glyphicon-grain aria-hidden="true"
-              - elsif @swap.swap_type_id == 2
-                .glyphicon.glyphicon-time aria-hidden="true"
-              - else
-              .glyphicon.glyphicon-leaf aria-hidden="true"
-              = @swap.swap_type.name
+            - if @swap.swap_type_id == 1 
+              .glyphicon.glyphicon-grain aria-hidden="true"
+            - elsif @swap.swap_type_id == 2
+              .glyphicon.glyphicon-time aria-hidden="true"
+            - else
+            .glyphicon.glyphicon-leaf aria-hidden="true"
+            = @swap.swap_type.name
             h5 Message:
             p #{@swap.message}
             = f.hidden_field :accepted, value: params[:accepted] 
