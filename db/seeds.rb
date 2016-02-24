@@ -1,11 +1,3 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rake db:seed (or created alongside the db with db:setup).
-#
-# Examples:
-#
-#   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
-#   Mayor.create(name: 'Emanuel', city: cities.first)
-
 User.create!(email: "dan@mail.com", name: "Dan the Farmer", password: "password",
   description: "I am a farmer living in the Hillsborough area. I have been in agriculture for the last 25 years. Currently, I grow a variety of seasonal vegatbles and I am excited to swap!",
   zip_code: 27278, phone_number: "555-555-5555")
@@ -41,9 +33,9 @@ CropType.create!(name: "Spinach")
 CropType.create!(name: "Strawberries")
 CropType.create!(name: "Tomato")
 
-tt1 = TradeType.create!(name: "Crops")
-tt2 = TradeType.create!(name: "Time")
-tt3 = TradeType.create!(name: "Labor")
+tt1 = SwapType.create!(name: "Crops")
+tt2 = SwapType.create!(name: "Time")
+tt3 = SwapType.create!(name: "Labor")
 
 c1 = Crop.create!(user_id: 1, crop_type_id: 11, description: "I have three pounds of delicious red potatoes - perfect for a winter stew!",
   weight: 3, ripe_on: Date.today - 2.days, expires_on: Date.today + 8.days)
@@ -83,58 +75,58 @@ c16 = Crop.create!(user_id: 5, crop_type_id: 6, description: "Grab these carrots
 c17 = Crop.create!(user_id: 5, crop_type_id: 15, description: "Tomatoes are perfect for any salad, stew, or stir fry.",
   weight: 4, ripe_on: Date.today + 13.days, expires_on: Date.today + 23.days)
 
-c1.trade_types << tt1
+c1.swap_types << tt1
 c1.save
 
-c2.trade_types << tt1
-c2.trade_types << tt2
+c2.swap_types << tt1
+c2.swap_types << tt2
 c2.save
 
-c3.trade_types << tt1
-c3.trade_types << tt2
-c3.trade_types << tt3
+c3.swap_types << tt1
+c3.swap_types << tt2
+c3.swap_types << tt3
 c3.save
 
-c4.trade_types << tt1
-c4.trade_types << tt2
+c4.swap_types << tt1
+c4.swap_types << tt2
 c4.save
 
-c5.trade_types << tt1
-c5.trade_types << tt2
-c5.trade_types << tt3
+c5.swap_types << tt1
+c5.swap_types << tt2
+c5.swap_types << tt3
 c5.save
 
-c6.trade_types << tt1
-c6.trade_types << tt2
-c6.trade_types << tt3
+c6.swap_types << tt1
+c6.swap_types << tt2
+c6.swap_types << tt3
 c6.save
 
-c7.trade_types << tt1
-c7.trade_types << tt3
+c7.swap_types << tt1
+c7.swap_types << tt3
 c7.save
 
-c8.trade_types << tt1
-c8.trade_types << tt3
+c8.swap_types << tt1
+c8.swap_types << tt3
 c8.save
 
-c9.trade_types << tt1
-c9.trade_types << tt2
-c9.trade_types << tt3
+c9.swap_types << tt1
+c9.swap_types << tt2
+c9.swap_types << tt3
 c9.save
 
-c10.trade_types << tt1
-c10.trade_types << tt2
+c10.swap_types << tt1
+c10.swap_types << tt2
 c10.save
 
-c11.trade_types << tt1
-c11.trade_types << tt3
+c11.swap_types << tt1
+c11.swap_types << tt3
 c11.save
 
-Trade.create!(trade_type_id: 1, crop_id: 1, consumer_id: 2, message: "Hi! I'd love to offer up some shishito peppers I've been growing in my backyard in exchange for your potatoes.")
-Trade.create!(trade_type_id: 1, crop_id: 1, consumer_id: 3, message: "Hey there! I have a lot of excess seasonal greens and would be happy to swap some for your amazing potatoes.")
-Trade.create!(trade_type_id: 2, crop_id: 2, consumer_id: 4, message: "Hey there. I'd be happy to swap my time for your delicious-looking tomatoes. I could help with the Farmer's Market this Saturday if that works for you.")
-Trade.create!(trade_type_id: 1, crop_id: 6, consumer_id: 1, message: "Spinach is my favorite. I have lots of seasonal vegetables I can swap - check out my profile and let me know what you want!")
-Trade.create!(trade_type_id: 2, crop_id: 6, consumer_id: 4, message: "I'd be happy to swap my time for your delicious looking spinach. I am free this weekend if you need some help with markets.")
-Trade.create!(trade_type_id: 3, crop_id: 6, consumer_id: 6, message: "I'm eager to lend a hand in exchange for this yummy-looking spinach. How's this weekend?")
-Trade.create!(trade_type_id: 1, crop_id: 11, consumer_id: 5, message: "Hi - I'm also a farmer and have some dikon radishes I'd be happy to swap for your eggplants")
-Trade.create!(trade_type_id: 3, crop_id: 11, consumer_id: 2, message: "Nice to meet you - need any help on your land this month in exchange for those yummy eggplants?")
+Swap.create!(swap_type_id: 1, crop_id: 1, consumer_id: 2, message: "Hi! I'd love to offer up some shishito peppers I've been growing in my backyard in exchange for your potatoes.")
+Swap.create!(swap_type_id: 1, crop_id: 1, consumer_id: 3, message: "Hey there! I have a lot of excess seasonal greens and would be happy to swap some for your amazing potatoes.")
+Swap.create!(swap_type_id: 2, crop_id: 2, consumer_id: 4, message: "Hey there. I'd be happy to swap my time for your delicious-looking tomatoes. I could help with the Farmer's Market this Saturday if that works for you.")
+Swap.create!(swap_type_id: 1, crop_id: 6, consumer_id: 1, message: "Spinach is my favorite. I have lots of seasonal vegetables I can swap - check out my profile and let me know what you want!")
+Swap.create!(swap_type_id: 2, crop_id: 6, consumer_id: 4, message: "I'd be happy to swap my time for your delicious looking spinach. I am free this weekend if you need some help with markets.")
+Swap.create!(swap_type_id: 3, crop_id: 6, consumer_id: 6, message: "I'm eager to lend a hand in exchange for this yummy-looking spinach. How's this weekend?")
+Swap.create!(swap_type_id: 1, crop_id: 11, consumer_id: 5, message: "Hi - I'm also a farmer and have some dikon radishes I'd be happy to swap for your eggplants")
+Swap.create!(swap_type_id: 3, crop_id: 11, consumer_id: 2, message: "Nice to meet you - need any help on your land this month in exchange for those yummy eggplants?")

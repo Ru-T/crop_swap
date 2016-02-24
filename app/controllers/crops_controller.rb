@@ -21,7 +21,7 @@ class CropsController < ApplicationController
     @crop = Crop.new(crop_params)
 
     if @crop.save
-      @crop.trade_types = params[:trade_types].map {|id| TradeType.find(id)}
+      @crop.swap_types = params[:swap_types].map {|id| SwapType.find(id)}
       redirect_to current_user
     else
       render :new

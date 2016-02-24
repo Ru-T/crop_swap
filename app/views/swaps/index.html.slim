@@ -3,10 +3,10 @@
   .crop-item
     .row.swap-history-title
       h3 Accepted Swaps 
-    - if @trades.user_has_accepted_trades? 
-      - @trades.each do |trade| 
-        - if trade.accepted == true 
-          == render partial: 'trade', locals: { trade: trade }
+    - if @swaps.user_has_accepted_swaps? 
+      - @swaps.each do |swap| 
+        - if swap.accepted == true 
+          == render partial: 'swap', locals: { swap: swap }
     - else 
       .empty-state
         br
@@ -16,10 +16,10 @@
   
     .row.swap-history-title
       h3 Rejected Swaps
-    - if @trades.user_has_accepted_trades? == false
-      - @trades.each do |trade| 
-        - if trade.accepted == false 
-          == render partial: 'trade', locals: { trade: trade }
+    - if @swaps.user_has_accepted_swaps? == false
+      - @swaps.each do |swap| 
+        - if swap.accepted == false 
+          == render partial: 'swap', locals: { swap: swap }
       .empty-state
         br
         h4 You do not yet have any rejected swaps.

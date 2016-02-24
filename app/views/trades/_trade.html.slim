@@ -1,7 +1,0 @@
-.row
-  .col-md-3
-    == render partial: "pic", locals: { trade: trade }
-  .col-md-9
-    h3 #{trade.crop.crop_type.name}
-    h4 Swap Rejected on #{trade.created_at.strftime("%b %d %Y")}
-    == render partial: "metadata", locals: { trade: trade }

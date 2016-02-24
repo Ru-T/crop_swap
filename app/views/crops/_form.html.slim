@@ -56,16 +56,16 @@
       .row.crop-form-label
         h4.post-crop-title What are you willing to swap?
       .row  
-        - TradeType.all.each do |t|
+        - SwapType.all.each do |swap|
           .col-md-2.5
             .form-group.crop-types
-              = check_box_tag 'trade_types[]', t.id, @crop.trade_types.include?(t)
-              - if t.id == 1
-                span.glyphicon.glyphicon-grain aria-hidden="true" #{t.name}
-              - elsif t.id == 2  
-                span.glyphicon.glyphicon-time aria-hidden="true" #{t.name}
+              = check_box_tag 'swap_types[]', swap.id, @crop.swap_types.include?(swap)
+              - if swap.id == 1
+                span.glyphicon.glyphicon-grain aria-hidden="true" #{swap.name}
+              - elsif swap.id == 2  
+                span.glyphicon.glyphicon-time aria-hidden="true" #{swap.name}
               - else
-                span.glyphicon.glyphicon-wrench aria-hidden="true" #{t.name}
+                span.glyphicon.glyphicon-wrench aria-hidden="true" #{swap.name}
       .crop-form-label
         = f.button :submit, "Post A Crop"
     

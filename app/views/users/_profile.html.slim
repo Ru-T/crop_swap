@@ -18,14 +18,14 @@
                 .col-md-8
                 .col-md-4
                   button.btn.btn-success type="button"
-                    = link_to 'Propose Swap', new_trade_path(crop_id: crop.id,
+                    = link_to 'Propose Swap', new_swap_path(crop_id: crop.id,
                       consumer_id: current_user.id) 
                   br
               - else 
                 .col-md-8
                 .col-md-4
                   button.btn.btn-success type="button" 
-                    = link_to 'Edit Swap', trades_path 
+                    = link_to 'Edit Swap', swaps_path 
                   br
                   br
       - else 
