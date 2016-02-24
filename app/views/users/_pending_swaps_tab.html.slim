@@ -1,0 +1,31 @@
+- if @user.has_crop_with_pending_swap? 
+  - @user.crops.each do |crop| 
+    - if crop.swaps.pending.present?
+      .row
+        .col-md-3              
+          == render partial: 'crops/image', locals: { crop: crop } 
+        .col-md-9  
+          h3 = crop.crop_type.name 
+          == render partial: 'crops/metadata', locals: { crop: crop } 
+          - crop.swaps.pending.each do |swap| 
+            .row
+              .col-md-1
+                - if swap.swap_type_id == 1
+                  span.glyphicon.glyphicon-grain 
+                - elsif swap.swap_type_id == 2
+                  span.glyphicon.glyphicon-time 
+                - else
+                  span.glyphicon.glyphicon-wrench      
+              .col-md-6
+                h5 = swap.consumer.name 
+                p Message: #{swap.message} 
+              .col-md-5
+                button.btn.btn-success type="button"
+                  == link_to 'Accept Swap', edit_swap_path(swap, accepted: true)
+                button.btn.btn-warning type="button"
+                  == link_to 'Reject Swap', edit_swap_path(swap, accepted: false)
+- else 
+  == render partial: 'empty_state', 
+    locals: { message: "You do not have any active crops with pending swaps.",
+              link_name: "View Swap History",
+              path: swaps_path}
