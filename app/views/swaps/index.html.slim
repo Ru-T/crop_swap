@@ -8,11 +8,8 @@
         - if swap.accepted == true 
           == render partial: 'swap', locals: { swap: swap }
     - else 
-      .empty-state
-        br
-        h4 You do not yet have any accepted swaps.
-        button.btn.btn-warning type="button" 
-          = link_to 'Browse Crops', crops_path
+      == render partial: 'empty_state', locals: { swap_status: "accepted"}
+
   
     .row.swap-history-title
       h3 Rejected Swaps
@@ -20,8 +17,4 @@
       - @swaps.each do |swap| 
         - if swap.accepted == false 
           == render partial: 'swap', locals: { swap: swap }
-      .empty-state
-        br
-        h4 You do not yet have any rejected swaps.
-        button.btn.btn-warning type="button" 
-          = link_to 'Browse Crops', crops_path
+      == render partial: 'empty_state', locals: { swap_status: "rejected"}
