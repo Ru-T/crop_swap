@@ -1,6 +1,6 @@
 .row
   .col-md-3
-    == render partial: "pic", locals: { swap: swap }
+    == render partial: "crops/image", locals: { crop: swap.crop }
   .col-md-9
     h3 #{swap.crop.crop_type.name}
     h4 Swap Rejected on #{swap.created_at.strftime("%b %d %Y")}
