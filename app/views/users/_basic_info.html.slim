@@ -9,4 +9,4 @@
     br
     em Joined on #{@user.created_at.strftime("%b %d %Y")}
   p = @user.description 
-  p = link_to 'Swap History', trades_path if @user == current_user
+  p = link_to 'Swap History', swaps_path if @user == current_user
