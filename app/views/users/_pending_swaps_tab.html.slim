@@ -5,7 +5,6 @@
         .col-md-3              
           == render partial: 'crops/image', locals: { crop: crop } 
         .col-md-9  
-          h3 = crop.crop_type.name 
           == render partial: 'crops/metadata', locals: { crop: crop } 
           - crop.swaps.pending.each do |swap| 
             .row

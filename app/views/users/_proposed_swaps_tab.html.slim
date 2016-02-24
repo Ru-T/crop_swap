@@ -4,7 +4,6 @@
         .col-md-3
           == render partial: 'crops/image', locals: { crop: t.crop } 
         .col-md-9  
-          h3 = t.crop.crop_type.name 
           == render partial: 'crops/metadata', locals: { crop: t.crop }   
         .col-md-1  
           == render partial: 'swap', locals: { t: t } 

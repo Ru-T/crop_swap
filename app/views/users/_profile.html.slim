@@ -9,7 +9,6 @@
             .col-md-3
               == render partial: 'crops/image', locals: { crop: crop } 
             .col-md-9
-                h3 = crop.crop_type.name
                 == render partial: 'crops/wishlist', locals: { crop: crop }
                 == render partial: 'crops/metadata', locals: { crop: crop } 
                 == render partial: 'swap_types', locals: { crop: crop } 

@@ -14,7 +14,6 @@
               == render partial: 'crops/image', locals: { crop: wishlist.crop }                                      
               .card-block
                 h4.card-title
-                  = wishlist.crop.crop_type.name 
                 .wishlist-browse.wishlisted #{link_to "♥", wishlist, method: :delete, remote: true}
                 == render partial: 'crops/metadata', locals: { crop: wishlist.crop }          
                 button.btn.btn-success type="button" 
