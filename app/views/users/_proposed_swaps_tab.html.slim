@@ -6,10 +6,10 @@
         .col-md-9  
           == render partial: 'crops/metadata', locals: { crop: t.crop }   
         .col-md-1  
-          == render partial: 'swap', locals: { t: t } 
-        .col-md-4.swaps
-          h5 = t.consumer.name 
-          p Message: #{t.message}   
+          == render partial: 'swap', locals: { swap: t } 
+        .col-md-4
+          == render partial: 'swap_message', locals: { swap: t }
+
 - else
   == render partial: 'empty_state', 
     locals: { message: "You do not have any pending swaps on other grower's crops.",

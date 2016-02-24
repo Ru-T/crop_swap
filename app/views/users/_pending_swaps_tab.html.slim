@@ -9,15 +9,9 @@
           - crop.swaps.pending.each do |swap| 
             .row
               .col-md-1
-                - if swap.swap_type_id == 1
-                  span.glyphicon.glyphicon-grain 
-                - elsif swap.swap_type_id == 2
-                  span.glyphicon.glyphicon-time 
-                - else
-                  span.glyphicon.glyphicon-wrench      
+                == render partial: 'swap', locals: { swap: swap }
               .col-md-6
-                h5 = swap.consumer.name 
-                p Message: #{swap.message} 
+                == render partial: 'swap_message', locals: { swap: swap }
               .col-md-5
                 button.btn.btn-success type="button"
                   == link_to 'Accept Swap', edit_swap_path(swap, accepted: true)
