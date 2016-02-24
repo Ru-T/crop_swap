@@ -6,13 +6,7 @@
     - if @trades.user_has_accepted_trades? 
       - @trades.each do |trade| 
         - if trade.accepted == true 
-        .row
-          .col-md-3
-            == render partial: "pic", locals: { trade: trade }
-          .col-md-9
-            h3 #{trade.crop.crop_type.name}
-            h4 Swap Accepted on #{trade.created_at.strftime("%b %d %Y")}
-            == render partial: "metadata", locals: { trade: trade }
+          == render partial: 'trade', locals: { trade: trade }
     - else 
       .empty-state
         br
@@ -25,14 +19,7 @@
     - if @trades.user_has_accepted_trades? == false
       - @trades.each do |trade| 
         - if trade.accepted == false 
-          .row
-            .col-md-3
-              == render partial: "pic", locals: { trade: trade }
-            .col-md-9
-              h3 #{trade.crop.crop_type.name}
-              h4 Swap Rejected on #{trade.created_at.strftime("%b %d %Y")}
-              == render partial: "metadata", locals: { trade: trade }
-    - else 
+          == render partial: 'trade', locals: { trade: trade }
       .empty-state
         br
         h4 You do not yet have any rejected swaps.

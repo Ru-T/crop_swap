@@ -9,16 +9,27 @@
           a href="#my-crops" aria-controls="my-crops" role="tab" data-toggle="tab" Other Crops
         li role="presentation"
           a href="#my-swaps" aria-controls="my-swaps" role="tab" data-toggle="tab" Proposed Swaps
+      
       .tab-content
         .tab-pane.active role="tabpanel" id="my-swap-crops"
           - if @user.has_crop_with_pending_trade? 
             - @user.crops.each do |crop| 
-              - trades = crop.trades.pending 
-              - unless trades.blank? 
+              - unless crop.trades.pending.blank? 
                 .crop-item
                   == render partial: 'crop', locals: { crop: crop } 
-                  - trades.each do |t| 
-                    / == render partial: 'trade', locals: { t: t } 
+                - crop.trades.pending.each do |t| 
+                  .row.trades
+                    .col-md-2
+                    .col-md-1
+                      - if t.trade_type_id == 1
+                        span.glyphicon.glyphicon-grain proposed-swap-type" aria-hidden="true"
+                      - elsif t.trade_type_id == 2
+                        span.glyphicon.glyphicon-time proposed-swap-type" aria-hidden="true"
+                      - else
+                        span.glyphicon.glyphicon-wrench proposed-swap-type" aria-hidden="true"      
+                    .col-md-4.trades
+                      h5 = t.consumer.name 
+                      p Message: = t.message 
                       .col-md-4
                         button.btn.btn-success type="button"
                           == link_to 'Accept Swap', edit_trade_path(t, accepted: true)
@@ -35,8 +46,7 @@
           - if @user.has_crop_without_pending_trade? 
             - @user.crops.each do |crop| 
               - if crop.trades.blank? 
-                .crop-item
-                  == render partial: 'crop', locals: { crop: crop } 
+                .crop-item == render partial: 'crop', locals: { crop: crop } 
           - else
             .empty-state
               br
@@ -45,13 +55,7 @@
                 == link_to 'View Swap History', trades_path
               
         .tab-pane role="tabpanel" id="my-swaps"
-          - if @user.trades.blank? 
-            .empty-state"
-              br
-              h4 You do not have any pending swaps on other grower's crops.
-              button.btn.btn-warning type="button"
-                == link_to 'Browse Crops', crops_path
-          - else 
+          - if @user.trades.present? 
             - @user.trades.each do |t| 
               .crop-item
                 .row
@@ -73,7 +77,6 @@
                     - else 
                       em Ripe in #{distance_of_time_in_words_to_now(t.crop.ripe_on)}
                       br
-                    
                     - if t.crop.about_to_expire?  
                       em.expire Expires in: #{distance_of_time_in_words_to_now(t.crop.expires_on)}
                       br
@@ -83,3 +86,11 @@
                       br
                       br
                   == render partial: 'trade', locals: { t: t } 
+          - else
+            .empty-state"
+              br
+              h4 You do not have any pending swaps on other grower's crops.
+              button.btn.btn-warning type="button"
+                == link_to 'Browse Crops', crops_path
+           
+          
