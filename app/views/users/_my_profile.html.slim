@@ -2,39 +2,31 @@
   .row
     == render partial: "basic_info", locals: { user: @user } 
     .col-md-9
-      ul.nav.nav-tabs role="tablist"
-        li.active role="presentation"
-          a href="#my-swap-crops" aria-controls="my-swap-crops" role="tab" data-toggle="tab" Pending Swaps
-        li role="presentation"
-          a href="#my-crops" aria-controls="my-crops" role="tab" data-toggle="tab" Other Crops
-        li role="presentation"
-          a href="#my-swaps" aria-controls="my-swaps" role="tab" data-toggle="tab" Proposed Swaps
-      
+      == render 'profile_tabs'
       .tab-content
         .tab-pane.active role="tabpanel" id="my-swap-crops"
           - if @user.has_crop_with_pending_swap? 
             - @user.crops.each do |crop| 
-              - unless crop.swaps.pending.blank? 
-                .crop-item
-                  == render partial: 'crop', locals: { crop: crop } 
-                - crop.swaps.pending.each do |t| 
-                  .row.swaps
+              - if crop.swaps.pending.present?
+                == render partial: 'crop', locals: { crop: crop } 
+                - crop.swaps.pending.each do |swap| 
+                  .row
                     .col-md-2
                     .col-md-1
-                      - if t.swap_type_id == 1
-                        span.glyphicon.glyphicon-grain proposed-swap-type" aria-hidden="true"
-                      - elsif t.swap_type_id == 2
-                        span.glyphicon.glyphicon-time proposed-swap-type" aria-hidden="true"
+                      - if swap.swap_type_id == 1
+                        span.glyphicon.glyphicon-grain 
+                      - elsif swap.swap_type_id == 2
+                        span.glyphicon.glyphicon-time 
                       - else
-                        span.glyphicon.glyphicon-wrench proposed-swap-type" aria-hidden="true"      
-                    .col-md-4.swaps
-                      h5 = t.consumer.name 
-                      p Message: = t.message 
+                        span.glyphicon.glyphicon-wrench      
+                    .col-md-4
+                      h5 = swap.consumer.name 
+                      p Message: = swap.message 
                       .col-md-4
                         button.btn.btn-success type="button"
-                          == link_to 'Accept Swap', edit_swap_path(t, accepted: true)
+                          == link_to 'Accept Swap', edit_swap_path(swap, accepted: true)
                         button.btn.btn-warning type="button"
-                          == link_to 'Reject Swap', edit_swap_path(t, accepted: false)
+                          == link_to 'Reject Swap', edit_swap_path(swap, accepted: false)
           - else 
             .empty-state
               br
@@ -60,31 +52,7 @@
               .crop-item
                 .row
                   .col-md-3
-                    - if t.crop.crop_pic.blank? 
-                      .crop_name.panel-body
-                        = image_tag asset_url("crop-default-image.png")
-                    - else 
-                      .crop_name.panel-body
-                        = image_tag t.crop.crop_pic.url   
-                  .col-md-9
-                    h3 = t.crop.crop_type.name
-                    .crop-description
-                      = t.crop.description 
-                    .details Amount: #{t.crop.weight} lbs
-                    - if t.crop.is_ripe? 
-                      em.ripe RIPE NOW! 
-                      br
-                    - else 
-                      em Ripe in #{distance_of_time_in_words_to_now(t.crop.ripe_on)}
-                      br
-                    - if t.crop.about_to_expire?  
-                      em.expire Expires in: #{distance_of_time_in_words_to_now(t.crop.expires_on)}
-                      br
-                      br
-                    - else 
-                      em Expires in #{distance_of_time_in_words_to_now(t.crop.expires_on)}
-                      br
-                      br
+                    == render partial: 'crop', locals: { crop: t.crop } 
                   == render partial: 'swap', locals: { t: t } 
           - else
             .empty-state"

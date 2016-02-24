@@ -4,30 +4,16 @@
     .col-md-9
       - if @user.crops.present? 
         - @user.crops.each do |crop| 
-          .crop-item
-            .row
-              .col-md-3
-                == render partial: 'crops/image', locals: { crop: crop } 
-              .col-md-9
-                  h3 = crop.crop_type.name
-                  == render partial: 'crops/wishlist', locals: { crop: crop }
-                  == render partial: 'crops/metadata', locals: { crop: crop } 
-                  == render partial: 'swap_types', locals: { crop: crop } 
-            .row.trades
-              - unless current_user.has_proposed_trade_for?(crop) 
-                .col-md-8
-                .col-md-4
-                  button.btn.btn-success type="button"
-                    = link_to 'Propose Swap', new_swap_path(crop_id: crop.id,
-                      consumer_id: current_user.id) 
-                  br
-              - else 
-                .col-md-8
-                .col-md-4
-                  button.btn.btn-success type="button" 
-                    = link_to 'Edit Swap', swaps_path 
-                  br
-                  br
+          .row
+            .col-md-3
+              == render partial: 'crops/image', locals: { crop: crop } 
+            .col-md-9
+                h3 = crop.crop_type.name
+                == render partial: 'crops/wishlist', locals: { crop: crop }
+                == render partial: 'crops/metadata', locals: { crop: crop } 
+                == render partial: 'swap_types', locals: { crop: crop } 
+          .row
+            == render partial: 'swap_buttons', locals: { crop: crop }
       - else 
         .empty-state
           br

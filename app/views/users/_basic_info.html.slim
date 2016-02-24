@@ -2,8 +2,7 @@
   - if @user.profile_pic.present? 
     = image_tag @user.profile_pic.url 
   - else
-    = image_tag asset_url ("default-image.png")
-    
+    = image_tag asset_url ("default-image.png")  
   h3 = @user.name 
   p = @user.zip_code 
     br

@@ -1,0 +1,11 @@
+- unless current_user.has_proposed_swap_for?(crop) 
+  .col-md-8
+  .col-md-4
+    button.btn.btn-success 
+      = link_to 'Propose Swap', new_swap_path(crop_id: crop.id,
+        consumer_id: current_user.id) 
+- else 
+  .col-md-8
+  .col-md-4
+    button.btn.btn-success 
+      = link_to 'Edit Swap', swaps_path 
