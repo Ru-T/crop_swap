@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160223165445) do
+ActiveRecord::Schema.define(version: 20160224142627) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -40,28 +40,20 @@ ActiveRecord::Schema.define(version: 20160223165445) do
   add_index "crops", ["crop_type_id"], name: "index_crops_on_crop_type_id", using: :btree
   add_index "crops", ["user_id"], name: "index_crops_on_user_id", using: :btree
 
-  create_table "crops_trade_types", id: false, force: :cascade do |t|
-    t.integer "crop_id",       null: false
-    t.integer "trade_type_id", null: false
+  create_table "crops_swap_types", id: false, force: :cascade do |t|
+    t.integer "crop_id",      null: false
+    t.integer "swap_type_id", null: false
   end
 
-  create_table "sessions", force: :cascade do |t|
-    t.string   "new"
-    t.string   "create"
-    t.string   "destroy"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "trade_types", force: :cascade do |t|
+  create_table "swap_types", force: :cascade do |t|
     t.string   "name"
     t.text     "description"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
   end
 
-  create_table "trades", force: :cascade do |t|
-    t.integer  "trade_type_id"
+  create_table "swaps", force: :cascade do |t|
+    t.integer  "swap_type_id"
     t.integer  "crop_id"
     t.integer  "consumer_id"
     t.boolean  "accepted"
