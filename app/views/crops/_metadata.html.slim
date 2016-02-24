@@ -1,3 +1,4 @@
+h4 = crop.crop_type.name 
 - if crop.is_ripe? 
   h6.ripe RIPE NOW! 
 - else 
@@ -8,4 +9,4 @@
   h6.card-subtitle.text-muted Expires in #{distance_of_time_in_words_to_now(crop.expires_on)}
 h6.card-subtitle.text-muted Posted #{distance_of_time_in_words_to_now(crop.created_at)} ago
 h6 #{crop.user.zip_code} 
-p.card-text #{crop.description}
+.card-text #{crop.description}

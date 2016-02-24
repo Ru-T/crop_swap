@@ -1,0 +1,17 @@
+- if @user.swaps.present? 
+  - @user.swaps.each do |t| 
+      .row
+        .col-md-3
+          == render partial: 'crops/image', locals: { crop: t.crop } 
+        .col-md-9  
+          == render partial: 'crops/metadata', locals: { crop: t.crop }   
+        .col-md-1  
+          == render partial: 'swap', locals: { swap: t } 
+        .col-md-4
+          == render partial: 'swap_message', locals: { swap: t }
+
+- else
+  == render partial: 'empty_state', 
+    locals: { message: "You do not have any pending swaps on other grower's crops.",
+              link_name: "Browse Crops",
+              path: crops_path}

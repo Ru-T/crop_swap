@@ -1,0 +1,13 @@
+- if @user.has_crop_without_pending_swap? 
+  - @user.crops.each do |crop| 
+    - if crop.swaps.present? 
+      .row
+        .col-md-3              
+          == render partial: 'crops/image', locals: { crop: crop } 
+        .col-md-9  
+          == render partial: 'crops/metadata', locals: { crop: crop } 
+- else
+  == render partial: 'empty_state', 
+    locals: { message: "You do not have any active crops without pending swaps.",
+              link_name: "View Swap History",
+              path: swaps_path}
