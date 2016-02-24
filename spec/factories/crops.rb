@@ -5,5 +5,6 @@ FactoryGirl.define do
     crop_type_id 3
     ripe_on Date.today - 1.days
     expires_on Date.today + 3.days
+    created_at Date.today - 5.days
   end
 end

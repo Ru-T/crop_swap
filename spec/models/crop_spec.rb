@@ -79,4 +79,28 @@ RSpec.describe Crop, type: :model do
       expect(crop2.wishlisted?(current_user)).to eq true
     end
   end
+
+  describe "#has_pic?" do
+    it "returns true if crop has an image" do
+      expect(crop.has_pic?).to eq false
+    end
+  end
+
+  describe "time methods for views" do
+    it "returns the time in which crop will be ripe" do
+      expect(crop.ripe_time).to eq "3 days"
+      expect(crop2.ripe_time).to eq "4 days"
+      expect(crop3.ripe_time).to eq "1 day"
+    end
+
+    it "returns the time in which crop will expire" do
+      expect(crop.expiry_time).to eq "19 days"
+      expect(crop2.expiry_time).to eq "29 days"
+      expect(crop3.expiry_time).to eq "1 day"
+    end
+
+    it "returns the time ago in which crop was created" do
+      expect(crop.created_time).to eq "6 days"
+    end
+  end
 end
