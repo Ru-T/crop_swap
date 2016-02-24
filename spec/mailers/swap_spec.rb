@@ -10,7 +10,7 @@ RSpec.describe SwapMailer, type: :mailer do
 
       expect(new_proposed_swap.from).to eq ["cropswap@cropswap.com"]
       expect(new_proposed_swap.to).to eq [user.email]
-      expect(new_proposed_swap.subject).to eq "A New swap Has Been Proposed!"
+      expect(new_proposed_swap.subject).to eq "A New Swap Has Been Proposed!"
     end
   end
 
@@ -21,7 +21,7 @@ RSpec.describe SwapMailer, type: :mailer do
 
       expect(accepted_swap.from).to eq ["cropswap@cropswap.com"]
       expect(accepted_swap.to).to eq [user.email]
-      expect(accepted_swap.subject).to eq "Your swap Has Been Accepted!"
+      expect(accepted_swap.subject).to eq "Your Swap Has Been Accepted!"
     end
   end
 
@@ -32,7 +32,7 @@ RSpec.describe SwapMailer, type: :mailer do
 
       expect(rejected_swap.from).to eq ["cropswap@cropswap.com"]
       expect(rejected_swap.to).to eq [user.email]
-      expect(rejected_swap.subject).to eq "News About Your swap"
+      expect(rejected_swap.subject).to eq "News About Your Swap"
     end
   end
 
@@ -43,7 +43,7 @@ RSpec.describe SwapMailer, type: :mailer do
 
       expect(modified_swap.from).to eq ["cropswap@cropswap.com"]
       expect(modified_swap.to).to eq [user.email]
-      expect(modified_swap.subject).to eq "A Pending swap Has Been Modified"
+      expect(modified_swap.subject).to eq "A Pending Swap Has Been Modified"
     end
   end
 end

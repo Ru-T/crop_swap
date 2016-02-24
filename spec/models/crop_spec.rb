@@ -8,8 +8,8 @@ RSpec.describe Crop, type: :model do
   let(:crop2) { create(:crop, user: user2, ripe_on: Date.today + 5.days, expires_on: Date.today + 30.days) }
   let(:crop3) { create(:crop, user: user2, expires_on: Date.today + 2.days) }
   let(:expired_crop) { create(:crop, user: user, expires_on: Date.today - 2.days) }
-  let(:trade) { create(:trade, crop: crop, accepted: nil) }
-  let(:trade2) { create(:trade, crop: crop, accepted: true) }
+  let(:swap) { create(:swap, crop: crop, accepted: nil) }
+  let(:swap2) { create(:swap, crop: crop, accepted: true) }
   let(:wishlist) { create(:wishlist, crop: crop2, user: current_user) }
 
   describe "validations" do
@@ -38,15 +38,15 @@ RSpec.describe Crop, type: :model do
     end
   end
 
-  describe "trades pending" do
-    it "returns trades that are not yet accepted or rejected" do
-      expect(crop.trades.pending).to eq [trade]
+  describe "swaps pending" do
+    it "returns swaps that are not yet accepted or rejected" do
+      expect(crop.swaps.pending).to eq [swap]
     end
   end
 
-  describe "trades accepted" do
-    it "returns trades that are accepted" do
-      expect(crop.trades.accepted).to eq [trade2]
+  describe "swaps accepted" do
+    it "returns swaps that are accepted" do
+      expect(crop.swaps.accepted).to eq [swap2]
     end
   end
 

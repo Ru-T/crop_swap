@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe swap, type: :model do
+RSpec.describe Swap, type: :model do
   let(:user) { create(:user) }
   let(:user2) { create(:user, email: "consumer1@mail.com") }
   let(:user3) { create(:user, email: "consumer2@mail.com") }
@@ -40,20 +40,20 @@ RSpec.describe swap, type: :model do
   describe "#email_swap" do
     it "sends an email when a swap is updated" do
       swap.email_swap
-      expect(ActionMailer::Base.deliveries.last.subject). to eq "Your swap Has Been Accepted!"
+      expect(ActionMailer::Base.deliveries.last.subject). to eq "Your Swap Has Been Accepted!"
 
       swap3.email_swap
-      expect(ActionMailer::Base.deliveries.last.subject). to eq "News About Your swap"
+      expect(ActionMailer::Base.deliveries.last.subject). to eq "News About Your Swap"
 
       swap2.email_swap
-      expect(ActionMailer::Base.deliveries.last.subject). to eq "A Pending swap Has Been Modified"
+      expect(ActionMailer::Base.deliveries.last.subject). to eq "A Pending Swap Has Been Modified"
     end
   end
 
   describe "#email_swap_proposal" do
     it "sends an email when a swap is updated" do
       swap2.email_swap_proposal
-      expect(ActionMailer::Base.deliveries.last.subject). to eq "A New swap Has Been Proposed!"
+      expect(ActionMailer::Base.deliveries.last.subject). to eq "A New Swap Has Been Proposed!"
     end
   end
 end
