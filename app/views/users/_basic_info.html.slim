@@ -1,11 +1,10 @@
-.col-md-3
-  - if @user.profile_pic.present? 
-    = image_tag @user.profile_pic.url 
-  - else
-    = image_tag asset_url ("default-image.png")  
-  h3 = @user.name 
-  p = @user.zip_code 
-    br
-    em Joined on #{@user.created_at.strftime("%b %d %Y")}
-  p = @user.description 
-  p = link_to 'Swap History', swaps_path if @user == current_user
+- if @user.profile_pic.present? 
+  = image_tag @user.profile_pic.url 
+- else
+  = image_tag asset_url ("default-image.png")  
+h3 = @user.name 
+p = @user.zip_code 
+  br
+  em Joined on #{@user.created_at.strftime("%b %d %Y")}
+p = @user.description 
+p = link_to 'Swap History', swaps_path if @user == current_user
