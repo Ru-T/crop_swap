@@ -2,11 +2,11 @@ h4 = crop.crop_type.name
 - if crop.is_ripe? 
   h6.ripe RIPE NOW! 
 - else 
-  h6.card-subtitle.text-muted Ripe in #{distance_of_time_in_words_to_now(crop.ripe_on)}
+  h6.card-subtitle.text-muted Ripe in #{crop.ripe_time}
 - if crop.about_to_expire?
-  h6.card-subtitle.expire Expires in #{distance_of_time_in_words_to_now(crop.expires_on)}
+  h6.card-subtitle.expire Expires in #{crop.expiry_time}
 - else 
-  h6.card-subtitle.text-muted Expires in #{distance_of_time_in_words_to_now(crop.expires_on)}
-h6.card-subtitle.text-muted Posted #{distance_of_time_in_words_to_now(crop.created_at)} ago
-h6 #{crop.user.zip_code} 
-.card-text #{crop.description}
+  h6.card-subtitle.text-muted Expires in #{crop.expiry_time}
+h6.card-subtitle.text-muted Posted #{crop.created_time} ago
+h6 = crop.user.zip_code 
+.card-text = crop.description

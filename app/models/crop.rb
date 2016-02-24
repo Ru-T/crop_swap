@@ -18,6 +18,9 @@ class Crop < ActiveRecord::Base
   has_attached_file :crop_pic
   validates_attachment_content_type :crop_pic, content_type: /\Aimage\/.*\Z/
 
+## Move below to a decorator
+  include ActionView::Helpers::DateHelper
+
   def is_ripe?
     return true if Date.today >= self.ripe_on && Date.today < self.expires_on
   end
@@ -37,5 +40,23 @@ class Crop < ActiveRecord::Base
       self.wishlists.each { |wishlist| return true if wishlist.user == user }
     end
     false
+  end
+
+  ## Below really belong in a decorator
+
+  def has_pic?
+    crop_pic.present?
+  end
+
+  def ripe_time
+    distance_of_time_in_words_to_now(self.ripe_on)
+  end
+
+  def expiry_time
+    distance_of_time_in_words_to_now(self.expires_on)
+  end
+
+  def created_time
+    distance_of_time_in_words_to_now(self.created_at)
   end
 end

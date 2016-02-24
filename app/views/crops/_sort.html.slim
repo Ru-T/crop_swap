@@ -1,0 +1,7 @@
+.btn-group
+  label.btn.btn-warning.btn-toggle 
+    = link_to 'Newest', crops_path(:sort => "created_at")
+  label.btn.btn-warning.btn-toggle 
+    = link_to 'Ripe Now', crops_path(:sort => "ripe_on") 
+  label.btn.btn-warning.btn-toggle 
+    = link_to 'Expires Soon', crops_path(:sort => "expires_on") 
