@@ -16,9 +16,9 @@
       .crop-item
         .row
           .col-md-2
-            == render partial: "image", locals: { swap: @swap }
+            == render partial: "crops/image", locals: { crop: @swap.crop.decorate }
           .col-md-10
-            == render partial: "crops/metadata", locals: { crop: @swap.crop }
+            == render partial: "crops/metadata", locals: { crop: @swap.crop.decorate }
         .row
           .col-md-2
           .col-md-10
@@ -50,9 +50,9 @@
       .crop-item
         .row
           .col-md-2
-            == render partial: "pic", locals: { swap: @swap }
+            == render partial: "crops/image", locals: { crop: @swap.crop.decorate }
           .col-md-10
-            == render partial: "details", locals: { swap: @swap }
+            == render partial: "metadata", locals: { swap: @swap }
         .row
           .col-md-2
           .col-md-10
