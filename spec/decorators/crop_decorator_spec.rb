@@ -7,7 +7,7 @@ describe CropDecorator do
   let(:user) { create(:user) }
   let(:user2) { create(:user, email: "newuser@mail.com") }
   let(:current_user) { create(:user, email: "ruti@mail.com") }
-  let(:wishlist) { create(:wishlist, crop: crop2, user: current_user) }
+  let(:wishlist) { create(:wishlist, crop_id: crop2.id, user: current_user) }
 
   describe "#is_ripe" do
     it "returns true if a crop is ripe and not yet expired" do
