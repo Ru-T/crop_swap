@@ -8,13 +8,17 @@
         - if swap.accepted == true 
           == render partial: 'swap', locals: { swap: swap }
     - else 
-      == render partial: 'empty_state', locals: { swap_status: "accepted"}
-
-  
+      == render partial: 'users/empty_state', 
+        locals: { message: "You do not yet have any accepted swaps.",
+                  link_name: "Browse Crops",
+                  path: crops_path}
     .row.swap-history-title
       h3 Rejected Swaps
     - if @swaps.user_has_accepted_swaps? == false
       - @swaps.each do |swap| 
         - if swap.accepted == false 
-          == render partial: 'swap', locals: { swap: swap }
-      == render partial: 'empty_state', locals: { swap_status: "rejected"}
+          == render partial: 'swap', locals: { swap: swap }  
+        == render partial: 'users/empty_state', 
+          locals: { message: "You do not yet have any rejected swaps.",
+                    link_name: "Browse Crops",
+                    path: crops_path}

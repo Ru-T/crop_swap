@@ -2,9 +2,9 @@
   - @user.swaps.each do |t| 
       .row
         .col-md-3
-          == render partial: 'crops/image', locals: { crop: t.crop } 
+          == render partial: 'crops/image', locals: { crop: t.crop.decorate } 
         .col-md-9  
-          == render partial: 'crops/metadata', locals: { crop: t.crop }   
+          == render partial: 'crops/metadata', locals: { crop: t.crop.decorate }   
         .col-md-1  
           == render partial: 'swap', locals: { swap: t } 
         .col-md-4
