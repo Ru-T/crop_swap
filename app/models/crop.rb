@@ -18,9 +18,6 @@ class Crop < ActiveRecord::Base
   has_attached_file :crop_pic
   validates_attachment_content_type :crop_pic, content_type: /\Aimage\/.*\Z/
 
-## Move below to a decorator
-  include ActionView::Helpers::DateHelper
-
   def is_ripe?
     return true if Date.today >= self.ripe_on && Date.today < self.expires_on
   end
@@ -42,7 +39,8 @@ class Crop < ActiveRecord::Base
     false
   end
 
-  ## Below really belong in a decorator
+  ## Move below to a decorator
+  include ActionView::Helpers::DateHelper
 
   def has_pic?
     crop_pic.present?
