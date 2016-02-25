@@ -1,4 +1,5 @@
 require 'rails_helper'
+require 'draper/test/rspec_integration'
 
 RSpec.describe Crop, type: :model do
   let(:user) { create(:user) }
@@ -50,20 +51,6 @@ RSpec.describe Crop, type: :model do
     end
   end
 
-  describe "#is_ripe" do
-    it "returns true if a crop is ripe and not yet expired" do
-      expect(crop.is_ripe?).to eq true
-      expect(crop2.is_ripe?).to eq nil
-    end
-  end
-
-  describe "#about_to_expire" do
-    it "returns true if a crop is 3 days or less from expiring" do
-      expect(crop2.about_to_expire?).to eq nil
-      expect(crop3.about_to_expire?).to eq true
-    end
-  end
-
   describe ".available_crops" do
     it "returns all crops that are currently available" do
       available_crop = FactoryGirl.create(:crop, user: user, expires_on: Date.today + 2.days)
@@ -77,30 +64,6 @@ RSpec.describe Crop, type: :model do
       wishlist.reload
       expect(crop.wishlisted?(current_user)).to eq false
       expect(crop2.wishlisted?(current_user)).to eq true
-    end
-  end
-
-  describe "#has_pic?" do
-    it "returns true if crop has an image" do
-      expect(crop.has_pic?).to eq false
-    end
-  end
-
-  describe "time methods for views" do
-    it "returns the time in which crop will be ripe" do
-      expect(crop.ripe_time).to eq "3 days"
-      expect(crop2.ripe_time).to eq "4 days"
-      expect(crop3.ripe_time).to eq "1 day"
-    end
-
-    it "returns the time in which crop will expire" do
-      expect(crop.expiry_time).to eq "19 days"
-      expect(crop2.expiry_time).to eq "29 days"
-      expect(crop3.expiry_time).to eq "1 day"
-    end
-
-    it "returns the time ago in which crop was created" do
-      expect(crop.created_time).to eq "6 days"
     end
   end
 end
