@@ -12,7 +12,7 @@ class User < ActiveRecord::Base
   validates_attachment_content_type :profile_pic, content_type: /\Aimage\/.*\Z/
 
   def has_proposed_swap_for?(crop)
-    swaps.where(crop: crop).first
+    swaps.where(crop_id: crop.id).first
   end
 
   def has_crop_with_pending_swap?

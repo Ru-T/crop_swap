@@ -6,6 +6,8 @@ describe CropDecorator do
   let(:crop3) { create(:crop, user: user2, expires_on: Date.today + 2.days).decorate }
   let(:user) { create(:user) }
   let(:user2) { create(:user, email: "newuser@mail.com") }
+  let(:current_user) { create(:user, email: "ruti@mail.com") }
+  let(:wishlist) { create(:wishlist, crop: crop2, user: current_user) }
 
   describe "#is_ripe" do
     it "returns true if a crop is ripe and not yet expired" do
@@ -42,6 +44,14 @@ describe CropDecorator do
 
     it "returns the time ago in which crop was created" do
       expect(crop.created_time).to eq "6 days"
+    end
+  end
+
+  describe "#wishlisted?" do
+    it "returns true if user has wishlisted the crop" do
+      wishlist.reload
+      expect(crop.wishlisted?(current_user)).to eq false
+      expect(crop2.wishlisted?(current_user)).to eq true
     end
   end
 end

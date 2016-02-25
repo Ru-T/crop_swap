@@ -23,11 +23,4 @@ class Crop < ActiveRecord::Base
     available_crops.reject { |crop | crop.swaps.accepted == true }
     available_crops
   end
-
-  def wishlisted?(user)
-    if self.wishlists.present?
-      self.wishlists.each { |wishlist| return true if wishlist.user == user }
-    end
-    false
-  end
 end

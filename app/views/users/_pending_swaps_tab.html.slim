@@ -3,9 +3,9 @@
     - if crop.swaps.pending.present?
       .row
         .col-md-3              
-          == render partial: 'crops/image', locals: { crop: crop } 
+          == render partial: 'crops/image', locals: { crop: crop.decorate } 
         .col-md-9  
-          == render partial: 'crops/metadata', locals: { crop: crop } 
+          == render partial: 'crops/metadata', locals: { crop: crop.decorate } 
           - crop.swaps.pending.each do |swap| 
             .row
               .col-md-1

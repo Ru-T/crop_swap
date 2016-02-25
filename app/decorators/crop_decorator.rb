@@ -6,22 +6,29 @@ class CropDecorator < Draper::Decorator
            :total_count,
            :offset_value,
            :last_page?,
-           :wishlisted?,
            :crop_type,
            :ripe_on,
            :expires_on,
            :user,
            :description,
-           :id
+           :id,
+           :swap_types
 
   include Draper::LazyHelpers
 
+  def wishlisted?(user)
+    if model.wishlists.present?
+      model.wishlists.each { |wishlist| return true if wishlist.user == user }
+    end
+    false
+  end
+
   def is_ripe?
-    return true if Date.today >= self.ripe_on && Date.today < self.expires_on
+    return true if Date.today >= model.ripe_on && Date.today < model.expires_on
   end
 
   def about_to_expire?
-    return true if Date.today < self.expires_on && Date.today > self.expires_on - 3.days
+    return true if Date.today < model.expires_on && Date.today > model.expires_on - 3.days
   end
 
   def has_pic?

@@ -7,7 +7,6 @@ RSpec.describe Crop, type: :model do
   let(:current_user) { create(:user, email: "ruti@mail.com") }
   let!(:crop) { create(:crop, user: user, ripe_on: Date.today - 2.days, expires_on: Date.today + 20.days) }
   let(:crop2) { create(:crop, user: user2, ripe_on: Date.today + 5.days, expires_on: Date.today + 30.days) }
-  let(:crop3) { create(:crop, user: user2, expires_on: Date.today + 2.days) }
   let(:expired_crop) { create(:crop, user: user, expires_on: Date.today - 2.days) }
   let(:swap) { create(:swap, crop: crop, accepted: nil) }
   let(:swap2) { create(:swap, crop: crop, accepted: true) }
@@ -56,14 +55,6 @@ RSpec.describe Crop, type: :model do
       available_crop = FactoryGirl.create(:crop, user: user, expires_on: Date.today + 2.days)
       expect(Crop.available_crops(current_user)).to include available_crop
       expect(Crop.available_crops(current_user)).to_not include expired_crop
-    end
-  end
-
-  describe "#wishlisted?" do
-    it "returns true if user has wishlisted the crop" do
-      wishlist.reload
-      expect(crop.wishlisted?(current_user)).to eq false
-      expect(crop2.wishlisted?(current_user)).to eq true
     end
   end
 end

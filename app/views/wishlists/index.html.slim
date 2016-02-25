@@ -11,11 +11,11 @@
         - @wishlists.each do |wishlist|  
           .col-sm-3
             .card.animated
-              == render partial: 'crops/image', locals: { crop: wishlist.crop }                                      
+              == render partial: 'crops/image', locals: { crop: wishlist.crop.decorate }                                      
               .card-block
                 h4.card-title
                 .wishlist-browse.wishlisted #{link_to "♥", wishlist, method: :delete, remote: true}
-                == render partial: 'crops/metadata', locals: { crop: wishlist.crop }          
+                == render partial: 'crops/metadata', locals: { crop: wishlist.crop.decorate }          
                 button.btn.btn-success type="button" 
                   = link_to 'View Crop', wishlist.crop.user 
       - else 

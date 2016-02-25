@@ -7,13 +7,13 @@
         - @user.crops.each do |crop| 
           .row
             .col-md-3
-              == render partial: 'crops/image', locals: { crop: crop } 
+              == render partial: 'crops/image', locals: { crop: crop.decorate } 
             .col-md-9
-                == render partial: 'crops/wishlist', locals: { crop: crop }
-                == render partial: 'crops/metadata', locals: { crop: crop } 
-                == render partial: 'swap_types', locals: { crop: crop } 
+                == render partial: 'crops/wishlist', locals: { crop: crop.decorate }
+                == render partial: 'crops/metadata', locals: { crop: crop.decorate } 
+                == render partial: 'swap_types', locals: { crop: crop.decorate } 
           .row
-            == render partial: 'swap_buttons', locals: { crop: crop }
+            == render partial: 'swap_buttons', locals: { crop: crop.decorate }
       - else 
         == render partial: 'empty_state', 
           locals: { message: "This user does not current have any crops to swap.",
