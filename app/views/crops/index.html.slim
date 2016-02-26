@@ -1,10 +1,14 @@
 .container.browse-crops
-  = render 'header'
+  == render partial: 'header',
+    locals: { header: "Browse for Local Crops",
+              subheader: "Ditch the supermarket and browse excess crops in your area.",
+              link_name: "Browse Crops",
+              path: crops_path }
   - if current_user
     = render 'sort'
   .row
     - if @crops.present?
       - @crops.each do |crop|
         == render partial: 'crop', locals: { crop: crop }
-    - if current_user
-      / == paginate @crops
+    / - if current_user
+    /   / == paginate @crops

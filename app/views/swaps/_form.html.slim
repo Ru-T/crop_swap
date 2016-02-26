@@ -8,10 +8,11 @@
             li = message
       
     - if params[:accepted] 
-      .jumbotron.browse-jumbotron
-        .header.text-center
-          h2 Act On This Swap
-          p Let the grower of your crop know what you're willing to swap.
+      == render partial: 'crops/header',
+        locals: { header: "Act On This Swap",
+                  subheader: "Let the grower of your crop know what you're willing to swap.",
+                  link_name: "Browse Crops",
+                  path: crops_path }
       
       .crop-item
         .row
@@ -42,11 +43,11 @@
               = f.submit "Act On Swap", class: "btn btn-success" 
               = link_to 'Never Mind', swaps_path 
     - else 
-      .jumbotron.browse-jumbotron
-        .header.text-center
-          h2 Act On This Swap
-          p Let the grower of your crop know what you're willing to swap.
-
+      == render partial: 'crops/header',
+        locals: { header: "Act On This Swap",
+                  subheader: "Let the grower of your crop know what you're willing to swap.",
+                  link_name: "Browse Crops",
+                  path: crops_path }
       .crop-item
         .row
           .col-md-2
