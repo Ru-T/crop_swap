@@ -3,9 +3,6 @@ class Swap < ActiveRecord::Base
   belongs_to :crop
   belongs_to :consumer, class_name: "User"
 
-  has_attached_file :crop_pic
-  validates_attachment_content_type :crop_pic, content_type: /\Aimage\/.*\Z/
-
   before_save :reject_other_swaps
 
   def reject_other_swaps

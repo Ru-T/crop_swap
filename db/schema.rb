@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160224142627) do
+ActiveRecord::Schema.define(version: 20160226150644) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -26,15 +26,12 @@ ActiveRecord::Schema.define(version: 20160224142627) do
     t.integer  "user_id"
     t.text     "description"
     t.integer  "weight"
-    t.datetime "created_at",            null: false
-    t.datetime "updated_at",            null: false
-    t.string   "crop_pic_file_name"
-    t.string   "crop_pic_content_type"
-    t.integer  "crop_pic_file_size"
-    t.datetime "crop_pic_updated_at"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
     t.integer  "crop_type_id"
     t.date     "ripe_on"
     t.date     "expires_on"
+    t.string   "avatar"
   end
 
   add_index "crops", ["crop_type_id"], name: "index_crops_on_crop_type_id", using: :btree
@@ -72,22 +69,19 @@ ActiveRecord::Schema.define(version: 20160224142627) do
     t.string   "phone_number"
     t.text     "description"
     t.integer  "zip_code"
-    t.datetime "created_at",                            null: false
-    t.datetime "updated_at",                            null: false
-    t.string   "profile_pic_file_name"
-    t.string   "profile_pic_content_type"
-    t.integer  "profile_pic_file_size"
-    t.datetime "profile_pic_updated_at"
-    t.string   "email",                    default: "", null: false
-    t.string   "encrypted_password",       default: "", null: false
+    t.datetime "created_at",                          null: false
+    t.datetime "updated_at",                          null: false
+    t.string   "email",                  default: "", null: false
+    t.string   "encrypted_password",     default: "", null: false
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.integer  "sign_in_count",            default: 0,  null: false
+    t.integer  "sign_in_count",          default: 0,  null: false
     t.datetime "current_sign_in_at"
     t.datetime "last_sign_in_at"
     t.inet     "current_sign_in_ip"
     t.inet     "last_sign_in_ip"
+    t.string   "avatar"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree

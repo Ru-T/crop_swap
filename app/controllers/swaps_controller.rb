@@ -56,8 +56,7 @@ class SwapsController < ApplicationController
         :consumer_id,
         :accepted,
         :message,
-        :message_response,
-        :crop_pic
+        :message_response
       )
     end
 end

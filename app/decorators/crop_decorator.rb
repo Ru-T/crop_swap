@@ -12,7 +12,8 @@ class CropDecorator < Draper::Decorator
            :user,
            :description,
            :id,
-           :swap_types
+           :swap_types,
+           :avatar
 
   include Draper::LazyHelpers
 
@@ -32,7 +33,7 @@ class CropDecorator < Draper::Decorator
   end
 
   def has_pic?
-    model.crop_pic.present?
+    model.avatar.present?
   end
 
   def ripe_time

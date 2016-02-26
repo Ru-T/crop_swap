@@ -1,4 +1,4 @@
 - if crop.has_pic?
-  = image_tag crop.crop_pic.url 
+  = image_tag crop.avatar.url(:thumb) 
 - else
   = image_tag asset_url ("crop-default-image.png") 

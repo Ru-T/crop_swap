@@ -15,8 +15,7 @@ class Crop < ActiveRecord::Base
 
   validates_presence_of :user_id, :description, :weight, :crop_type_id, :ripe_on, :expires_on
 
-  has_attached_file :crop_pic
-  validates_attachment_content_type :crop_pic, content_type: /\Aimage\/.*\Z/
+  mount_uploader :avatar, AvatarUploader
 
   def self.available_crops(user)
     available_crops = Crop.where('expires_on >= ? AND user_id != ?', Date.today, user.id)

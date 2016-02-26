@@ -51,7 +51,7 @@ class CropsController < ApplicationController
         :user_id,
         :description,
         :weight,
-        :crop_pic,
+        :avatar,
         :crop_type_id,
         :ripe_on,
         :expires_on
