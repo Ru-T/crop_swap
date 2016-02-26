@@ -1,5 +1,9 @@
-.container.browse-crops  
-  = render 'header'
+.container.browse-crops 
+  == render partial: 'header',
+    locals: { header: "Browse for Local Crops",
+              subheader: "Ditch the supermarket and browse excess crops in your area.",
+              link_name: "Browse Crops",
+              path: crops_path } 
 
   = simple_form_for @crop do |f|
     - if @crop.errors.any?

@@ -1,5 +1,9 @@
 .container.browse-crops  
-  = render 'header'
+  == render partial: 'crops/header',
+    locals: { header: "Swap History",
+              subheader: "Check our your past accepted or rejected swaps.",
+              link_name: "Browse Crops",
+              path: crops_path }
   .crop-item
     .row.swap-history-title
       h3 Accepted Swaps 
