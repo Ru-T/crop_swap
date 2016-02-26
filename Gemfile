@@ -27,8 +27,8 @@ gem 'kaminari'
 gem 'ransack'
 gem 'simple_form'
 
-gem 'paperclip', '~> 4.2'
-gem 'aws-sdk', '~> 1.6'
+gem 'carrierwave'
+gem 'rmagick'
 
 gem 'bootstrap-sass', '~> 3.3.5'
 gem 'slim-rails'

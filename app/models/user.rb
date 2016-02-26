@@ -8,8 +8,7 @@ class User < ActiveRecord::Base
   has_many :crops
   has_many :wishlists
 
-  has_attached_file :profile_pic
-  validates_attachment_content_type :profile_pic, content_type: /\Aimage\/.*\Z/
+  mount_uploader :avatar, AvatarUploader
 
   def has_proposed_swap_for?(crop)
     swaps.where(crop_id: crop.id).first
