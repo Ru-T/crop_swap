@@ -12,7 +12,8 @@ class CropDecorator < Draper::Decorator
            :user,
            :description,
            :id,
-           :swap_types
+           :swap_types,
+           :avatar
 
   include Draper::LazyHelpers
 
